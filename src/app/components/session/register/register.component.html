@@ -1,1 +1,77 @@
-<p>register works!</p>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap');
+  </style>
+  <div class="login-container">
+    <div class="componentText">
+      <img src="assets\session\users-icon.png" alt="" style="width: 50px;">
+      <h1 style="display: flex; margin-top: 0rem;">Registrar paciente</h1>
+    </div>
+    <form>
+      <div style="display: flex; flex-direction: column;">
+        <label for="username">Nombre completo:</label>
+        <input type="text" id="username" name="username" required />
+      </div>
+
+      <div style="display: flex; flex-direction: row; margin-top: 1rem; margin-bottom: 0.5rem;">
+        <div style="margin-right: 1rem;">
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required />
+        </div>
+        <div style="margin-left: 1rem;">
+            <label for="password">Confirmar Contraseña:</label>
+            <input type="password" id="password" name="password" required />
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: row; margin-top: 1rem; margin-bottom: 0.5rem;">
+        <div style="margin-right: 1rem;">
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="password" name="password" required />
+        </div>
+        <div style="margin-left: 1rem;">
+            <label for="id">DPI/Pasaporte:</label>
+            <input type="id" id="password" name="password" required />
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: row; margin-top: 1rem; margin-bottom: 0.5rem;">
+        <div style="margin-right: 1rem;">
+            <label for="date">Fecha de Nacimiento:</label>
+            <input type="date" id="password" name="password" required />
+        </div>
+        <div style="margin-left: 1rem;">
+            <label for="number">Celular:</label>
+            <input type="number" id="password" name="password" required />
+        </div>
+      </div>
+      <!--------------------------------------------------INFORMACIÓN MEDICA-------------------------------------------------------->
+        <h1 style="display: flex; margin-top: 1rem; font-size: 20px;">Llene su información medica:</h1>
+        <div style="display: flex; flex-direction: row; justify-content: space-between;">
+            <div class="sex">
+                    <label class="sexRadio">
+                        Masculino:
+                        <input type="radio" name="gender" value="male" class="generoCheck"/>
+                    </label>
+                    <label class="sexRadio">
+                        Femenino:
+                        <input type="radio" name="gender" value="female" class="generoCheck" />
+                    </label>
+            </div>
+            <div>
+                <label class="sexRadio">
+                    ¿Eres alergico a alguna medicina?
+                    <input type="checkbox" name="alergico" value="alergie" class="checkboxAlergia" />
+                </label>
+            </div>
+        </div>
+
+      <div>
+
+      </div>
+      <div style="text-align: right;">
+          <button type="submit" >Siguiente</button>
+      </div>
+
+    </form>
+  </div>
+  
