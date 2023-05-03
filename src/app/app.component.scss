@@ -1,0 +1,18 @@
+.app-wrapper {
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
+  height: 100vh !important;
+}
+
+.img-session{
+  width: 100%;
+}
+.container-session{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+}
+container-session > ng-container{
+  margin: 0 !important;
+}
+
