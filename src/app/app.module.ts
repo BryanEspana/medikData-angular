@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/session/login/login.component';
 import { RegisterComponent } from './components/session/register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { RegisterComponent } from './components/session/register/register.compon
     BrowserModule,
     AppRoutingModule,
         HttpClientModule,
+        ReactiveFormsModule
 
   ],
   providers: [],
