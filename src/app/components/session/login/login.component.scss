@@ -54,3 +54,10 @@ label{
   font-size: 15px;
   font-weight: 600;
 }
+
+@media (max-width: 1700px) {
+  .login-container{
+    width: 100%;
+    min-width: 300px; /* Establece un ancho mínimo para el formulario */
+  }
+}

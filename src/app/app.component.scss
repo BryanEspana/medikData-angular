@@ -1,3 +1,4 @@
+
 .app-wrapper {
   overflow-x: hidden !important;
   overflow-y: hidden !important;
@@ -22,3 +23,25 @@ h1{
   font-weight: 600;
 }
 
+//haz un media query para que despues de los 1700px se elimine la imagen y se muestre solo el formulario
+@media (max-width: 1700px) {
+  .container-session{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Asegúrate de que el contenedor tenga un ancho del 100% */
+  }
+  .img-session{
+    display: none;
+  }
+  .login-container{
+    width: 100%;
+    min-width: 300px; /* Establece un ancho mínimo para el formulario */
+  }
+  .register-container{
+    width: 100%;
+    min-width: 300px; /* Establece un ancho mínimo para el formulario */
+  }
+
+}
