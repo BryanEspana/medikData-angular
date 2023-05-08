@@ -1,10 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse</title>
+</head>
+
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap');
   </style>
-  <div class="login-container">
+  <div class="register">
+
+  <div class="register-container">
     <div class="componentText">
-      <img src="assets\session\users-icon.png" alt="" style="width: 50px;">
-      <h1 style="display: flex; margin-top: 0rem;">Registrar paciente</h1>
+      <img src="assets\session\users-icon.png" alt="" style="width: 50px; margin-top: 2rem;">
+      <h1 style="display: flex; margin-top: 0rem; text-align: center;">Registrar paciente</h1>
+      <p style="font-size: 14px;">¿Si tienes una cuenta? <a style="cursor: pointer; color: #004AAD; font-weight: 600;" href="login">Iniciar sesión</a></p>
     </div>
     <form>
       <div style="display: flex; flex-direction: column;">
@@ -57,21 +69,30 @@
                         <input type="radio" name="gender" value="female" class="generoCheck" />
                     </label>
             </div>
-            <div>
-                <label class="sexRadio">
-                    ¿Eres alergico a alguna medicina?
-                    <input type="checkbox" name="alergico" value="alergie" class="checkboxAlergia" />
-                </label>
-            </div>
-        </div>
 
+        </div>
+        <div>
+          <div>
+            <label class="sexRadio" style="margin-bottom: 0.5rem;">
+                ¿Eres alergico a alguna medicina? (Si no dejalo en blanco)
+            </label>
+            <textarea name="" id="alergicoTextarea" cols="30" rows="10"></textarea>
+        </div>
+        <div style="margin-bottom: 1rem;">
+          <label class="sexRadio" style="margin-top: 1rem; margin-bottom: 0.5rem;">
+            ¿Tienes Complicaciones medicas? (Si no dejalo en blanco)
+        </label>
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+
+        </div>
+      </div>
       <div>
 
       </div>
       <div style="text-align: right;">
-          <button type="submit" >Siguiente</button>
+          <button type="submit" >Registrar</button>
       </div>
 
     </form>
   </div>
-  
+

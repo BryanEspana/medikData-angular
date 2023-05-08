@@ -3,6 +3,8 @@
   overflow-x: hidden !important;
   overflow-y: hidden !important;
   height: 100vh !important;
+  width: 100vw;
+  position: relative;
 }
 
 .img-session{
@@ -24,9 +26,12 @@ h1{
 }
 
 //haz un media query para que despues de los 1700px se elimine la imagen y se muestre solo el formulario
-@media (max-width: 1700px) {
+@media (max-width: 900px) {
+  .background-image{
+    display: none;
+  }
   .container-session{
-    display: flex;
+    display: flex;  
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -44,4 +49,16 @@ h1{
     min-width: 300px; /* Establece un ancho mínimo para el formulario */
   }
 
+}
+
+.background-image {
+  background-image: url('/assets/session/logo-img.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
 }

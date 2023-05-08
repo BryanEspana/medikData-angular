@@ -4,7 +4,7 @@
   justify-content: center;
   margin: auto;
   padding: auto;
-  width: 60%;
+  width: 60% !important;
   height: 100vh;
   font-family: 'Quicksand';
 }
@@ -55,9 +55,3 @@ label{
   font-weight: 600;
 }
 
-@media (max-width: 1700px) {
-  .login-container{
-    width: 100%;
-    min-width: 300px; /* Establece un ancho mínimo para el formulario */
-  }
-}

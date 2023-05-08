@@ -1,9 +1,7 @@
-.login-container{
-    display: flex;
+.register-container{
+    display: block;
     flex-direction: column;
-    justify-content: center;
     margin: auto;
-    padding: auto;
     width: 60%;
     height: 100vh;
     font-family: 'Quicksand';
@@ -59,6 +57,7 @@
     width: 20%; 
     height: 40px;
     margin-bottom: 1rem;
+    cursor: pointer;
   }
 
   .sexRadio{
@@ -71,8 +70,15 @@
     position: relative;
     bottom: 0.5rem;
 }
-.checkboxAlergia{
+.checkbox{
     width: 25px;
     position: relative;
     bottom: 0.6rem;
+}
+
+.register{
+  overflow: auto;
+}
+h1{
+  margin-bottom: 0rem;
 }
