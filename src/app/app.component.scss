@@ -62,3 +62,101 @@ h1{
   width: 50%;
   height: 100%;
 }
+.mat-sidenav, .mat-toolbar {
+  background-image: linear-gradient(to right, #1A5F9C, #06316B);
+  color: white;
+}
+
+.mat-icon {
+  color: white;
+  padding: 8px;
+  cursor: pointer;
+}
+
+mat-list-item {
+  overflow: hidden !important;
+  cursor: pointer !important;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+
+.titles{
+  color: white;
+  padding-left: 1rem;
+}
+.toolbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.chevron{
+  background-color: #ffffff00 !important;
+  background-image: none !important;
+}
+
+span{
+  position: relative;
+  top: -0.8rem;
+  cursor: pointer;
+}
+.collapsed .titles {
+  display: none;
+}
+.footer-info {
+  display: none;
+}
+.expanded {
+  width: 300px; /* Ajusta este valor según la anchura deseada */
+  background-image: linear-gradient(to right, #1A5F9C, #06316B);
+  transition: background-image 300ms ease-in-out !important;
+}
+.acount{
+  display: none;
+}
+
+.footer-side{
+  position: absolute;
+  width: 230px;
+  bottom: 4rem;
+
+  background-color: white;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: #06316B;
+  font-size: 14px;
+}
+.name-user{
+  position: relative;
+  bottom: 1rem;
+}
+
+
+.collapsed {
+  background-image: transparent;
+  transition: background-image 300ms ease-in-out;
+}
+.icon-collapsed {
+  color: white;
+  transition: color 300ms ease-in-out;
+}
+.icon-expanded {
+  color: inherit;
+  transition: color 300ms ease-in-out;
+}
+mat-list-item:hover{
+  background-color: white;
+  border-radius: 0.5rem;
+  margin-left: 0.5rem;
+
+
+  mat-icon{
+    color:#06316B;
+  }
+  span{
+    color: black;
+  }
+}

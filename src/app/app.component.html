@@ -20,18 +20,56 @@
 
 
 <ng-container *ngIf="isLoggedIn">
-  <div class="sidebar">
-    Sidebar
-     <!-- Código HTML para la barra lateral aquí -->
-  </div>
-  <div class="main-content">
-    <div class="navbar">
-      navbar
-       <!-- Código HTML para la barra superior aquí -->
-    </div>
-    <div class="content">
-      Contenido:
+  <!-- app.component.html -->
+<!-- app.component.html -->
+<div class="container">
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav [mode]="'side'" [opened]="true" [fixedInViewport]="true"
+    [ngClass]="sidenavExpanded ? 'expanded' : 'collapsed'" >
+      <mat-toolbar>
+        <div class="toolbar-content">
+          <mat-icon [ngClass]="sidenavExpanded ? 'icon-expanded' : 'icon-collapsed'" style="size: 500px; padding-left: 0.5rem;" class="titles" >account_circle</mat-icon>
+          <button (click)="toggleSidenav()" class="chevron">
+            <mat-icon class="chevron"  [ngClass]="sidenavExpanded ? 'icon-expanded' : 'icon-collapsed'">{{ sidenavExpanded ? 'chevron_left' : 'chevron_right' }}</mat-icon>
+          </button>
+        </div>
+      </mat-toolbar>
+      <mat-list>
+        <mat-list-item style="margin-bottom: 1rem;">
+          <mat-icon>home</mat-icon>
+          <span class="titles">Inicio</span>
+        </mat-list-item>
+        <mat-list-item style="margin-bottom: 1rem;">
+          <mat-icon>event</mat-icon>
+          <span class="titles">Citas</span>
+        </mat-list-item>
+        <mat-list-item style="margin-bottom: 1rem;">
+          <mat-icon>list</mat-icon>
+          <span class="titles">Listado de citas</span>
+        </mat-list-item>
+        <mat-list-item style="margin-bottom: 1rem;">
+          <mat-icon>rate_review</mat-icon>
+          <span class="titles">Reseñas</span>
+        </mat-list-item>
+        <mat-list-item style="margin-bottom: 1rem;">
+          <mat-icon>settings</mat-icon>
+          <span class="titles">Configuración</span>
+        </mat-list-item>
+      </mat-list>
+      <mat-list class="titles">
+        <div class="footer-side">
+          <div style="justify-content: space-between;">
+            <mat-icon style=" color: #06316B; size: 25px; " >account_circle</mat-icon>
+            <label class="name-user"> @UsuarioAdmin</label>
+          </div>
+          <button class="button-plan"> Cambiar plan</button>
+        </div>
+      </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
       <router-outlet></router-outlet>
-    </div>
-  </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
 </ng-container>

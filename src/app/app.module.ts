@@ -8,8 +8,12 @@ import { RegisterComponent } from './components/session/register/register.compon
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProtectedComponent } from './protected/protected.component';
 import { DashboardComponent } from './components/Dashboard/dashboard/dashboard.component';
-
-
+//import angular material
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,8 +26,12 @@ import { DashboardComponent } from './components/Dashboard/dashboard/dashboard.c
     BrowserModule,
     AppRoutingModule,
         HttpClientModule,
-        ReactiveFormsModule
-        
+        ReactiveFormsModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatListModule,
+        MatToolbarModule,
+        BrowserAnimationsModule
 
   ],
   providers: [],
