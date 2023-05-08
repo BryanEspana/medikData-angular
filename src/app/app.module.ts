@@ -7,13 +7,15 @@ import { LoginComponent } from './components/session/login/login.component';
 import { RegisterComponent } from './components/session/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProtectedComponent } from './protected/protected.component';
+import { SkeletorComponent } from './components/skeletor/skeletor/skeletor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    ProtectedComponent
+    ProtectedComponent,
+    SkeletorComponent
   ],
   imports: [
     BrowserModule,
