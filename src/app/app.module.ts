@@ -7,7 +7,8 @@ import { LoginComponent } from './components/session/login/login.component';
 import { RegisterComponent } from './components/session/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProtectedComponent } from './protected/protected.component';
-import { SkeletorComponent } from './components/skeletor/skeletor/skeletor.component';
+import { DashboardComponent } from './components/Dashboard/dashboard/dashboard.component';
+
 
 @NgModule({
   declarations: [
@@ -15,16 +16,19 @@ import { SkeletorComponent } from './components/skeletor/skeletor/skeletor.compo
     LoginComponent,
     RegisterComponent,
     ProtectedComponent,
-    SkeletorComponent
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
         HttpClientModule,
         ReactiveFormsModule
+        
 
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+ }

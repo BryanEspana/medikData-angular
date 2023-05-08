@@ -1,17 +1,37 @@
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap');
-</style>
+<!-- app.component.html -->
+<ng-container *ngIf="!isLoggedIn">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap');
+  </style>
 
-<div class="app-wrapper">
-  <div class="container-session" >
-    <ng-container>
-      <div>
-        <router-outlet></router-outlet>
-      </div>
-
-      <div>
-        <div class="background-image"></div>      
-      </div>
-    </ng-container>
+  <div class="app-wrapper">
+    <div class="container-session">
+      <ng-container>
+        <div>
+          <router-outlet></router-outlet>
+        </div>
+        <div>
+          <div class="background-image"></div>
+        </div>
+      </ng-container>
+    </div>
   </div>
-</div>
+</ng-container>
+
+
+<ng-container *ngIf="isLoggedIn">
+  <div class="sidebar">
+    Sidebar
+     <!-- Código HTML para la barra lateral aquí -->
+  </div>
+  <div class="main-content">
+    <div class="navbar">
+      navbar
+       <!-- Código HTML para la barra superior aquí -->
+    </div>
+    <div class="content">
+      Contenido:
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</ng-container>
