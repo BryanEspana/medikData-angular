@@ -30,8 +30,12 @@ h1{
   .background-image{
     display: none;
   }
+  .app-wrapper {
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+  }
   .container-session{
-    display: flex;  
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;

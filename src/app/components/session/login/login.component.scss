@@ -26,9 +26,9 @@ label{
 
 .olvidarbtn{
   font-weight: 700;
-  display: flex; 
-  justify-content: 
-  flex-end; font-size: 15px; 
+  display: flex;
+  justify-content:
+  flex-end; font-size: 15px;
   margin-bottom: 0.5rem;
   color: #004AAD;
   cursor: pointer;
@@ -55,3 +55,9 @@ label{
   font-weight: 600;
 }
 
+
+@media (max-width: 900px) {
+  .login-container{
+    width: 100% !important;
+  }
+}
