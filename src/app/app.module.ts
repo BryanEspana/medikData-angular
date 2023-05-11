@@ -14,6 +14,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CitasComponent } from './components/paginaInicio/citas/citas.component';
+import { ClinicasComponent } from './components/paginaInicio/clinicas/clinicas.component';
+import { MedicamentosComponent } from './components/paginaInicio/medicamentos/medicamentos.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +24,9 @@ import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RegisterComponent,
     ProtectedComponent,
     DashboardComponent,
+    CitasComponent,
+    ClinicasComponent,
+    MedicamentosComponent,
   ],
   imports: [
     BrowserModule,
