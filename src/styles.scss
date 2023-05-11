@@ -40,6 +40,11 @@ body, html {
   margin: 0;
   padding: 0;
 }
+.principal-color{
+  background-color: linear-gradient(90deg, #1A5F9C, #06316B);
+  background-image: linear-gradient(90deg, #1A5F9C, #06316B);;
+}
+
 button{
   height: 35px;
   border: none;
@@ -77,3 +82,5 @@ textarea{
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+

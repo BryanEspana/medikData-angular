@@ -25,17 +25,18 @@
 <div class="container">
   <mat-sidenav-container>
     <mat-sidenav #sidenav [mode]="'side'" [opened]="true" [fixedInViewport]="true"
-    [ngClass]="sidenavExpanded ? 'expanded' : 'collapsed'" >
+      [ngClass]="sidenavExpanded ? 'expanded' : 'collapsed'">
       <mat-toolbar>
         <div class="toolbar-content">
-          <mat-icon [ngClass]="sidenavExpanded ? 'icon-expanded' : 'icon-collapsed'" style="size: 500px; padding-left: 0.5rem;" class="titles" >account_circle</mat-icon>
+          <mat-icon [ngClass]="sidenavExpanded ? 'icon-expanded' : 'icon-collapsed'" style="size: 500px; padding-left: 0.5rem;" class="titles">account_circle</mat-icon>
           <button (click)="toggleSidenav()" class="chevron">
-            <mat-icon class="chevron"  [ngClass]="sidenavExpanded ? 'icon-expanded' : 'icon-collapsed'">{{ sidenavExpanded ? 'chevron_left' : 'chevron_right' }}</mat-icon>
+            <mat-icon class="chevron" [ngClass]="sidenavExpanded ? 'icon-expanded' : 'icon-collapsed'">{{ sidenavExpanded ? 'chevron_left' : 'chevron_right' }}</mat-icon>
           </button>
         </div>
       </mat-toolbar>
+      <!--Fondo degradado-->
       <mat-list>
-        <mat-list-item style="margin-bottom: 1rem;">
+        <mat-list-item style="margin-bottom: 1rem;" routerLink="/dashboard">
           <mat-icon>home</mat-icon>
           <span class="titles">Inicio</span>
         </mat-list-item>
@@ -59,17 +60,21 @@
       <mat-list class="titles">
         <div class="footer-side">
           <div style="justify-content: space-between;">
-            <mat-icon style=" color: #06316B; size: 25px; " >account_circle</mat-icon>
+            <mat-icon style=" color: #06316B; size: 25px; ">account_circle</mat-icon>
             <label class="name-user"> @UsuarioAdmin</label>
           </div>
           <button class="button-plan"> Cambiar plan</button>
         </div>
       </mat-list>
+
     </mat-sidenav>
     <mat-sidenav-content>
-      <router-outlet></router-outlet>
+      <div  [ngClass]="sidenavExpanded ? 'dark-background' : ''"></div>
+
+      <router-outlet ></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
+  
 </div>
 
 </ng-container>
