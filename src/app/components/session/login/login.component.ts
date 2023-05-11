@@ -25,31 +25,34 @@ export class LoginComponent {
   }
 
   //Función para realizar la Solicitud HTTP POST
-
   login(username:string, password: string){
     return this.http.post<any>('/login', {username, password});
   }
 
-  onSubmit(): void{
-    if(this.loginForm.invalid){
-      console.log('----------------------------------------------------\nALERTA:',this.loginForm.value);
+  onSubmit(): void {
+    if (this.loginForm.invalid) {
+      console.log('----------------------------------------------------\nALERTA:', this.loginForm.value);
       return;
     }
+  
     const {username, password} = this.loginForm.value;
-
+  
+    this.getUser(username).subscribe(
+      user => console.log('Usuario:', user),
+      error => console.error('Error al obtener el usuario:', error)
+    );
+  
     this.login(username, password).subscribe(
-      (response) => {
-        console.log('----------------------------------------------------\RESPONSE:',response);
+      response => {
+        console.log('----------------------------------------------------\RESPONSE:', response);
         localStorage.setItem('jwt', response.jwt);
       },
-      (error) => {
-        console.error('Error en el inicio de sesión:', error);
-      }
+      error => console.error('Error en el inicio de sesión:', error)
     );
   }
+  
 
   onLogin() {
-
     this.router.navigate(['/dashboard']);
   }
 }

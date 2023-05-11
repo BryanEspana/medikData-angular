@@ -8,11 +8,17 @@ import { Observable } from 'rxjs';
 export class ApiService {
   constructor(private http: HttpClient) { }
 
-  /* 
-  getPacientes(): Observable<Paciente[]> {
-    const url = 'http://localhost:4200/api/pacientes'; 
-    return this.http.get<Paciente[]>(url);
+
+  getUser(email: string) {
+    return this.http.get('http://localhost:3000/login');
   }
-  */
+  
+  login(username: string, password: string) {
+    return this.http.post('http://localhost:3000/sessions', {
+      email: username,
+      password: password
+    });
+  }
+  
 
 }
