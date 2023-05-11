@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-
+import { ApiService } from 'src/app/services/api.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,6 +15,7 @@ export class LoginComponent {
     private formBuilder: FormBuilder, 
     private http: HttpClient,
     private router: Router,
+    private apiService: ApiService
     ) {}
 
   ngOnInit(): void {
@@ -31,20 +32,20 @@ export class LoginComponent {
 
   onSubmit(): void {
     if (this.loginForm.invalid) {
-      console.log('----------------------------------------------------\nALERTA:', this.loginForm.value);
+      console.log('ALERTA:', this.loginForm.value);
       return;
     }
-  
+
     const {username, password} = this.loginForm.value;
-  
-    this.getUser(username).subscribe(
+
+    this.apiService.getUser(username).subscribe(
       user => console.log('Usuario:', user),
       error => console.error('Error al obtener el usuario:', error)
     );
-  
-    this.login(username, password).subscribe(
+
+    this.apiService.login(username, password).subscribe(
       response => {
-        console.log('----------------------------------------------------\RESPONSE:', response);
+        console.log('RESPONSE:', response);
         localStorage.setItem('jwt', response.jwt);
       },
       error => console.error('Error en el inicio de sesión:', error)

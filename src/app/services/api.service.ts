@@ -6,19 +6,20 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ApiService {
+  private baseUrl = 'http://localhost:3000'; // Asegúrate de reemplazar esto con la URL de tu backend
+
   constructor(private http: HttpClient) { }
 
 
-  getUser(email: string) {
-    return this.http.get('http://localhost:3000/login');
+  getUser(email: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/users/${email}`);
   }
   
-  login(username: string, password: string) {
-    return this.http.post('http://localhost:3000/sessions', {
+  login(username: string, password: string): Observable<any> {
+    return this.http.post(`${this.baseUrl}/sessions`, {
       email: username,
       password: password
     });
   }
-  
 
 }
