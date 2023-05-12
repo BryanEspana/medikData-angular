@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,14 +21,14 @@ export class LoginComponent {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
 
   //Función para realizar la Solicitud HTTP POST
-  login(username:string, password: string){
-    return this.http.post<any>('/login', {username, password});
+  login(email:string, password: string){
+    return this.http.post<any>('/login', {email, password});
   }
 
   onSubmit(): void {
@@ -36,17 +37,18 @@ export class LoginComponent {
       return;
     }
 
-    const {username, password} = this.loginForm.value;
+    const {email, password} = this.loginForm.value;
 
-    this.apiService.getUser(username).subscribe(
-      user => console.log('Usuario:', user),
+    this.apiService.getUser(email).subscribe(
+      user => console.log('Email:', user),
       error => console.error('Error al obtener el usuario:', error)
     );
 
-    this.apiService.login(username, password).subscribe(
+    this.apiService.login(email, password).subscribe(
       response => {
         console.log('RESPONSE:', response);
         localStorage.setItem('jwt', response.jwt);
+        this.router.navigate(['/dashboard']);
       },
       error => console.error('Error en el inicio de sesión:', error)
     );
