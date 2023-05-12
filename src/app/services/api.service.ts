@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,10 +11,12 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
 
-  getUser(email: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/api/auth/users/${email}`);
+  getUser(token: string): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    console.log('HEADERS:', headers);
+    return this.http.get(`${this.baseUrl}/api/auth/user`, { headers });
   }
-  
+
   login(email: string, password: string): Observable<any> {
     return this.http.post(`${this.baseUrl}/api/auth/login`, {
       email: email,
@@ -24,6 +26,6 @@ export class ApiService {
 
   signUp(userData: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/api/auth/signup`, userData);
-  }  
+  }
 
 }

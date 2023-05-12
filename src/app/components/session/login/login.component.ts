@@ -39,16 +39,19 @@ export class LoginComponent {
 
     const {email, password} = this.loginForm.value;
 
-    this.apiService.getUser(email).subscribe(
-      user => console.log('Email:', user),
-      error => console.error('Error al obtener el usuario:', error)
-    );
-
     this.apiService.login(email, password).subscribe(
       response => {
         console.log('RESPONSE:', response);
-        localStorage.setItem('jwt', response.jwt);
-        this.router.navigate(['/dashboard']);
+        const token = response.data.session.access_token;
+        console.log('TOKEN:', token)
+        localStorage.setItem('jwt', token);
+        this.apiService.getUser(token).subscribe(
+          user => {
+            console.log('USER:', user);
+            this.router.navigate(['/dashboard']);
+          },
+          error => console.error('Error al obtener el usuario:', error)
+        )
       },
       error => console.error('Error en el inicio de sesión:', error)
     );
