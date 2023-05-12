@@ -13,7 +13,7 @@ export class LoginComponent {
   loginForm!: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder, 
+    private formBuilder: FormBuilder,
     private http: HttpClient,
     private router: Router,
     private apiService: ApiService
@@ -56,7 +56,7 @@ export class LoginComponent {
       error => console.error('Error en el inicio de sesión:', error)
     );
   }
-  
+
 
   onLogin() {
     this.router.navigate(['/dashboard']);
