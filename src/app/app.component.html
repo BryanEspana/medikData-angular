@@ -55,9 +55,9 @@
           <mat-icon>settings</mat-icon>
           <span class="titles">Configuración</span>
         </mat-list-item>
-        <mat-list-item style="margin-bottom: 1rem;" (click)="closeSidebar()" >
+        <mat-list-item style="margin-bottom: 1rem;" (click)="RemoveTokenLogOut()" >
           <mat-icon>exit_to_app</mat-icon>
-          <span class="titles">Cerrar sesión</span>
+          <span class="titles" (click)="RemoveTokenLogOut()">Cerrar sesión</span>
         </mat-list-item>
       </mat-list>
       <mat-list class="titles">

@@ -8,13 +8,13 @@ import { DashboardComponent } from './components/Dashboard/dashboard/dashboard.c
 
 const routes: Routes = [
 //RUTAS
-  {path: '', redirectTo:'/login', pathMatch: 'full'},
-  //Session
+  { path: '', component: LoginComponent, canActivate: [AuthGuard] },
+//Session
   {path:'login', component: LoginComponent},
   {path:'register', component: RegisterComponent},
   { path: 'protected', component: ProtectedComponent, canActivate: [AuthGuard] },
   //Dashboard
-  {path:'dashboard', component: DashboardComponent},
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   //Error
   {path:'**', redirectTo:'/login', pathMatch: 'full'}
 

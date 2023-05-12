@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 // app.component.ts
 import { animate, state, style, transition, trigger } from '@angular/animations';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -36,6 +35,17 @@ export class AppComponent {
   closeSidebar() {
     this.sidenavExpanded = false;
   }
+  //Logout, remover token
+  RemoveTokenLogOut() {
+    //remueve el token
+    localStorage.removeItem('jwt');
+    //cierra el sidenav
+    this.sidenavExpanded = false;
+    //devuelve al login
+    this.router.navigate(['/login']);
+
+  }
+
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
@@ -53,5 +63,6 @@ export class AppComponent {
   toggleSidenav() {
     this.sidenavExpanded = !this.sidenavExpanded;
   }
+
 
 }

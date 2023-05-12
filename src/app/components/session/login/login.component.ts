@@ -32,6 +32,7 @@ export class LoginComponent {
   }
 
   onSubmit(): void {
+
     if (this.loginForm.invalid) {
       console.log('ALERTA:', this.loginForm.value);
       return;
@@ -55,6 +56,7 @@ export class LoginComponent {
       },
       error => console.error('Error en el inicio de sesión:', error)
     );
+
   }
 
 
