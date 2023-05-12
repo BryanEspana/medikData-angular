@@ -28,4 +28,9 @@ export class ApiService {
     return this.http.post(`${this.baseUrl}/api/auth/signup`, userData);
   }
 
+  logOut(token: string): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get(`${this.baseUrl}/api/auth/logout`, { headers });
+  }
+
 }
