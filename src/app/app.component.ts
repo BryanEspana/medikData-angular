@@ -48,15 +48,13 @@ export class AppComponent {
 
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
         this.updateLoginState();
-      }
     });
   }
   //Cambiar de esqueleto
   updateLoginState() {
     const currentRoute = this.router.url;
-    this.isLoggedIn = currentRoute === '/inicio' || currentRoute === '/dashboard';
+    this.isLoggedIn = currentRoute === '/inicio' || currentRoute === '/dashboard' || currentRoute === '/medicamentos';
   }
 
   //Logica de Sidenav

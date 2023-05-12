@@ -5,6 +5,7 @@ import { RegisterComponent } from './components/session/register/register.compon
 import { ProtectedComponent } from './protected/protected.component';
 import { AuthGuard } from './auth.guard';
 import { DashboardComponent } from './components/Dashboard/dashboard/dashboard.component';
+import { MedicamentosComponent } from './components/paginaInicio/medicamentos/medicamentos.component';
 
 const routes: Routes = [
 //RUTAS
@@ -12,11 +13,17 @@ const routes: Routes = [
 //Session
   {path:'login', component: LoginComponent},
   {path:'register', component: RegisterComponent},
-  { path: 'protected', component: ProtectedComponent, canActivate: [AuthGuard] },
+  {path: 'protected', component: ProtectedComponent, canActivate: [AuthGuard] },
   //Dashboard
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  //Medicamentos
+  {path:'medicamentos', component: MedicamentosComponent, canActivate: [AuthGuard]},
+
+
+
+
   //Error
-  {path:'**', redirectTo:'/login', pathMatch: 'full'}
+  {path:'**', redirectTo:'/login', pathMatch: 'full'},
 
 
 ];
