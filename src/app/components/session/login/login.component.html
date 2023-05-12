@@ -13,9 +13,7 @@
       <input type="password" id="password" formControlName="password" required />
     </div>
     <label class="olvidarbtn">Olvide mi contraseña</label>
-    <a href="inicio">
-      <button type="submit" [disabled]="!loginForm.valid" style="width: 100%; margin-bottom: 1rem; cursor: pointer;" >Ingresar</button>
-    </a>
+    <button type="submit" [disabled]="!loginForm.valid" style="width: 100%; margin-bottom: 1rem; cursor: pointer;" (click)="onSubmit()">Ingresar</button>
     <button (click)="onLogin()">Modo demo</button>
     <div class="spanRegister">
       <span>¿No te has registrado? <a class="registerBtn" href="register">Registrate</a></span>

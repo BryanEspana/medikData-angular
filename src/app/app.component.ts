@@ -33,7 +33,9 @@ export class AppComponent {
 
   isLoggedIn: boolean = false;
   sidenavExpanded: boolean = false;
-
+  closeSidebar() {
+    this.sidenavExpanded = false;
+  }
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {

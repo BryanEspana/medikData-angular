@@ -35,27 +35,27 @@
         </div>
       </mat-toolbar>
       <mat-list>
-        <mat-list-item style="margin-bottom: 1rem;" routerLink="/dashboard">
+        <mat-list-item style="margin-bottom: 1rem;" (click)="closeSidebar()" routerLink="/dashboard">
           <mat-icon>home</mat-icon>
           <span class="titles">Inicio</span>
         </mat-list-item>
-        <mat-list-item style="margin-bottom: 1rem;">
+        <mat-list-item style="margin-bottom: 1rem;" (click)="closeSidebar()" >
           <mat-icon>event</mat-icon>
           <span class="titles">Citas pendientes</span>
         </mat-list-item>
-        <mat-list-item style="margin-bottom: 1rem;">
+        <mat-list-item style="margin-bottom: 1rem;" (click)="closeSidebar()" >
           <mat-icon>list</mat-icon>
           <span class="titles">Listado de citas</span>
         </mat-list-item>
-        <mat-list-item style="margin-bottom: 1rem;">
+        <mat-list-item style="margin-bottom: 1rem;" (click)="closeSidebar()" >
           <mat-icon>rate_review</mat-icon>
           <span class="titles">Reseñas</span>
         </mat-list-item>
-        <mat-list-item style="margin-bottom: 1rem;">
+        <mat-list-item style="margin-bottom: 1rem;" (click)="closeSidebar()" >
           <mat-icon>settings</mat-icon>
           <span class="titles">Configuración</span>
         </mat-list-item>
-        <mat-list-item style="margin-bottom: 1rem;">
+        <mat-list-item style="margin-bottom: 1rem;" (click)="closeSidebar()" >
           <mat-icon>exit_to_app</mat-icon>
           <span class="titles">Cerrar sesión</span>
         </mat-list-item>
@@ -73,7 +73,7 @@
     </mat-sidenav>
     <mat-sidenav-content>
       <!--Fondo degradado-->
-      <div  [ngClass]="sidenavExpanded ? 'dark-background' : ''"></div>
+      <div [ngClass]="sidenavExpanded ? 'dark-background' : ''" class="overlay" (click)="closeSidebar()"></div>
       <router-outlet ></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
