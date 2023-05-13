@@ -4,7 +4,8 @@
     <h1 style="display: flex; margin-top: 0rem; text-align: center;">Iniciar sesión</h1>
   </div>
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div style="display: flex; flex-direction: column;">
+    <!-- 
+<div style="display: flex; flex-direction: column;">
       <label for="email">Correo:</label>
       <input type="text" id="email" formControlName="email" required />
     </div>
@@ -12,6 +13,22 @@
       <label for="password">Contraseña:</label>
       <input type="password" id="password" formControlName="password" required />
     </div>
+
+    -->
+      <mat-label>Correo:</mat-label>
+      <mat-form-field  appearance="outline" style="display: flex; flex-direction: column; padding-top: 0.5rem;">
+        <input matInput type="text" id="email" formControlName="email" required />
+        <span matSuffix style="margin-right: 1rem;">
+          <mat-icon class="icon-custom">email</mat-icon>
+        </span>
+      </mat-form-field>
+      <mat-label>Contraseña:</mat-label>
+      <mat-form-field appearance="outline" style="display: flex; flex-direction: column; padding-top: 0.5rem;">
+        <input matInput type="{{ showPassword ? 'text' : 'password' }}" id="password" formControlName="password" required />
+        <span mat-icon-button matSuffix (click)="togglePasswordVisibility()"  style="margin-right: 1rem;">
+          <mat-icon class="icon-custom">{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </span>
+      </mat-form-field>
     <label class="olvidarbtn">Olvide mi contraseña</label>
     <button type="submit" [disabled]="!loginForm.valid" style="width: 100%; margin-bottom: 1rem; cursor: pointer;" (click)="onSubmit()">Ingresar</button>
     <!--<button (click)="onLogin()">Modo demo</button>-->

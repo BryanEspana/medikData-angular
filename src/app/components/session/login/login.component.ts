@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-login',
@@ -12,12 +13,14 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent {
   loginForm!: FormGroup;
+  showPassword = false;
+  formGroup!: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
     private router: Router,
-    private apiService: ApiService
+    private apiService: ApiService,
     ) {}
 
   ngOnInit(): void {
@@ -25,7 +28,13 @@ export class LoginComponent {
       email: ['', Validators.required],
       password: ['', Validators.required]
     });
+
   }
+  //Funcion mostrar contraseña
+   togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
+  }
+
 
   //Función para realizar la Solicitud HTTP POST
   login(email:string, password: string){
@@ -33,14 +42,11 @@ export class LoginComponent {
   }
 
   onSubmit(): void {
-
     if (this.loginForm.invalid) {
       console.log('ALERTA:', this.loginForm.value);
       return;
     }
-
     const {email, password} = this.loginForm.value;
-
     this.apiService.login(email, password).subscribe(
       response => {
         console.log('RESPONSE:', response);
@@ -57,7 +63,6 @@ export class LoginComponent {
               this.router.navigate(['/dashboard']);
             });
           },
-
           error => console.error('Error al obtener el usuario:', error)
         )
       },
@@ -68,9 +73,7 @@ export class LoginComponent {
         confirmButtonText: 'Aceptar'
       })
     );
-
   }
-
 
   onLogin() {
     this.router.navigate(['/dashboard']);
