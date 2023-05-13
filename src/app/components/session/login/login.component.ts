@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -48,13 +49,24 @@ export class LoginComponent {
         localStorage.setItem('jwt', token);
         this.apiService.getUser(token).subscribe(
           user => {
-            console.log('USER:', user);
-            this.router.navigate(['/dashboard']);
+            Swal.fire({
+              title: 'Bienvenido a MedicData',
+              text: 'Inicio de sesión correcto.',
+              icon: 'success'
+            }).then(() => {
+              this.router.navigate(['/dashboard']);
+            });
           },
+
           error => console.error('Error al obtener el usuario:', error)
         )
       },
-      error => console.error('Error en el inicio de sesión:', error)
+      error => Swal.fire({
+        title: 'Error!',
+        text: 'Usuario o contraseña incorrectos',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      })
     );
 
   }
