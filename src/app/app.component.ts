@@ -54,7 +54,9 @@ export class AppComponent {
   //Cambiar de esqueleto
   updateLoginState() {
     const currentRoute = this.router.url;
-    this.isLoggedIn = currentRoute === '/inicio' || currentRoute === '/dashboard' || currentRoute === '/medicamentos' || currentRoute === '/citas';
+    const allowedRoutes = ['/inicio', '/dashboard', '/medicamentos', '/citas', '/add-cita'];
+    this.isLoggedIn = allowedRoutes.includes(currentRoute);
+
   }
 
   //Logica de Sidenav

@@ -18,7 +18,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule} from '@angular/material/input';
-import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
+import {  MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { AddCitaComponent } from './components/paginaInicio/add-cita/add-cita.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -29,6 +33,7 @@ import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
     DashboardComponent,
     CitasComponent,
     MedicamentosComponent,
+    AddCitaComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +47,9 @@ import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
         BrowserAnimationsModule,
         MatFormFieldModule,
         MatInputModule,
+        MatSelectModule,
+        MatNativeDateModule,
+        MatDatepickerModule
 
   ],
   providers: [],

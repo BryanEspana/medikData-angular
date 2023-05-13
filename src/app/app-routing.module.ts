@@ -7,7 +7,7 @@ import { AuthGuard } from './auth.guard';
 import { DashboardComponent } from './components/Dashboard/dashboard/dashboard.component';
 import { MedicamentosComponent } from './components/paginaInicio/medicamentos/medicamentos.component';
 import { CitasComponent } from './components/paginaInicio/citas/citas.component';
-
+import { AddCitaComponent } from './components/paginaInicio/add-cita/add-cita.component';
 const routes: Routes = [
 //RUTAS
   { path: '', component: LoginComponent, canActivate: [AuthGuard] },
@@ -21,6 +21,8 @@ const routes: Routes = [
   {path:'medicamentos', component: MedicamentosComponent, canActivate: [AuthGuard]},
   //Citas
   {path:'citas', component: CitasComponent, canActivate:[AuthGuard]},
+  //Añadir cita
+  {path:'add-cita', component: AddCitaComponent, canActivate:[AuthGuard]},
 
 
 
