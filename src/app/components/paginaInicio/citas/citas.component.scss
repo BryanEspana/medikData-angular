@@ -1,0 +1,33 @@
+
+
+.card {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 95%;
+  border-radius: 50px 50px 0 50px;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+      width: 90%;
+      margin-bottom: 2rem;
+  }
+}
+
+
+/* || GENERAL STYLES */
+
+h2 {
+  color: #fff;
+  text-align: center;
+  font-size: 37px;
+  font-weight: bold;
+}
+
+img {
+  width: 20%;
+  object-fit: cover;
+}

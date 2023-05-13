@@ -84,3 +84,28 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
+
+.window {
+  background-color: #F4F4F4;
+  width: 90%;
+  height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 768px) {
+      width: 95%;
+  }
+}
+
+.dashboard-container {
+  background-color: #FFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Quicksand';
+}
+
