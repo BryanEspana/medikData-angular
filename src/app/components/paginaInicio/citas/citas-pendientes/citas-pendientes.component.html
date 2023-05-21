@@ -1,1 +1,39 @@
-<p>citas-pendientes works!</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Citas medicas</title>
+
+</head>
+<body>
+  <div class="dashboard-container">
+    <div class="window">
+        <div style="display: flex; flex-direction: row; justify-content: space-between;">
+            <h1 class="title" style="font-size: 35px; font-weight: 400;">Citas pendientes:</h1>
+            <mat-icon (click)="regresar()" class="icon-back">arrow_back</mat-icon>
+        </div>
+        <div class="cards-container" style="display: flex; justify-content: center; height: 60%;">  
+        <div class="widget-cita">
+            <!--Fecha-->
+            <div class="widget-fecha">
+                <span class="titulo">Fecha: </span>
+                <span class="fecha">Viernes 24 de abril 2023 15:00H</span>
+            </div>
+            <!--Titulo-->
+            <h2 class="widget-titulo">
+                Consulta dermatología MÉDICO-QUIRÚRGICA
+            </h2>
+            <div class="widget-info">
+                <div>
+                    <span> Clinica San Pedro, Zona 10</span>
+                    <p> Dr. Alvaro Ramírez</p>
+                </div>
+                <button id="btnAnularCita" class="btn-cancelar" style="width: 150px;">Anular Cita</button>
+            </div>
+            <hr>
+            <span class="verdetalle"> Ver detalle completo </span>
+        </div>
+        </div>
+    </div>
+  </div>
+</body>
+</html>

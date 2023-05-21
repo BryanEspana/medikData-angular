@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./resenias.component.scss']
 })
 export class ReseniasComponent {
-
+  regresar() {
+    window.history.back();
+  }
 }

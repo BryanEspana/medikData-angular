@@ -1,1 +1,45 @@
-<p>listado-citas works!</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Citas medicas</title>
+
+</head>
+<body>
+  <div class="dashboard-container">
+    <div class="window">
+        <div style="display: flex; flex-direction: row; justify-content: space-between;">
+            <h1 class="title" style="font-size: 35px; font-weight: 400;">Listado de citas:</h1>
+            <mat-icon (click)="regresar()" class="icon-back">arrow_back</mat-icon>
+        </div>
+        <div class="search-container">
+            <input type="text" [formControl]="searchControl" placeholder="Buscar" class="Buscador">
+            <mat-icon class="search-icon">search</mat-icon>
+          </div>
+        <div class="background">
+            <div class="cards-container" style="display: flex; justify-content: center; height: 60%;">  
+                <table class="table-design">
+                    <thead>
+                      <tr>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Clínica</th>
+                        <th>Doctor</th>
+                        <th>Visualizar</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of tablaData">
+                        <td>{{ item.fecha }}</td>
+                        <td>{{ item.hora }}</td>
+                        <td>{{ item.clinica }}</td>
+                        <td>{{ item.doctor }}</td>
+                        <td><button (click)="visualizarItem(item)" class="btn-visualizar">Visualizar</button></td>
+                      </tr>
+                    </tbody>
+                  </table>   
+            </div>
+        </div>
+    </div>
+  </div>
+</body>
+</html>

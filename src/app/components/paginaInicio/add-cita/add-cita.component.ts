@@ -19,4 +19,9 @@ export class AddCitaComponent {
     // Aquí puedes realizar acciones con la fecha seleccionada
     console.log('Fecha seleccionada:', event.value);
   }
+
+  regresar() {
+    window.history.back();
+  }
+
 }

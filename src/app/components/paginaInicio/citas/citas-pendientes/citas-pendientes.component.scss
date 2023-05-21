@@ -1,0 +1,65 @@
+.widget-cita{
+    background-color: #E8E8E8;
+    //padding: 2rem;
+    width: 90%;
+    border-radius: 1.5rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+}
+
+.widget-titulo{
+    margin: 0;
+    text-transform: uppercase;
+    text-align: left;
+    background-color: #06316B;
+    color: white;
+    font-weight: 800;
+    padding: 2rem 1rem;
+}
+
+.widget-fecha{
+    text-align: left;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 1rem 2rem;
+    .fecha{
+        font-weight: 800;
+    }
+}
+
+.widget-info{
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    padding: 1rem 2rem;
+}
+hr{
+    border: 1px solid #06326b2f;
+    width: 95%;
+    margin: 0rem 1rem;
+    margin-bottom: 0.5rem;
+}
+.window {
+    background-color: #F4F4F4;
+    width: 90%;
+    height: 56%;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+  
+    @media (max-width: 768px) {
+        width: 95%;
+    }
+  }
+
+  .verdetalle{
+    cursor: pointer;
+  }
+  .verdetalle:hover{
+    font-weight: 800;
+  }
+
