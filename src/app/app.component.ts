@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 // app.component.ts
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -42,7 +43,13 @@ export class AppComponent {
     //cierra el sidenav
     this.sidenavExpanded = false;
     //devuelve al login
-    this.router.navigate(['/login']);
+    Swal.fire({
+      title: '¡Hasta la próxima!',
+      text: 'Cerrado de sesión correcto.',
+      icon: 'success'
+    }).then(() => {
+      this.router.navigate(['/login']);
+    });
 
   }
 
@@ -54,7 +61,7 @@ export class AppComponent {
   //Cambiar de esqueleto
   updateLoginState() {
     const currentRoute = this.router.url;
-    const allowedRoutes = ['/inicio', '/dashboard', '/medicamentos', '/citas', '/add-cita'];
+    const allowedRoutes = ['/inicio', '/dashboard', '/medicamentos', '/citas', '/add-cita', '/citas-pendientes', '/listado-citas', '/comentarios'];
     this.isLoggedIn = allowedRoutes.includes(currentRoute);
 
   }

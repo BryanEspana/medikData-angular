@@ -23,6 +23,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { AddCitaComponent } from './components/paginaInicio/add-cita/add-cita.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { CitasPendientesComponent } from './components/paginaInicio/citas/citas-pendientes/citas-pendientes.component';
+import { ListadoCitasComponent } from './components/paginaInicio/citas/listado-citas/listado-citas.component';
+import { ReseniasComponent } from './components/paginaInicio/resenias/resenias.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     CitasComponent,
     MedicamentosComponent,
     AddCitaComponent,
+    CitasPendientesComponent,
+    ListadoCitasComponent,
+    ReseniasComponent,
   ],
   imports: [
     BrowserModule,
