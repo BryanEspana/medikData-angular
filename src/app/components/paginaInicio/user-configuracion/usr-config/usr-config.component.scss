@@ -1,0 +1,37 @@
+.config-container {
+    background-color: #FFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Quicksand';
+}
+
+.window {
+    height: fit-content;
+    margin: 2vh 0;
+}
+
+.title-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 30px;
+    padding: 0 10px;
+    margin: 0 0 2rem;
+    color: #06316B;
+}
+
+/* || GENERAL STYLES */
+
+h2 {
+    color: #fff;
+    text-align: center;
+    font-size: 37px;
+    font-weight: bold;
+}
+
+img {
+    width: 20%;
+    object-fit: cover;
+}
