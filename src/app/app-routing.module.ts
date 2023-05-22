@@ -11,6 +11,7 @@ import { AddCitaComponent } from './components/paginaInicio/add-cita/add-cita.co
 import { CitasPendientesComponent } from './components/paginaInicio/citas/citas-pendientes/citas-pendientes.component';
 import { ListadoCitasComponent } from './components/paginaInicio/citas/listado-citas/listado-citas.component';
 import { ReseniasComponent } from './components/paginaInicio/resenias/resenias.component';
+import { UsrConfigComponent } from './components/paginaInicio/user-configuracion/usr-config/usr-config.component';
 const routes: Routes = [
 //RUTAS
   { path: '', component: LoginComponent, canActivate: [AuthGuard] },
@@ -33,7 +34,8 @@ const routes: Routes = [
   //Reseñas
   {path:'comentarios', component: ReseniasComponent, canActivate:[AuthGuard]},
 
-
+  //Configuracion Usuario
+  {path:'configuracion', component: UsrConfigComponent, canActivate:[AuthGuard]},
 
 
   //Error

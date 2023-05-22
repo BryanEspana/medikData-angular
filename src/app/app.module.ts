@@ -26,6 +26,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { CitasPendientesComponent } from './components/paginaInicio/citas/citas-pendientes/citas-pendientes.component';
 import { ListadoCitasComponent } from './components/paginaInicio/citas/listado-citas/listado-citas.component';
 import { ReseniasComponent } from './components/paginaInicio/resenias/resenias.component';
+import { UsrConfigComponent } from './components/paginaInicio/user-configuracion/usr-config/usr-config.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { ReseniasComponent } from './components/paginaInicio/resenias/resenias.c
     CitasPendientesComponent,
     ListadoCitasComponent,
     ReseniasComponent,
+    UsrConfigComponent,
   ],
   imports: [
     BrowserModule,

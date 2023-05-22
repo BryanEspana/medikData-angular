@@ -61,7 +61,7 @@ export class AppComponent {
   //Cambiar de esqueleto
   updateLoginState() {
     const currentRoute = this.router.url;
-    const allowedRoutes = ['/inicio', '/dashboard', '/medicamentos', '/citas', '/add-cita', '/citas-pendientes', '/listado-citas', '/comentarios'];
+    const allowedRoutes = ['/inicio', '/dashboard', '/medicamentos', '/citas', '/add-cita', '/citas-pendientes', '/listado-citas', '/comentarios', '/configuracion'];
     this.isLoggedIn = allowedRoutes.includes(currentRoute);
 
   }
