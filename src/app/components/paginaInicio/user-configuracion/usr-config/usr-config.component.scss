@@ -31,18 +31,30 @@
     align-items: center;
 }
 
-.password-fields {
+.change-multiple {
+    height: 100%; 
+    width: 100%; 
+    display: flex;
+}
+
+.fields {
     display: flex; 
     flex-direction: column; 
     justify-content: flex-end;
     width: 100%;
 }
 
-.password-fields input {
+.field-texts {
+    display: flex; 
+    flex-direction: row; 
+    width: 100%;
+}
+
+.fields input {
     width: 80%;
 }
 
-.password-texts button {
+.field-texts button {
     width: 50%;
 }
 
