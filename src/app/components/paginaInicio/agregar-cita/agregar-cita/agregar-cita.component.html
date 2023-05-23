@@ -3,13 +3,8 @@
         <div class="title-bar">
             <span style="font-size: 2rem; font-weight: bold;">Agregar Citas</span>
         </div>
-        <div class="stages">
-            <div class="circle">1</div>
-            <div class="line"></div>
-            <div class="circle2"></div>
-        </div>
-        <div class="agregar-citas-details" style="display: flex; flex-direction: row; margin-top: 12rem;">
-            <div class="dropdown-container" style="display: grid; grid-template-columns: 1fr 1fr;">
+        <div class="agregar-citas-details" style="display: flex; flex-direction: row; align-items: flex-start; height: 100%;">
+            <div class="dropdown-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;">
                 <div class="select-fields">
                     <p>Especialidad:</p>
                     <div class="dropdown">
@@ -68,17 +63,17 @@
                     </div>
                 </div>
             </div>
-            <div class="date-time-container" style="display: flex; flex-direction: row;">
-                <div class="date-fields">
+            <div class="date-container" style="margin-left: 10rem; display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+                <div class="select-fields">
                     <p>Fecha:</p>
-                    <input type="date" id="datepicker">
+                    <input type="date" class="date-input">
                 </div>
-
-                <div class="date-fields">
+                <div class="select-fields">
                     <p>Hora:</p>
-                    <input type="time" id="timepicker">
+                    <input type="time" class="date-input">
                 </div>
             </div>
         </div>
+        <button class="btn-agregar-cita">Agendar</button>
     </div>
 </div>
