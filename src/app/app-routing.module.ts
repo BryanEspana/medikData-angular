@@ -11,6 +11,8 @@ import { CitasPendientesComponent } from './components/paginaInicio/citas/citas-
 import { ListadoCitasComponent } from './components/paginaInicio/citas/listado-citas/listado-citas.component';
 import { ReseniasComponent } from './components/paginaInicio/resenias/resenias.component';
 import { UsrConfigComponent } from './components/paginaInicio/user-configuracion/usr-config/usr-config.component';
+import { AgregarCitaComponent } from './components/paginaInicio/agregar-cita/agregar-cita/agregar-cita.component';
+
 const routes: Routes = [
 //RUTAS
   { path: '', component: LoginComponent, canActivate: [AuthGuard] },
@@ -26,6 +28,7 @@ const routes: Routes = [
   {path:'citas', component: CitasComponent, canActivate:[AuthGuard]},
   {path:'citas-pendientes', component: CitasPendientesComponent, canActivate:[AuthGuard]},
   {path:'listado-citas', component: ListadoCitasComponent, canActivate:[AuthGuard]},
+  {path:'agregar-cita', component: AgregarCitaComponent, canActivate:[AuthGuard]},
 
   //Añadir cita
 

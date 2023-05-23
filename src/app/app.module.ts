@@ -26,6 +26,7 @@ import { CitasPendientesComponent } from './components/paginaInicio/citas/citas-
 import { ListadoCitasComponent } from './components/paginaInicio/citas/listado-citas/listado-citas.component';
 import { ReseniasComponent } from './components/paginaInicio/resenias/resenias.component';
 import { UsrConfigComponent } from './components/paginaInicio/user-configuracion/usr-config/usr-config.component';
+import { AgregarCitaComponent } from './components/paginaInicio/agregar-cita/agregar-cita/agregar-cita.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { UsrConfigComponent } from './components/paginaInicio/user-configuracion
     ListadoCitasComponent,
     ReseniasComponent,
     UsrConfigComponent,
+    AgregarCitaComponent,
   ],
   imports: [
     BrowserModule,
