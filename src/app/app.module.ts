@@ -20,7 +20,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule} from '@angular/material/input';
 import {  MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-import { AddCitaComponent } from './components/paginaInicio/add-cita/add-cita.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { CitasPendientesComponent } from './components/paginaInicio/citas/citas-pendientes/citas-pendientes.component';
@@ -37,7 +36,6 @@ import { UsrConfigComponent } from './components/paginaInicio/user-configuracion
     DashboardComponent,
     CitasComponent,
     MedicamentosComponent,
-    AddCitaComponent,
     CitasPendientesComponent,
     ListadoCitasComponent,
     ReseniasComponent,
