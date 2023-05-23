@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class AgregarCitaComponent {
   ngOnInit(): void {
     const dropdowns = document.querySelectorAll<HTMLElement>('.dropdown');
+    const datepickerInput = document.getElementById('datepicker');
+    const timepickerInput = document.getElementById('timepicker');
 
     dropdowns.forEach(dropdown => {
       const content = dropdown.querySelector('.dropdown-content') as HTMLElement;

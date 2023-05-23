@@ -2,6 +2,7 @@
     background-color: #FFFF;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     height: 100vh;
     font-family: 'Quicksand';
@@ -12,7 +13,7 @@
 .window {
     margin: 2vh 0;
     position: relative;
-    height: fit-content;
+    height: 100%;
 }
 
 .stages {
@@ -54,7 +55,6 @@
 .line {
     position: absolute;
     width: calc(100% + 1rem);
-    /* Add extra 1rem to exceed from the right side */
     height: 0.6rem;
     background-color: #06316B;
     bottom: 0;
@@ -78,12 +78,24 @@
 }
 
 .select-fields {
+    justify-self: center;
+    align-self: center;
+    padding: 0 2rem 2rem 2rem;
     width: 15rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin: 0 0 2rem;
 }
+
+.date-fields {
+    margin-left: 10rem;
+    padding: 0 2rem 2rem 2rem;
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 
 .dropbtn {
     color: white;
@@ -107,8 +119,8 @@
     display: none;
     position: absolute;
     background-color: #f1f1f1;
-    min-width: 160px;
-    width: 100%;
+    min-width: 10rem;
+    width: auto;
     height: fit-content;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
