@@ -25,3 +25,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+Images:
+![image](https://github.com/BryanEspana/medikData-angular/assets/83832357/280bf062-fd4d-4b09-9fd5-e7380b46883e)
