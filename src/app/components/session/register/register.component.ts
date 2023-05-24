@@ -24,6 +24,7 @@ export class RegisterComponent {
       full_name: ['', Validators.required],
       password: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
+      dpi: ['', Validators.required],
       nacimiento: ['', Validators.required],
       telefono: ['', Validators.required],
       genero: ['', Validators.required],
