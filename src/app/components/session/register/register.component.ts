@@ -12,7 +12,9 @@ import { Location } from '@angular/common';
 })
 export class RegisterComponent {
 
-  registerForm!: FormGroup;
+  registerFromPaciente!: FormGroup;
+  registerFromClinica!: FormGroup;
+
   //Registro de Paciente o clinica
   showForm = true;  // inicialmente el formulario es visible
   selectedFormType: 'paciente' | 'clinica' | null = null;
@@ -30,7 +32,7 @@ export class RegisterComponent {
   ) { }
 
   ngOnInit(): void {
-    this.registerForm = this.formBuilder.group({
+    this.registerFromPaciente = this.formBuilder.group({
       profile_role: [''],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
@@ -43,6 +45,16 @@ export class RegisterComponent {
       complicaciones: ['']
     });
 
+    this.registerFromClinica = this.formBuilder.group({   
+      profile_role: [''],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+      nombre: ['', Validators.required],
+      direccion: ['', Validators.required],
+      telefono: ['', Validators.required],
+      dpi: ['', Validators.required],
+    });
+
   }
 
   signUp(userData: any) {
@@ -50,7 +62,7 @@ export class RegisterComponent {
   }
 
   onSubmit(): void {
-    const formData = this.registerForm.value;
+    const formData = this.registerFromPaciente.value;
     // Make API call using the ApiService
     this.apiService.signUp(formData).subscribe(
       (response) => {
