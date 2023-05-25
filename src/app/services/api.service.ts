@@ -38,13 +38,13 @@ export class ApiService {
   getClinicas(): Observable<any> {
     return this.http.get(`${this.baseUrl}/api/addcitas/clinicas`);
   }
-  
-  getEspecialidades(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/api/addcitas/especialidades`);
+
+  getEspecialidades(id_clinica: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/api/addcitas/especialidades/${id_clinica}`);
   }
 
-  getMedicos(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/api/addcitas/medico`);
+  getMedicos(id_clinica: number, especialidad: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/api/addcitas/medico/${especialidad}/${id_clinica}`);
   }
 
 }

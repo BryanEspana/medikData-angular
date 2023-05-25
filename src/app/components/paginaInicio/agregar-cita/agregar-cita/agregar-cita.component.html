@@ -14,7 +14,7 @@
                             <button class="dropbtn" (click)="toggleDropdown($event)">Seleccionar</button>
                             <div class="dropdown-content scrollable-dropdown" [class.above]="isDropdownAbove">
                                 <span class="option" *ngFor="let option of clinicas"
-                                    (click)="selectOption(option, 'clinica')">{{ option }}</span>
+                                    (click)="selectOption(option, 'clinica')">{{ option.nombre }}</span>
                             </div>
                         </div>
                     </div>
