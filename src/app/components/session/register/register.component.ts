@@ -11,8 +11,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
-  registerFormPaciente!: FormGroup;
-  registerFormMailPassword!: FormGroup;
+
   registerForm!: FormGroup;
   //Registro de Paciente o clinica
   showForm = true;  // inicialmente el formulario es visible
@@ -31,14 +30,11 @@ export class RegisterComponent {
   ) { }
 
   ngOnInit(): void {
-    this.registerFormMailPassword = this.formBuilder.group({
-      password: ['', Validators.required],
+    this.registerForm = this.formBuilder.group({
+      profile_role: [''],
       email: ['', [Validators.required, Validators.email]],
-    });
-    this.registerFormPaciente = this.formBuilder.group({
+      password: ['', Validators.required],
       full_name: ['', Validators.required],
-      password: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
       dpi: ['', Validators.required],
       nacimiento: ['', Validators.required],
       telefono: ['', Validators.required],
@@ -46,6 +42,7 @@ export class RegisterComponent {
       alergias: [''],
       complicaciones: ['']
     });
+
   }
 
   signUp(userData: any) {
@@ -53,19 +50,9 @@ export class RegisterComponent {
   }
 
   onSubmit(): void {
-    // Handle form submission and API call here
-    if (this.registerFormMailPassword.invalid) {
-      console.log('ALERTA:', this.registerFormMailPassword.value);
-      return;
-    }
-    if (this.registerFormPaciente.invalid) {
-      console.log('ALERTA:', this.registerFormPaciente.value);
-      return;
-    }
-    const formDataMailPassword = this.registerFormMailPassword.value;
-    const formData = this.registerFormPaciente.value;
+    const formData = this.registerForm.value;
     // Make API call using the ApiService
-    this.apiService.signUp(formDataMailPassword || formData).subscribe(
+    this.apiService.signUp(formData).subscribe(
       (response) => {
         // Handle successful registration response
         console.log('RESPONSE: ', response);
