@@ -16,7 +16,6 @@ export class AgregarCitaComponent {
   selectedClinica: string = 'Seleccionar';
   selectedMedico: string = 'Seleccionar';
   especialidades: string[] = [];
-  areas: string[] = [];
   clinicas: string[] = [];
   medicos: string[] = [];
 
@@ -38,14 +37,11 @@ export class AgregarCitaComponent {
 
   selectOption(option: string, field: string): void {
     switch (field) {
-      case 'especialidad':
-        this.selectedEspecialidad = option;
-        break;
-      case 'area':
-        this.selectedArea = option;
-        break;
       case 'clinica':
         this.selectedClinica = option;
+        break;
+      case 'especialidad':
+        this.selectedEspecialidad = option;
         break;
       case 'medico':
         this.selectedMedico = option;
@@ -59,10 +55,40 @@ export class AgregarCitaComponent {
   fetchOptionsFromDatabase(): void {
     this.apiService.getClinicas().subscribe(
       (response: any) => {
-        this.clinicas = response.user.map((clinic: any) => clinic.nombre);
+        if (response && response.clinicas) {
+          this.clinicas = response.clinicas.map((clinic: any) => clinic.nombre);
+        } else {
+          console.error('Invalid response:', response);
+        }
       },
       (error) => {
         console.error('Error fetching clinics:', error);
+      }
+    );
+
+    this.apiService.getEspecialidades().subscribe(
+      (response: any) => {
+        if (response && response.especialidades) {
+          this.especialidades = response.especialidades.map((especialidad: any) => especialidad.especialidades);
+        } else {
+          console.error('Invalid response:', response);
+        }
+      },
+      (error) => {
+        console.error('Error fetching specialties:', error);
+      }
+    );
+
+    this.apiService.getMedicos().subscribe(
+      (response: any) => {
+        if (response && response.medico) {
+          this.medicos = response.medico.map((medico: any) => `${medico.nombres} ${medico.apellidos}`);
+        } else {
+          console.error('Invalid response:', response);
+        }
+      },
+      (error) => {
+        console.error('Error fetching doctors:', error);
       }
     );
   }

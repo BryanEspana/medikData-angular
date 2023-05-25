@@ -38,5 +38,13 @@ export class ApiService {
   getClinicas(): Observable<any> {
     return this.http.get(`${this.baseUrl}/api/addcitas/clinicas`);
   }
+  
+  getEspecialidades(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/api/addcitas/especialidades`);
+  }
+
+  getMedicos(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/api/addcitas/medico`);
+  }
 
 }

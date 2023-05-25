@@ -4,45 +4,37 @@
             <span style="font-size: 2rem; font-weight: bold;">Agregar Citas</span>
         </div>
         <div class="agregar-citas-details"
-            style="display: flex; flex-direction: row; align-items: flex-start; height: 100%;">
-            <div class="dropdown-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;">
-                <div class="select-fields">
-                    <p>1. Clínica:</p>
-                    <div class="dropdown">
-                        <button class="dropbtn" (click)="toggleDropdown($event)">Seleccionar</button>
-                        <div class="dropdown-content scrollable-dropdown" [class.above]="isDropdownAbove">
-                            <span class="option" *ngFor="let option of clinicas"
-                                (click)="selectOption(option, 'clinica')">{{ option }}</span>
+            style="display: flex; flex-direction: row; align-items: flex-start; height: 100%; margin-top: 2rem;">
+            <div class="dropdown-container" style="display: flex; flex-direction: column;">
+                <div class="top-dropdowns" style="display: flex;">
+                    <div class="select-fields">
+                        <p>1. Clínica:</p>
+                        <div class="selected-options">{{ selectedClinica }}</div>
+                        <div class="dropdown">
+                            <button class="dropbtn" (click)="toggleDropdown($event)">Seleccionar</button>
+                            <div class="dropdown-content scrollable-dropdown" [class.above]="isDropdownAbove">
+                                <span class="option" *ngFor="let option of clinicas"
+                                    (click)="selectOption(option, 'clinica')">{{ option }}</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="selected-options">Seleccionado: {{ selectedClinica }}</div>
-                </div>
-                <div class="select-fields">
-                    <p>2. Especialidad:</p>
-                    <div class="dropdown">
-                        <button class="dropbtn" (click)="toggleDropdown($event)">Seleccionar</button>
-                        <div class="dropdown-content scrollable-dropdown" [class.above]="isDropdownAbove">
-                            <span class="option" *ngFor="let option of especialidades"
-                                (click)="selectOption(option, 'especialidad')">{{ option }}</span>
+
+                    <div class="select-fields">
+                        <p>2. Especialidad:</p>
+                        <div class="selected-options">{{ selectedEspecialidad }}</div>
+                        <div class="dropdown">
+                            <button class="dropbtn" (click)="toggleDropdown($event)">Seleccionar</button>
+                            <div class="dropdown-content scrollable-dropdown" [class.above]="isDropdownAbove">
+                                <span class="option" *ngFor="let option of especialidades"
+                                    (click)="selectOption(option, 'especialidad')">{{ option }}</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="selected-options">Seleccionado: {{ selectedEspecialidad }}</div>
                 </div>
 
                 <div class="select-fields">
-                    <p>3. Área:</p>
-                    <div class="dropdown">
-                        <button class="dropbtn" (click)="toggleDropdown($event)">Seleccionar</button>
-                        <div class="dropdown-content scrollable-dropdown" [class.above]="isDropdownAbove">
-                            <span class="option" *ngFor="let option of areas" (click)="selectOption(option, 'area')">{{
-                                option }}</span>
-                        </div>
-                    </div>
-                    <div class="selected-options">Seleccionado: {{ selectedArea }}</div>
-                </div>
-
-                <div class="select-fields">
-                    <p>4. Médico:</p>
+                    <p>3. Médico:</p>
+                    <div class="selected-options">{{ selectedMedico }}</div>
                     <div class="dropdown">
                         <button class="dropbtn" (click)="toggleDropdown($event)">Seleccionar</button>
                         <div class="dropdown-content scrollable-dropdown" [class.above]="isDropdownAbove">
@@ -50,7 +42,6 @@
                                 (click)="selectOption(option, 'medico')">{{ option }}</span>
                         </div>
                     </div>
-                    <div class="selected-options">Seleccionado: {{ selectedMedico }}</div>
                 </div>
             </div>
             <div class="date-container"

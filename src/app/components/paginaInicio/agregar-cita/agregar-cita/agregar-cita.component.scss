@@ -102,7 +102,12 @@
 }
 
 .selected-options {
-    margin-top: 0.5rem;
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 0.5rem;
+    border-radius: 0.3rem;
+    border: 1px solid #06316B;
+    padding: 5px;
     font-size: 1rem;
     color: #06316B;
 }
@@ -120,4 +125,5 @@ p {
     font-weight: 700;
     font-size: 2rem;
     color: #06316B;
+    margin: 1rem 0;
 }
