@@ -11,6 +11,7 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
 
+  //Auth
   getUser(token: string): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     console.log('HEADERS:', headers);
@@ -31,6 +32,11 @@ export class ApiService {
   logOut(token: string): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.get(`${this.baseUrl}/api/auth/logout`, { headers });
+  }
+
+  //Agendar Citas
+  getClinicas(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/api/addcitas/clinicas`);
   }
 
 }
