@@ -1,11 +1,28 @@
-.register-container{
-    display: block;
-    flex-direction: column;
-    margin: auto;
-    width: 60%;
-    height: 100vh;
-    font-family: 'Quicksand';
+.register-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 60%;
+  margin: auto;
+  font-family: 'Quicksand';
+}
+
+  .btns-register{
+    margin-top: 1rem;
+    width: 100%;
+    display: flex; 
+    justify-content: space-between;
+    button{
+      width: 49%;
+    }
   }
+  .form-register {
+    height: 100vh;
+    display: flex;
+}
+
   label{
     font-family: 'Quicksand';
     font-weight: 500;
@@ -21,7 +38,9 @@
     color: #013579;
   }
 
-
+  .register{
+    overflow: auto;
+  }
   .olvidarbtn{
     font-weight: 700;
     display: flex;
@@ -76,9 +95,7 @@
     bottom: 0.6rem;
 }
 
-.register{
-  overflow: auto;
-}
+
 h1{
   margin-bottom: 0rem;
 }
@@ -92,4 +109,10 @@ h1{
   .registrar-btn{
     width: 100%;
   }
+}
+
+.overflow-info{
+  overflow-y: scroll;
+  overflow-x: none;
+  height: 100vh;
 }

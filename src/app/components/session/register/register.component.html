@@ -11,173 +11,152 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap');
 </style>
-<!-- <div class="register">
 
-  <div class="register-container">
-    <div class="componentText">
-      <img src="assets\session\users-icon.png" alt="" style="width: 50px; margin-top: 2rem;">
-      <h1 style="display: flex; margin-top: 0rem; text-align: center;">Registrar paciente</h1>
-      <p style="font-size: 14px;">¿Si tienes una cuenta? <a style="cursor: pointer; color: #004AAD; font-weight: 600;" href="login">Iniciar sesión</a></p>
-    </div>
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-      <div style="display: flex; flex-direction: column;">
-        <label for="full_name">Nombre completo:</label>
-        <input type="text" id="full_name" name="full_name" required />
+<!-------------------------------------------------Div PRINCIPAL---------------------------------------------------------------------------------------->
+    <div class="register-container" *ngIf="showForm">
+      <div class="componentText">
+        <img src="assets\session\users-icon.png" alt="" style="width: 50px; margin-top: 2rem;">
+        <h1 style="display: flex; margin-top: 0rem; text-align: center;">Registrar Usuario</h1>
+        <p style="font-size: 14px;">¿Si tienes una cuenta? <a style="cursor: pointer; color: #004AAD; font-weight: 600;"
+            href="login">Iniciar sesión</a></p>
       </div>
-
-      <div style="display: flex; flex-direction: row; margin-top: 1rem; margin-bottom: 0.5rem;">
-        <div style="margin-right: 1rem;">
+      
+      <form [formGroup]="registerFormMailPassword" (ngSubmit)="onSubmit()">
+        <div style="display: flex; flex-direction: column;">
+          <label for="full_name">Correo electrónico:</label>
+          <input type="email" id="email" name="email" formControlName="email" required/>
+        </div>
+  
+        <div style="display: flex; flex-direction: row; margin-top: 1rem; margin-bottom: 0.5rem;">
+          <div style="margin-right: 1rem;">
             <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="password" required />
+            <input type="password" id="password" name="password" formControlName="password" required />
+          </div>
+          <div style="margin-left: 1rem;">
+            <label >Confirmar Contraseña:</label>
+            <input type="password"/>
+          </div>
         </div>
-        <div style="margin-left: 1rem;">
-            <label for="password">Confirmar Contraseña:</label>
-            <input type="password" id="password" name="password" required />
+        <div class="btns-register">
+          <button type="submit" class="registrar-btn" (click)="selectFormType('paciente')">Registrar como paciente</button>
+          <button type="submit" class="registrar-btn" (click)="selectFormType('clinica')">Registrar como clinica</button>          
+  
         </div>
-      </div>
-
-      <div style="display: flex; flex-direction: row; margin-top: 1rem; margin-bottom: 0.5rem;">
-        <div style="margin-right: 1rem;">
-            <label for="email">Correo electrónico:</label>
-            <input type="email" id="password" name="password" required />
-        </div>
-        <div style="margin-left: 1rem;">
-            <label for="id">DPI/Pasaporte:</label>
-            <input type="id" id="password" name="password" required />
-        </div>
-      </div>
-
-      <div style="display: flex; flex-direction: row; margin-top: 1rem; margin-bottom: 0.5rem;">
-        <div style="margin-right: 1rem;">
-            <label for="date">Fecha de Nacimiento:</label>
-            <input type="date" id="password" name="password" required />
-        </div>
-        <div style="margin-left: 1rem;">
-            <label for="number">Celular:</label>
-            <input type="number" id="password" name="password" required />
-        </div>
-      </div> -->
-<!--------------------------------------------------INFORMACIÓN MEDICA-------------------------------------------------------->
-<!-- <h1 style="display: flex; margin-top: 1rem; font-size: 20px;">Llene su información medica:</h1>
-        <div style="display: flex; flex-direction: row; justify-content: space-between;">
-            <div class="sex">
-                    <label class="sexRadio">
-                        Masculino:
-                        <input type="radio" name="genero" value="male" class="generoCheck"/>
-                    </label>
-                    <label class="sexRadio">
-                        Femenino:
-                        <input type="radio" name="genero" value="female" class="generoCheck" />
-                    </label>
-            </div>
-
-        </div>
-        <div>
-          <div>
-            <label class="sexRadio" style="margin-bottom: 0.5rem;">
-                ¿Eres alergico a alguna medicina? (Si no dejalo en blanco)
-            </label>
-            <textarea name="" id="alergicoTextarea" cols="30" rows="10"></textarea>
-        </div>
-        <div style="margin-bottom: 1rem;">
-          <label class="sexRadio" style="margin-top: 1rem; margin-bottom: 0.5rem;">
-            ¿Tienes Complicaciones medicas? (Si no dejalo en blanco)
-        </label>
-        <textarea name="" id="" cols="30" rows="10"></textarea>
-
-        </div>
-      </div>
-      <div>
-
-      </div>
-      <div style="text-align: right;">
-          <button type="submit" class="registrar-btn">Registrar</button>
-      </div>
-
-    </form>
-  </div> -->
-
-<div class="register">
-  <div class="register-container">
-    <div class="componentText">
-      <img src="assets\session\users-icon.png" alt="" style="width: 50px; margin-top: 2rem;">
-      <h1 style="display: flex; margin-top: 0rem; text-align: center;">Registrar paciente</h1>
-      <p style="font-size: 14px;">¿Si tienes una cuenta? <a style="cursor: pointer; color: #004AAD; font-weight: 600;"
-          href="login">Iniciar sesión</a></p>
+      </form>
     </div>
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-      <div style="display: flex; flex-direction: column;">
-        <label for="full_name">Nombre completo:</label>
-        <input type="text" id="full_name" name="full_name" formControlName="full_name" required />
-      </div>
 
-      <div style="display: flex; flex-direction: row; margin-top: 1rem; margin-bottom: 0.5rem;">
-        <div style="margin-right: 1rem;">
-          <label for="password">Contraseña:</label>
-          <input type="password" id="password" name="password" formControlName="password" required />
-        </div>
-        <div style="margin-left: 1rem;">
-          <label for="confirmPassword">Confirmar Contraseña:</label>
-          <input type="password" id="confirmPassword" name="confirmPassword" formControlName="confirmPassword"
-            required />
-        </div>
-      </div>
 
-      <div style="display: flex; flex-direction: row; margin-top: 1rem; margin-bottom: 0.5rem;">
-        <div style="margin-right: 1rem;">
-          <label for="email">Correo electrónico:</label>
-          <input type="email" id="email" name="email" formControlName="email" required />
-        </div>
-        <div style="margin-left: 1rem;">
-          <label for="dpi">DPI/Pasaporte:</label>
-          <input type="text" id="dpi" name="dpi" formControlName="dpi" required />
-        </div>
-      </div>
+    <!------------------------------------------------------------DIV DE PACIENTE--------------------------------------------------------------------------------->
 
-      <div style="display: flex; flex-direction: row; margin-top: 1rem; margin-bottom: 0.5rem;">
-        <div style="margin-right: 1rem;">
-          <label for="nacimiento">Fecha de Nacimiento:</label>
-          <input type="date" id="nacimiento" name="nacimiento" formControlName="nacimiento" required />
+    <div *ngIf="selectedFormType === 'paciente'" class="overflow-info">
+      <div class="register-container" >
+        <div class="componentText">
+          <img src="assets\session\info-register.png" alt="" style="width: 50px; margin-top: 10rem;">
+          <h1 style="display: flex; margin-top: 0rem; text-align: center;">Información de Paciente</h1>
+          <p style="font-size: 14px;">¿Si tienes una cuenta? <a style="cursor: pointer; color: #004AAD; font-weight: 600;"
+              href="login">Iniciar sesión</a></p>
         </div>
-        <div style="margin-left: 1rem;">
-          <label for="telefono">Celular:</label>
-          <input type="text" id="telefono" name="telefono" formControlName="telefono" required />
-        </div>
+        
+        <form [formGroup]="registerFormPaciente" (ngSubmit)="onSubmit()">
+          <div style="display: flex; flex-direction: row; margin-top: 1rem; margin-bottom: 0.5rem;">
+            <div style="margin-right: 1rem;">
+              <label for="email">Nombre:</label>
+              <input type="user" id="full_name" name="full_name" formControlName="full_name" required />
+            </div>
+            <div style="margin-left: 1rem;">
+              <label for="dpi">Apellido:</label>
+              <input type="text" id="dpi" name="dpi" formControlName="dpi" required />
+            </div>
+          </div>
+            <div style="margin-left: 0rem;">
+              <label for="dpi">DPI/Pasaporte:</label>
+              <input type="text" id="dpi" name="dpi" formControlName="dpi" required />
+            </div>
+          <div style="display: flex; flex-direction: row; margin-top: 1rem; margin-bottom: 0.5rem;">
+            <div style="margin-right: 1rem;">
+              <label for="nacimiento">Fecha de Nacimiento:</label>
+              <input type="date" id="nacimiento" name="nacimiento" formControlName="nacimiento" required />
+            </div>
+            <div style="margin-left: 1rem;">
+              <label for="telefono">Celular:</label>
+              <input type="text" id="telefono" name="telefono" formControlName="telefono" required />
+            </div>
+          </div>
+    
+          <h1 style="display: flex; margin-top: 1rem; font-size: 20px; margin-bottom: 0.5rem;">Llene su información médica:</h1>
+          <div style="display: flex; flex-direction: row; justify-content: space-between;">
+            <div class="sex">
+              <label class="sexRadio">
+                Masculino:
+                <input type="radio" name="genero" value="male" class="generoCheck" formControlName="genero" />
+              </label>
+              <label class="sexRadio">
+                Femenino:
+                <input type="radio" name="genero" value="female" class="generoCheck" formControlName="genero" />
+              </label>
+            </div>
+          </div>
+    
+          <div>
+            <div>
+              <label class="sexRadio" style="margin-bottom: 0.5rem;">
+                ¿Eres alérgico a alguna medicina? (Si no, déjalo en blanco)
+              </label>
+              <textarea id="alergicoTextarea" name="alergias" formControlName="alergias" cols="30" rows="10"></textarea>
+            </div>
+            <div style="margin-bottom: 1rem;">
+              <label class="sexRadio" style="margin-top: 1rem; margin-bottom: 0.5rem;">
+                ¿Tienes complicaciones médicas? (Si no, déjalo en blanco)
+              </label>
+              <textarea id="complicationsTextarea" name="complicaciones" formControlName="complicaciones" cols="30"
+                rows="10"></textarea>
+            </div>
+          </div>
+          <div class="btns-register">
+            <button type="button" class="registrar-btn" (click)="refreshPage()">Regresar</button>
+            <button type="submit" class="registrar-btn">Registrar como paciente</button>      
+          </div>
+        </form>
       </div>
-
-      <h1 style="display: flex; margin-top: 1rem; font-size: 20px;">Llene su información médica:</h1>
-      <div style="display: flex; flex-direction: row; justify-content: space-between;">
-        <div class="sex">
-          <label class="sexRadio">
-            Masculino:
-            <input type="radio" name="genero" value="male" class="generoCheck" formControlName="genero" />
-          </label>
-          <label class="sexRadio">
-            Femenino:
-            <input type="radio" name="genero" value="female" class="generoCheck" formControlName="genero" />
-          </label>
-        </div>
-      </div>
-
-      <div>
-        <div>
-          <label class="sexRadio" style="margin-bottom: 0.5rem;">
-            ¿Eres alérgico a alguna medicina? (Si no, déjalo en blanco)
-          </label>
-          <textarea id="alergicoTextarea" name="alergias" formControlName="alergias" cols="30" rows="10"></textarea>
-        </div>
-        <div style="margin-bottom: 1rem;">
-          <label class="sexRadio" style="margin-top: 1rem; margin-bottom: 0.5rem;">
-            ¿Tienes complicaciones médicas? (Si no, déjalo en blanco)
-          </label>
-          <textarea id="complicationsTextarea" name="complicaciones" formControlName="complicaciones" cols="30"
-            rows="10"></textarea>
-        </div>
-      </div>
-
-      <div style="text-align: right;">
-        <button type="submit" class="registrar-btn">Registrar</button>
-      </div>
-    </form>
   </div>
-</div>
+      <!------------------------------------------------------------DIV DE CLINICA--------------------------------------------------------------------------------->
+
+  <div *ngIf="selectedFormType === 'clinica'">
+        <div class="register-container" >
+          <div class="componentText">
+            <img src="assets\session\info-register.png" alt="" style="width: 50px; margin-top: 10rem;">
+            <h1 style="display: flex; margin-top: 0rem; text-align: center;">Información de Clinica</h1>
+            <p style="font-size: 14px;">¿Si tienes una cuenta? <a style="cursor: pointer; color: #004AAD; font-weight: 600;"
+                href="login">Iniciar sesión</a></p>
+          </div>
+          
+          <form [formGroup]="registerFormPaciente" (ngSubmit)="onSubmit()">
+              <div style="margin-right: 1rem;">
+                <label for="email">Nombre de clinica:</label>
+                <input type="user" id="full_name" name="full_name" formControlName="full_name" required />
+              </div>
+
+              <div style="margin: 1rem; margin-left: 0rem;">
+                <label for="email">Dirección:</label>
+                <input type="email" id="email" name="email" formControlName="email" required />
+              </div>
+
+      
+            <div style="display: flex; flex-direction: row; margin-top: 1rem; margin-bottom: 0.5rem;">
+              <div>
+                <label for="dpi">DPI/Pasaporte:</label>
+                <input type="text" id="dpi" name="dpi" formControlName="dpi" required />
+              </div>
+              <div style="margin-left: 1rem;">
+                <label for="telefono">Celular:</label>
+                <input type="text" id="telefono" name="telefono" formControlName="telefono" required />
+              </div>
+            </div>
+      
+            <div class="btns-register">
+              <button type="button" class="registrar-btn" (click)="refreshPage()">Regresar</button>
+              <button type="submit" class="registrar-btn">Registrar como paciente</button>      
+            </div>
+          </form>
+        </div>
+  </div>

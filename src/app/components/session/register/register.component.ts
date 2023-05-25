@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-register',
@@ -10,9 +11,19 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
+  registerFormPaciente!: FormGroup;
+  registerFormMailPassword!: FormGroup;
   registerForm!: FormGroup;
-
+  //Registro de Paciente o clinica
+  showForm = true;  // inicialmente el formulario es visible
+  selectedFormType: 'paciente' | 'clinica' | null = null;
+  selectFormType(type: 'paciente' | 'clinica') {
+    this.showForm = false;  // oculta el formulario
+    this.selectedFormType = type;
+  }
+  
   constructor(
+    private location: Location,
     private formBuilder: FormBuilder,
     private http: HttpClient,
     private router: Router,
@@ -20,7 +31,11 @@ export class RegisterComponent {
   ) { }
 
   ngOnInit(): void {
-    this.registerForm = this.formBuilder.group({
+    this.registerFormMailPassword = this.formBuilder.group({
+      password: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+    });
+    this.registerFormPaciente = this.formBuilder.group({
       full_name: ['', Validators.required],
       password: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -39,14 +54,18 @@ export class RegisterComponent {
 
   onSubmit(): void {
     // Handle form submission and API call here
-    if (this.registerForm.invalid) {
-      console.log('ALERTA:', this.registerForm.value);
+    if (this.registerFormMailPassword.invalid) {
+      console.log('ALERTA:', this.registerFormMailPassword.value);
       return;
     }
-    const formData = this.registerForm.value;
-
+    if (this.registerFormPaciente.invalid) {
+      console.log('ALERTA:', this.registerFormPaciente.value);
+      return;
+    }
+    const formDataMailPassword = this.registerFormMailPassword.value;
+    const formData = this.registerFormPaciente.value;
     // Make API call using the ApiService
-    this.apiService.signUp(formData).subscribe(
+    this.apiService.signUp(formDataMailPassword || formData).subscribe(
       (response) => {
         // Handle successful registration response
         console.log('RESPONSE: ', response);
@@ -58,5 +77,13 @@ export class RegisterComponent {
       }
     );
   }
+
+  
+
+
+  //Recargar pagina:
+  refreshPage() {
+    window.location.reload();
+}
 
 }
