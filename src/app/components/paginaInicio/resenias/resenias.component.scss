@@ -5,10 +5,11 @@
     overflow-x: hidden; /* Quita el scroll horizontal */
     overflow-y: auto;
     scrollbar-width: thin;
+
   }
   
   .resenias-widget {
-    background-color: #06316B;
+    background-image: linear-gradient(to right, #1A5F9C, #06316B);
     padding: 1rem;
     width: 300px; /* Muestra 4 widgets por fila en pantallas grandes */
     height: 300px;

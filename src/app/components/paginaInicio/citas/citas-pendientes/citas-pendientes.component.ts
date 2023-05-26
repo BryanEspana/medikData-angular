@@ -9,14 +9,34 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./citas-pendientes.component.scss']
 })
 export class CitasPendientesComponent {
-  constructor(
-    private route: Router
-  ) { }
+  citasPendientes: any[] = [];
+  pacientetoken: string = '';
 
+  constructor(
+    private route: Router,
+    private apiService: ApiService
+  ) { 
+    this.initializeDpi();
+  }
+
+  ngOnInit(): void {
+    this.getCitasPendientes();
+  }
+
+  initializeDpi(): void {
+    const token = localStorage.getItem('jwt');
+    if (token) {
+      const base64Url = token.split('.')[1];
+      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      const payload = JSON.parse(window.atob(base64));
+      this.pacientetoken = payload.user_metadata.dpi;
+    }
+  }
 
   regresar() {
     window.history.back();
   }
+
 
   ngAfterViewInit() {
     const btnAnularCita = document.querySelector('#btnAnularCita');
@@ -34,6 +54,18 @@ export class CitasPendientesComponent {
         }
       });
     });
+  }
+
+  getCitasPendientes() {
+    this.apiService.getCitasPendientes(this.pacientetoken).subscribe(
+      (response: any) => {
+        this.citasPendientes = response.citasPendientes;
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
+
   }
 
 }

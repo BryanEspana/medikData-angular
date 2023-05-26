@@ -58,8 +58,8 @@ export class ApiService {
   }
 
   // Obtener Citas
-  getCitas(dpi: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/api/citas/${dpi}`);
+  getCitasPendientes(dpi: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/api/citas/citaspendientes/${dpi}`);
   }
 
 }

@@ -35,7 +35,7 @@ export class RegisterComponent {
 
   ngOnInit(): void {
     this.registerFromPaciente = this.formBuilder.group({
-      profile_role: [''],
+      //profile_role: [''],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       full_name: ['', Validators.required],
@@ -48,7 +48,7 @@ export class RegisterComponent {
     });
 
     this.registerFromClinica = this.formBuilder.group({
-      profile_role: [''],
+      //profile_role: [''],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       nombre: ['', Validators.required],

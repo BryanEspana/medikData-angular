@@ -1,55 +1,60 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Citas medicas</title>
 </head>
+
 <body>
   <div class="dashboard-container">
     <div class="window" style="margin-top: 5rem;">
-              <!------------------------------ RESEÑAS DE DOCTORES ------------------------------------>
-        <div style="display: flex; flex-direction: row; justify-content: space-between;">
-            <h1 class="title" style="font-size: 35px; font-weight: 400;">Reseñas de doctores:</h1>
-            <mat-icon (click)="regresar()" class="icon-back">arrow_back</mat-icon>
-        </div>
-        <div class="widgets">
-          <!-- Reseñas-->
-          <div class="resenias-widget" *ngFor="let resenia of resenias">
-            <div style="display: flex; flex-direction: row;">
-  
-              <!--Imagen perfil doctor-->
-              <img src="\assets\perfil.png" class="img-resenia" alt="">
-  
-              <!--Nombre y calificaciones-->
-              <div style="display: flex; flex-direction: column;">
-                <span class="name-resenia">{{ resenia.medico }}</span>
-                <span style="padding-bottom: 1rem; font-size: 12px;">Reseña hecha por: {{ resenia.paciente }}</span>
-              </div>
-  
+      <!------------------------------ RESEÑAS DE DOCTORES ------------------------------------>
+      <div style="display: flex; flex-direction: row; justify-content: space-between;">
+        <h1 class="title" style="font-size: 35px; font-weight: 400;">Reseñas de doctores:</h1>
+        <mat-icon (click)="regresar()" class="icon-back">arrow_back</mat-icon>
+      </div>
+      <div class="widgets">
+        <!-- Reseñas-->
+        <div class="resenias-widget" *ngFor="let resenia of resenias">
+          <div style="display: flex; flex-direction: row;">
+
+            <!--Imagen perfil doctor-->
+            <img src="\assets\perfil.png" class="img-resenia" alt="">
+
+            <!--Nombre y calificaciones-->
+            <div style="display: flex; flex-direction: column;">
+              <span class="name-resenia">{{ resenia.medico }}</span>
+              <span style="padding-bottom: 1rem; font-size: 12px;">Reseña hecha por: {{ resenia.paciente }}</span>
             </div>
-            <p style="padding-left: 1rem;">{{resenia.fecha}}</p>
 
-            <!-- Estrellas de calificacion-->           
+          </div>
+          <p style="padding-left: 1rem;">{{resenia.fecha}}</p>
 
-            <ng-container *ngFor="let star of [1, 2, 3, 4, 5]" >
-              <mat-icon style="font-size: 25px; padding: 0rem 0.5rem; color: {{ star <= resenia.calificacion ? 'yellow' : 'white' }}" >star</mat-icon>
-            </ng-container>
-            <!--Reseña-->
-              <h3 class="name-resenia" *ngIf="resenia.calificacion <= 1">Muy mal</h3>
-              <h3 class="name-resenia" *ngIf="resenia.calificacion == 2">Mal</h3>
-              <h3 class="name-resenia" *ngIf="resenia.calificacion == 3">Regular</h3>
-              <h3 class="name-resenia" *ngIf="resenia.calificacion == 4">Bueno</h3>
-              <h3 class="name-resenia" *ngIf="resenia.calificacion >= 5">Perfecto</h3>
-              <p style="text-align: justify; padding: 0rem 1rem; " [matTooltip]="resenia.comentario">{{ resenia.comentario.slice(0, 80) }}{{ resenia.comentario.length > 20 ? '...' : '' }}</p>
-            </div>
+          <!-- Estrellas de calificacion-->
+
+          <ng-container *ngFor="let star of [1, 2, 3, 4, 5]">
+            <mat-icon
+              style="font-size: 25px; padding: 0rem 0.5rem; color: {{ star <= resenia.calificacion ? 'yellow' : 'white' }}">star</mat-icon>
+          </ng-container>
+          <!--Reseña-->
+          <h3 class="name-resenia" *ngIf="resenia.calificacion <= 1">Muy mal</h3>
+          <h3 class="name-resenia" *ngIf="resenia.calificacion == 2">Mal</h3>
+          <h3 class="name-resenia" *ngIf="resenia.calificacion == 3">Regular</h3>
+          <h3 class="name-resenia" *ngIf="resenia.calificacion == 4">Bueno</h3>
+          <h3 class="name-resenia" *ngIf="resenia.calificacion >= 5">Perfecto</h3>
+          <p style="text-align: justify; padding: 0rem 1rem; " [matTooltip]="resenia.comentario">{{
+            resenia.comentario.slice(0, 80) }}{{ resenia.comentario.length > 20 ? '...' : '' }}</p>
         </div>
+      </div>
 
-      
 
-        <!------------------------------ RESEÑAS DE CLINICAS ----------------------------------
+
+      <!------------------------------ RESEÑAS DE CLINICAS ----------------------------------
         <h1 class="title" style="font-size: 35px; font-weight: 400;">Reseñas de clinicas:</h1>
         -->
 
     </div>
   </div>
 </body>
+
 </html>
