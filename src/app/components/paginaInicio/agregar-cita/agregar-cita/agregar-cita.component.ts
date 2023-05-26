@@ -16,18 +16,45 @@ export class AgregarCitaComponent {
   selectedMedico: string = 'Seleccionar';
   especialidades: string[] = [];
   clinicas: { nombre: string, id_clinica: number }[] = [];
-  medicos: string[] = [];
-  id_clinica: number = 0;
+  // medicos: string[] = [];
+  medicos: { nombres: string, apellidos: string, dpi: string }[] = [];
+  selectedID_clinica: number = 0;
+  token = localStorage.getItem('jwt');
+  citaForm!: FormGroup;
+  pacientetoken: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
     private router: Router,
     private apiService: ApiService,
-  ) { }
+  ) {
+    this.initializeDpi();
+  }
 
   ngOnInit(): void {
     this.fetchClinicasFromDatabase();
+    this.initializeCitaForm();
+  }
+
+  initializeCitaForm(): void {
+    this.citaForm = this.formBuilder.group({
+      pacientetoken: this.pacientetoken,
+      clinicatoken: ['', Validators.required],
+      medicotoken: ['', Validators.required],
+      hora: ['', Validators.required],
+      fecha: ['', Validators.required],
+    });
+  }
+
+  initializeDpi(): void {
+    const token = localStorage.getItem('jwt');
+    if (token) {
+      const base64Url = token.split('.')[1];
+      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      const payload = JSON.parse(window.atob(base64));
+      this.pacientetoken = payload.user_metadata.dpi;
+    }
   }
 
   toggleDropdown(event: Event): void {
@@ -39,19 +66,21 @@ export class AgregarCitaComponent {
     switch (field) {
       case 'clinica':
         this.selectedClinica = option.nombre;
-        this.id_clinica = option.id_clinica;
-        this.fetchSpecialtiesForClinic(this.id_clinica);
+        this.selectedID_clinica = option.id_clinica;
+        this.fetchSpecialtiesForClinic(option.id_clinica);
         this.selectedEspecialidad = 'Seleccionar';
         this.selectedMedico = 'Seleccionar';
+        this.citaForm.patchValue({ clinicatoken: option.id_clinica });
         break;
       case 'especialidad':
         this.selectedEspecialidad = option;
         this.selectedMedico = 'Seleccionar';
         const normalizedOption = option.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
-        this.fetchDoctorsForClinicAndSpecialty(this.id_clinica, normalizedOption);
+        this.fetchDoctorsForClinicAndSpecialty(this.selectedID_clinica, normalizedOption);
         break;
       case 'medico':
-        this.selectedMedico = option;
+        this.selectedMedico = `${option.nombres} ${option.apellidos}`;
+        this.citaForm.patchValue({ medicotoken: option.dpi });
         break;
       default:
         break;
@@ -96,7 +125,8 @@ export class AgregarCitaComponent {
     this.apiService.getMedicos(id_clinica, especialidad).subscribe(
       (response: any) => {
         if (response && response.medico) {
-          this.medicos = response.medico.map((medico: any) => `${medico.nombres} ${medico.apellidos}`);
+          // this.medicos = response.medico.map((medico: any) => `${medico.nombres} ${medico.apellidos}`);
+          this.medicos = response.medico.map((medico: any) => ({ nombres: medico.nombres, apellidos: medico.apellidos, dpi: medico.dpi }));
         } else {
           console.error('Invalid response:', response);
         }
@@ -105,6 +135,30 @@ export class AgregarCitaComponent {
         console.error('Error fetching doctors:', error);
       }
     );
+  }
+
+  onAgendarClick(): void {
+    const selectedMedico = this.medicos.find((medico) => `${medico.nombres} ${medico.apellidos}` === this.selectedMedico);
+    if (!selectedMedico) {
+      console.error('Medico no encontrado');
+      return;
+    }
+
+    if (this.citaForm.valid) {
+      const citaData = this.citaForm.value;
+
+      this.apiService.postCita(citaData).subscribe(
+        (response: any) => {
+          console.log("Cita agendada con exito", response)
+          this.router.navigate(['/citas-pendientes']);
+        },
+        (error) => {
+          console.error('Error agendando cita:', error);
+        }
+      );
+    } else {
+      console.error('Formulario invalido');
+    }
   }
 
 }

@@ -1,61 +1,64 @@
-<div class="add-citas-container">
-    <div class="window">
-        <div class="title-bar">
-            <span style="font-size: 2rem; font-weight: bold;">Agregar Citas</span>
-        </div>
-        <div class="agregar-citas-details"
-            style="display: flex; flex-direction: row; align-items: flex-start; height: 100%; margin-top: 2rem;">
-            <div class="dropdown-container" style="display: flex; flex-direction: column;">
-                <div class="top-dropdowns" style="display: flex;">
-                    <div class="select-fields">
-                        <p>1. Clínica:</p>
-                        <div class="selected-options">{{ selectedClinica }}</div>
-                        <div class="dropdown">
-                            <button class="dropbtn" (click)="toggleDropdown($event)">Seleccionar</button>
-                            <div class="dropdown-content scrollable-dropdown" [class.above]="isDropdownAbove">
-                                <span class="option" *ngFor="let option of clinicas"
-                                    (click)="selectOption(option, 'clinica')">{{ option.nombre }}</span>
+<form [formGroup]="citaForm" (ngSubmit)="onAgendarClick()">
+    <div class="add-citas-container">
+        <div class="window">
+            <div class="title-bar">
+                <span style="font-size: 2rem; font-weight: bold;">Agregar Citas</span>
+            </div>
+            <div class="agregar-citas-details"
+                style="display: flex; flex-direction: row; align-items: flex-start; height: 100%; margin-top: 2rem;">
+                <div class="dropdown-container" style="display: flex; flex-direction: column;">
+                    <div class="top-dropdowns" style="display: flex;">
+                        <div class="select-fields">
+                            <p>1. Clínica:</p>
+                            <div class="selected-options">{{ selectedClinica }}</div>
+                            <div class="dropdown">
+                                <button class="dropbtn" (click)="toggleDropdown($event)">Seleccionar</button>
+                                <div class="dropdown-content scrollable-dropdown" [class.above]="isDropdownAbove">
+                                    <span class="option" *ngFor="let option of clinicas"
+                                        (click)="selectOption(option, 'clinica')">{{ option.nombre }}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="select-fields">
+                            <p>2. Especialidad:</p>
+                            <div class="selected-options">{{ selectedEspecialidad }}</div>
+                            <div class="dropdown">
+                                <button class="dropbtn" (click)="toggleDropdown($event)">Seleccionar</button>
+                                <div class="dropdown-content scrollable-dropdown" [class.above]="isDropdownAbove">
+                                    <span class="option" *ngFor="let option of especialidades"
+                                        (click)="selectOption(option, 'especialidad')">{{ option }}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="select-fields">
-                        <p>2. Especialidad:</p>
-                        <div class="selected-options">{{ selectedEspecialidad }}</div>
+                        <p>3. Médico:</p>
+                        <div class="selected-options">{{ selectedMedico }}</div>
                         <div class="dropdown">
                             <button class="dropbtn" (click)="toggleDropdown($event)">Seleccionar</button>
                             <div class="dropdown-content scrollable-dropdown" [class.above]="isDropdownAbove">
-                                <span class="option" *ngFor="let option of especialidades"
-                                    (click)="selectOption(option, 'especialidad')">{{ option }}</span>
+                                <span class="option" *ngFor="let option of medicos"
+                                    (click)="selectOption(option, 'medico')">{{ option.nombres + " " + option.apellidos
+                                    }}</span>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="select-fields">
-                    <p>3. Médico:</p>
-                    <div class="selected-options">{{ selectedMedico }}</div>
-                    <div class="dropdown">
-                        <button class="dropbtn" (click)="toggleDropdown($event)">Seleccionar</button>
-                        <div class="dropdown-content scrollable-dropdown" [class.above]="isDropdownAbove">
-                            <span class="option" *ngFor="let option of medicos"
-                                (click)="selectOption(option, 'medico')">{{ option }}</span>
-                        </div>
+                <div class="date-container"
+                    style="margin-left: 10rem; display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+                    <div class="select-fields">
+                        <p>Fecha:</p>
+                        <input type="date" class="date-input" formControlName="fecha">
+                    </div>
+                    <div class="select-fields">
+                        <p>Hora:</p>
+                        <input type="time" class="date-input" formControlName="hora">
                     </div>
                 </div>
             </div>
-            <div class="date-container"
-                style="margin-left: 10rem; display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
-                <div class="select-fields">
-                    <p>Fecha:</p>
-                    <input type="date" class="date-input">
-                </div>
-                <div class="select-fields">
-                    <p>Hora:</p>
-                    <input type="time" class="date-input">
-                </div>
-            </div>
+            <button type="submit" class="btn-agregar-cita">Agendar</button>
         </div>
-        <button class="btn-agregar-cita">Agendar</button>
     </div>
-</div>
+</form>
