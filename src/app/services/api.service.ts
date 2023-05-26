@@ -57,4 +57,9 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/api/resenias/infoResenias`);
   }
 
+  // Obtener Citas
+  getCitas(dpi: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/api/citas/${dpi}`);
+  }
+
 }
