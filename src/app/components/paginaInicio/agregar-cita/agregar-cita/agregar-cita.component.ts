@@ -41,6 +41,8 @@ export class AgregarCitaComponent {
         this.selectedClinica = option.nombre;
         this.id_clinica = option.id_clinica;
         this.fetchSpecialtiesForClinic(this.id_clinica);
+        this.selectedEspecialidad = 'Seleccionar';
+        this.selectedMedico = 'Seleccionar';
         break;
       case 'especialidad':
         this.selectedEspecialidad = option;
