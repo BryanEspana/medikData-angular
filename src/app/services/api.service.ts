@@ -47,4 +47,8 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/api/addcitas/medico/${especialidad}/${id_clinica}`);
   }
 
+  postCita(citaData: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/api/addcitas/agendar-cita`, citaData);
+  }
+
 }
