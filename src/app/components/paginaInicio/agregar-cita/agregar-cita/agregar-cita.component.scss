@@ -66,14 +66,15 @@
     overflow-y: auto;
 }
 
-.dropdown-content a {
+.dropdown-content span {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    cursor: pointer;
 }
 
-.dropdown-content a:hover {
+.dropdown-content span:hover {
     background-color: #ddd;
 }
 
@@ -100,6 +101,17 @@
     margin: 1rem 0;
 }
 
+.selected-options {
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 0.5rem;
+    border-radius: 0.3rem;
+    border: 1px solid #06316B;
+    padding: 5px;
+    font-size: 1rem;
+    color: #06316B;
+}
+
 /* || GENERAL STYLES */
 
 h2 {
@@ -113,4 +125,5 @@ p {
     font-weight: 700;
     font-size: 2rem;
     color: #06316B;
+    margin: 1rem 0;
 }
