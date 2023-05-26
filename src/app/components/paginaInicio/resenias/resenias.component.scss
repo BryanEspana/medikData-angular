@@ -1,30 +1,52 @@
-.widgets{
+.widgets {
     display: flex;
-    overflow-x: auto;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    overflow-x: hidden; /* Quita el scroll horizontal */
+    overflow-y: auto;
     scrollbar-width: thin;
-    scrollbar-color: rebeccapurple green;
-}
-.resenias-widget{
+  }
+  
+  .resenias-widget {
     background-color: #06316B;
-    padding: 1.5rem;
-    width: 280px;
+    padding: 1rem;
+    width: 300px; /* Muestra 4 widgets por fila en pantallas grandes */
+    height: 300px;
     border-radius: 1rem;
     color: white !important;
-    margin: 0rem 1rem;
-    flex: 0 0 auto;
-    margin-right: 1em; 
-    
-}
-
-
-.img-resenia{
+    margin: 0.5rem;
+  }
+  
+  .img-resenia {
     width: 45px;
     height: 45px;
     padding-right: 1rem;
     padding-bottom: 1rem;
-}
-.name-resenia{
+  }
+  
+  .name-resenia {
+    padding-left: 1rem;
     font-weight: 700;
-    font-size: 24px;
-}
-
+    font-size: 28px;
+  }
+  
+  /* Media queries para ajustar la cantidad de widgets por fila en diferentes tamaños de pantalla */
+  
+  @media (max-width: 1200px) {
+    .resenias-widget {
+      width: calc(33.33% - 2rem); /* Muestra 3 widgets por fila en pantallas medianas */
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .resenias-widget {
+      width: calc(50% - 2rem); /* Muestra 2 widgets por fila en pantallas pequeñas */
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .resenias-widget {
+      width: calc(100% - 2rem); /* Muestra 1 widget por fila en pantallas extra pequeñas */
+    }
+  }
+  
