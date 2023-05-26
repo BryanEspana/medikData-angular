@@ -47,4 +47,9 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/api/addcitas/medico/${especialidad}/${id_clinica}`);
   }
 
+  //Ver reseñas
+  getResenias():Observable<any>{
+    return this.http.get(`${this.baseUrl}/resenias`);
+  }
+
 }

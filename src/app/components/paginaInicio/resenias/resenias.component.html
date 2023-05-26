@@ -6,6 +6,8 @@
 <body>
   <div class="dashboard-container">
     <div class="window">
+              <!------------------------------ RESEÑAS DE DOCTORES ------------------------------------>
+
         <div style="display: flex; flex-direction: row; justify-content: space-between;">
             <h1 class="title" style="font-size: 35px; font-weight: 400;">Reseñas de doctores:</h1>
             <mat-icon (click)="regresar()" class="icon-back">arrow_back</mat-icon>
@@ -31,8 +33,11 @@
           <!--Reseña-->
             <h3 class="name-resenia">Satisfactorio</h3>
             <p #textoLimitado style="text-align: justify;">{{ texto }}</p>
-          
+
         </div>
+
+
+        <!------------------------------ RESEÑAS DE CLINICAS ------------------------------------>
         <h1 class="title" style="font-size: 35px; font-weight: 400;">Reseñas de clinicas:</h1>
         <div class="resenias-widget">
           <div style="display: flex; flex-direction: row;">
@@ -54,7 +59,7 @@
           <!--Reseña-->
             <h3 class="name-resenia">Satisfactorio</h3>
             <p #textoLimitado style="text-align: justify;">{{ texto }}</p>
-          
+
         </div>
 
 

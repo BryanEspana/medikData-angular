@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { Location } from '@angular/common';
+import Swal from 'sweetalert2';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -22,7 +24,7 @@ export class RegisterComponent {
     this.showForm = false;  // oculta el formulario
     this.selectedFormType = type;
   }
-  
+
   constructor(
     private location: Location,
     private formBuilder: FormBuilder,
@@ -45,7 +47,7 @@ export class RegisterComponent {
       complicaciones: ['']
     });
 
-    this.registerFromClinica = this.formBuilder.group({   
+    this.registerFromClinica = this.formBuilder.group({
       profile_role: [''],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
@@ -62,6 +64,18 @@ export class RegisterComponent {
   }
 
   onSubmit(): void {
+
+    if (this.registerFromPaciente.invalid) {
+
+      this.registerFromPaciente.markAllAsTouched();
+      Swal.fire({
+        title: 'Inconveniente',
+        text: 'Faltan campos por llenar.',
+        icon: 'error'
+      })
+      return;
+    }
+
     const formData = this.registerFromPaciente.value;
     // Make API call using the ApiService
     this.apiService.signUp(formData).subscribe(
@@ -77,7 +91,7 @@ export class RegisterComponent {
     );
   }
 
-  
+
 
 
   //Recargar pagina:
