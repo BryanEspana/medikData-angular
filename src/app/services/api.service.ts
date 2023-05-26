@@ -49,7 +49,7 @@ export class ApiService {
 
   //Ver reseñas
   getResenias():Observable<any>{
-    return this.http.get(`${this.baseUrl}/resenias`);
+    return this.http.get(`${this.baseUrl}/api/resenias/infoResenias`);
   }
 
 }

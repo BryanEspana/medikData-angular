@@ -1,10 +1,21 @@
+.widgets{
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rebeccapurple green;
+}
 .resenias-widget{
     background-color: #06316B;
     padding: 1.5rem;
     width: 280px;
     border-radius: 1rem;
     color: white !important;
+    margin: 0rem 1rem;
+    flex: 0 0 auto;
+    margin-right: 1em; 
+    
 }
+
 
 .img-resenia{
     width: 45px;
