@@ -46,7 +46,7 @@
         <button type="button" class="registrar-btn" (click)="selectFormType('clinica')">Registrar como clinica</button>          
       </div>
   </div>
-  <!-- Contenido del segundo formulario -->
+  <!-- Contenido del  formulario de Pacientes -->
   <div *ngIf="selectedFormType === 'paciente'" class="overflow-info">
     <div class="register-container" >
       <div class="componentText">
@@ -122,6 +122,7 @@
     </div>
 </div>
 
+  <!-- Contenido del  formulario de Clinicas -->
 
 <div *ngIf="selectedFormType === 'clinica'">
   <div class="register-container" >
