@@ -22,18 +22,16 @@
                       <tr>
                         <th>Fecha</th>
                         <th>Hora</th>
-                        <th>Clínica</th>
                         <th>Doctor</th>
                         <th>Visualizar</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let item of tablaData">
-                        <td>{{ item.fecha }}</td>
-                        <td>{{ item.hora }}</td>
-                        <td>{{ item.clinica }}</td>
-                        <td>{{ item.doctor }}</td>
-                        <td><button (click)="visualizarItem(item)" class="btn-visualizar">Visualizar</button></td>
+                      <tr *ngFor="let cita of citasRealizadas">
+                        <td>{{ cita.fecha }}</td>
+                        <td>{{ cita.hora }}</td>
+                        <td>{{ cita.medico.nombre }} {{ cita.medico.apellidos }}</td>
+                        <td><button (click)="visualizarItem(cita)" class="btn-visualizar">Visualizar</button></td>
                       </tr>
                     </tbody>
                   </table>   

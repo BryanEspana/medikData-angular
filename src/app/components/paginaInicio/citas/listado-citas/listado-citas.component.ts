@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
+import { ApiService } from 'src/app/services/api.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-listado-citas',
   templateUrl: './listado-citas.component.html',
@@ -8,6 +11,8 @@ import { debounceTime } from 'rxjs/operators';
 })
 export class ListadoCitasComponent {
   searchControl = new FormControl('');
+  citasRealizadas: any[] = [];
+  pacientetoken: string = '';
   tablaData = [
     { fecha: '2023-05-21', hora: '09:00 AM', clinica: 'Clínica A', doctor: 'Dr. Juan' },
     { fecha: '2023-05-22', hora: '10:30 AM', clinica: 'Clínica B', doctor: 'Dra. María' },
@@ -16,7 +21,10 @@ export class ListadoCitasComponent {
   ];
   filteredTablaData: any[] = [];
 
-  constructor() {
+  constructor(
+    private route: Router,
+    private apiService: ApiService
+    ) {
     this.searchControl.valueChanges
     .pipe(debounceTime(300))
     .subscribe(value => {
@@ -24,6 +32,7 @@ export class ListadoCitasComponent {
         this.filterTablaData(value);
       }
     });
+    this.initializeDpi();
   }
 
   filterTablaData(value: string) {
@@ -43,7 +52,19 @@ export class ListadoCitasComponent {
     }
   }
   
-  
+  ngOnInit(): void {
+    this.getCitasRealizadas();
+  }
+
+  initializeDpi(): void {
+    const token = localStorage.getItem('jwt');
+    if (token) {
+      const base64Url = token.split('.')[1];
+      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      const payload = JSON.parse(window.atob(base64));
+      this.pacientetoken = payload.user_metadata.dpi;
+    }
+  }
 
   visualizarItem(item: any) {
     // Implementa el código para visualizar el elemento seleccionado
@@ -52,6 +73,19 @@ export class ListadoCitasComponent {
 
   regresar() {
     window.history.back();
+  }
+  
+  getCitasRealizadas() {
+    this.apiService.getCitas(this.pacientetoken).subscribe(
+      (response: any) => {
+        this.citasRealizadas = response.citas;
+        console.log(this.citasRealizadas);
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
+
   }
 
 }

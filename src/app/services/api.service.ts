@@ -61,5 +61,9 @@ export class ApiService {
   getCitasPendientes(dpi: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/api/citas/citaspendientes/${dpi}`);
   }
+  
+  getCitas(dpi: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/api/citas/citaspaciente/${dpi}`);
+  }
 
 }
