@@ -23,6 +23,7 @@
                         <th>Fecha</th>
                         <th>Hora</th>
                         <th>Doctor</th>
+                        <th>Clinica</th>
                         <th>Visualizar</th>
                       </tr>
                     </thead>
@@ -31,6 +32,7 @@
                         <td>{{ cita.fecha }}</td>
                         <td>{{ cita.hora }}</td>
                         <td>{{ cita.medico.nombre }} {{ cita.medico.apellidos }}</td>
+                        <td>{{ cita.clinica.nombre }}</td>
                         <td><button (click)="visualizarItem(cita)" class="btn-visualizar">Visualizar</button></td>
                       </tr>
                     </tbody>
