@@ -30,8 +30,17 @@ export class RegisterComponent {
     private formBuilder: FormBuilder,
     private http: HttpClient,
     private router: Router,
-    private apiService: ApiService
-  ) { }
+    private apiService: ApiService,
+  ) {
+    this.registerFromPaciente = this.formBuilder.group({
+      'medicAlergias': [''],
+      'medicAlergiasInfo': [''],
+    })
+  }
+
+  isTextAreaVisible(): boolean {
+    return this.registerFromPaciente.get('medicAlergias')?.value === 'si';
+  }
 
   ngOnInit(): void {
     this.registerFromPaciente = this.formBuilder.group({
@@ -44,7 +53,12 @@ export class RegisterComponent {
       telefono: ['', Validators.required],
       genero: ['', Validators.required],
       alergias: [''],
-      complicaciones: ['']
+      complicaciones: [''],
+      medicRecurrente: [''],
+      medicEnfermedades: [''],
+      medicAlergias: [''],
+      medicAlergiasInfo: [''],
+
     });
 
     this.registerFromClinica = this.formBuilder.group({

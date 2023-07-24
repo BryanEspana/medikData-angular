@@ -12,7 +12,7 @@
   .btns-register{
     margin-top: 1rem;
     width: 100%;
-    display: flex; 
+    display: flex;
     justify-content: space-between;
     button{
       width: 49%;
@@ -25,6 +25,7 @@
 
   label{
     font-family: 'Quicksand';
+    align-items: center;
     font-weight: 500;
   }
 
@@ -79,16 +80,8 @@
     cursor: pointer;
   }
 
-  .sexRadio{
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-  }
-.generoCheck{
-    width: 25px;
-    position: relative;
-    bottom: 0.5rem;
-}
+
+
 .checkbox{
     width: 25px;
     position: relative;
@@ -115,4 +108,61 @@ h1{
   overflow-y: scroll;
   overflow-x: none;
   height: 100vh;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.checkbox-input {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-custom {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #000;
+  margin-right: 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+/* Estilo del checkbox cuando está marcado */
+.checkbox-input:checked + .checkbox-custom {
+  background-color: #06316B;
+}
+
+/* Si quieres agregar un estilo de check personalizado (por ejemplo, un símbolo de check) */
+.checkbox-input:checked + .checkbox-custom::after {
+  content: '\2713';
+  display: block;
+  text-align: center;
+  width: 20px;
+  line-height: 20px;
+  color: #fff;
+}
+
+/* Estilos adicionales (puedes ajustarlos según tus preferencias) */
+.button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.button:hover {
+  background-color: #0056b3;
 }

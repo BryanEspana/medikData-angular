@@ -29,7 +29,7 @@
           <label for="full_name">Correo electrónico:</label>
           <input type="email" id="email" name="email" formControlName="email" required />
         </div>
-  
+
         <div style="display: flex; flex-direction: row; margin-top: 1rem; margin-bottom: 0.5rem;">
           <div style="margin-right: 1rem;">
             <label for="password">Contraseña:</label>
@@ -43,7 +43,7 @@
       </div>
       <div class="btns-register">
         <button type="button" class="registrar-btn" (click)="selectFormType('paciente')">Registrar como paciente</button>
-        <button type="button" class="registrar-btn" (click)="selectFormType('clinica')">Registrar como clinica</button>          
+        <button type="button" class="registrar-btn" (click)="selectFormType('clinica')">Registrar como clinica</button>
       </div>
   </div>
   <!-- Contenido del  formulario de Pacientes -->
@@ -71,7 +71,7 @@
           </div>
         </div>
           <div style="margin-left: 0rem;">
-            <label for="dpi">DPI/Pasaporte:</label>
+            <label for="dpi">Número de documento:</label>
             <input type="text" id="dpi" name="dpi" formControlName="dpi" required />
           </div>
         <div style="display: flex; flex-direction: row; margin-top: 1rem; margin-bottom: 0.5rem;">
@@ -84,39 +84,77 @@
             <input type="text" id="telefono" name="telefono" formControlName="telefono" required />
           </div>
         </div>
-  
-        <h1 style="display: flex; margin-top: 1rem; font-size: 20px; margin-bottom: 0.5rem;">Llene su información médica:</h1>
-        <div style="display: flex; flex-direction: row; justify-content: space-between;">
-          <div class="sex">
-            <label class="sexRadio">
+
+          <div class="row-custom" style="padding-top: 0.8rem;">
+            <label style="padding-right: 1rem;" >Sexo*</label>
+            <label class="Radios" style="padding-right: 1rem;">
               Masculino:
-              <input type="radio" name="genero" value="male" class="generoCheck" formControlName="genero" />
+              <input type="radio" name="genero" value="male" class="CheckRadio" formControlName="genero" />
             </label>
-            <label class="sexRadio">
+            <label class="Radios">
               Femenino:
-              <input type="radio" name="genero" value="female" class="generoCheck" formControlName="genero" />
+              <input type="radio" name="genero" value="female" class="CheckRadio" formControlName="genero" />
             </label>
           </div>
-        </div>
-  
-        <div>
           <div>
-            <label class="sexRadio" style="margin-bottom: 0.5rem;">
-              ¿Eres alérgico a alguna medicina? (Si no, déjalo en blanco)
-            </label>
-            <textarea id="alergicoTextarea" name="alergias" formControlName="alergias" cols="30" rows="10"></textarea>
+
+            <div class="row-custom" style="padding-top: 1rem;">
+              <label style="padding-right: 1rem; font-size: 15px;">
+              ¿Consumes medicamentos recurrentemente?*
+              </label>
+              <label class="Radios">
+                Si
+                <input type="radio" name="medicRecurrente" value="si" class="CheckRadio" formControlName="medicRecurrente" />
+              </label>
+              <label class="Radios">
+                No
+                <input type="radio" name="medicRecurrente" value="no" class="CheckRadio" formControlName="medicRecurrente" />
+              </label>
+            </div>
+
+            <div class="row-custom" style="padding-top: 1rem;">
+              <label style="padding-right: 1rem; font-size: 15px;">
+                ¿Padeces alguna enfermedad crónica?*
+              </label>
+              <label class="Radios">
+                Si
+                <input type="radio" name="medicEnfermedades" value="si" class="CheckRadio" formControlName="medicEnfermedades" />
+              </label>
+              <label class="Radios">
+                No
+                <input type="radio" name="medicEnfermedades" value="no" class="CheckRadio" formControlName="medicEnfermedades" />
+              </label>
+            </div>
+
+            <div class="row-custom" style="padding-top: 1rem;">
+              <label class="Radios" style="padding-right: 1rem; font-size: 15px;">
+                ¿Eres alérgico a alguna medicina?*
+              </label>
+              <label class="Radios">
+                Si
+                <input type="radio" name="medicAlergias" value="si" class="CheckRadio" formControlName="medicAlergias" />
+              </label>
+              <label class="Radios">
+                No
+                <input type="radio" name="medicAlergias" value="no" class="CheckRadio" formControlName="medicAlergias" />
+              </label>
+            </div>
+            <!-- SI esta activo el checkRadio sale el textarea-->
+            <div *ngIf="isTextAreaVisible()">
+              <label>Cuales:</label>
+              <textarea id="alergicoTextarea" name="medicAlergiasInfo" formControlName="medicAlergiasInfo" cols="30" rows="10" ></textarea>
+            </div>
           </div>
-          <div style="margin-bottom: 1rem;">
-            <label class="sexRadio" style="margin-top: 1rem; margin-bottom: 0.5rem;">
-              ¿Tienes complicaciones médicas? (Si no, déjalo en blanco)
+          <div class="checkbox-container">
+            <label class="checkbox-label">
+              <input type="checkbox" formControlName="aceptoTerminos" class="checkbox-input" />
+              <span class="checkbox-custom"></span>
+              Acepto los términos y condiciones
             </label>
-            <textarea id="complicationsTextarea" name="complicaciones" formControlName="complicaciones" cols="30"
-              rows="10"></textarea>
           </div>
-        </div>
         <div class="btns-register">
           <button type="button" class="registrar-btn" (click)="refreshPage()">Regresar</button>
-          <button type="submit" class="registrar-btn">Registrar como paciente</button>      
+          <button type="submit" class="registrar-btn">Registrar como paciente</button>
         </div>
       </div>
     </div>
@@ -133,9 +171,9 @@
           href="login">Iniciar sesión</a></p>
     </div>
     <div>
-      <div style="display: flex; flex-direction: column;">
+      <div>
         <label for="full_name">Tipo de Usuario:</label>
-        <input type="text" id="profile_role" name="profile_role" formControlName="profile_role" required value="profile_role" placeholder="Clinica" readonly style="background-color: rgb(233, 233, 233); cursor:context-menu;"/>
+        <input type="text" id="profile_role" name="profile_role" formControlName="profile_role" required value="profile_role" placeholder="Clinica" readonly style="background-color: rgb(233, 233, 233); cursor:context-menu; width: 97%;"/>
       </div>
         <div style="margin-right: 1rem;">
           <label for="email">Nombre de clinica:</label>
@@ -148,7 +186,7 @@
         </div>
 
 
-      <div style="display: flex; flex-direction: row; margin-top: 1rem; margin-bottom: 0.5rem;">
+      <div style="display: flex; flex-direction: row; margin-top: 1rem; margin-bottom: 0.5rem; width: 97%;">
         <div>
           <label for="dpi">DPI/Pasaporte:</label>
           <input type="text" id="dpi" name="dpi" formControlName="dpi" required />
@@ -161,7 +199,7 @@
 
       <div class="btns-register">
         <button type="button" class="registrar-btn" (click)="refreshPage()">Regresar</button>
-        <button type="submit" class="registrar-btn">Registrar como paciente</button>      
+        <button type="submit" class="registrar-btn">Registrar como paciente</button>
       </div>
     </div>
   </div>
@@ -171,5 +209,5 @@
 
     <!------------------------------------------------------------DIV DE PACIENTE--------------------------------------------------------------------------------->
 
-  
+
       <!------------------------------------------------------------DIV DE CLINICA--------------------------------------------------------------------------------->
