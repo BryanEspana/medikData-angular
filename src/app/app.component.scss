@@ -172,3 +172,41 @@ mat-list-item:hover{
   top: 0rem;
   z-index: 1000;
 }
+
+.btn-menu{
+  cursor: pointer;
+  margin-top: 0.5rem;
+  background-color: white;
+  border: #06316B 2px solid;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  width: 50px;
+  height: 50px;
+}
+.btn-menu:hover{
+  background-color: #06316B;
+  //animación de color
+  transition: background-color 300ms ease-in-out;
+}
+
+.example-sidenav{
+  //tamaño
+  width: 250px;
+}
+
+.container-mat-drawer{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-right: 1px solid #06316B;
+}
+
+.botonMenu{
+  margin-left: 1rem;
+  color: #06316B;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+  padding: 0rem 1rem;
+}

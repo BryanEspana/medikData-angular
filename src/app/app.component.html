@@ -21,63 +21,45 @@
 <!-- ----------------------------------COMPONENTE DE DASHBOARDS DESPUES DE INICIO---------------------------------- -->
 
 <ng-container *ngIf="isLoggedIn">
-<div class="container">
-  <mat-sidenav-container>
-    <mat-sidenav #sidenav [mode]="'side'" [opened]="true" [fixedInViewport]="true"
-      [ngClass]="sidenavExpanded ? 'expanded' : 'collapsed'">
-      <mat-toolbar>
-        <div class="toolbar-content">
-          <!-- Contenido de -->
-          <mat-icon [ngClass]="sidenavExpanded ? 'icon-expanded' : 'icon-collapsed'" style="size: 500px; padding-left: 0.5rem;" class="titles">account_circle</mat-icon>
-          <button (click)="toggleSidenav()" class="chevron">
-            <mat-icon class="chevron" [ngClass]="sidenavExpanded ? 'icon-expanded' : 'icon-collapsed'">{{ sidenavExpanded ? 'chevron_left' : 'chevron_right' }}</mat-icon>
-          </button>
-        </div>
-      </mat-toolbar>
-      <mat-list>
-        <mat-list-item style="margin-bottom: 1rem;" (click)="closeSidebar()" routerLink="/dashboard">
-          <mat-icon>home</mat-icon>
-          <span class="titles">Inicio</span>
-        </mat-list-item>
-        <mat-list-item style="margin-bottom: 1rem;" (click)="closeSidebar()" routerLink="/citas">
-          <mat-icon>event</mat-icon>
-          <span class="titles">Citas</span>
-        </mat-list-item>
-        <!--<mat-list-item style="margin-bottom: 1rem;" (click)="closeSidebar()" routerLink="/medicamentos">
-          <mat-icon>local_hospital</mat-icon>
-          <span class="titles">Medicamentos</span>
-        </mat-list-item>-->
-        <mat-list-item style="margin-bottom: 1rem;" (click)="closeSidebar()" routerLink="/comentarios" >
-          <mat-icon>rate_review</mat-icon>
-          <span class="titles">Reseñas</span>
-        </mat-list-item>
-        <mat-list-item style="margin-bottom: 1rem;" (click)="closeSidebar()" routerLink="/configuracion" >
-          <mat-icon>settings</mat-icon>
-          <span class="titles">Configuración</span>
-        </mat-list-item>
-        <mat-list-item style="margin-bottom: 1rem;" (click)="RemoveTokenLogOut()" >
-          <mat-icon>exit_to_app</mat-icon>
-          <span class="titles" (click)="RemoveTokenLogOut()">Cerrar sesión</span>
-        </mat-list-item>
-      </mat-list>
-      <mat-list class="titles">
-        <div class="footer-side">
-          <div style="justify-content: space-between;">
-            <mat-icon style=" color: #06316B; size: 25px; ">account_circle</mat-icon>
-            <label class="name-user"> @UsuarioAdmin</label>
-          </div>
-          <button class="button-plan"> Cambiar plan</button>
-        </div>
-      </mat-list>
 
-    </mat-sidenav>
-    <mat-sidenav-content>
-      <!--Fondo degradado-->
-      <div [ngClass]="sidenavExpanded ? 'dark-background' : ''" class="overlay" (click)="closeSidebar()"></div>
+  <mat-drawer-container class="container-mat-drawer" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <img src="assets/session/logoMedicData.png" width="220px">
+      <div class="botonMenu">
+        <img src="/assets/home.png" width="20px" height="20px">
+        <p style="padding-left: 1rem;">Inicio</p>
+      </div>
+      <div class="botonMenu">
+        <img src="/assets/especialidad.png" width="20px" height="20px">
+        <p style="padding-left: 1rem;">Especialidades</p>
+      </div>
+      <div class="botonMenu">
+        <img src="/assets/ubi.png" width="20px" height="20px">
+        <p style="padding-left: 1rem;">Ubicaciones</p>
+      </div>
+      <br>
+      <div class="botonMenu">
+        <img src="/assets/ubi.png" width="20px" height="20px">
+        <p style="padding-left: 1rem;">Ubicaciones</p>
+      </div>
+    </mat-drawer>
+
+    <div class="example-sidenav-content">
+        <div class="btn-menu" (click)="drawer.toggle()">
+          <img src="/assets/dashboard/menu.svg" style="width: 30px; padding: 0.6rem;">
+
+        </div>
       <router-outlet ></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
 
-</div>
+    </div>
+
+  </mat-drawer-container>
 
 </ng-container>
+
+
+<!--
+
+        <router-outlet ></router-outlet>
+
+-->

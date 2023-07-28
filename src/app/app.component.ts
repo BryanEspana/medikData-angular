@@ -30,6 +30,7 @@ import Swal from 'sweetalert2';
 })
 export class AppComponent {
   title = 'medikdata';
+  showFiller = false;
 
   isLoggedIn: boolean = false;
   sidenavExpanded: boolean = false;
