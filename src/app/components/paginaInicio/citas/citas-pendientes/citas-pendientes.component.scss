@@ -1,3 +1,4 @@
+
 .widget-cita{
     background-color: #E8E8E8;
     //padding: 2rem;
@@ -29,7 +30,7 @@
 }
 
 .widget-info{
-    display: flex; 
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     text-align: left;
@@ -50,7 +51,7 @@ hr{
     padding: 2rem;
     display: flex;
     flex-direction: column;
-  
+
     @media (max-width: 768px) {
         width: 95%;
     }

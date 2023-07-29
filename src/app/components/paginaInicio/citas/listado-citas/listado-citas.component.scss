@@ -1,8 +1,22 @@
+.dashboard-container{
+  padding: 3rem 5rem;
+}
+.no-citas-message{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+}
+.search-container{
+  text-align: right !important;
+  align-items: right !important;
+  justify-content: end;
+}
 .table-design {
     width: 100%;
     border-collapse: collapse;
   }
-  
+
   .table-design thead th {
     background-color: #f2f2f2;
     color: #333;
@@ -11,12 +25,12 @@
     text-align: left;
     border-bottom: 2px solid #ddd;
   }
-  
+
   .table-design tbody td {
     padding: 10px;
     border-bottom: 1px solid #ddd;
   }
-  
+
   .btn-visualizar {
     background-color: #4caf50;
     color: #fff;
@@ -26,15 +40,15 @@
     cursor: pointer;
     border-radius: 4px;
   }
-  
+
   .btn-visualizar:hover {
     background-color: #45a049;
   }
-  
+
   .btn-visualizar:focus {
     outline: none;
   }
-  
+
   .btn-visualizar:active {
     background-color: #3e8e41;
   }
@@ -51,12 +65,14 @@
 .search-container {
     position: relative;
   }
-  
+
   .search-icon {
     position: absolute;
     top: 40%;
-    left: 184px;
+    right: 10px;
     transform: translateY(-50%);
     color: #888;
+    cursor: pointer;
   }
-  
+
+

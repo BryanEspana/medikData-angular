@@ -116,11 +116,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   padding: 3rem;
 }
 .icon-back{
-  background-color: #06316B !important;
-  padding: 0.5rem  !important;
-  color: white !important;
-  cursor: pointer !important;
-  border-radius: 0.5rem !important;
+  position: relative;
+  right: 2.1rem;
+  bottom: 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  background-color: white;
+  border: #06316B 2px solid;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  width: 50px;
+  height: 50px;
 }
 
 .row-custom{
@@ -169,3 +175,4 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   padding: 0rem 1rem;
   cursor: pointer;
 }
+
