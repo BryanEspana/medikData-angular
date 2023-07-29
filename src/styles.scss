@@ -159,3 +159,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   position: relative;
   bottom: 0.1rem;
 }
+.botonMenu{
+  margin-left: 1rem;
+  color: #06316B;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+  padding: 0rem 1rem;
+  cursor: pointer;
+}

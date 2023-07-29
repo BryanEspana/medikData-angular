@@ -24,23 +24,34 @@
 
   <mat-drawer-container class="container-mat-drawer" autosize>
     <mat-drawer #drawer class="example-sidenav" mode="side">
-      <img src="assets/session/logoMedicData.png" width="220px">
-      <div class="botonMenu">
-        <img src="/assets/home.png" width="20px" height="20px">
+      <img src="/assets/dashboard/logoMedicData.png" width="220px">
+      <div class="botonMenu" (click)="drawer.toggle()" routerLink="/dashboard">
+        <img src="/assets/dashboard/home.png" width="20px" height="20px">
         <p style="padding-left: 1rem;">Inicio</p>
       </div>
-      <div class="botonMenu">
-        <img src="/assets/especialidad.png" width="20px" height="20px">
+      <br>
+
+      <div class="botonMenu" (click)="drawer.toggle()">
+        <img src="/assets/dashboard/doc.png" width="20px" height="20px">
         <p style="padding-left: 1rem;">Especialidades</p>
       </div>
-      <div class="botonMenu">
-        <img src="/assets/ubi.png" width="20px" height="20px">
+      <br>
+
+      <div class="botonMenu" (click)="drawer.toggle()">
+        <img src="/assets/dashboard/ubi.png" width="20px" height="20px">
         <p style="padding-left: 1rem;">Ubicaciones</p>
       </div>
       <br>
-      <div class="botonMenu">
-        <img src="/assets/ubi.png" width="20px" height="20px">
-        <p style="padding-left: 1rem;">Ubicaciones</p>
+
+      <div class="botonMenu" (click)="drawer.toggle()" routerLink="/comentarios" >
+        <img src="/assets/dashboard/resenias.png" width="20px" height="20px">
+        <p style="padding-left: 1rem;">Reseñas</p>
+      </div>
+      <br>
+
+      <div class="botonMenu Exit" (click)="drawer.toggle()">
+        <img src="/assets/dashboard/exit.png" width="20px" height="20px">
+        <p style="padding-left: 1rem;">Cerrar sesión</p>
       </div>
     </mat-drawer>
 

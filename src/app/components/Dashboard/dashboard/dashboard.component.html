@@ -1,40 +1,48 @@
-<div class="dashboard-container">
-    <div class="window">
-        <div class="title-bar">
-            <span style="font-size: 2rem; font-weight: bold;">Inicio</span>
-        </div>
-        <div class="cards-container" style="display: flex; justify-content: space-between; height: 60%;">
-            <div class="card principal-color" routerLink="/agregar-cita">
-                <img src="assets\dashboard\agendar-citas.svg" alt="">
-                <div class="card-content">
-                    <h2 class="card-title">Agendar<br>Nueva Cita</h2>
-                </div>
-            </div>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
 
-            <div class="card principal-color" routerLink="/listado-citas">
-                <img src="assets\citas\list.png" alt="">
-                <div class="card-content">
-                    <h2 class="card-title">Listado<br>de citas</h2>
-                </div>
-            </div>
-
-            <!-- MEDICAMENTO (ES PARA DOCTORES)-->
-            <!--<div class="card principal-color" routerLink="/medicamentos">
-                <img src="assets\dashboard\solicitar-medicamentos.png" alt="">
-                <div class="card-content">
-                    <h2 class="card-title">Solicitar<br>Medicamento</h2>
-                </div>
-            </div>-->
-            <div class="card principal-color">
-                <img src="assets\dashboard\emergencia.png" alt="">
-                <div class="card-content">
-                    <h2 class="card-title">Emergencias</h2>
-                </div>
-            </div>
-        </div>
-
+<div class="breadcrumbs">
+    <div class="botonMenu" routerLink="/dashboard">
+      <img src="/assets/dashboard/home.png" width="20px" height="20px">
+      <p style="padding-left: 1rem;">Inicio</p>
     </div>
+    <!--divisor-->
+    <img src="/assets/dashboard/flechaRight.png" width="20px" height="20px">
+    <div href="#" style="padding: 0rem 0.8rem;">Agendar Cita</div>
+    <!--divisor-->
 </div>
 
-
-<!-- AQUI TE TOCA MARIO :) -->
+<div class="displayrow">
+  <div>
+    <img src="/assets/dashboard/man.png" width="350px" class="lineImg">
+    <h1 style="color: #06316B;"> Bienvenido a </h1>
+    <h1 style="color: #06316B;"> MedicData</h1>
+  </div>
+  <div>
+    <div class="displayrow card" style="margin-left: 2rem;">
+      <img src="/assets/dashboard/citas.png" width="100px" >
+      <div style="align-items: left; text-align: left; color: #06316B; margin-left: 2rem;">
+        <h2>Tus Citas Activas</h2>
+        <label> Revisa tus citas programadas</label>
+      </div>
+      <button style="width: 150px; height:50px; font-size: 20px; border-radius: 10rem; margin-left:1rem">Ver citas</button>
+    </div>
+    <div class="displayrow card" style="margin-left: 2rem;">
+      <img src="/assets/dashboard/citas.png" width="100px" >
+      <div style="align-items: left; text-align: left; color: #06316B; margin-left: 2rem;">
+        <h2>Tus Citas Activas</h2>
+        <label> Revisa tus citas programadas</label>
+      </div>
+      <button style="width: 150px; height:50px; font-size: 20px; border-radius: 10rem; margin-left:1rem">Ver citas</button>
+    </div>
+    <div class="displayrow card" style="margin-left: 2rem;">
+      <img src="/assets/dashboard/citas.png" width="100px" >
+      <div style="align-items: left; text-align: left; color: #06316B; margin-left: 2rem;">
+        <h2>Tus Citas Activas</h2>
+        <label> Revisa tus citas programadas</label>
+      </div>
+      <button style="width: 150px; height:50px; font-size: 20px; border-radius: 10rem; margin-left:1rem">Ver citas</button>
+    </div>
+  </div>
+</div>
