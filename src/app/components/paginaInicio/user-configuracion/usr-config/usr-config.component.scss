@@ -5,6 +5,7 @@
     align-items: center;
     height: 100vh;
     font-family: 'Quicksand';
+    padding: 3rem 4rem;
 }
 
 .window {
@@ -32,21 +33,21 @@
 }
 
 .change-multiple {
-    height: 100%; 
-    width: 100%; 
+    height: 100%;
+    width: 100%;
     display: flex;
 }
 
 .fields {
-    display: flex; 
-    flex-direction: column; 
+    display: flex;
+    flex-direction: column;
     justify-content: flex-end;
     width: 100%;
 }
 
 .field-texts {
-    display: flex; 
-    flex-direction: row; 
+    display: flex;
+    flex-direction: row;
     width: 100%;
 }
 
@@ -73,6 +74,6 @@ img {
 }
 
 p {
-    font-weight: 700; 
+    font-weight: 700;
     color: #06316B;
 }
