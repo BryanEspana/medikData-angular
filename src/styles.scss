@@ -176,3 +176,31 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   cursor: pointer;
 }
 
+
+
+.breadcrumbs a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.breadcrumbs{
+  margin-left: 4rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.5rem 0rem;
+}
+
+.displayrow{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0rem 5rem;
+}
+.lineImg{
+  border-bottom: 5px solid #06316B;
+}
+.imgDecoration{
+  position: absolute;
+}
