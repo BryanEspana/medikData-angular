@@ -12,6 +12,7 @@ import { ListadoCitasComponent } from './components/paginaInicio/citas/listado-c
 import { ReseniasComponent } from './components/paginaInicio/resenias/resenias.component';
 import { UsrConfigComponent } from './components/paginaInicio/user-configuracion/usr-config/usr-config.component';
 import { AgregarCitaComponent } from './components/paginaInicio/agregar-cita/agregar-cita/agregar-cita.component';
+import { ClinicasComponent } from './components/paginaInicio/clinicas/clinicas.component';
 
 const routes: Routes = [
 //RUTAS
@@ -38,6 +39,8 @@ const routes: Routes = [
   //Configuracion Usuario
   {path:'configuracion', component: UsrConfigComponent, canActivate:[AuthGuard]},
 
+  //Clinicas
+  {path:'clinicas', component: ClinicasComponent, canActivate:[AuthGuard]},
 
   //Error
   {path:'**', redirectTo:'/login', pathMatch: 'full'},

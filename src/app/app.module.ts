@@ -30,6 +30,7 @@ import { AgregarCitaComponent } from './components/paginaInicio/agregar-cita/agr
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCardModule } from '@angular/material/card';
 import { MatCalendar } from '@angular/material/datepicker';
+import { ClinicasComponent } from './components/paginaInicio/clinicas/clinicas.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +45,7 @@ import { MatCalendar } from '@angular/material/datepicker';
     ReseniasComponent,
     UsrConfigComponent,
     AgregarCitaComponent,
+    ClinicasComponent,
   ],
   imports: [
     BrowserModule,
