@@ -139,7 +139,7 @@ h2 {
 }
 
 
-input{
+.cardinputs{
   width: -webkit-fill-available !important;
   border: none;
   border-radius: 0rem;
@@ -165,4 +165,43 @@ input{
   padding: 0.5rem;
   margin: 0rem;
   margin-top: 1.1rem;
+}
+.calendar-card {
+  width: 400px;
+  margin: 1rem;
+}
+
+
+mat-calendar span.button{
+  background-image: none !important;
+}
+mat-calendar button{
+  background-image: none !important;
+}
+mat-calendar .mat-calendar-previous-button, mat-calendar button.mat-calendar-next-button{
+  background-image: none !important;
+}
+
+mat-calendar .mat-calendar-previous-button{
+  background-image: none !important;
+}
+
+
+.printFecha{
+  background-color: #06316B;
+  color: white;
+  padding: 0.5rem 0rem;
+  margin: 0rem 1rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.printFechaInput{
+  background-color: white;
+  border: 1px solid #06316B;
+  color: black;
+  cursor: pointer;
+  border-radius: 0rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
 }

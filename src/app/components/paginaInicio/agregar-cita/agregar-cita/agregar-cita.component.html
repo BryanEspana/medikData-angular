@@ -69,10 +69,16 @@
                           <div class="numCard card">
                             4
                           </div>
-                        <div class="select-fields">
-                          <label class="tituloSelect">Fecha:</label>
-                          <input type="date" id="datepicker" placeholder="Seleccionar fecha" formControlName="fecha">
-                      </div>
+                          <div>
+                            <mat-card class="calendar-card">
+                              <mat-calendar [(selected)]="selectedDate"></mat-calendar>
+                            </mat-card>
+                            <div>
+                              <p class="printFecha"> Fecha de la cita: </p>
+                              <p class="printFechaInput printFecha" *ngIf="!selectedDate">00/00/0000</p>
+                              <p class="printFechaInput printFecha" *ngIf="selectedDate">{{formatearFecha(selectedDate)}} </p>
+                            </div>
+                          </div>
                       </div>
                       <!--
                       <div class="select-fields">

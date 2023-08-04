@@ -28,7 +28,8 @@ import { ReseniasComponent } from './components/paginaInicio/resenias/resenias.c
 import { UsrConfigComponent } from './components/paginaInicio/user-configuracion/usr-config/usr-config.component';
 import { AgregarCitaComponent } from './components/paginaInicio/agregar-cita/agregar-cita/agregar-cita.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
+import { MatCardModule } from '@angular/material/card';
+import { MatCalendar } from '@angular/material/datepicker';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +60,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
         MatSelectModule,
         MatNativeDateModule,
         MatDatepickerModule,
-        MatTooltipModule
+        MatTooltipModule,
+        MatCardModule,
+
 
   ],
   providers: [],

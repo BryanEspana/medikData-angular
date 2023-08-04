@@ -4,13 +4,23 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import Swal from 'sweetalert2';
+import { formatDate } from '@angular/common';
+
+
+
 
 @Component({
   selector: 'app-agregar-cita',
   templateUrl: './agregar-cita.component.html',
-  styleUrls: ['./agregar-cita.component.scss']
+  styleUrls: ['./agregar-cita.component.scss'],
 })
 export class AgregarCitaComponent {
+  //SEleccionar fecha
+  selectedDate: Date | null | undefined;
+  formatearFecha(fecha: Date): string {
+    return formatDate(fecha, 'dd/MM/yyyy', 'en-US');
+  }
+
   isDropdownAbove: boolean = false;
   selectedEspecialidad: string = 'Seleccionar';
   selectedClinica: string = 'Seleccionar';
