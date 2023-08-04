@@ -11,7 +11,7 @@
             <h1 class="title" style="font-size: 35px; font-weight: 400;">Citas pendientes:</h1>
             <mat-icon (click)="regresar()" class="icon-back">arrow_back</mat-icon>
         </div>
-        <div class="cards-container" style="display: flex; flex-direction: column; justify-content: center; height: 60%;">  
+        <div class="cards-container" style="display: flex; flex-direction: column; justify-content: center; height: 60%;">
         <div class="widget-cita" style="margin: 2rem 0;" *ngFor="let cita of citasPendientes">
             <!--Fecha-->
             <div class="widget-fecha">
@@ -27,7 +27,7 @@
                     <span>{{ cita.clinica.nombre }}</span>
                     <p> {{ cita.medico.nombres }} {{ cita.medico.apellidos }}</p>
                 </div>
-                <button id="btnAnularCita" class="btn-cancelar" style="width: 150px;">Anular Cita</button>
+                <button id="btnAnularCita" class="btn-cancelar button-general" style="width: 150px;">Anular Cita</button>
             </div>
             <hr>
             <span class="verdetalle"> Ver detalle completo </span>

@@ -26,7 +26,7 @@
                             <div  class="select-fields">
                               <label class="tituloSelect">Selecciona tu especialidad:</label>
                               <div class="dropdown">
-                                <button class="dropbtn" (click)="toggleDropdown($event)">{{ selectedEspecialidad }}</button>
+                                <button class="dropbtn button-general" (click)="toggleDropdown($event)">{{ selectedEspecialidad }}</button>
                                 <div class="dropdown-content scrollable-dropdown" [class.above]="isDropdownAbove">
                                     <span class="option" *ngFor="let option of especialidades"
                                         (click)="selectOption(option, 'especialidad')">{{ option }}</span>
@@ -41,7 +41,7 @@
                           <div class="select-fields">
                             <label class="tituloSelect">Selecciona la clinica de tu preferencia:</label>
                             <div class="dropdown">
-                              <button class="dropbtn" (click)="toggleDropdown($event)">{{ selectedClinica }}</button>
+                              <button class="dropbtn button-general" (click)="toggleDropdown($event)">{{ selectedClinica }}</button>
                               <div class="dropdown-content scrollable-dropdown" [class.above]="isDropdownAbove">
                                   <span class="option" *ngFor="let option of clinicas"
                                       (click)="selectOption(option, 'clinica')">{{ option.nombre }}</span>
@@ -56,7 +56,7 @@
                         <div class="select-fields">
                             <label class="tituloSelect">Selecciona un medico disponible:</label>
                             <div class="dropdown">
-                                <button class="dropbtn" (click)="toggleDropdown($event)">{{ selectedMedico }}</button>
+                                <button class="dropbtn button-general" (click)="toggleDropdown($event)">{{ selectedMedico }}</button>
                                 <div class="dropdown-content scrollable-dropdown" [class.above]="isDropdownAbove">
                                     <span class="option" *ngFor="let option of medicos"
                                         (click)="selectOption(option, 'medico')">{{ option.nombres + " " + option.apellidos
@@ -88,7 +88,7 @@
                   </div>
 
               </div>
-              <button type="submit" class="btn-agregar-cita">Agendar</button>
+              <button type="submit" class="btn-agregar-cita button-general">Agendar</button>
   </form>
   <img src="/assets/unDraw/documents.svg" width="500px" style="padding: 0rem 2rem;">
 

@@ -37,7 +37,7 @@
                       <td>{{ cita.hora }}</td>
                       <td>{{ cita.medico.nombre }} {{ cita.medico.apellidos }}</td>
                       <td>{{ cita.clinica.nombre }}</td>
-                      <td><button (click)="visualizarItem(cita)" class="btn-visualizar">Visualizar</button></td>
+                      <td><button (click)="visualizarItem(cita)" class="btn-visualizar button-general">Visualizar</button></td>
                     </tr>
                 </tbody>
               </table>
@@ -52,7 +52,7 @@
       <img src="/assets/unDraw/none.svg" width="300px">
       <h2>No tienes ninguna cita realizada</h2>
       <h4>¿Deseas agendar una nueva cita?</h4>
-      <button class="btn-agendar" routerLink="/agregar-cita">Agendar cita</button>
+      <button class="btn-agendar button-general" routerLink="/agregar-cita">Agendar cita</button>
 
     </div>
   </ng-template>
