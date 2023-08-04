@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
-import flatpickr from "flatpickr";
 import Swal from 'sweetalert2';
 
 @Component({
