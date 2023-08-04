@@ -169,6 +169,7 @@ h2 {
 .calendar-card {
   width: 400px;
   margin: 1rem;
+  border: 2px solid #06316B;
 }
 
 
@@ -198,10 +199,34 @@ mat-calendar .mat-calendar-previous-button{
 
 .printFechaInput{
   background-color: white;
-  border: 1px solid #06316B;
+  border: 2px solid #06316B;
   color: black;
   cursor: pointer;
   border-radius: 0rem;
-  border-bottom-left-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
+}
+.horas-widget{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 1rem;
+}
+
+.hora{
+  width: 100px;
+  height: 50px;
+  border-radius: 1rem;
+  margin: 1rem;
+  background-color: #06316B;
+  color: white;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.hora:hover{
+  background-color: #234f8a;
+  color: white;
 }

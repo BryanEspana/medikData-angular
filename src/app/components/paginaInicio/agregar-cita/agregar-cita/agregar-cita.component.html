@@ -75,10 +75,36 @@
                             </mat-card>
                             <div>
                               <p class="printFecha"> Fecha de la cita: </p>
-                              <p class="printFechaInput printFecha" *ngIf="!selectedDate">00/00/0000</p>
-                              <p class="printFechaInput printFecha" *ngIf="selectedDate">{{formatearFecha(selectedDate)}} </p>
+                              <!-----------------------FECHA----------------------------->
+                              <div class="printFechaInput printFecha" *ngIf="!selectedDate" style="justify-content: space-between; flex-direction: row; display: flex; padding: 0.5rem 1rem;">
+                                <div>Fecha:</div>
+                                <div>00/00/0000</div>
+                              </div>
+                              <div class="printFechaInput printFecha" *ngIf="selectedDate" style="justify-content: space-between; flex-direction: row; display: flex; padding: 0.5rem 1rem; border-radius: 0rem;">
+                                <div>Fecha:</div>
+                                <div>{{formatearFecha(selectedDate)}} </div>
+                              </div>
+                              <!--------------------------HORA---------------------------------->
+                              <div class="printFechaInput printFecha" *ngIf="!selectedDate" style="justify-content: space-between; flex-direction: row; display: flex; padding: 0.5rem 1rem; border-bottom-left-radius: 0.5rem;
+                              border-bottom-right-radius: 0.5rem;">
+                                <div>Hora:</div>
+                                <div>00:00PM</div>
+                              </div>
+                              <div class="printFechaInput printFecha" *ngIf="selectedDate" style="justify-content: space-between; flex-direction: row; display: flex; padding: 0.5rem 1rem; border-bottom-left-radius: 0.5rem;
+                              border-bottom-right-radius: 0.5rem;">
+                                <div>Hora:</div>
+                                <div>{{formatearFecha(selectedDate)}} </div>
+                              </div>
                             </div>
                           </div>
+                      </div>
+                      <div class="horas-widget">
+                        <button class="hora" formControlName="hora">03:00PM</button>
+                        <button class="hora" formControlName="hora">01:00PM</button>
+                        <button class="hora" formControlName="hora">12:00AM</button>
+                        <button class="hora" formControlName="hora">06:00PM</button>
+                        <button class="hora" formControlName="hora">08:00AM</button>
+                        <button class="hora" formControlName="hora">07:00PM</button>
                       </div>
                       <!--
                       <div class="select-fields">
