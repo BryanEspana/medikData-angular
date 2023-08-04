@@ -2,6 +2,7 @@
 <head>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
 </head>
 <div class="breadcrumbs">
   <div class="botonMenu" routerLink="/dashboard">
@@ -58,7 +59,7 @@
                 <div class="date-container">
                     <div class="select-fields">
                         <label class="tituloSelect">Fecha:</label>
-                        <input type="date" class="date-input" formControlName="fecha">
+                        <input type="date" id="datepicker" placeholder="Seleccionar fecha" formControlName="fecha">
                     </div>
                     <div class="select-fields">
                         <label class="tituloSelect">Hora:</label>
@@ -68,3 +69,13 @@
             </div>
             <button type="submit" class="btn-agregar-cita">Agendar</button>
 </form>
+
+
+<script>
+  flatpickr("#datepicker", {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+}
+);
+
+</script>
