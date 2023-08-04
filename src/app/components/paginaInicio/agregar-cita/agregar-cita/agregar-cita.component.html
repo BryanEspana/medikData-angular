@@ -15,61 +15,82 @@
   <!--divisor-->
 
 </div>
-<form [formGroup]="citaForm" (ngSubmit)="onAgendarClick()" style="padding: 2rem;" class="card">
-            <div class="title-bar">
-                <span style="font-size: 2rem; ">Agendar cita:</span>
-                <label for="">Paciente: {{ nameUser}} </label>
-            </div>
-            <div class="agregar-citas-details">
-                <div class="dropdown-container" style="display: flex; flex-direction: column;">
-                        <div  class="select-fields">
-                          <label class="tituloSelect">Selecciona tu especialidad:</label>
-                          <div class="dropdown">
-                            <button class="dropbtn" (click)="toggleDropdown($event)">{{ selectedEspecialidad }}</button>
-                            <div class="dropdown-content scrollable-dropdown" [class.above]="isDropdownAbove">
-                                <span class="option" *ngFor="let option of especialidades"
-                                    (click)="selectOption(option, 'especialidad')">{{ option }}</span>
+<div class="displayrow">
+  <form [formGroup]="citaForm" (ngSubmit)="onAgendarClick()" style="padding: 2rem;" class="card">
+              <div class="title-bar">
+                  <span style="font-size: 2rem; ">Agendar cita:</span>
+                  <label for="">Paciente: {{ nameUser}} </label>
+              </div>
+              <div class="agregar-citas-details">
+                  <div class="dropdown-container" style="display: flex; flex-direction: column;">
+                          <div style="display: inherit; flex-direction: row">
+                            <div class="numCard card">
+                              1
                             </div>
-                        </div>
-                        </div>
-
-                        <div class="select-fields">
-                          <label class="tituloSelect">Selecciona la clinica de tu preferencia:</label>
-                          <div class="dropdown">
-                            <button class="dropbtn" (click)="toggleDropdown($event)">{{ selectedClinica }}</button>
-                            <div class="dropdown-content scrollable-dropdown" [class.above]="isDropdownAbove">
-                                <span class="option" *ngFor="let option of clinicas"
-                                    (click)="selectOption(option, 'clinica')">{{ option.nombre }}</span>
+                            <div  class="select-fields">
+                              <label class="tituloSelect">Selecciona tu especialidad:</label>
+                              <div class="dropdown">
+                                <button class="dropbtn" (click)="toggleDropdown($event)">{{ selectedEspecialidad }}</button>
+                                <div class="dropdown-content scrollable-dropdown" [class.above]="isDropdownAbove">
+                                    <span class="option" *ngFor="let option of especialidades"
+                                        (click)="selectOption(option, 'especialidad')">{{ option }}</span>
+                                </div>
                             </div>
-                        </div>
-
-                      </div>
-                      <div class="select-fields">
-                          <label class="tituloSelect">Selecciona un medico disponible:</label>
-                          <div class="dropdown">
-                              <button class="dropbtn" (click)="toggleDropdown($event)">{{ selectedMedico }}</button>
+                            </div>
+                          </div>
+                          <div style="display: inherit; flex-direction: row">
+                            <div class="numCard card">
+                              2
+                            </div>
+                          <div class="select-fields">
+                            <label class="tituloSelect">Selecciona la clinica de tu preferencia:</label>
+                            <div class="dropdown">
+                              <button class="dropbtn" (click)="toggleDropdown($event)">{{ selectedClinica }}</button>
                               <div class="dropdown-content scrollable-dropdown" [class.above]="isDropdownAbove">
-                                  <span class="option" *ngFor="let option of medicos"
-                                      (click)="selectOption(option, 'medico')">{{ option.nombres + " " + option.apellidos
-                                      }}</span>
+                                  <span class="option" *ngFor="let option of clinicas"
+                                      (click)="selectOption(option, 'clinica')">{{ option.nombre }}</span>
                               </div>
                           </div>
+                          </div>
+                        </div>
+                        <div style="display: inherit; flex-direction: row">
+                          <div class="numCard card">
+                            3
+                          </div>
+                        <div class="select-fields">
+                            <label class="tituloSelect">Selecciona un medico disponible:</label>
+                            <div class="dropdown">
+                                <button class="dropbtn" (click)="toggleDropdown($event)">{{ selectedMedico }}</button>
+                                <div class="dropdown-content scrollable-dropdown" [class.above]="isDropdownAbove">
+                                    <span class="option" *ngFor="let option of medicos"
+                                        (click)="selectOption(option, 'medico')">{{ option.nombres + " " + option.apellidos
+                                        }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div style="display: inherit; flex-direction: row">
+                          <div class="numCard card">
+                            4
+                          </div>
+                        <div class="select-fields">
+                          <label class="tituloSelect">Fecha:</label>
+                          <input type="date" id="datepicker" placeholder="Seleccionar fecha" formControlName="fecha">
                       </div>
+                      </div>
+                      <!--
                       <div class="select-fields">
-                        <label class="tituloSelect">Fecha:</label>
-                        <input type="date" id="datepicker" placeholder="Seleccionar fecha" formControlName="fecha">
-                    </div>
-                    <div class="select-fields">
-                        <label class="tituloSelect">Hora:</label>
-                        <input type="time" class="date-input" formControlName="hora">
-                    </div>
-                </div>
+                          <label class="tituloSelect">Hora:</label>
+                          <input type="time" class="date-input" formControlName="hora">
+                      </div>-->
+                  </div>
 
-            </div>
-            <button type="submit" class="btn-agregar-cita">Agendar</button>
-</form>
-<<<<<<< Updated upstream
-=======
+              </div>
+              <button type="submit" class="btn-agregar-cita">Agendar</button>
+  </form>
+  <img src="/assets/unDraw/documents.svg" width="500px" style="padding: 0rem 2rem;">
+
+</div>
 <div style="padding-top: 1rem;"></div>
 
 <script>
@@ -80,4 +101,3 @@
 );
 
 </script>
->>>>>>> Stashed changes

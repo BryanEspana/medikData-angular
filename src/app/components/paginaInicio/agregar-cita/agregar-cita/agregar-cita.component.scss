@@ -153,7 +153,16 @@ input{
 
 .card{
   display: table-cell;
-  width: 80%;
+  width: 40%;
   margin-bottom: 1rem;
   padding: 1rem;
+}
+
+.numCard{
+  position: relative;
+  width: 25px;
+  font-size: 20px;
+  padding: 0.5rem;
+  margin: 0rem;
+  margin-top: 1.1rem;
 }
