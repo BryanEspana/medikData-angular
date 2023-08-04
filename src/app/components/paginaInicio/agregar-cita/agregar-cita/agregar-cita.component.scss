@@ -14,7 +14,7 @@
 }
 .tituloSelect{
   background-color: white;
-  padding: 0.5rem 1rem;
+  padding: 1rem;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
 }
@@ -29,7 +29,8 @@
 }
 
 .select-fields {
-    width: 400px;
+    width: 450px;
+    height: 99px;
     justify-self: center;
     align-self: center;
     border: 2px solid #06316B;
@@ -46,7 +47,7 @@
     border-bottom-left-radius: 0.4rem;
     border-bottom-right-radius: 0.4rem;
     width: 100%;
-    height: 2rem;
+    height: 3rem;
     padding: 16px;
     font-size: 16px;
     border: none;
@@ -64,9 +65,10 @@
 .dropdown-content {
     display: none;
     position: absolute;
+    text-align: left;
     background-color: #f1f1f1;
     min-width: 10rem;
-    width: auto;
+    width: 100%;
     height: fit-content;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
@@ -98,8 +100,6 @@
 }
 
 .btn-agregar-cita {
-    position: absolute;
-    text-decoration: underline;
     bottom: 6rem;
     right: 1rem;
     color: #fff;
@@ -142,9 +142,18 @@ h2 {
 input{
   width: -webkit-fill-available !important;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 0rem;
+  height: 99px;
+  border-bottom-left-radius: 0.4rem;
+  border-bottom-right-radius: 0.4rem;
   padding-left: 0.5rem;
   background-color: #06316B;
   color: white;
+}
 
+.card{
+  display: table-cell;
+  width: 80%;
+  margin-bottom: 1rem;
+  padding: 1rem;
 }

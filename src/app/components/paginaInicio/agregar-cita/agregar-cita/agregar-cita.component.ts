@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
+import flatpickr from "flatpickr";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-agregar-cita',
@@ -22,6 +24,24 @@ export class AgregarCitaComponent {
   token = localStorage.getItem('jwt');
   citaForm!: FormGroup;
   pacientetoken: string = '';
+  nameUser: string = '';
+
+
+  //Proceso de Agendar cita:
+  currentStep: number = 1;
+  stepsCompleted: { [key: string]: boolean } = {
+    especialidad: false,
+    clinica: false,
+    medico: false,
+    fecha: false,
+  };
+
+  stepEnabled: { [key: string]: boolean } = {
+    especialidad: true,
+    clinica: false,
+    medico: false,
+    fecha: false,
+  };
 
   constructor(
     private formBuilder: FormBuilder,
@@ -30,11 +50,13 @@ export class AgregarCitaComponent {
     private apiService: ApiService,
   ) {
     this.initializeDpi();
+    this.initializeName();
   }
 
   ngOnInit(): void {
     this.fetchClinicasFromDatabase();
     this.initializeCitaForm();
+
   }
 
   initializeCitaForm(): void {
@@ -45,6 +67,8 @@ export class AgregarCitaComponent {
       hora: ['', Validators.required],
       fecha: ['', Validators.required],
     });
+    //solo mostrar el name user
+
   }
 
   initializeDpi(): void {
@@ -54,6 +78,17 @@ export class AgregarCitaComponent {
       const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
       const payload = JSON.parse(window.atob(base64));
       this.pacientetoken = payload.user_metadata.dpi;
+    }
+  }
+  initializeName(): void {
+    const token = localStorage.getItem('jwt');
+    if (token) {
+      const base64Url = token.split('.')[1];
+      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      const payload = JSON.parse(window.atob(base64));
+      console.log("payload", payload);
+      this.nameUser = payload.user_metadata.full_name;
+      console.log(this.nameUser);
     }
   }
 
@@ -96,6 +131,12 @@ export class AgregarCitaComponent {
             id_clinica: clinic.id_clinica
           }));
         } else {
+          Swal.fire({
+            title: 'Error',
+            text: 'response',
+            icon: 'error'
+          }).then(() => {
+          });
           console.error('Invalid response:', response);
         }
       },
@@ -160,5 +201,7 @@ export class AgregarCitaComponent {
       console.error('Formulario invalido');
     }
   }
+
+
 
 }

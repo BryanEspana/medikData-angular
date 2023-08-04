@@ -9,6 +9,8 @@
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap');
+@import "flatpickr/dist/flatpickr.min.css";
+
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
@@ -203,4 +205,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 .imgDecoration{
   position: absolute;
+}
+
+.card{
+  border-radius: 0.5rem;
+  border: 2px #06316B solid;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+  padding: 1rem;
+  margin: 1rem;
+  width: 100%;
+  height: 100%;
+
 }
