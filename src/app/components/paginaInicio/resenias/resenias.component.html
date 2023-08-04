@@ -9,9 +9,11 @@
   <div class="dashboard-container">
     <div class="window" style="margin-top: 5rem;">
       <!------------------------------ RESEÑAS DE DOCTORES ------------------------------------>
-      <div style="display: flex; flex-direction: row; justify-content: space-between;">
+      <div style="display: flex; flex-direction: row;">
+        <div (click)="regresar()" class="icon-back">
+          <img src="/assets/dashboard/back.png" width="40px">
+        </div>
         <h1 class="title" style="font-size: 35px; font-weight: 400;">Reseñas de doctores:</h1>
-        <mat-icon (click)="regresar()" class="icon-back">arrow_back</mat-icon>
       </div>
       <div class="widgets">
         <!-- Reseñas-->
@@ -22,28 +24,31 @@
             <img src="\assets\perfil.png" class="img-resenia" alt="">
 
             <!--Nombre y calificaciones-->
-            <div style="display: flex; flex-direction: column;">
+            <div class="namesCard">
               <span class="name-resenia">{{ resenia.medico }}</span>
-              <span style="padding-bottom: 1rem; font-size: 12px;">Reseña hecha por: {{ resenia.paciente }}</span>
+              <span style=" font-size: 12px;">Hecha por: {{ resenia.paciente }}</span>
             </div>
 
           </div>
-          <p style="padding-left: 1rem;">{{resenia.fecha}}</p>
 
           <!-- Estrellas de calificacion-->
-
-          <ng-container *ngFor="let star of [1, 2, 3, 4, 5]">
-            <mat-icon
-              style="font-size: 25px; padding: 0rem 0.5rem; color: {{ star <= resenia.calificacion ? 'yellow' : 'white' }}">star</mat-icon>
-          </ng-container>
-          <!--Reseña-->
+          <div class="reviews">
+            <ng-container *ngFor="let star of [1, 2, 3, 4, 5]" >
+              <mat-icon
+                style="font-size: 25px; padding: 0rem 0.5rem; color: {{ star <= resenia.calificacion ? 'yellow' : '#06326B3B' }}">star</mat-icon>
+            </ng-container>
+          </div>
+          <!--Reseña
           <h3 class="name-resenia" *ngIf="resenia.calificacion <= 1">Muy mal</h3>
           <h3 class="name-resenia" *ngIf="resenia.calificacion == 2">Mal</h3>
           <h3 class="name-resenia" *ngIf="resenia.calificacion == 3">Regular</h3>
           <h3 class="name-resenia" *ngIf="resenia.calificacion == 4">Bueno</h3>
-          <h3 class="name-resenia" *ngIf="resenia.calificacion >= 5">Perfecto</h3>
-          <p style="text-align: justify; padding: 0rem 1rem; " [matTooltip]="resenia.comentario">{{
-            resenia.comentario.slice(0, 80) }}{{ resenia.comentario.length > 20 ? '...' : '' }}</p>
+          <h3 class="name-resenia" *ngIf="resenia.calificacion >= 5">Perfecto</h3>-->
+          <div class="reviews" style="height: 150px;">
+            <h3 style="text-align: left; padding-left: 1rem;"> Comentario:</h3>
+            <p style="text-align: justify; padding: 0rem 1rem; " [matTooltip]="resenia.comentario">{{
+              resenia.comentario.slice(0, 80) }}{{ resenia.comentario.length > 20 ? '...' : '' }}</p>
+          </div>
         </div>
       </div>
 

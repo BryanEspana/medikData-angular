@@ -223,10 +223,15 @@ mat-calendar .mat-calendar-previous-button{
   display: flex;
   justify-content: center;
   align-items: center;
+  border: none;
   cursor: pointer;
 }
 
 .hora:hover{
   background-color: #234f8a;
   color: white;
+}
+.btn-agregar-cita{
+  height: 3rem;
+  width: 70%;
 }
