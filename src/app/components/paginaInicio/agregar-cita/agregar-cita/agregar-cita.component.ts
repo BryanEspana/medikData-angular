@@ -200,7 +200,7 @@ export class AgregarCitaComponent {
       this.apiService.postCita(citaData).subscribe(
         (response: any) => {
           console.log("Cita agendada con exito", response)
-          this.router.navigate(['/citas-pendientes']);
+          this.router.navigate(['/citas-activas']);
         },
         (error) => {
           console.error('Error agendando cita:', error);

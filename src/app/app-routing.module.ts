@@ -26,7 +26,7 @@ const routes: Routes = [
   {path:'medicamentos', component: MedicamentosComponent, canActivate: [AuthGuard]},
   //Citas
   {path:'citas', component: CitasComponent, canActivate:[AuthGuard]},
-  {path:'citas-pendientes', component: CitasPendientesComponent, canActivate:[AuthGuard]},
+  {path:'citas-activas', component: CitasPendientesComponent, canActivate:[AuthGuard]},
   {path:'listado-citas', component: ListadoCitasComponent, canActivate:[AuthGuard]},
   {path:'agregar-cita', component: AgregarCitaComponent, canActivate:[AuthGuard]},
 
