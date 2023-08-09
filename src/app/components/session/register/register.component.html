@@ -42,8 +42,8 @@
         </div>
       </div>
       <div class="btns-register">
-        <button type="button" class="registrar-btn button-general" (click)="selectFormType('paciente')">Registrar como paciente</button>
-        <button type="button" class="registrar-btn button-general" (click)="selectFormType('clinica')">Registrar como clinica</button>
+        <button type="button" class="registrar-btn" (click)="selectFormType('paciente')">Registrar como paciente</button>
+        <button type="button" class="registrar-btn" (click)="selectFormType('clinica')">Registrar como clinica</button>
       </div>
   </div>
   <!-- Contenido del  formulario de Pacientes -->
@@ -56,10 +56,10 @@
             href="login">Iniciar sesión</a></p>
       </div>
       <div>
-        <!--<div style="display: flex; flex-direction: column;">
+        <div style="display: flex; flex-direction: column;">
           <label for="full_name">Tipo de Usuario:</label>
           <input type="text" id="profile_role" name="profile_role" formControlName="profile_role" required value="profile_role" placeholder="Paciente" readonly style="background-color: rgb(233, 233, 233); cursor:context-menu;"/>
-        </div>-->
+        </div>
         <div style="display: flex; flex-direction: row; margin-top: 1rem; margin-bottom: 0.5rem;">
           <div style="margin-right: 1rem;">
             <label for="email">Nombre:</label>
@@ -71,7 +71,7 @@
           </div>
         </div>
           <div style="margin-left: 0rem;">
-            <label for="dpi">Número de documento:</label>
+            <label for="dpi">DPI/Pasaporte:</label>
             <input type="text" id="dpi" name="dpi" formControlName="dpi" required />
           </div>
         <div style="display: flex; flex-direction: row; margin-top: 1rem; margin-bottom: 0.5rem;">
@@ -85,76 +85,38 @@
           </div>
         </div>
 
-          <div class="row-custom" style="padding-top: 0.8rem;">
-            <label style="padding-right: 1rem;" >Sexo*</label>
-            <label class="Radios" style="padding-right: 1rem;">
+        <h1 style="display: flex; margin-top: 1rem; font-size: 20px; margin-bottom: 0.5rem;">Llene su información médica:</h1>
+        <div style="display: flex; flex-direction: row; justify-content: space-between;">
+          <div class="sex">
+            <label class="sexRadio">
               Masculino:
-              <input type="radio" name="genero" value="male" class="CheckRadio" formControlName="genero" />
+              <input type="radio" name="genero" value="male" class="generoCheck" formControlName="genero" />
             </label>
-            <label class="Radios">
+            <label class="sexRadio">
               Femenino:
-              <input type="radio" name="genero" value="female" class="CheckRadio" formControlName="genero" />
+              <input type="radio" name="genero" value="female" class="generoCheck" formControlName="genero" />
             </label>
           </div>
+        </div>
+
+        <div>
           <div>
-
-            <div class="row-custom" style="padding-top: 1rem;">
-              <label style="padding-right: 1rem; font-size: 15px;">
-              ¿Consumes medicamentos recurrentemente?*
-              </label>
-              <label class="Radios">
-                Si
-                <input type="radio" name="" value="si" class="CheckRadio" formControlName="" />
-              </label>
-              <label class="Radios">
-                No
-                <input type="radio" name="" value="no" class="CheckRadio" formControlName="" />
-              </label>
-            </div>
-
-            <div class="row-custom" style="padding-top: 1rem;">
-              <label style="padding-right: 1rem; font-size: 15px;">
-                ¿Padeces alguna enfermedad crónica?*
-              </label>
-              <label class="Radios">
-                Si
-                <input type="radio" name="" value="true" class="CheckRadio" formControlName="" />
-              </label>
-              <label class="Radios">
-                No
-                <input type="radio" name="" value="false" class="CheckRadio" formControlName="" />
-              </label>
-            </div>
-
-            <div class="row-custom" style="padding-top: 1rem;">
-              <label class="Radios" style="padding-right: 1rem; font-size: 15px;">
-                ¿Eres alérgico a alguna medicina?*
-              </label>
-              <label class="Radios">
-                Si
-                <input type="radio" name="alergias" value=true class="CheckRadio" formControlName="" />
-              </label>
-              <label class="Radios">
-                No
-                <input type="radio" name="alergias" value=false class="CheckRadio" formControlName="" />
-              </label>
-            </div>
-            <!-- SI esta activo el checkRadio sale el textarea-->
-            <div *ngIf="isTextAreaVisible()">
-              <label>Cuales:</label>
-              <textarea id="" name="" formControlName="" cols="30" rows="10" ></textarea>
-            </div>
-          </div>
-          <div class="checkbox-container">
-            <label class="checkbox-label">
-              <input type="checkbox" formControlName="" class="checkbox-input" />
-              <span class="checkbox-custom"></span>
-              Acepto los términos y condiciones
+            <label class="sexRadio" style="margin-bottom: 0.5rem;">
+              ¿Eres alérgico a alguna medicina? (Si no, déjalo en blanco)
             </label>
+            <textarea id="alergicoTextarea" name="alergias" formControlName="alergias" cols="30" rows="10"></textarea>
           </div>
+          <div style="margin-bottom: 1rem;">
+            <label class="sexRadio" style="margin-top: 1rem; margin-bottom: 0.5rem;">
+              ¿Tienes complicaciones médicas? (Si no, déjalo en blanco)
+            </label>
+            <textarea id="complicationsTextarea" name="complicaciones" formControlName="complicaciones" cols="30"
+              rows="10"></textarea>
+          </div>
+        </div>
         <div class="btns-register">
-          <button type="button" class="registrar-btn button-general" (click)="refreshPage()">Regresar</button>
-          <button type="submit" class="registrar-btn button-general">Registrar como paciente</button>
+          <button type="button" class="registrar-btn" (click)="refreshPage()">Regresar</button>
+          <button type="submit" class="registrar-btn">Registrar como paciente</button>
         </div>
       </div>
     </div>
@@ -171,9 +133,9 @@
           href="login">Iniciar sesión</a></p>
     </div>
     <div>
-      <div>
+      <div style="display: flex; flex-direction: column;">
         <label for="full_name">Tipo de Usuario:</label>
-        <input type="text" id="profile_role" name="profile_role" formControlName="profile_role" required value="profile_role" placeholder="Clinica" readonly style="background-color: rgb(233, 233, 233); cursor:context-menu; width: 97%;"/>
+        <input type="text" id="profile_role" name="profile_role" formControlName="profile_role" required value="profile_role" placeholder="Clinica" readonly style="background-color: rgb(233, 233, 233); cursor:context-menu;"/>
       </div>
         <div style="margin-right: 1rem;">
           <label for="email">Nombre de clinica:</label>
@@ -186,7 +148,7 @@
         </div>
 
 
-      <div style="display: flex; flex-direction: row; margin-top: 1rem; margin-bottom: 0.5rem; width: 97%;">
+      <div style="display: flex; flex-direction: row; margin-top: 1rem; margin-bottom: 0.5rem;">
         <div>
           <label for="dpi">DPI/Pasaporte:</label>
           <input type="text" id="dpi" name="dpi" formControlName="dpi" required />
@@ -198,8 +160,8 @@
       </div>
 
       <div class="btns-register">
-        <button type="button" class="registrar-btn button-general" (click)="refreshPage()">Regresar</button>
-        <button type="submit" class="registrar-btn button-general">Registrar como paciente</button>
+        <button type="button" class="registrar-btn" (click)="refreshPage()">Regresar</button>
+        <button type="submit" class="registrar-btn">Registrar como paciente</button>
       </div>
     </div>
   </div>

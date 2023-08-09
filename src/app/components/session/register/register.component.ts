@@ -4,8 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { Location } from '@angular/common';
-import Swal from 'sweetalert2';
-import { from } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -30,21 +28,12 @@ export class RegisterComponent {
     private formBuilder: FormBuilder,
     private http: HttpClient,
     private router: Router,
-    private apiService: ApiService,
-  ) {
-/**    this.registerFromPaciente = this.formBuilder.group({
-      'alergias': [''],
-      'medicAlergiasInfo': [''],
-    }) */
-  }
-
-  isTextAreaVisible(): boolean {
-    return this.registerFromPaciente.get('alergias')?.value == true;
-  }
+    private apiService: ApiService
+  ) { }
 
   ngOnInit(): void {
     this.registerFromPaciente = this.formBuilder.group({
-      //profile_role: [''],
+      profile_role: [''],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       full_name: ['', Validators.required],
@@ -52,16 +41,12 @@ export class RegisterComponent {
       nacimiento: ['', Validators.required],
       telefono: ['', Validators.required],
       genero: ['', Validators.required],
-      complicaciones: [''],
-      //medicRecurrente: [''],
-      // medicEnfermedades: [''],
       alergias: [''],
-      // medicAlergiasInfo: [''],
-
+      complicaciones: ['']
     });
 
     this.registerFromClinica = this.formBuilder.group({
-      //profile_role: [''],
+      profile_role: [''],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       nombre: ['', Validators.required],
@@ -77,18 +62,6 @@ export class RegisterComponent {
   }
 
   onSubmit(): void {
-
-    if (this.registerFromPaciente.invalid) {
-
-      this.registerFromPaciente.markAllAsTouched();
-      Swal.fire({
-        title: 'Inconveniente',
-        text: 'Faltan campos por llenar.',
-        icon: 'error'
-      })
-      return;
-    }
-
     const formData = this.registerFromPaciente.value;
     // Make API call using the ApiService
     this.apiService.signUp(formData).subscribe(
