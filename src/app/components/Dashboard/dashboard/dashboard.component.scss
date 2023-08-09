@@ -14,3 +14,44 @@
   position: absolute;
   width: 30%;
 }
+.button-general{
+  width: 150px; height:50px; font-size: 20px; border-radius: 10rem; margin-left:1rem
+}
+.citasbtn{
+  width: 150px;
+  height:50px;
+  font-size: 20px;
+  border-radius: 10rem;
+  margin-left:1rem
+}
+@media (max-width: 1280px){
+    .imagenQuery{
+      display: none !important;
+    }
+}
+
+@media (max-width: 660px){
+  .button-general{
+    font-size: 12px;
+  }
+  .citasbtn{
+    font-size: 12px;
+  }
+}
+
+@media (max-width:472px) {
+  .card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .card div{
+    align-items: left;
+    text-align: left;
+    color: #06316B;
+    width: 100%;
+    margin-left: 0rem !important;
+    margin-bottom: 1rem;
+    text-align: center !important;
+  }
+}

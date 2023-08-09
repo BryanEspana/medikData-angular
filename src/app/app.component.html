@@ -57,8 +57,8 @@
     </mat-drawer>
 
     <div class="example-sidenav-content">
-        <div class="btn-menu" (click)="drawer.toggle()">
-          <img src="/assets/dashboard/menu.svg" style="width: 30px; padding: 0.6rem;">
+      <div class="btn-menu" *ngIf="isLoggedIn" (click)="drawer.toggle()">
+        <img src="/assets/dashboard/menu.svg" style="width: 30px; padding: 0.6rem;">
 
         </div>
       <router-outlet ></router-outlet>

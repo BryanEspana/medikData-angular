@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 // app.component.ts
 import { animate, state, style, transition, trigger } from '@angular/animations';
@@ -28,6 +28,7 @@ import Swal from 'sweetalert2';
     ]),
   ]
 })
+
 export class AppComponent {
   title = 'medikdata';
   showFiller = false;
@@ -36,6 +37,17 @@ export class AppComponent {
   sidenavExpanded: boolean = false;
   closeSidebar() {
     this.sidenavExpanded = false;
+  }
+  isSidebarOpen = true; // Inicialmente abierto
+
+  // Cambiar el estado del sidebar cuando el tamaño de la pantalla cambie
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.isSidebarOpen = window.innerWidth >= 768; // Cambia a verdadero en pantallas grandes
+  }
+
+  ngOnInit() {
+    this.isSidebarOpen = window.innerWidth >= 768; // Inicializa en función del tamaño actual
   }
   //Logout, remover token
   RemoveTokenLogOut() {
