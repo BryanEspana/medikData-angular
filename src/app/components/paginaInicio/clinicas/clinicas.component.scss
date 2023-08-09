@@ -1,0 +1,36 @@
+.widgets {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  overflow-x: hidden; /* Quita el scroll horizontal */
+  overflow-y: auto;
+  scrollbar-width: thin;
+
+}
+.clinics-widget {
+  border: 2px solid #06316B;
+  background-color: white;
+  width: 300px; /* Muestra 4 widgets por fila en pantallas grandes */
+  height: 300px;
+  border-radius: 1rem;
+  color: black !important;
+  margin: 0.5rem;
+}
+
+.imgClinic{
+  width: 300px; /* Ancho deseado para el div */
+  height: 150px; /* Alto deseado para el div */
+  background-image: url('/assets/citas/clinica.jpg'); /* Ruta de la imagen */
+  background-size: cover; /* Ajusta la imagen para cubrir todo el div */
+  background-repeat: no-repeat;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.mini-widget{
+  border-top: 2px solid #06316B;
+  border-bottom: 2px solid #06316B;
+  text-align: left;
+  padding-left: 1rem;
+  padding: 0rem 0.5rem;
+}

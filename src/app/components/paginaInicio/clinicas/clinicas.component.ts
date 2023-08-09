@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./clinicas.component.scss']
 })
 export class ClinicasComponent {
+    //regeresar a la pagina anterior
+    regresar() {
+      window.history.back();
+    }
+
 
 }

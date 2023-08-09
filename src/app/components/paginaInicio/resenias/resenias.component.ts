@@ -1,5 +1,4 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { ApiService } from 'src/app/services/api.service';
 import { Resenias } from 'src/app/interfaces/resenias';
 @Component({
@@ -15,7 +14,7 @@ export class ReseniasComponent {
     private apiService: ApiService,
   ){}
   //-------------------------------------Obtener las reseñas-------------------------------------
-  
+
   ngOnInit(): void {
     this.getResenias();
   }

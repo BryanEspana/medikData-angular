@@ -38,12 +38,7 @@
                 style="font-size: 25px; padding: 0rem 0.5rem; color: {{ star <= resenia.calificacion ? 'yellow' : '#06326B3B' }}">star</mat-icon>
             </ng-container>
           </div>
-          <!--Reseña
-          <h3 class="name-resenia" *ngIf="resenia.calificacion <= 1">Muy mal</h3>
-          <h3 class="name-resenia" *ngIf="resenia.calificacion == 2">Mal</h3>
-          <h3 class="name-resenia" *ngIf="resenia.calificacion == 3">Regular</h3>
-          <h3 class="name-resenia" *ngIf="resenia.calificacion == 4">Bueno</h3>
-          <h3 class="name-resenia" *ngIf="resenia.calificacion >= 5">Perfecto</h3>-->
+
           <div class="reviews" style="height: 150px;">
             <h3 style="text-align: left; padding-left: 1rem;"> Comentario:</h3>
             <p style="text-align: justify; padding: 0rem 1rem; " [matTooltip]="resenia.comentario">{{
@@ -53,10 +48,6 @@
       </div>
 
 
-
-      <!------------------------------ RESEÑAS DE CLINICAS ----------------------------------
-        <h1 class="title" style="font-size: 35px; font-weight: 400;">Reseñas de clinicas:</h1>
-        -->
 
     </div>
   </div>
