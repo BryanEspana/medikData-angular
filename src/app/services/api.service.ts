@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ApiService {
-  private baseUrl = 'http://localhost:4000'; // Asegúrate de reemplazar esto con la URL de tu backend
+  private baseUrl = 'http://localhost:8080'; // Asegúrate de reemplazar esto con la URL de tu backend
 
   constructor(private http: HttpClient) { }
 
@@ -61,7 +61,7 @@ export class ApiService {
   getCitasPendientes(dpi: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/api/citas/citaspendientes/${dpi}`);
   }
-  
+
   getCitas(dpi: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/api/citas/citaspaciente/${dpi}`);
   }

@@ -25,6 +25,7 @@
   background-repeat: no-repeat;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
+  border-bottom: 2px solid black;
 }
 
 .mini-widget{
@@ -33,4 +34,13 @@
   text-align: left;
   padding-left: 1rem;
   padding: 0rem 0.5rem;
+}
+
+.img-clinics{
+  width: 40px;
+}
+.displayWidgets{
+  display: flex;
+  flex-wrap: wrap;
+
 }

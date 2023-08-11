@@ -7,7 +7,7 @@
 
 <body>
   <div class="dashboard-container">
-    <div class="window" style="margin-top: 5rem;">
+    <div class="window" style="margin-top: 5rem; width: 76%;">
       <!------------------------------ RESEÑAS DE DOCTORES ------------------------------------>
       <div style="display: flex; flex-direction: row;">
         <div (click)="regresar()" class="icon-back">
@@ -15,15 +15,18 @@
         </div>
         <h1 class="title" style="font-size: 35px; font-weight: 400;">Clinicas Asociadas:</h1>
       </div>
-      <div class="widgets">
-        <div class="clinics-widget">
-          <div class="imgClinic"></div>
-          <h2> Clínica Medica Municipal</h2>
-          <div class="mini-widget">
-            Dirección: <b> 10av 10-23 Zona 5</b>
+      <div class="displayWidgets">
+        <!-- WIDGET-->
+        <div class="widgets" *ngFor="let clinica of clinicas">
+          <div class="clinics-widget">
+            <div class="imgClinic" [ngStyle]="{'background-image': 'url(' + clinica.image +')'}"></div>
+            <h2>{{clinica.nameClinic}}</h2>
+            <div class="mini-widget">
+              Dirección: <b>{{clinica.direction}}</b>
+            </div>
+            <div style="padding: 0.3rem;">{{clinica.description}}</div>
           </div>
         </div>
-
       </div>
 
 
