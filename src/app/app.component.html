@@ -30,11 +30,13 @@
         <p style="padding-left: 1rem;">Inicio</p>
       </div>
       <br>
-      <div class="botonMenu"  routerLink="/clinicas" >
-        <img src="/assets/dashboard/ubi.png" width="20px" height="20px">
-        <p style="padding-left: 1rem;">Clinicas</p>
+      <div *ngIf="typeUser == 1">
+        <div class="botonMenu"  routerLink="/clinicas" >
+          <img src="/assets/dashboard/ubi.png" width="20px" height="20px">
+          <p style="padding-left: 1rem;">Clinicas</p>
+        </div>
+        <br>
       </div>
-      <br>
       <div *ngIf="typeUser == 2">
         <div class="botonMenu" routerLink="/comentarios"  >
           <img src="/assets/citas/bataDoctor.png" width="20px" height="20px">
@@ -42,12 +44,20 @@
         </div>
         <br>
       </div>
-
-      <div class="botonMenu" routerLink="/comentarios" >
-        <img src="/assets/dashboard/resenias.png" width="20px" height="20px">
-        <p style="padding-left: 1rem;">Reseñas</p>
+      <div *ngIf="typeUser == 2">
+        <div class="botonMenu" routerLink="/comentarios"  >
+          <img src="/assets/citas/paciente.png" width="20px" height="20px">
+          <p style="padding-left: 1rem;">Pacientes</p>
+        </div>
+        <br>
       </div>
-      <br>
+      <div *ngIf="typeUser == 1">
+        <div class="botonMenu" routerLink="/comentarios" >
+          <img src="/assets/dashboard/resenias.png" width="20px" height="20px">
+          <p style="padding-left: 1rem;">Reseñas</p>
+        </div>
+        <br>
+      </div>
       <div class="botonMenu" routerLink="/configuracion" >
         <img src="/assets/dashboard/config.png" width="20px" height="20px">
         <p style="padding-left: 1rem;">Configuración</p>
