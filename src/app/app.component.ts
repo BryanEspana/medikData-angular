@@ -35,6 +35,7 @@ export class AppComponent {
 
   isLoggedIn: boolean = false;
   sidenavExpanded: boolean = false;
+  typeUser = 1;
   closeSidebar() {
     this.sidenavExpanded = false;
   }

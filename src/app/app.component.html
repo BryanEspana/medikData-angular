@@ -35,6 +35,13 @@
         <p style="padding-left: 1rem;">Clinicas</p>
       </div>
       <br>
+      <div *ngIf="typeUser == 2">
+        <div class="botonMenu" routerLink="/comentarios"  >
+          <img src="/assets/citas/bataDoctor.png" width="20px" height="20px">
+          <p style="padding-left: 1rem;">Doctores</p>
+        </div>
+        <br>
+      </div>
 
       <div class="botonMenu" routerLink="/comentarios" >
         <img src="/assets/dashboard/resenias.png" width="20px" height="20px">
