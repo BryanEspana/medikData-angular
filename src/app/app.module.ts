@@ -31,6 +31,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCardModule } from '@angular/material/card';
 import { MatCalendar } from '@angular/material/datepicker';
 import { ClinicasComponent } from './components/paginaInicio/clinicas/clinicas.component';
+import { PacientesComponent } from './components/clinica/pacientes/pacientes.component';
+import { DoctoresComponent } from './components/clinica/doctores/doctores.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +48,8 @@ import { ClinicasComponent } from './components/paginaInicio/clinicas/clinicas.c
     UsrConfigComponent,
     AgregarCitaComponent,
     ClinicasComponent,
+    PacientesComponent,
+    DoctoresComponent,
   ],
   imports: [
     BrowserModule,

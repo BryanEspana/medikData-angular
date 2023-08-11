@@ -13,6 +13,8 @@ import { ReseniasComponent } from './components/paginaInicio/resenias/resenias.c
 import { UsrConfigComponent } from './components/paginaInicio/user-configuracion/usr-config/usr-config.component';
 import { AgregarCitaComponent } from './components/paginaInicio/agregar-cita/agregar-cita/agregar-cita.component';
 import { ClinicasComponent } from './components/paginaInicio/clinicas/clinicas.component';
+import { DoctoresComponent } from './components/clinica/doctores/doctores.component';
+import { PacientesComponent } from './components/clinica/pacientes/pacientes.component';
 
 const routes: Routes = [
 //RUTAS
@@ -41,6 +43,8 @@ const routes: Routes = [
 
   //Clinicas
   {path:'clinicas', component: ClinicasComponent, canActivate:[AuthGuard]},
+  {path: 'doctores', component: DoctoresComponent, canActivate:[AuthGuard]},
+  {path: 'pacientes', component: PacientesComponent, canActivate:[AuthGuard]},
 
   //Error
   {path:'**', redirectTo:'/login', pathMatch: 'full'},
