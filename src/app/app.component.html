@@ -23,7 +23,7 @@
 <ng-container *ngIf="isLoggedIn">
 
   <mat-drawer-container class="container-mat-drawer" autosize>
-    <mat-drawer #drawer class="example-sidenav" mode="side" opened>
+    <mat-drawer #drawer class="example-sidenav" mode="side" [opened]="isOpened">
       <img src="/assets/dashboard/logoMedicData.png" width="220px">
       <div class="botonMenu"  routerLink="/dashboard">
         <img src="/assets/dashboard/home.png" width="20px" height="20px">
@@ -64,14 +64,14 @@
       </div>
       <br>
 
-      <div class="botonMenu Exit" (click)="RemoveTokenLogOut()">
+      <div class="botonMenu Exit"  (click)="RemoveTokenLogOut()">
         <img src="/assets/dashboard/exit.png" width="20px" height="20px">
         <p style="padding-left: 1rem;">Cerrar sesión</p>
       </div>
     </mat-drawer>
 
     <div class="example-sidenav-content">
-      <div class="btn-menu" *ngIf="isLoggedIn" (click)="drawer.toggle()" style="display: none;">
+      <div class="btn-menu" *ngIf="!isOpened" (click)="drawer.toggle()">
         <img src="/assets/dashboard/menu.svg" style="width: 30px; padding: 0.6rem;">
       </div>
       <router-outlet ></router-outlet>

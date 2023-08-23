@@ -1,8 +1,9 @@
-import { Component, HostListener } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { Component, HostListener, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 // app.component.ts
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import Swal from 'sweetalert2';
+import { MatDrawer } from '@angular/material/sidenav';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -30,25 +31,39 @@ import Swal from 'sweetalert2';
 })
 
 export class AppComponent {
+  @ViewChild('drawer', { static: true }) drawer?: MatDrawer;
+  screenWidth: number = window.innerWidth;
+  isOpened = true;
   title = 'medikdata';
   showFiller = false;
 
   isLoggedIn: boolean = false;
   sidenavExpanded: boolean = false;
-  typeUser = 2;
+  typeUser = 1;
   closeSidebar() {
     this.sidenavExpanded = false;
   }
-  isSidebarOpen = true; // Inicialmente abierto
 
-  // Cambiar el estado del sidebar cuando el tamaño de la pantalla cambie
-  @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
-    this.isSidebarOpen = window.innerWidth >= 768; // Cambia a verdadero en pantallas grandes
+  constructor(private router: Router) {
+    this.screenWidth = window.innerWidth;
+    this.updateLoginState();
+    this.router.events.subscribe((event) => {
+        this.updateLoginState();
+    });
   }
 
-  ngOnInit() {
-    this.isSidebarOpen = window.innerWidth >= 768; // Inicializa en función del tamaño actual
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.screenWidth = event.target.innerWidth;
+    this.updateSidebarState();
+  }
+
+  updateSidebarState() {
+    if (this.screenWidth < 780) {
+      this.isOpened = false; // Cerrar el sidebar si el ancho de pantalla es menor que 780px
+    } else {
+      this.isOpened = true; // De lo contrario, abrirlo
+    }
   }
   //Logout, remover token
   RemoveTokenLogOut() {
@@ -67,11 +82,8 @@ export class AppComponent {
 
   }
 
-  constructor(private router: Router) {
-    this.router.events.subscribe((event) => {
-        this.updateLoginState();
-    });
-  }
+
+
   //Cambiar de esqueleto
   updateLoginState() {
     const currentRoute = this.router.url;
