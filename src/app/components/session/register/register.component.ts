@@ -11,14 +11,14 @@ import { Location } from '@angular/common';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
-
+  formInicial!: FormGroup;
   registerFromPaciente!: FormGroup;
   registerFromClinica!: FormGroup;
-
   //Registro de Paciente o clinica
   showForm = true;  // inicialmente el formulario es visible
   selectedFormType: 'paciente' | 'clinica' | null = null;
   selectFormType(type: 'paciente' | 'clinica') {
+    console.log(this.formInicial.value);
     this.showForm = false;  // oculta el formulario
     this.selectedFormType = type;
   }
@@ -32,10 +32,12 @@ export class RegisterComponent {
   ) { }
 
   ngOnInit(): void {
-    this.registerFromPaciente = this.formBuilder.group({
-      profile_role: [''],
+    this.formInicial = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+    this.registerFromPaciente = this.formBuilder.group({
+      profile_role: ['paciente'],
       full_name: ['', Validators.required],
       dpi: ['', Validators.required],
       nacimiento: ['', Validators.required],
@@ -46,10 +48,8 @@ export class RegisterComponent {
     });
 
     this.registerFromClinica = this.formBuilder.group({
-      profile_role: [''],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-      nombre: ['', Validators.required],
+      profile_role: ['doctor'],
+      nombreClinica: ['', Validators.required],
       direccion: ['', Validators.required],
       telefono: ['', Validators.required],
       dpi: ['', Validators.required],
@@ -61,23 +61,57 @@ export class RegisterComponent {
     return this.http.post<any>('/signup', userData);
   }
 
-  onSubmit(): void {
-    const formData = this.registerFromPaciente.value;
-    // Make API call using the ApiService
-    this.apiService.signUp(formData).subscribe(
-      (response) => {
-        // Handle successful registration response
-        console.log('RESPONSE: ', response);
-        this.router.navigate(['/login']);
-      },
-      (error) => {
-        // Handle error response
-        console.error('Error al crear usuario: ', error);
-      }
-    );
+  onSubmitPaciente(): void {  
+    if(this.formInicial.valid && this.registerFromPaciente.valid) {
+      const combinedData = {
+        email: this.formInicial.value.email,
+        password: this.formInicial.value.password,
+        dpi: this.registerFromPaciente.value.dpi,
+        full_name: this.registerFromPaciente.value.full_name,
+        nacimiento: this.registerFromPaciente.value.nacimiento,
+        genero: this.registerFromPaciente.value.genero,
+        alergias: this.registerFromPaciente.value.alergias,
+        complicaciones: this.registerFromPaciente.value.complicaciones,
+        profile_role: this.registerFromPaciente.value.profile_role
+      };
+      console.log("onSubmit", combinedData);
+      this.apiService.signUp(combinedData).subscribe(
+        (response) => {
+          console.log('RESPONSE: ', response);
+          this.router.navigate(['/login']);
+        },
+        (error) => {
+          console.error('Error al crear usuario: ', error);
+        }
+      );
+    }else{
+      console.log("Debes llenar todos los campos")
+    }
   }
 
 
+  onSubmitClinica(): void {
+    if(this.formInicial.valid && this.registerFromPaciente.valid){
+      const combinedData = {
+        email: this.formInicial.value.email,
+        password: this.formInicial.value.password,
+        profile_role: this.registerFromClinica.value.profile_role,
+        dpi: this.registerFromClinica.value.dpi,
+        nombre: this.registerFromClinica.value.nombreClinica,
+        direccion: this.registerFromClinica.value.direccion,
+        telefono: this.registerFromClinica.value.telefono
+      }
+      this.apiService.signUp(combinedData).subscribe(
+        (response) => {
+          console.log('RESPONSE: ', response);
+          this.router.navigate(['/login']);
+        },
+        (error) => {
+          console.error('Error al crear usuario: ', error);
+        }
+      );
+    }
+  }
 
 
   //Recargar pagina:

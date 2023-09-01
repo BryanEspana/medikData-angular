@@ -13,10 +13,8 @@
 </style>
 
 
-<form [formGroup]="registerFromPaciente" (ngSubmit)="onSubmit()">
-
+<form [formGroup]="formInicial" >
   <!-------------------------------------------------Div PRINCIPAL---------------------------------------------------------------------------------------->
-
   <div class="register-container" *ngIf="showForm">
     <div class="componentText">
       <img src="assets\session\users-icon.png" alt="" style="width: 50px; margin-top: 2rem;">
@@ -46,9 +44,12 @@
         <button type="button" class="registrar-btn" (click)="selectFormType('clinica')">Registrar como clinica</button>
       </div>
   </div>
+</form>
+
   <!-- Contenido del  formulario de Pacientes -->
   <div *ngIf="selectedFormType === 'paciente'" class="overflow-info">
-    <div class="register-container" >
+    <form [formGroup]="registerFromPaciente" (submit)="onSubmitPaciente()">
+      <div class="register-container" >
       <div class="componentText">
         <img src="assets\session\info-register.png" alt="" style="width: 50px; margin-top: 10rem;">
         <h1 style="display: flex; margin-top: 0rem; text-align: center;">Información de Paciente</h1>
@@ -120,11 +121,15 @@
         </div>
       </div>
     </div>
+  </form>
+
 </div>
 
   <!-- Contenido del  formulario de Clinicas -->
-
+  
 <div *ngIf="selectedFormType === 'clinica'">
+  <form [formGroup]="registerFromClinica" (ngSubmit)="onSubmitClinica()">
+
   <div class="register-container" >
     <div class="componentText">
       <img src="assets\session\info-register.png" alt="" style="width: 50px; margin-top: 10rem;">
@@ -165,10 +170,8 @@
       </div>
     </div>
   </div>
+</form>
 </div>
-
-
-
     <!------------------------------------------------------------DIV DE PACIENTE--------------------------------------------------------------------------------->
 
 
