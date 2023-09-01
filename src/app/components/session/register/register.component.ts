@@ -48,7 +48,7 @@ export class RegisterComponent {
     });
 
     this.registerFromClinica = this.formBuilder.group({
-      profile_role: ['doctor'],
+      profile_role: ['clinica'],
       nombreClinica: ['', Validators.required],
       direccion: ['', Validators.required],
       telefono: ['', Validators.required],
@@ -61,7 +61,7 @@ export class RegisterComponent {
     return this.http.post<any>('/signup', userData);
   }
 
-  onSubmitPaciente(): void {  
+  onSubmitPaciente(): void {
     if(this.formInicial.valid && this.registerFromPaciente.valid) {
       const combinedData = {
         email: this.formInicial.value.email,
@@ -91,7 +91,9 @@ export class RegisterComponent {
 
 
   onSubmitClinica(): void {
-    if(this.formInicial.valid && this.registerFromPaciente.valid){
+    console.log("ahhhhhh",this.formInicial.value);
+    console.log("ahhhhhh",this.registerFromClinica.value)
+    if(this.formInicial.valid && this.registerFromClinica.valid){
       const combinedData = {
         email: this.formInicial.value.email,
         password: this.formInicial.value.password,

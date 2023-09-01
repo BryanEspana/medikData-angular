@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<div class="body-register">
 
 <head>
   <meta charset="UTF-8">
@@ -126,7 +126,7 @@
 </div>
 
   <!-- Contenido del  formulario de Clinicas -->
-  
+
 <div *ngIf="selectedFormType === 'clinica'">
   <form [formGroup]="registerFromClinica" (ngSubmit)="onSubmitClinica()">
 
@@ -139,34 +139,34 @@
     </div>
     <div>
       <div style="display: flex; flex-direction: column;">
-        <label for="full_name">Tipo de Usuario:</label>
-        <input type="text" id="profile_role" name="profile_role" formControlName="profile_role" required value="profile_role" placeholder="Clinica" readonly style="background-color: rgb(233, 233, 233); cursor:context-menu;"/>
+        <label for="profile_role">Tipo de Usuario:</label>
+        <input type="text" formControlName="profile_role"  value="profile_role" placeholder="Clinica" readonly style="background-color: rgb(233, 233, 233); cursor:context-menu;"/>
       </div>
         <div style="margin-right: 1rem;">
-          <label for="email">Nombre de clinica:</label>
-          <input type="user" id="full_name" name="full_name" formControlName="full_name" required />
+          <label for="nombreClinica">Nombre de clinica:</label>
+          <input type="user" formControlName="nombreClinica"/>
         </div>
 
         <div style="margin: 1rem; margin-left: 0rem;">
           <label for="email">Dirección:</label>
-          <input type="email" id="email" name="email" formControlName="email" required />
+          <input type="text" formControlName="direccion"  />
         </div>
 
 
       <div style="display: flex; flex-direction: row; margin-top: 1rem; margin-bottom: 0.5rem;">
         <div>
           <label for="dpi">DPI/Pasaporte:</label>
-          <input type="text" id="dpi" name="dpi" formControlName="dpi" required />
+          <input type="text" id="dpi" name="dpi" formControlName="dpi"  />
         </div>
         <div style="margin-left: 1rem;">
           <label for="telefono">Celular:</label>
-          <input type="text" id="telefono" name="telefono" formControlName="telefono" required />
+          <input type="text" id="telefono" name="telefono" formControlName="telefono"  />
         </div>
       </div>
 
       <div class="btns-register">
         <button type="button" class="registrar-btn" (click)="refreshPage()">Regresar</button>
-        <button type="submit" class="registrar-btn">Registrar como paciente</button>
+        <button type="submit" class="registrar-btn">Registrar como Clinica</button>
       </div>
     </div>
   </div>
@@ -176,3 +176,5 @@
 
 
       <!------------------------------------------------------------DIV DE CLINICA--------------------------------------------------------------------------------->
+
+    </div>
