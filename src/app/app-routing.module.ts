@@ -15,36 +15,44 @@ import { AgregarCitaComponent } from './components/paginaInicio/agregar-cita/agr
 import { ClinicasComponent } from './components/paginaInicio/clinicas/clinicas.component';
 import { DoctoresComponent } from './components/clinica/doctores/doctores.component';
 import { PacientesComponent } from './components/clinica/pacientes/pacientes.component';
-
+import { LayoutInitialComponent } from './layoutInitial/layoutInitial.component';
 const routes: Routes = [
 //RUTAS
-  { path: '', component: LoginComponent, canActivate: [AuthGuard] },
+{ path: '', component: LoginComponent, canActivate: [AuthGuard] },
+{ path: 'login', component: LoginComponent },
+{ path: 'register', component: RegisterComponent },
+{ path: 'protected', component: ProtectedComponent, canActivate: [AuthGuard] },
+
 //Session
-  {path:'login', component: LoginComponent},
-  {path:'register', component: RegisterComponent},
-  {path: 'protected', component: ProtectedComponent, canActivate: [AuthGuard] },
-  //Dashboard
-  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-  //Medicamentos
-  {path:'medicamentos', component: MedicamentosComponent, canActivate: [AuthGuard]},
-  //Citas
-  {path:'citas', component: CitasComponent, canActivate:[AuthGuard]},
-  {path:'citas-pendientes', component: CitasPendientesComponent, canActivate:[AuthGuard]},
-  {path:'listado-citas', component: ListadoCitasComponent, canActivate:[AuthGuard]},
-  {path:'agregar-cita', component: AgregarCitaComponent, canActivate:[AuthGuard]},
+  {
+    path: '',
+    canActivate: [AuthGuard], 
+    children: [
+      //Dashboard
+      {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+    
+      //Medicamentos
+      {path:'medicamentos', component: MedicamentosComponent, canActivate: [AuthGuard]},
+      //Citas
+      {path:'citas', component: CitasComponent, canActivate:[AuthGuard]},
+      {path:'citas-pendientes', component: CitasPendientesComponent, canActivate:[AuthGuard]},
+      {path:'listado-citas', component: ListadoCitasComponent, canActivate:[AuthGuard]},
+      {path:'agregar-cita', component: AgregarCitaComponent, canActivate:[AuthGuard]},
 
-  //Añadir cita
+      //Añadir cita
 
-  //Reseñas
-  {path:'comentarios', component: ReseniasComponent, canActivate:[AuthGuard]},
+      //Reseñas
+      {path:'comentarios', component: ReseniasComponent, canActivate:[AuthGuard]},
 
-  //Configuracion Usuario
-  {path:'configuracion', component: UsrConfigComponent, canActivate:[AuthGuard]},
+      //Configuracion Usuario
+      {path:'configuracion', component: UsrConfigComponent, canActivate:[AuthGuard]},
 
-  //Clinicas
-  {path:'clinicas', component: ClinicasComponent, canActivate:[AuthGuard]},
-  {path: 'doctores', component: DoctoresComponent, canActivate:[AuthGuard]},
-  {path: 'pacientes', component: PacientesComponent, canActivate:[AuthGuard]},
+      //Clinicas
+      {path:'clinicas', component: ClinicasComponent, canActivate:[AuthGuard]},
+      {path: 'doctores', component: DoctoresComponent, canActivate:[AuthGuard]},
+      {path: 'pacientes', component: PacientesComponent, canActivate:[AuthGuard]},
+    ]
+  },
 
   //Error
   {path:'**', redirectTo:'/login', pathMatch: 'full'},

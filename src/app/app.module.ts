@@ -33,8 +33,10 @@ import { MatCalendar } from '@angular/material/datepicker';
 import { ClinicasComponent } from './components/paginaInicio/clinicas/clinicas.component';
 import { PacientesComponent } from './components/clinica/pacientes/pacientes.component';
 import { DoctoresComponent } from './components/clinica/doctores/doctores.component';
+import { LayoutInitialComponent } from './layoutInitial/layoutInitial.component';
+import { LayoutAuthComponent } from './layoutAuth/layoutAuth.component';
 @NgModule({
-  declarations: [
+  declarations: [		
     AppComponent,
     LoginComponent,
     RegisterComponent,
@@ -50,7 +52,9 @@ import { DoctoresComponent } from './components/clinica/doctores/doctores.compon
     ClinicasComponent,
     PacientesComponent,
     DoctoresComponent,
-  ],
+      LayoutInitialComponent,
+      LayoutAuthComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,

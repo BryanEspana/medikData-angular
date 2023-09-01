@@ -1,0 +1,61 @@
+
+<!-- ----------------------------------COMPONENTE DE DASHBOARDS DESPUES DE INICIO---------------------------------- -->
+  <mat-drawer-container class="container-mat-drawer" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side" [opened]="isOpened">
+      <img src="/assets/dashboard/logoMedicData.png" width="220px">
+      <div class="botonMenu"  routerLink="/dashboard">
+        <img src="/assets/dashboard/home.png" width="20px" height="20px">
+        <p style="padding-left: 1rem;">Inicio</p>
+      </div>
+      <br>
+      <div *ngIf="typeUser == 1">
+        <div class="botonMenu"  routerLink="/clinicas" >
+          <img src="/assets/dashboard/ubi.png" width="20px" height="20px">
+          <p style="padding-left: 1rem;">Clinicas</p>
+        </div>
+        <br>
+      </div>
+      <div *ngIf="typeUser == 2">
+        <div class="botonMenu" routerLink="/doctores"  >
+          <img src="/assets/citas/bataDoctor.png" width="20px" height="20px">
+          <p style="padding-left: 1rem;">Doctores</p>
+        </div>
+        <br>
+      </div>
+      <div *ngIf="typeUser == 2">
+        <div class="botonMenu" routerLink="/pacientes"  >
+          <img src="/assets/citas/paciente.png" width="20px" height="20px">
+          <p style="padding-left: 1rem;">Pacientes</p>
+        </div>
+        <br>
+      </div>
+      <div *ngIf="typeUser == 1">
+        <div class="botonMenu" routerLink="/comentarios" >
+          <img src="/assets/dashboard/resenias.png" width="20px" height="20px">
+          <p style="padding-left: 1rem;">Reseñas</p>
+        </div>
+        <br>
+      </div>
+      <div class="botonMenu" routerLink="/configuracion" >
+        <img src="/assets/dashboard/config.png" width="20px" height="20px">
+        <p style="padding-left: 1rem;">Configuración</p>
+      </div>
+      <br>
+
+      <div class="botonMenu Exit"  (click)="RemoveTokenLogOut()">
+        <img src="/assets/dashboard/exit.png" width="20px" height="20px">
+        <p style="padding-left: 1rem;">Cerrar sesión</p>
+      </div>
+    </mat-drawer>
+
+    <div class="example-sidenav-content">
+      <div class="btn-menu" *ngIf="!isOpened" (click)="drawer.toggle()">
+        <img src="/assets/dashboard/menu.svg" style="width: 30px; padding: 0.6rem;">
+      </div>
+      <router-outlet></router-outlet>
+
+    </div>
+
+  </mat-drawer-container>
+
+
