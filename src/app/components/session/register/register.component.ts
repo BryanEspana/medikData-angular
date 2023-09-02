@@ -89,7 +89,8 @@ export class RegisterComponent {
           this.router.navigate(['/login']);
         },
         (error) => {
-          console.error('Error al crear usuario: ', error);
+          this.toast.showError(`Error al crear usuario: Intenlo mas tarde`);
+
         }
       );
     }else{
@@ -120,6 +121,8 @@ export class RegisterComponent {
           console.error('Error al crear usuario: ', error);
         }
       );
+    }else{
+      this.toast.showError('Debes de completar los campos.');
     }
   }
 
