@@ -99,7 +99,7 @@ export class RegisterComponent {
         password: this.formInicial.value.password,
         profile_role: this.registerFromClinica.value.profile_role,
         dpi: this.registerFromClinica.value.dpi,
-        nombre: this.registerFromClinica.value.nombreClinica,
+        full_name: this.registerFromClinica.value.nombreClinica,
         direccion: this.registerFromClinica.value.direccion,
         telefono: this.registerFromClinica.value.telefono
       }
