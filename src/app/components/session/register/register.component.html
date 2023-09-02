@@ -24,19 +24,40 @@
     </div>
       <div>
         <div style="display: flex; flex-direction: column;">
-          <label for="full_name">Correo electrónico:</label>
+          <label for="email">Correo electrónico:</label>
           <input type="email" id="email" name="email" formControlName="email" required />
+          <div *ngIf="formInicial.get('email')?.invalid && (formInicial.get('email')?.dirty || formInicial.get('email')?.touched)">
+            <div *ngIf="formInicial.get('email')?.errors?.['required']">El correo electrónico es requerido.</div>
+            <div *ngIf="formInicial.get('email')?.errors?.['email']">Ingrese un formato de correo electrónico válido.</div>
+          </div>
         </div>
 
         <div style="display: flex; flex-direction: row; margin-top: 1rem; margin-bottom: 0.5rem;">
           <div style="margin-right: 1rem;">
             <label for="password">Contraseña:</label>
             <input type="password" id="password" name="password" formControlName="password" required />
+            <div *ngIf="formInicial.get('password')?.invalid && (formInicial.get('password')?.dirty || formInicial.get('password')?.touched)">
+              <div *ngIf="formInicial.get('password')?.errors?.['required']">La contraseña es requerida.</div>
+              <div *ngIf="formInicial.get('password')?.errors?.['minlength']">
+                La contraseña debe tener al menos 6 caracteres.
+              </div>
+            </div>
           </div>
           <div style="margin-left: 1rem;">
-            <label >Confirmar Contraseña:</label>
-            <input type="password"/>
+            <label>Confirmar Contraseña:</label>
+            <input type="password" formControlName="confirmPassword" />
+            <div *ngIf="formInicial.get('confirmPassword')?.invalid && (formInicial.get('confirmPassword')?.dirty || formInicial.get('confirmPassword')?.touched)" class="text-confirm">
+              <div *ngIf="formInicial.get('confirmPassword')?.errors?.['required']" class="text-confirm">
+                La confirmación de contraseña es requerida.
+              </div>
+
+            </div>
+
           </div>
+
+        </div>
+        <div *ngIf="formInicial.get('password')?.value != formInicial.get('confirmPassword')?.value" class="text-confirm">
+          Las contraseñas no coinciden.
         </div>
       </div>
       <div class="btns-register">

@@ -4,7 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { Location } from '@angular/common';
-
+import Swal from 'sweetalert2';
+import { ToastAlertService } from 'src/app/services/toastAlert.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -17,24 +18,22 @@ export class RegisterComponent {
   //Registro de Paciente o clinica
   showForm = true;  // inicialmente el formulario es visible
   selectedFormType: 'paciente' | 'clinica' | null = null;
-  selectFormType(type: 'paciente' | 'clinica') {
-    console.log(this.formInicial.value);
-    this.showForm = false;  // oculta el formulario
-    this.selectedFormType = type;
-  }
+
 
   constructor(
     private location: Location,
     private formBuilder: FormBuilder,
     private http: HttpClient,
     private router: Router,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private toast: ToastAlertService
   ) { }
 
   ngOnInit(): void {
     this.formInicial = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required]
     });
     this.registerFromPaciente = this.formBuilder.group({
       profile_role: ['paciente'],
@@ -60,7 +59,16 @@ export class RegisterComponent {
   signUp(userData: any) {
     return this.http.post<any>('/signup', userData);
   }
+  selectFormType(type: 'paciente' | 'clinica') {
+    console.log(this.formInicial.value);
+    if(this.formInicial.valid && this.formInicial.value.password === this.formInicial.value.confirmPassword){
+      this.selectedFormType = type;
+      this.showForm = false;
+    }else{
+      this.toast.showError('Debes de completar los campos.');
+    }
 
+  }
   onSubmitPaciente(): void {
     if(this.formInicial.valid && this.registerFromPaciente.valid) {
       const combinedData = {
@@ -85,7 +93,7 @@ export class RegisterComponent {
         }
       );
     }else{
-      console.log("Debes llenar todos los campos")
+      this.toast.showError('Debes de completar los campos.');
     }
   }
 
