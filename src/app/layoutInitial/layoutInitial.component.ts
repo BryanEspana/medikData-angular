@@ -8,20 +8,23 @@ import Swal from 'sweetalert2';
   styleUrls: ['./layoutInitial.component.scss']
 })
 export class LayoutInitialComponent implements OnInit {
+  profile_name: string = '';
+
   isLoggedIn: boolean = false;
   isOpened = true;
   sidenavExpanded: boolean = false;
-  typeUser = 1;
-  
+  typeUser: number = 0;
   closeSidebar() {
     this.sidenavExpanded = false;
   }
-  
+
   constructor(
     private router: Router,
   ) { }
 
   ngOnInit() {
+    this.initializeProfile();
+    this.validateProfile();
   }
 
   updateLoginState() {
@@ -48,4 +51,25 @@ export class LayoutInitialComponent implements OnInit {
   toggleSidenav() {
     this.sidenavExpanded = !this.sidenavExpanded;
   }
+    //trae el rol del usuario
+    initializeProfile(): void {
+      const token = localStorage.getItem('jwt');
+      if (token) {
+        const base64Url = token.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const payload = JSON.parse(window.atob(base64));
+        console.log("payload", payload);
+        this.profile_name = payload.user_metadata.profile_role;
+        console.log(this.profile_name);
+      }
+    }
+    validateProfile(): void {
+      if (this.profile_name == 'paciente') {
+        this.typeUser = 1;
+      } else if (this.profile_name == 'clinica') {
+        this.typeUser = 2;
+      } else {
+        this.typeUser = 3;
+      }
+    }
 }
