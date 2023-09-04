@@ -8,6 +8,14 @@
   left: 2rem;
   bottom: 0;
 }
+.card{
+  margin-left: 2rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
 
 .titulo{
   top: 10rem;
@@ -20,6 +28,7 @@
 .citasbtn{
   width: 150px;
   height:50px;
+  margin-top: 1rem;
   font-size: 20px;
   border-radius: 10rem;
   margin-left:1rem
