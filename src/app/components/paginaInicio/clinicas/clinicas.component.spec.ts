@@ -17,7 +17,11 @@ describe('ClinicasComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should get clinics', () => {
+    expect(component).toBeTruthy();
+  });
+  
+  it('should get clinics by medic', () => {
     expect(component).toBeTruthy();
   });
 });
