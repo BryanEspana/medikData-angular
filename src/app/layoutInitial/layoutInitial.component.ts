@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { HostListener } from '@angular/core';
+
 
 @Component({
   selector: 'app-layoutInitial',
@@ -8,15 +10,32 @@ import Swal from 'sweetalert2';
   styleUrls: ['./layoutInitial.component.scss']
 })
 export class LayoutInitialComponent implements OnInit {
-  profile_name: string = '';
 
+  profile_name: string = '';
   isLoggedIn: boolean = false;
   isOpened = true;
   sidenavExpanded: boolean = false;
   typeUser: number = 0;
+
   closeSidebar() {
     this.sidenavExpanded = false;
   }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    this.checkWindowSize((event.target as Window).innerWidth);
+  }
+
+
+  checkWindowSize(width: number) {
+      if (width <= 780) {
+        this.isOpened = false;
+      } else {
+        this.isOpened = true;
+      }
+    }
+
+
 
   constructor(
     private router: Router,
@@ -25,6 +44,8 @@ export class LayoutInitialComponent implements OnInit {
   ngOnInit() {
     this.initializeProfile();
     this.validateProfile();
+    this.checkWindowSize(window.innerWidth);
+
   }
 
   updateLoginState() {

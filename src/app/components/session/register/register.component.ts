@@ -5,7 +5,8 @@ import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { Location } from '@angular/common';
 import Swal from 'sweetalert2';
-import { ToastAlertService } from 'src/app/services/toastAlert.service';
+import { ToastAlertService } from 'src/app/services/toastAlert/toastAlert.service';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',

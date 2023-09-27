@@ -23,6 +23,21 @@
                             <div class="numCard card">
                               1
                             </div>
+                            <div class="select-fields">
+                              <label class="tituloSelect">Selecciona la clinica de tu preferencia:</label>
+                              <div class="dropdown">
+                                <button class="dropbtn button-general" (click)="toggleDropdown($event)">{{ selectedClinica }}</button>
+                                <div class="dropdown-content scrollable-dropdown" [class.above]="isDropdownAbove">
+                                    <span class="option" *ngFor="let option of clinicas"
+                                        (click)="selectOption(option, 'clinica')">{{ option.nombre }}</span>
+                                </div>
+                            </div>
+                            </div>
+                          </div>
+                          <div style="display: inherit; flex-direction: row">
+                            <div class="numCard card">
+                              2
+                            </div>
                             <div  class="select-fields">
                               <label class="tituloSelect">Selecciona tu especialidad:</label>
                               <div class="dropdown">
@@ -33,21 +48,7 @@
                                 </div>
                             </div>
                             </div>
-                          </div>
-                          <div style="display: inherit; flex-direction: row">
-                            <div class="numCard card">
-                              2
-                            </div>
-                          <div class="select-fields">
-                            <label class="tituloSelect">Selecciona la clinica de tu preferencia:</label>
-                            <div class="dropdown">
-                              <button class="dropbtn button-general" (click)="toggleDropdown($event)">{{ selectedClinica }}</button>
-                              <div class="dropdown-content scrollable-dropdown" [class.above]="isDropdownAbove">
-                                  <span class="option" *ngFor="let option of clinicas"
-                                      (click)="selectOption(option, 'clinica')">{{ option.nombre }}</span>
-                              </div>
-                          </div>
-                          </div>
+
                         </div>
                         <div style="display: inherit; flex-direction: row">
                           <div class="numCard card">
