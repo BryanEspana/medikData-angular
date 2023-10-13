@@ -16,6 +16,7 @@ import { ClinicasComponent } from './components/paginaInicio/clinicas/clinicas.c
 import { DoctoresComponent } from './components/clinica/doctores/doctores.component';
 import { PacientesComponent } from './components/clinica/pacientes/pacientes.component';
 import { ListadoMedicosComponent } from './components/paginaInicio/listado-medicos/listado-medicos.component';
+import { AgregarMedicoComponent } from './components/paginaInicio/agregar-medico/agregar-medico.component';
 import { LayoutInitialComponent } from './layoutInitial/layoutInitial.component';
 const routes: Routes = [
 //RUTAS
@@ -53,6 +54,7 @@ const routes: Routes = [
       {path: 'doctores', component: DoctoresComponent, canActivate:[AuthGuard]},
       {path: 'pacientes', component: PacientesComponent, canActivate:[AuthGuard]},
       {path: 'listado-medicos', component: ListadoMedicosComponent, canActivate:[AuthGuard]},
+      {path: 'agregar-medico', component: AgregarMedicoComponent, canActivate:[AuthGuard]},
     ]
   },
 
