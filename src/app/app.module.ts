@@ -35,6 +35,8 @@ import { PacientesComponent } from './components/clinica/pacientes/pacientes.com
 import { DoctoresComponent } from './components/clinica/doctores/doctores.component';
 import { LayoutInitialComponent } from './layoutInitial/layoutInitial.component';
 import { LayoutAuthComponent } from './layoutAuth/layoutAuth.component';
+import { ListadoMedicosComponent } from './components/paginaInicio/listado-medicos/listado-medicos.component';
+import { AgregarMedicoComponent } from './components/paginaInicio/agregar-medico/agregar-medico.component';
 @NgModule({
   declarations: [		
     AppComponent,
@@ -53,7 +55,9 @@ import { LayoutAuthComponent } from './layoutAuth/layoutAuth.component';
     PacientesComponent,
     DoctoresComponent,
       LayoutInitialComponent,
-      LayoutAuthComponent
+      LayoutAuthComponent,
+      ListadoMedicosComponent,
+      AgregarMedicoComponent
    ],
   imports: [
     BrowserModule,

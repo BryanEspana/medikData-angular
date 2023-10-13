@@ -66,4 +66,9 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/api/citas/citaspaciente/${dpi}`);
   }
 
+  // Obtener Medicos de la clinica
+  getMedicosClinica(dpi: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/api/medico/${dpi}`);
+  }
+
 }

@@ -1,51 +1,96 @@
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Hotjar Tracking Code for https://650e62c2a1f7c16cb1b56de1--merry-conkies-3ab332.netlify.app/ -->
+  <script>
+    (function (h, o, t, j, a, r) {
+      h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+      h._hjSettings = { hjid: 3666433, hjsv: 6 };
+      a = o.getElementsByTagName('head')[0];
+      r = o.createElement('script'); r.async = 1;
+      r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+  </script>
 </head>
 
 <div class="breadcrumbs">
-    <div class="botonMenu" routerLink="/dashboard">
-      <img src="/assets/dashboard/home.png" width="20px" height="20px">
-      <p style="padding-left: 1rem;">Inicio</p>
-    </div>
-    <!--divisor-->
+  <div class="botonMenu" routerLink="/dashboard">
+    <img src="/assets/dashboard/home.png" width="20px" height="20px">
+    <p style="padding-left: 1rem;">Inicio</p>
+  </div>
+  <!--divisor-->
 
 </div>
 
-<div class="displayrow">
-  <div class="imagenQuery">
-    <img src="/assets/dashboard/dashboard.svg" width="400px" class="lineImg">
-    <h1 style="color: #06316B;"> Bienvenido a </h1>
-    <h1 style="color: #06316B;"> MedicData</h1>
-  </div>
-  <div>
-    <!-- Citas  activas -->
-    <div class="displayrow card" style="margin-left: 2rem;">
-      <img src="/assets/dashboard/citas.png" width="100px" >
-      <div style="align-items: left; text-align: left; color: #06316B; margin-left: 2rem;">
-        <h2>Tus Citas Activas</h2>
-        <label> Revisa tus citas programadas</label>
-      </div>
-      <button class="button-general citasbtn" routerLink="/listado-citas">Ver citas</button>
+<div *ngIf="userRole === 'paciente'">
+  <div class="displayrow">
+    <div class="imagenQuery">
+      <img src="/assets/dashboard/dashboard.svg" width="400px" class="lineImg">
+      <h1 style="color: #06316B;"> Bienvenido a </h1>
+      <h1 style="color: #06316B;"> MedicData</h1>
     </div>
-    <!-- Crear una cita-->
-    <div class=" card cardCentral" style="margin-left: 2rem;">
-      <img src="/assets/dashboard/newCita.png" width="100px" >
-      <div  style="align-items: center; text-align: center; color: #06316B; margin-left: 2rem;">
-        <h2 style="margin: 0rem;">Realizar una cita para ti o dependiente</h2>
-        <p style="margin: 0.8rem 0rem;"> Revisa tus citas programadas</p>
-      </div>
-      <button class="button-general" style="width: 200px; height:50px; font-size: 20px; border-radius: 10rem; margin-left:1rem" routerLink="/agregar-cita">Agendar citas</button>
-    </div>
-    <div class="displayrow card" style="margin-left: 2rem; justify-content: space-between;">
-      <div style="align-items: left; text-align: left; color: #06316B; margin-left: 2rem;">
-        <h2 style="text-align: left;">Listado de citas</h2>
-        <div  style="text-align: left;">
-          <p style="margin: 0rem;"> ¿Deseas ver lo que se te receto hace un mes? </p>
-          <p style="margin: 0rem; padding-bottom: 1rem;">Revisa tus citas realizadas</p>
+    <div>
+      <!-- Citas  activas -->
+      <div class="displayrow card" style="margin-left: 2rem;">
+        <img src="/assets/dashboard/citas.png" width="100px">
+        <div style="align-items: left; text-align: left; color: #06316B; margin-left: 2rem;">
+          <h2>Tus Citas Activas</h2>
+          <label> Revisa tus citas programadas</label>
         </div>
+        <button class="button-general citasbtn" routerLink="/listado-citas">Ver citas</button>
       </div>
-      <button class="button-general"  routerLink="/listado-citas" >Ver Listado  </button>
+      <!-- Crear una cita-->
+      <div class=" card cardCentral" style="margin-left: 2rem;">
+        <img src="/assets/dashboard/newCita.png" width="100px">
+        <div style="align-items: center; text-align: center; color: #06316B; margin-left: 2rem;">
+          <h2 style="margin: 0rem;">Realizar una cita para ti o dependiente</h2>
+          <p style="margin: 0.8rem 0rem;"> Revisa tus citas programadas</p>
+        </div>
+        <button class="button-general"
+          style="width: 200px; height:50px; font-size: 20px; border-radius: 10rem; margin-left:1rem"
+          routerLink="/agregar-cita">Agendar citas</button>
+      </div>
+      <div class="displayrow card" style="margin-left: 2rem; justify-content: space-between;">
+        <div style="align-items: left; text-align: left; color: #06316B; margin-left: 2rem;">
+          <h2 style="text-align: left;">Listado de citas</h2>
+          <div style="text-align: left;">
+            <p style="margin: 0rem;"> ¿Deseas ver lo que se te receto hace un mes? </p>
+            <p style="margin: 0rem; padding-bottom: 1rem;">Revisa tus citas realizadas</p>
+          </div>
+        </div>
+        <button class="button-general" routerLink="/listado-citas">Ver Listado </button>
+      </div>
     </div>
   </div>
 </div>
-
+<div *ngIf="userRole === 'clinica'">
+  <div class="displayrow">
+    <div class="imagenQuery">
+      <img src="/assets/dashboard/dashboard.svg" width="400px" class="lineImg">
+      <h1 style="color: #06316B;"> Bienvenido a </h1>
+      <h1 style="color: #06316B;"> MedicData</h1>
+    </div>
+    <div>
+      <!-- Citas  activas -->
+      <div class="displayrow card" style="margin-left: 2rem;">
+        <img src="/assets/dashboard/citas.png" width="100px">
+        <div style="align-items: left; text-align: left; color: #06316B; margin-left: 2rem;">
+          <h2>Doctores Asignados</h2>
+          <label>Revisa a los doctores que tienes <br/>en tu clínica</label>
+        </div>
+        <button class="button-general citasbtn" routerLink="/listado-medicos">Ver doctores</button>
+      </div>
+      <!-- Crear una cita-->
+      <div class=" card cardCentral" style="margin-left: 2rem;">
+        <img src="/assets/dashboard/newCita.png" width="100px">
+        <div style="align-items: center; text-align: center; color: #06316B; margin-left: 2rem;">
+          <h2 style="margin: 0rem;">¿Tienes más médicos?</h2>
+          <p style="margin: 0.8rem 0rem;"> Asigna tus médicos</p>
+        </div>
+        <button class="button-general"
+          style="width: 200px; height:50px; font-size: 20px; border-radius: 10rem; margin-left:1rem"
+          routerLink="/agregar-cita">Asignar Médicos</button>
+      </div>
+    </div>
+  </div>
+</div>

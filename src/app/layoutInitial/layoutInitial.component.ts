@@ -50,7 +50,7 @@ export class LayoutInitialComponent implements OnInit {
 
   updateLoginState() {
     const currentRoute = this.router.url;
-    const allowedRoutes = ['/inicio', '/dashboard', '/medicamentos', '/citas', '/agregar-cita', '/citas-pendientes', '/listado-citas', '/comentarios', '/configuracion', '/clinicas', '/doctores', '/pacientes'];
+    const allowedRoutes = ['/inicio', '/dashboard', '/medicamentos', '/citas', '/agregar-cita', '/citas-pendientes', '/listado-citas', '/comentarios', '/configuracion', '/clinicas', '/pacientes'];
     this.isLoggedIn = allowedRoutes.includes(currentRoute);
 
   }
@@ -81,6 +81,7 @@ export class LayoutInitialComponent implements OnInit {
         const payload = JSON.parse(window.atob(base64));
         console.log("payload", payload);
         this.profile_name = payload.user_metadata.profile_role;
+        localStorage.setItem('profile_role', this.profile_name);
         console.log(this.profile_name);
       }
     }

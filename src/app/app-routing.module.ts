@@ -15,6 +15,7 @@ import { AgregarCitaComponent } from './components/paginaInicio/agregar-cita/agr
 import { ClinicasComponent } from './components/paginaInicio/clinicas/clinicas.component';
 import { DoctoresComponent } from './components/clinica/doctores/doctores.component';
 import { PacientesComponent } from './components/clinica/pacientes/pacientes.component';
+import { ListadoMedicosComponent } from './components/paginaInicio/listado-medicos/listado-medicos.component';
 import { LayoutInitialComponent } from './layoutInitial/layoutInitial.component';
 const routes: Routes = [
 //RUTAS
@@ -51,6 +52,7 @@ const routes: Routes = [
       {path:'clinicas', component: ClinicasComponent, canActivate:[AuthGuard]},
       {path: 'doctores', component: DoctoresComponent, canActivate:[AuthGuard]},
       {path: 'pacientes', component: PacientesComponent, canActivate:[AuthGuard]},
+      {path: 'listado-medicos', component: ListadoMedicosComponent, canActivate:[AuthGuard]},
     ]
   },
 

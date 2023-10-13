@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Medicos de la Clinica</title>
+
+</head>
+
+<body>
+
+    <div class="breadcrumbs">
+        <div class="botonMenu" routerLink="/dashboard">
+            <img src="/assets/dashboard/home.png" width="20px" height="20px">
+            <p style="padding-left: 1rem;">Inicio</p>
+        </div>
+        <!--divisor-->
+        <img src="/assets/dashboard/flechaRight.png" width="20px" height="20px">
+        <div href="#" style="padding: 0rem 0.8rem; cursor: pointer; font-weight: 500;" routerLink="/listado-medicos">
+            Medicos</div>
+        <!--divisor-->
+    </div>
+    <div class="dashboard-container">
+        <div class="window" style="  border: 2px #06316B solid;">
+            <div style="display: flex; flex-direction: row; ">
+                <div (click)="regresar()" class="icon-back">
+                    <img src="/assets/dashboard/back.png" width="40px">
+                </div>
+                <h1 class="title" style="font-size: 35px; font-weight: 400; margin:0rem;">Listado de medicos:</h1>
+            </div>
+            <div class="search-container">
+                <input type="text" [formControl]="searchControl" placeholder="Buscar" class="Buscador">
+                <mat-icon class="search-icon">search</mat-icon>
+            </div>
+            <ng-container *ngIf="listadoMedicos.length > 0; else noCitas">
+                <div class="background">
+                    <div class="cards-container" style="display: flex; justify-content: center; height: 60%;">
+
+                        <table class="table-design" style="table-layout: fixed; width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th style="width: 33.33%;">Nombres</th>
+                                    <th style="width: 33.33%;">Apellidos</th>
+                                    <th style="width: 33.33%;">Visualizar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let medico of listadoMedicos">
+                                    <td style="width: 33.33%;">{{ medico.nombres }}</td>
+                                    <td style="width: 33.33%;">{{ medico.apellidos }}</td>
+                                    <td style="width: 33.33%;">
+                                        <button (click)="visualizarItem(medico)"
+                                            class="btn-visualizar button-general">Visualizar</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+            </ng-container>
+
+            <ng-template #noCitas>
+                <div class="no-doctores-message">
+                    <img src="/assets/unDraw/none.svg" width="300px">
+                    <h2>No tienes ningun medico asignado</h2>
+                    <h4>¿Deseas asignar un nuevo medico?</h4>
+                    <button class="btn-agendar button-general" routerLink="/agregar-cita">Asignar medico</button>
+
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</body>
+
+</html>
