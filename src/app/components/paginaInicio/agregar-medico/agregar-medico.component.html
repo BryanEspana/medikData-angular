@@ -1,39 +1,39 @@
 <div class="displayrow">
     <div class="docdiv">
-        <h1>Registrar doctor:</h1>
-        <form class="formResponsive">
-            <div class="input-forms">
-                <label for="dropdown">Correo electrónico</label>
-                <input type="text" class="inputs" >
-            </div>
-            <div class="input-forms">
-                <label for="dropdown">Contraseña</label>
-                <input type="password" class="inputs" >
-            </div>
-            <div class="input-forms">
-                <label for="dropdown">Nombres</label>
-                <input type="text" class="inputs">
-            </div>
-            <div class="input-forms">
-                <label for="dropdown">Apellidos</label>
-                <input type="text" class="inputs">
-            </div>
-            <div class="input-forms">
-                <label for="dropdown">Especialidad</label>
-                <input type="text" class="inputs">
-            </div>
-            <div class="input-forms">
-                <label for="dropdown">Número de colegiado</label>
-                <input type="text" class="inputs">
-            </div>
-            <div class="input-forms">
-                <label for="dropdown">Teléfono</label>
-                <input type="text" class="inputs">
-            </div>
-           
-            </form>
+      <h1>Registrar doctor:</h1>
+      <form [formGroup]="registerFormMedico" class="formResponsive" (ngSubmit)="onSubmitMedico()">
+        <div class="input-forms">
+          <label for="email">Correo electrónico</label>
+          <input type="text" class="inputs" name="email" formControlName="email">
+        </div>
+        <div class="input-forms">
+          <label for="password">Contraseña</label>
+          <input type="password" class="inputs" name="password" formControlName="password">
+        </div>
+        <div class="input-forms">
+          <label for="dpi">DPI</label>
+          <input type="text" class="inputs" name="dpi" formControlName="dpi">
+        </div>
+        <div class="input-forms">
+          <label for="full_name">Nombre Completo</label>
+          <input type="text" class="inputs" name="full_name" formControlName="full_name">
+        </div>
+        <div class="input-forms">
+          <label for="especialidad">Especialidad</label>
+          <input type="text" class="inputs" name="especialidad" formControlName="especialidad">
+        </div>
+        <div class="input-forms">
+          <label for="numerocolegiado">Número de colegiado</label>
+          <input type="text" class="inputs" name="numerocolegiado" formControlName="numerocolegiado">
+        </div>
+        <div class="input-forms">
+          <label for="telefono">Teléfono</label>
+          <input type="text" class="inputs" name="telefono" formControlName="telefono">
+        </div>
+        <button type="submit" class="btn-agregar-cita button-general">Registrar Médico</button>
+      </form>
     </div>
-      <div>
-          <img src="/assets/session/doctors.svg" class="imgDoc">
-      </div>
-</div>
+    <div>
+      <img src="/assets/session/doctors.svg" class="imgDoc">
+    </div>
+  </div>  

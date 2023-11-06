@@ -20,12 +20,12 @@
             </div>
             <!--Titulo-->
             <h2 class="widget-titulo">
-                {{ cita.medico.nombres }} {{ cita.medico.apellidos }}
+                {{ cita.medico.full_name }}
             </h2>
             <div class="widget-info">
                 <div>
                     <span>{{ cita.clinica.nombre }}</span>
-                    <p> {{ cita.medico.nombres }} {{ cita.medico.apellidos }}</p>
+                    <p> {{ cita.medico.full_name }} </p>
                 </div>
                 <button id="btnAnularCita" class="btn-cancelar button-general" style="width: 150px;">Anular Cita</button>
             </div>

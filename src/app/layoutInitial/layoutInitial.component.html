@@ -29,6 +29,13 @@
         </div>
         <br>
       </div>
+      <div *ngIf="typeUser == 3">
+        <div class="botonMenu" routerLink="/horario"  >
+          <img src="/assets/dashboard/citas.png" width="20px" height="20px">
+          <p style="padding-left: 1rem;">Horario</p>
+        </div>
+        <br>
+      </div>
       <div *ngIf="typeUser == 1">
         <div class="botonMenu" routerLink="/comentarios" >
           <img src="/assets/dashboard/resenias.png" width="20px" height="20px">

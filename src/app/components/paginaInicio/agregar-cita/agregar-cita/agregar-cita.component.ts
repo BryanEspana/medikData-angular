@@ -28,7 +28,7 @@ export class AgregarCitaComponent {
   especialidades: string[] = [];
   clinicas: { nombre: string, id_clinica: number }[] = [];
   // medicos: string[] = [];
-  medicos: { nombres: string, apellidos: string, dpi: string }[] = [];
+  medicos: { full_name: string, dpi: string }[] = [];
   selectedID_clinica: number = 0;
   token = localStorage.getItem('jwt');
   citaForm!: FormGroup;
@@ -123,7 +123,7 @@ export class AgregarCitaComponent {
         this.fetchDoctorsForClinicAndSpecialty(this.selectedID_clinica, normalizedOption);
         break;
       case 'medico':
-        this.selectedMedico = `${option.nombres} ${option.apellidos}`;
+        this.selectedMedico = `${option.full_name}`;
         this.citaForm.patchValue({ medicotoken: option.dpi });
         break;
       default:
@@ -175,8 +175,7 @@ export class AgregarCitaComponent {
     this.apiService.getMedicos(id_clinica, especialidad).subscribe(
       (response: any) => {
         if (response && response.medico) {
-          // this.medicos = response.medico.map((medico: any) => `${medico.nombres} ${medico.apellidos}`);
-          this.medicos = response.medico.map((medico: any) => ({ nombres: medico.nombres, apellidos: medico.apellidos, dpi: medico.dpi }));
+          this.medicos = response.medico.map((medico: any) => ({ full_name: medico.full_name, dpi: medico.dpi }));
         } else {
           console.error('Invalid response:', response);
         }
@@ -188,7 +187,7 @@ export class AgregarCitaComponent {
   }
 
   onAgendarClick(): void {
-    const selectedMedico = this.medicos.find((medico) => `${medico.nombres} ${medico.apellidos}` === this.selectedMedico);
+    const selectedMedico = this.medicos.find((medico) => `${medico.full_name}` === this.selectedMedico);
     if (!selectedMedico) {
       console.error('Medico no encontrado');
       const Toast = Swal.mixin({

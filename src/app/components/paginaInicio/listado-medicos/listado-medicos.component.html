@@ -45,11 +45,10 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let medico of listadoMedicos">
-                                    <td style="width: 33.33%;">{{ medico.nombres }}</td>
-                                    <td style="width: 33.33%;">{{ medico.apellidos }}</td>
+                                    <td style="width: 33.33%;">{{ medico.full_name }}</td>
                                     <td style="width: 33.33%;">
                                         <button (click)="visualizarItem(medico)"
-                                            class="btn-visualizar button-general">Visualizar</button>
+                                            class="btn-visualizar button-general" routerLink="/doctor">Visualizar</button>
                                     </td>
                                 </tr>
                             </tbody>
