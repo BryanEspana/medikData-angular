@@ -22,7 +22,7 @@
 
 </div>
 
-<div *ngIf="userRole === 'paciente'">
+<div *ngIf="userRole === 'paciente'" class="main-dashboard">
   <div class="displayrow">
     <div class="imagenQuery">
       <img src="/assets/dashboard/dashboard.svg" width="400px" class="lineImg">
@@ -63,7 +63,7 @@
     </div>
   </div>
 </div>
-<div *ngIf="userRole === 'clinica'">
+<div *ngIf="userRole === 'clinica'" class="main-dashboard">
   <div class="displayrow">
     <div class="imagenQuery">
       <img src="/assets/dashboard/dashboard.svg" width="400px" class="lineImg">
@@ -76,9 +76,40 @@
         <img src="/assets/dashboard/citas.png" width="100px">
         <div style="align-items: left; text-align: left; color: #06316B; margin-left: 2rem;">
           <h2>Doctores Asignados</h2>
-          <label>Revisa a los doctores que tienes <br/>en tu clínica</label>
+          <label>Revisa a los doctores que tienes <br />en tu clínica</label>
         </div>
         <button class="button-general citasbtn" routerLink="/listado-medicos">Ver doctores</button>
+      </div>
+      <!-- Crear una cita-->
+      <div class=" card cardCentral" style="margin-left: 2rem;">
+        <img src="/assets/dashboard/newCita.png" width="100px">
+        <div style="align-items: center; text-align: center; color: #06316B; margin-left: 2rem;">
+          <h2 style="margin: 0rem;">¿Tienes más médicos?</h2>
+          <p style="margin: 0.8rem 0rem;"> agrega tus médicos</p>
+        </div>
+        <button class="button-general"
+          style="width: 200px; height:50px; font-size: 20px; border-radius: 10rem; margin-left:1rem"
+          routerLink="/agregar-medico">Agregar Médicos</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="userRole === 'doctor'" class="main-dashboard">
+  <div class="displayrow">
+    <div class="imagenQuery">
+      <img src="/assets/dashboard/dashboard.svg" width="400px" class="lineImg">
+      <h1 style="color: #06316B;"> Bienvenido a </h1>
+      <h1 style="color: #06316B;"> MedicData</h1>
+    </div>
+    <div>
+      <!-- Citas  activas -->
+      <div class="displayrow card" style="margin-left: 2rem;">
+        <img src="/assets/dashboard/citas.png" width="100px">
+        <div style="align-items: left; text-align: left; color: #06316B; margin-left: 2rem;">
+          <h2>Tu Horario</h2>
+          <label>Hazle saber al mundo qué horas y qué días trabajas <br />en tu clínica</label>
+        </div>
+        <button class="button-general citasbtn" routerLink="/horario">Ver Horario</button>
       </div>
       <!-- Crear una cita-->
       <div class=" card cardCentral" style="margin-left: 2rem;">

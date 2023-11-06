@@ -1,14 +1,18 @@
+.main-dashboard {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-
-
-
-.imgDash{
+.imgDash {
   width: 500px;
   position: absolute;
   left: 2rem;
   bottom: 0;
 }
-.cardCentral{
+
+.cardCentral {
   margin-left: 2rem;
   justify-content: center;
   align-items: center;
@@ -17,44 +21,53 @@
   flex-direction: column;
 }
 
-.titulo{
+.titulo {
   top: 10rem;
   position: absolute;
   width: 30%;
 }
-.button-general{
-  width: 150px; height:50px; font-size: 20px; border-radius: 10rem; margin-left:1rem
-}
-.citasbtn{
+
+.button-general {
   width: 150px;
-  height:50px;
+  height: 50px;
+  font-size: 20px;
+  border-radius: 10rem;
+  margin-left: 1rem
+}
+
+.citasbtn {
+  width: 150px;
+  height: 50px;
   margin-top: 1rem;
   font-size: 20px;
   border-radius: 10rem;
-  margin-left:1rem
-}
-@media (max-width: 1280px){
-    .imagenQuery{
-      display: none !important;
-    }
+  margin-left: 1rem
 }
 
-@media (max-width: 660px){
-  .button-general{
+@media (max-width: 1280px) {
+  .imagenQuery {
+    display: none !important;
+  }
+}
+
+@media (max-width: 660px) {
+  .button-general {
     font-size: 12px;
   }
-  .citasbtn{
+
+  .citasbtn {
     font-size: 12px;
   }
 }
 
 @media (max-width:472px) {
-  .card{
+  .card {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  .card div{
+
+  .card div {
     align-items: left;
     text-align: left;
     color: #06316B;
