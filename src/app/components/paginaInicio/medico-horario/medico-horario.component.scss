@@ -1,0 +1,80 @@
+.dashboard-container {
+    padding: 3rem 5rem;
+}
+
+.no-schedules-message {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.search-container {
+    text-align: right !important;
+    align-items: right !important;
+    justify-content: end;
+}
+
+.table-design {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-design thead th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+}
+
+.table-design tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.btn-visualizar {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-visualizar:hover {
+    background-color: #45a049;
+}
+
+.btn-visualizar:focus {
+    outline: none;
+}
+
+.btn-visualizar:active {
+    background-color: #3e8e41;
+}
+
+.background {
+    padding: 1rem;
+    background-color: #33333315;
+    border-radius: 1rem;
+}
+
+.Buscador {
+    width: 200px;
+    margin-bottom: 1rem;
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    top: 40%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #888;
+    cursor: pointer;
+}
