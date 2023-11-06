@@ -67,8 +67,8 @@ export class AgregarMedicoComponent {
             icon: 'success',
             confirmButtonText: 'Ok',
           });
-          //refresh page
-          this.refreshPage();
+          // route to /listado-medicos
+          this.router.navigate(['/listado-medicos']);
         },
         (error) => {
           this.toast.showError('Error al crear usuario: Intenta más tarde');
