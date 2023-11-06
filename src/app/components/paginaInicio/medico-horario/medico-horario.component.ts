@@ -11,8 +11,9 @@ import { Router } from '@angular/router';
 })
 export class MedicoHorarioComponent {
   searchControl = new FormControl('');
-  citasRealizadas: any[] = [];
+  horariosMedico: any[] = [];
   medicotoken: string = '';
+  groupedHorarios: any[] = [];
 
   constructor(
     private route: Router,
@@ -37,15 +38,33 @@ export class MedicoHorarioComponent {
   }
 
   getHorarios() {
-    this.apiService.getCitas(this.medicotoken).subscribe(
+    this.apiService.getHorarios(this.medicotoken).subscribe(
       (response: any) => {
-        this.citasRealizadas = response.citas;
-        console.log(this.citasRealizadas);
+        console.log(response)
+        this.horariosMedico = response.horarios;
+        this.groupHorariosByDate();
+        console.log(this.horariosMedico);
       },
       (error: any) => {
         console.log(error);
       }
     );
-
   }
+
+  groupHorariosByDate() {
+    const grouped: {[key: string]: any[]} = {};
+    this.horariosMedico.forEach((horario) => {
+      if (!grouped[horario.fecha]) {
+        grouped[horario.fecha] = [];
+      }
+      grouped[horario.fecha].push(horario);
+      console.log(grouped);
+    });
+    this.groupedHorarios = Object.keys(grouped).map((fecha) => ({
+      fecha,
+      horarios: grouped[fecha]
+    }));
+    console.log(this.groupedHorarios);
+  }
+
 }

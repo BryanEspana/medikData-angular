@@ -28,28 +28,30 @@
             <input type="text" [formControl]="searchControl" placeholder="Buscar" class="Buscador">
             <mat-icon class="search-icon">search</mat-icon>
           </div>
-          <ng-container *ngIf="citasRealizadas.length > 0; else noCitas">
+          <ng-container *ngIf="horariosMedico.length > 0; else noCitas">
         <div class="background">
             <div class="cards-container" style="display: flex; justify-content: center; height: 60%;">
 
               <table class="table-design">
                 <thead>
                   <tr>
-                    <th>Fecha</th>
-                    <th>Hora</th>
-                    <th>Doctor</th>
-                    <th>Clinica</th>
-                    <th>Visualizar</th>
+                    <th style="text-align: center;">Fecha</th>
+                    <th style="text-align: center;">Hora</th>
+                    <th style="text-align: center;">Editar Horario</th>
                   </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let cita of citasRealizadas">
-                      <td>{{ cita.fecha }}</td>
-                      <td>{{ cita.hora }}</td>
-                      <td>{{ cita.medico.nombre }} {{ cita.medico.apellidos }}</td>
-                      <td>{{ cita.clinica.nombre }}</td>
-                      <td><button (click)="visualizarItem()" class="btn-visualizar button-general">Visualizar</button></td>
-                    </tr>
+                    <ng-container *ngFor="let group of groupedHorarios">
+                      <tr *ngFor="let horario of group.horarios">
+                        <ng-container *ngIf="group.horarios.indexOf(horario) === 0">
+                          <td style="width: 40%;" [attr.rowspan]="group.horarios.length">{{ group.fecha }}</td>
+                        </ng-container>
+                        <td style="width: 40%;">{{ horario.hora }}</td>
+                        <td style="width: 20%; text-align: center; vertical-align: middle;">
+                            <button (click)="visualizarItem()" class="btn-visualizar button-general" [attr.rowspan]="group.horarios.length" style="width: 50%;">Editar</button>
+                        </td>                          
+                      </tr>
+                    </ng-container>
                 </tbody>
               </table>
             </div>

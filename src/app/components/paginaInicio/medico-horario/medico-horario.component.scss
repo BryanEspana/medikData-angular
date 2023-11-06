@@ -78,3 +78,8 @@
     color: #888;
     cursor: pointer;
 }
+
+.table-design tbody td {
+    padding: 10px;
+    border: 1px solid #979797; /* Increase border thickness and/or change border color */
+}

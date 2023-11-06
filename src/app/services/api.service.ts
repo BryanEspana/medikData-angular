@@ -78,7 +78,7 @@ export class ApiService {
 
   //Horarios del medico
   getHorarios(dpi: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/api/medico/horario/${dpi}`);
+    return this.http.get(`${this.baseUrl}/api/medico/horarios/${dpi}`);
   }
 
 }
