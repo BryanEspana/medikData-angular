@@ -281,10 +281,7 @@ export class AgregarCitaComponent {
         }
       })
 
-      Toast.fire({
-        icon: 'error',
-        title: 'Medico no encontrado'
-      })
+      
       return;
     }
 

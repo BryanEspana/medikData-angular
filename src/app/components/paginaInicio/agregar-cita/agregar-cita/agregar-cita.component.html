@@ -34,7 +34,7 @@
 </div>
 
 <div class="displayrow">
-  <form [formGroup]="citaForm" (ngSubmit)="onAgendarClick()" style="padding: 2rem;" class="card">
+  <form [formGroup]="citaForm" (ngSubmit)="onAgendarClick()" class="card formm">
     <div class="title-bar">
       <span style="font-size: 2rem;">Agendar cita:</span>
       <label for="">Paciente: {{ nameUser }}</label>
@@ -87,14 +87,17 @@
           <div class="numCard card">
             4
           </div>
-          <div>
-            <mat-form-field class="example-full-width">
-              <mat-label>Choose a date</mat-label>
-              <input matInput [matDatepickerFilter]="dateFilter" [matDatepicker]="picker" formControlName="fecha" (dateChange)="updateFilteredTimes()">
-              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>                        
-          </div>
+            <div class="extra">
+              <label class="tituloSelect">Elige una fecha:</label>
+              <input matInput [matDatepickerFilter]="dateFilter" [matDatepicker]="picker" 
+              formControlName="fecha" class="FechaInput disabled" type="date" 
+              (dateChange)="updateFilteredTimes()" readonly>
+                     <div class="calendar-input">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </div>  
+
+              </div>
         </div>
         <div class="horas-widget" *ngIf="selectedDate">
           <mat-radio-group name="time" [(ngModel)]="selectedTime" formControlName="hora">
@@ -105,7 +108,7 @@
     </div>
     <button type="submit" class="btn-agregar-cita button-general">Agendar cita</button>
   </form>
-  <img src="/assets/unDraw/documents.svg" width="500px" style="padding: 0rem 2rem;">
+  <img class="fondoDisenio" src="/assets/unDraw/documents.svg" width="500px" style="padding: 0rem 2rem;">
 </div>
 <div style="padding-top: 1rem;"></div>
 

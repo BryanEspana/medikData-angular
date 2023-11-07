@@ -29,7 +29,7 @@
 }
 
 .select-fields {
-    width: 450px;
+    width: -webkit-fill-available;
     height: 99px;
     justify-self: center;
     align-self: center;
@@ -235,3 +235,58 @@ mat-calendar .mat-calendar-previous-button{
   height: 3rem;
   width: 70%;
 }
+
+.inputDate{
+  background-color: #06316B !important;
+}
+
+.width100{
+  width: 100%;
+}
+.FechaInput{
+  width: 40%;
+}
+.extra{
+  display: flex;
+  flex-direction: row !important;
+  width: 100%;
+  align-items: center;
+  justify-content: start !important;
+}
+
+
+.calendar-input{
+  background-color: #06316B;
+  border-radius: 0.5rem;
+  width: max-content;
+  color: white;
+}
+
+ 
+ mat-datepicker-toggle {
+  color: white !important;
+ }
+
+ .disabled{
+  cursor: none;
+ }
+ .formm{
+  padding: 2rem;
+ }
+
+ @media (max-width: 1250px ) {
+    .fondoDisenio{
+      display: none;
+    }
+    .displayrow{
+      padding: 0rem;
+    }
+    .formm{
+      padding: 1rem;
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+ }
