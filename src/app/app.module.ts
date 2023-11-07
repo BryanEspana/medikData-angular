@@ -30,6 +30,7 @@ import { AgregarCitaComponent } from './components/paginaInicio/agregar-cita/agr
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCardModule } from '@angular/material/card';
 import { MatCalendar } from '@angular/material/datepicker';
+import { MatRadioModule } from '@angular/material/radio';
 import { ClinicasComponent } from './components/paginaInicio/clinicas/clinicas.component';
 import { PacientesComponent } from './components/clinica/pacientes/pacientes.component';
 import { DoctoresComponent } from './components/clinica/doctores/doctores.component';
@@ -78,6 +79,7 @@ import { MedicoHorarioComponent } from './components/paginaInicio/medico-horario
         MatDatepickerModule,
         MatTooltipModule,
         MatCardModule,
+        MatRadioModule
 
 
   ],

@@ -1,13 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import Swal from 'sweetalert2';
 import { formatDate } from '@angular/common';
-
-
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @Component({
   selector: 'app-agregar-cita',
@@ -16,10 +15,6 @@ import { formatDate } from '@angular/common';
 })
 export class AgregarCitaComponent {
   //SEleccionar fecha
-  selectedDate: Date | null | undefined;
-  formatearFecha(fecha: Date): string {
-    return formatDate(fecha, 'dd/MM/yyyy', 'en-US');
-  }
 
   isDropdownAbove: boolean = false;
   selectedEspecialidad: string = 'Seleccionar';
@@ -34,6 +29,12 @@ export class AgregarCitaComponent {
   citaForm!: FormGroup;
   pacientetoken: string = '';
   nameUser: string = '';
+  medicodpi: string = '';
+  availableDates: Date[] = [];
+  availableTimes: string[] = [];
+  selectedDate: Date | null | undefined;
+  selectedTime: string = '';
+  filteredTimes: string[] = [];
 
 
   //Proceso de Agendar cita:
@@ -57,6 +58,7 @@ export class AgregarCitaComponent {
     private http: HttpClient,
     private router: Router,
     private apiService: ApiService,
+    private changeDetectorRef: ChangeDetectorRef
   ) {
     this.initializeDpi();
     this.initializeName();
@@ -65,7 +67,6 @@ export class AgregarCitaComponent {
   ngOnInit(): void {
     this.fetchClinicasFromDatabase();
     this.initializeCitaForm();
-
   }
 
   initializeCitaForm(): void {
@@ -125,6 +126,8 @@ export class AgregarCitaComponent {
       case 'medico':
         this.selectedMedico = `${option.full_name}`;
         this.citaForm.patchValue({ medicotoken: option.dpi });
+        this.medicodpi = option.dpi;
+        this.fetchAvailableDates();
         break;
       default:
         break;
@@ -186,6 +189,80 @@ export class AgregarCitaComponent {
     );
   }
 
+  fetchAvailableDates() {
+    // Replace 'yourDpi' with the actual DPI value of the selected doctor
+    console.log('medico dpi:', this.medicodpi)
+    this.apiService.getHorarios(this.medicodpi).subscribe(
+      (response: any) => {
+        console.log(response)
+        if (response && response.horarios) {
+          console.log(response.horarios)
+
+          // Separate arrays for dates and times
+          const datesArray: Date[] = [];
+          const timesArray: string[] = [];
+
+          // Map the response to extract and store dates and times
+          response.horarios.forEach((horario: any) => {
+            const dateStr = `${horario.fecha}T${horario.hora}`;
+            datesArray.push(new Date(dateStr));
+            timesArray.push(horario.hora);
+          });
+
+          this.availableDates = datesArray;
+          this.availableTimes = timesArray;
+
+          console.log('available dates', this.availableDates);
+          console.log('available times', this.availableTimes);
+        } else {
+          console.error('Invalid response:', response);
+        }
+      },
+      (error) => {
+        console.error('Error fetching available dates:', error);
+      }
+    );
+  }
+
+  dateFilter = (date: Date | null): boolean => {
+    if (date) {
+      // Check if the date is in availableDates
+      return this.availableDates.some(
+        (availableDate) => {
+          const availableYear = availableDate.getFullYear();
+          const availableMonth = availableDate.getMonth();
+          const availableDay = availableDate.getDate();
+          const selectedYear = date.getFullYear();
+          const selectedMonth = date.getMonth();
+          const selectedDay = date.getDate();
+          return (
+            availableYear === selectedYear &&
+            availableMonth === selectedMonth &&
+            availableDay === selectedDay
+          );
+        }
+      );
+    }
+    return false; // Disable null dates
+  };
+
+  updateFilteredTimes(): void {
+    this.selectedDate = this.citaForm.value.fecha;
+  
+    if (this.selectedDate) {
+      const selectedDateString = formatDate(this.selectedDate, 'yyyy-MM-dd', 'en-US');
+  
+      // Filter the available times to include only those that have the same date
+      this.filteredTimes = this.availableTimes.filter((time, index) => {
+        const date = this.availableDates[index];
+        const dateStr = formatDate(date, 'yyyy-MM-dd', 'en-US');
+        return dateStr === selectedDateString;
+      });
+    } else {
+      this.filteredTimes = [];
+    }
+  }  
+  
   onAgendarClick(): void {
     const selectedMedico = this.medicos.find((medico) => `${medico.full_name}` === this.selectedMedico);
     if (!selectedMedico) {
@@ -225,7 +302,4 @@ export class AgregarCitaComponent {
       console.error('Formulario invalido');
     }
   }
-
-
-
 }

@@ -60,6 +60,7 @@ export class CitasPendientesComponent {
     this.apiService.getCitasPendientes(this.pacientetoken).subscribe(
       (response: any) => {
         this.citasPendientes = response.citasPendientes;
+        this.citasPendientes.reverse();
       },
       (error: any) => {
         console.log(error);
