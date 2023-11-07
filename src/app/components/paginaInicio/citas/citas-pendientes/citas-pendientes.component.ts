@@ -10,7 +10,8 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class CitasPendientesComponent {
   citasPendientes: any[] = [];
-  pacientetoken: string = '';
+  usertoken: string = '';
+  rol: string = '';
 
   constructor(
     private route: Router,
@@ -20,16 +21,18 @@ export class CitasPendientesComponent {
   }
 
   ngOnInit(): void {
-    this.getCitasPendientes();
+    if (this.rol == 'paciente') {
+      this.getCitasPendientes();
+    } else if (this.rol == 'doctor') {
+      this.getCitasPendientesMedico();
+    }
   }
 
   initializeDpi(): void {
     const token = localStorage.getItem('jwt');
     if (token) {
-      const base64Url = token.split('.')[1];
-      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-      const payload = JSON.parse(window.atob(base64));
-      this.pacientetoken = payload.user_metadata.dpi;
+      this.usertoken = localStorage.getItem('user_dpi')!;
+      this.rol = localStorage.getItem('profile_role')!;        
     }
   }
 
@@ -57,7 +60,19 @@ export class CitasPendientesComponent {
   }
 
   getCitasPendientes() {
-    this.apiService.getCitasPendientes(this.pacientetoken).subscribe(
+    this.apiService.getCitasPendientes(this.usertoken).subscribe(
+      (response: any) => {
+        this.citasPendientes = response.citasPendientes;
+        this.citasPendientes.reverse();
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
+
+  }
+  getCitasPendientesMedico() {
+    this.apiService.getCitasPendientesMedico(this.usertoken).subscribe(
       (response: any) => {
         this.citasPendientes = response.citasPendientes;
         this.citasPendientes.reverse();

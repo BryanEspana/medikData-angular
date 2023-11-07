@@ -57,9 +57,13 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/api/resenias/infoResenias`);
   }
 
-  // Obtener Citas
+  // Obtener Citas paciente
   getCitasPendientes(dpi: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/api/citas/citaspendientes/${dpi}`);
+  }
+  // Obtener citas medico
+  getCitasPendientesMedico(dpi: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/api/citas/citaspendientesmedico/${dpi}`);
   }
 
   getCitas(dpi: string): Observable<any> {
