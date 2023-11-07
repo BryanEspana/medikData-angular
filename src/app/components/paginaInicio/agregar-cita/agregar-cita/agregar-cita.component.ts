@@ -204,9 +204,11 @@ export class AgregarCitaComponent {
 
           // Map the response to extract and store dates and times
           response.horarios.forEach((horario: any) => {
-            const dateStr = `${horario.fecha}T${horario.hora}`;
-            datesArray.push(new Date(dateStr));
-            timesArray.push(horario.hora);
+            if (horario.estado === 'pendiente') {
+              const dateStr = `${horario.fecha}T${horario.hora}`;
+              datesArray.push(new Date(dateStr));
+              timesArray.push(horario.hora);
+            }
           });
 
           this.availableDates = datesArray;
@@ -248,10 +250,10 @@ export class AgregarCitaComponent {
 
   updateFilteredTimes(): void {
     this.selectedDate = this.citaForm.value.fecha;
-  
+
     if (this.selectedDate) {
       const selectedDateString = formatDate(this.selectedDate, 'yyyy-MM-dd', 'en-US');
-  
+
       // Filter the available times to include only those that have the same date
       this.filteredTimes = this.availableTimes.filter((time, index) => {
         const date = this.availableDates[index];
@@ -261,8 +263,8 @@ export class AgregarCitaComponent {
     } else {
       this.filteredTimes = [];
     }
-  }  
-  
+  }
+
   onAgendarClick(): void {
     const selectedMedico = this.medicos.find((medico) => `${medico.full_name}` === this.selectedMedico);
     if (!selectedMedico) {
