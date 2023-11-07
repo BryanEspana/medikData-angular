@@ -90,4 +90,9 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/api/medico/horarios/${dpi}`);
   }
 
+  // Agregar horario
+  postHorario(horarioData: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/api/medico//horarios/addhorario`, horarioData);
+  }
+  
 }

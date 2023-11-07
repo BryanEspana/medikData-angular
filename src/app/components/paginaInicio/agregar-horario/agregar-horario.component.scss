@@ -1,0 +1,145 @@
+.window {
+    margin: 2vh 0;
+    width: 70%;
+}
+
+.dashboard-container {
+    padding: 3rem 5rem;
+}
+
+.no-schedules-message {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.search-container {
+    text-align: right !important;
+    align-items: right !important;
+    justify-content: end;
+}
+
+.table-design {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-design thead th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+}
+
+.table-design tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.btn-visualizar {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-visualizar:hover {
+    background-color: #45a049;
+}
+
+.btn-visualizar:focus {
+    outline: none;
+}
+
+.btn-visualizar:active {
+    background-color: #3e8e41;
+}
+
+.background {
+    padding: 1rem;
+    background-color: #33333315;
+    border-radius: 1rem;
+}
+
+.Buscador {
+    width: 200px;
+    margin-bottom: 1rem;
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    top: 40%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #888;
+    cursor: pointer;
+}
+
+.table-design tbody td {
+    padding: 10px;
+    border: 1px solid #979797;
+    /* Increase border thickness and/or change border color */
+}
+
+.extra {
+    display: flex;
+    flex-direction: row !important;
+    width: 100%;
+    align-items: center;
+    justify-content: start !important;
+}
+
+.tituloSelect {
+    padding: 1rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.FechaInput {
+    width: 40%;
+}
+
+.calendar-input {
+    background-color: #06316B;
+    border-radius: 0.5rem;
+    width: max-content;
+    color: white;
+}
+
+mat-datepicker-toggle {
+    color: white !important;
+}
+.numCard{
+  position: relative;
+  width: 25px;
+  font-size: 20px;
+  padding: 0.5rem;
+  margin: 0rem;
+  margin-top: 1.1rem;
+}
+
+@media (max-width: 1250px ) {
+    .fondoDisenio{
+      display: none;
+    }
+    .displayrow{
+      padding: 0rem;
+    }
+    .formm{
+      padding: 1rem;
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+ }

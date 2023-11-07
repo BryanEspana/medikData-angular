@@ -100,10 +100,12 @@ export class CitasPendientesComponent {
         this.apiService.deleteCita(cita.citasid).subscribe(
           () => {
             Swal.fire('Cita anulada', '', 'success');
+            this.ngOnInit();
           },
           (error: any) => {
             console.error(error);
             Swal.fire('Cita anulada', '', 'success');
+            this.ngOnInit();
           }
         );
       }

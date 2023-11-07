@@ -1,40 +1,60 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Citas medicas</title>
+    <title>Citas medicas</title>
 
 </head>
+
 <body>
-  <div class="dashboard-container">
-    <div class="window">
-        <div style="display: flex; flex-direction: row; justify-content: space-between;">
-            <h1 class="title" style="font-size: 35px; font-weight: 400;">Citas pendientes:</h1>
-            <mat-icon (click)="regresar()" class="icon-back">arrow_back</mat-icon>
+
+    <div class="breadcrumbs">
+        <div class="botonMenu" routerLink="/dashboard">
+            <img src="/assets/dashboard/home.png" width="20px" height="20px">
+            <p style="padding-left: 1rem;">Inicio</p>
         </div>
-        <div class="cards-container" style="display: flex; flex-direction: column; justify-content: center; height: 60%;">
-        <div class="widget-cita" style="margin: 2rem 0;" *ngFor="let cita of citasPendientes">
-            <!--Fecha-->
-            <div class="widget-fecha">
-                <span class="titulo">Fecha: </span>
-                <span class="fecha">{{ cita.fecha }} {{ cita.hora }}</span>
-            </div>
-            <!--Titulo-->
-            <h2 class="widget-titulo">
-                {{ cita.medico.full_name }}
-            </h2>
-            <div class="widget-info">
-                <div>
-                    <span> Clínica: {{ cita.clinica.nombre }}</span>
-                    <p> Doctor: {{ cita.medico.full_name }} </p>
-                    <p> Paciente: {{ cita.paciente.full_name }} </p>
+        <!--divisor-->
+        <img src="/assets/dashboard/flechaRight.png" width="20px" height="20px">
+        <div href="#" style="padding: 0rem 0.8rem; cursor: pointer; font-weight: 500;" routerLink="/citas-pendientes">
+            Citas Activas
+        </div>
+        <!--divisor-->
+    </div>
+    <div class="dashboard-container">
+        <div class="window">
+            <div style="display: flex; flex-direction: row; ">
+                <div (click)="regresar()" class="icon-back">
+                  <img src="/assets/dashboard/back.png" width="40px">
                 </div>
-                <button (click)="anularCita(cita)" class="btn-cancelar button-general" style="width: 150px;">Anular Cita</button>
+                <h1 class="title" style="font-size: 35px; font-weight: 400; margin:0rem;" >Citas Activas</h1>
             </div>
-            <hr>
-            <span class="verdetalle"> Ver detalle completo </span>
-        </div>
+            <div class="cards-container"
+                style="display: flex; flex-direction: column; justify-content: center; height: 60%;">
+                <div class="widget-cita" style="margin: 2rem 0;" *ngFor="let cita of citasPendientes">
+                    <!--Fecha-->
+                    <div class="widget-fecha">
+                        <span class="titulo">Fecha: </span>
+                        <span class="fecha">{{ cita.fecha }} {{ cita.hora }}</span>
+                    </div>
+                    <!--Titulo-->
+                    <h2 class="widget-titulo">
+                        {{ cita.medico.full_name }}
+                    </h2>
+                    <div class="widget-info">
+                        <div>
+                            <span> Clínica: {{ cita.clinica.nombre }}</span>
+                            <p> Doctor: {{ cita.medico.full_name }} </p>
+                            <p> Paciente: {{ cita.paciente.full_name }} </p>
+                        </div>
+                        <button (click)="anularCita(cita)" class="btn-cancelar button-general"
+                            style="width: 150px;">Anular Cita</button>
+                    </div>
+                    <hr>
+                    <span class="verdetalle"> Ver detalle completo </span>
+                </div>
+            </div>
         </div>
     </div>
-  </div>
 </body>
+
 </html>

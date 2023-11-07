@@ -29,7 +29,8 @@
   </div>
   <!--divisor-->
   <img src="/assets/dashboard/flechaRight.png" width="20px" height="20px">
-  <div href="#" style="padding: 0rem 0.8rem; cursor: pointer; font-weight: 500;" routerLink="/agregar-cita">Agendar Cita</div>
+  <div href="#" style="padding: 0rem 0.8rem; cursor: pointer; font-weight: 500;" routerLink="/agregar-cita">Agendar Cita
+  </div>
   <!--divisor-->
 </div>
 
@@ -50,7 +51,8 @@
             <div class="dropdown">
               <button class="dropbtn button-general" (click)="toggleDropdown($event)">{{ selectedClinica }}</button>
               <div class="dropdown-content scrollable-dropdown" [class.above]="isDropdownAbove">
-                <span class="option" *ngFor="let option of clinicas" (click)="selectOption(option, 'clinica')">{{ option.nombre }}</span>
+                <span class="option" *ngFor="let option of clinicas" (click)="selectOption(option, 'clinica')">{{
+                  option.nombre }}</span>
               </div>
             </div>
           </div>
@@ -62,9 +64,11 @@
           <div class="select-fields">
             <label class="tituloSelect">Selecciona tu especialidad:</label>
             <div class="dropdown">
-              <button class="dropbtn button-general" (click)="toggleDropdown($event)">{{ selectedEspecialidad }}</button>
+              <button class="dropbtn button-general" (click)="toggleDropdown($event)">{{ selectedEspecialidad
+                }}</button>
               <div class="dropdown-content scrollable-dropdown" [class.above]="isDropdownAbove">
-                <span class="option" *ngFor="let option of especialidades" (click)="selectOption(option, 'especialidad')">{{ option }}</span>
+                <span class="option" *ngFor="let option of especialidades"
+                  (click)="selectOption(option, 'especialidad')">{{ option }}</span>
               </div>
             </div>
           </div>
@@ -78,7 +82,8 @@
             <div class="dropdown">
               <button class="dropbtn button-general" (click)="toggleDropdown($event)">{{ selectedMedico }}</button>
               <div class="dropdown-content scrollable-dropdown" [class.above]="isDropdownAbove">
-                <span class="option" *ngFor="let option of medicos" (click)="selectOption(option, 'medico')">{{ option.full_name }}</span>
+                <span class="option" *ngFor="let option of medicos" (click)="selectOption(option, 'medico')">{{
+                  option.full_name }}</span>
               </div>
             </div>
           </div>
@@ -87,23 +92,21 @@
           <div class="numCard card">
             4
           </div>
-            <div class="extra">
-              <label class="tituloSelect">Elige una fecha:</label>
-              <input matInput [matDatepickerFilter]="dateFilter" [matDatepicker]="picker" 
-              formControlName="fecha" class="FechaInput disabled" type="date" 
-              (dateChange)="updateFilteredTimes()" readonly>
-                     <div class="calendar-input">
-                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-              </div>  
-
-              </div>
+          <div class="extra">
+            <label class="tituloSelect">Elige una fecha:</label>
+            <input matInput [matDatepickerFilter]="dateFilter" [matDatepicker]="picker" formControlName="fecha"
+              class="FechaInput disabled" type="date" (dateChange)="updateFilteredTimes()" readonly>
+            <div class="calendar-input">
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </div>
+          </div>
         </div>
         <div class="horas-widget" *ngIf="selectedDate">
           <mat-radio-group name="time" [(ngModel)]="selectedTime" formControlName="hora">
             <mat-radio-button *ngFor="let time of filteredTimes" [value]="time">{{ time }}</mat-radio-button>
           </mat-radio-group>
-        </div>       
+        </div>
       </div>
     </div>
     <button type="submit" class="btn-agregar-cita button-general">Agendar cita</button>
