@@ -24,10 +24,11 @@
             </h2>
             <div class="widget-info">
                 <div>
-                    <span>{{ cita.clinica.nombre }}</span>
-                    <p> {{ cita.medico.full_name }} </p>
+                    <span> Clínica: {{ cita.clinica.nombre }}</span>
+                    <p> Doctor: {{ cita.medico.full_name }} </p>
+                    <p> Paciente: {{ cita.paciente.full_name }} </p>
                 </div>
-                <button id="btnAnularCita" class="btn-cancelar button-general" style="width: 150px;">Anular Cita</button>
+                <button (click)="anularCita(cita)" class="btn-cancelar button-general" style="width: 150px;">Anular Cita</button>
             </div>
             <hr>
             <span class="verdetalle"> Ver detalle completo </span>

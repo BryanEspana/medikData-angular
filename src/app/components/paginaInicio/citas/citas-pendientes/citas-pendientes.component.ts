@@ -16,7 +16,7 @@ export class CitasPendientesComponent {
   constructor(
     private route: Router,
     private apiService: ApiService
-  ) { 
+  ) {
     this.initializeDpi();
   }
 
@@ -32,7 +32,7 @@ export class CitasPendientesComponent {
     const token = localStorage.getItem('jwt');
     if (token) {
       this.usertoken = localStorage.getItem('user_dpi')!;
-      this.rol = localStorage.getItem('profile_role')!;        
+      this.rol = localStorage.getItem('profile_role')!;
     }
   }
 
@@ -62,6 +62,7 @@ export class CitasPendientesComponent {
   getCitasPendientes() {
     this.apiService.getCitasPendientes(this.usertoken).subscribe(
       (response: any) => {
+        console.log('citas pendientes', response)
         this.citasPendientes = response.citasPendientes;
         this.citasPendientes.reverse();
       },
@@ -74,6 +75,7 @@ export class CitasPendientesComponent {
   getCitasPendientesMedico() {
     this.apiService.getCitasPendientesMedico(this.usertoken).subscribe(
       (response: any) => {
+        console.log('citas pendientes', response)
         this.citasPendientes = response.citasPendientes;
         this.citasPendientes.reverse();
       },
@@ -82,6 +84,30 @@ export class CitasPendientesComponent {
       }
     );
 
+  }
+
+  anularCita(cita: any): void {
+    console.log('cita a borrar', cita.citasid);
+    Swal.fire({
+      title: '¿Desea anular la cita?',
+      showCancelButton: true,
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'No',
+      cancelButtonColor: '#d33',
+      icon: 'question'
+    }).then((result) => {
+      if (result.value) {
+        this.apiService.deleteCita(cita.citasid).subscribe(
+          () => {
+            Swal.fire('Cita anulada', '', 'success');
+          },
+          (error: any) => {
+            console.error(error);
+            Swal.fire('Cita anulada', '', 'success');
+          }
+        );
+      }
+    });
   }
 
 }

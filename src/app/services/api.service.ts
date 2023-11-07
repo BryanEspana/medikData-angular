@@ -70,6 +70,11 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/api/citas/citaspaciente/${dpi}`);
   }
 
+  // Anular cita pendiente
+  deleteCita(citaid: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/api/citas/anularcita/${citaid}`);
+  }
+
   // Obtener id de la clinica
   getClinicaID(dpi: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/api/clinica/${dpi}`);
