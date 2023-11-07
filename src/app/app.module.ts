@@ -39,6 +39,7 @@ import { LayoutAuthComponent } from './layoutAuth/layoutAuth.component';
 import { ListadoMedicosComponent } from './components/paginaInicio/listado-medicos/listado-medicos.component';
 import { AgregarMedicoComponent } from './components/paginaInicio/agregar-medico/agregar-medico.component';
 import { MedicoHorarioComponent } from './components/paginaInicio/medico-horario/medico-horario.component';
+import { AgregarHorarioComponent } from './components/paginaInicio/agregar-horario/agregar-horario.component';
 @NgModule({
   declarations: [		
     AppComponent,
@@ -60,7 +61,8 @@ import { MedicoHorarioComponent } from './components/paginaInicio/medico-horario
       LayoutAuthComponent,
       ListadoMedicosComponent,
       AgregarMedicoComponent,
-      MedicoHorarioComponent
+      MedicoHorarioComponent,
+      AgregarHorarioComponent
    ],
   imports: [
     BrowserModule,

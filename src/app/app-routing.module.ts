@@ -18,6 +18,7 @@ import { PacientesComponent } from './components/clinica/pacientes/pacientes.com
 import { ListadoMedicosComponent } from './components/paginaInicio/listado-medicos/listado-medicos.component';
 import { AgregarMedicoComponent } from './components/paginaInicio/agregar-medico/agregar-medico.component';
 import { MedicoHorarioComponent } from './components/paginaInicio/medico-horario/medico-horario.component';
+import { AgregarHorarioComponent } from './components/paginaInicio/agregar-horario/agregar-horario.component';
 import { LayoutInitialComponent } from './layoutInitial/layoutInitial.component';
 const routes: Routes = [
 //RUTAS
@@ -59,6 +60,7 @@ const routes: Routes = [
       //Medicos
       {path: 'pacientes', component: PacientesComponent, canActivate:[AuthGuard]},
       {path: 'horario', component: MedicoHorarioComponent, canActivate:[AuthGuard]},
+      {path: 'horario/agregar-horario', component: AgregarHorarioComponent, canActivate:[AuthGuard]},
     ]
   },
 
