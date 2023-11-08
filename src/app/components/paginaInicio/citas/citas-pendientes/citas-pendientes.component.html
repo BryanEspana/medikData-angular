@@ -24,9 +24,9 @@
         <div class="window">
             <div style="display: flex; flex-direction: row; ">
                 <div (click)="regresar()" class="icon-back">
-                  <img src="/assets/dashboard/back.png" width="40px">
+                    <img src="/assets/dashboard/back.png" width="40px">
                 </div>
-                <h1 class="title" style="font-size: 35px; font-weight: 400; margin:0rem;" >Citas Activas</h1>
+                <h1 class="title" style="font-size: 35px; font-weight: 400; margin:0rem;">Citas Activas</h1>
             </div>
             <div class="cards-container"
                 style="display: flex; flex-direction: column; justify-content: center; height: 60%;">
@@ -50,7 +50,10 @@
                             style="width: 150px;">Anular Cita</button>
                     </div>
                     <hr>
-                    <span class="verdetalle"> Ver detalle completo </span>
+                    <span class="verdetalle">
+                        <a [routerLink]="'/diagnostico/' + cita.citasid"
+                            style="text-decoration: none; color: inherit;">Ver detalle completo</a>
+                    </span>
                 </div>
             </div>
         </div>

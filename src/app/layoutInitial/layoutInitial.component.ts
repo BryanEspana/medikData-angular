@@ -53,7 +53,8 @@ export class LayoutInitialComponent implements OnInit {
 
   updateLoginState() {
     const currentRoute = this.router.url;
-    const allowedRoutes = ['/inicio', '/dashboard', '/medicamentos', '/citas', '/agregar-cita', '/citas-pendientes', '/listado-citas', '/comentarios', '/configuracion', '/clinicas', '/pacientes', '/horario', '/horario/agregar-horario'];
+    const allowedRoutes = ['/inicio', '/dashboard', '/medicamentos', '/citas', '/agregar-cita', '/citas-pendientes', 
+    '/listado-citas', '/comentarios', '/configuracion', '/clinicas', '/pacientes', '/horario', '/horario/agregar-horario', '/diagnostico/:citaid'];
     this.isLoggedIn = allowedRoutes.includes(currentRoute);
 
   }

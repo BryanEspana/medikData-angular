@@ -53,7 +53,7 @@ export class ApiService {
   }
 
   //Ver reseñas
-  getResenias():Observable<any>{
+  getResenias(): Observable<any> {
     return this.http.get(`${this.baseUrl}/api/resenias/infoResenias`);
   }
 
@@ -90,9 +90,14 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/api/medico/horarios/${dpi}`);
   }
 
+  // Update diagnostico
+  updateDiagnostico(citaid: number, diagnostico: any): Observable<any> {
+    return this.http.put(`${this.baseUrl}/api/citas/diagnostico/${citaid}`, diagnostico);
+  }
+
   // Agregar horario
   postHorario(horarioData: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/api/medico//horarios/addhorario`, horarioData);
   }
-  
+
 }
