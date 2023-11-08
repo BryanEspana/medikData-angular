@@ -1,5 +1,5 @@
 .main-dashboard {
-  height: 80vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,4 +76,29 @@
     margin-bottom: 1rem;
     text-align: center !important;
   }
+
+}
+
+@media (max-width: 1310px) {
+  .breadcrumbs{
+    display: none;
+  }
+
+}
+
+@media (max-width: 1110px) {
+  .breadcrumbs{
+    display: none;
+  }
+}
+
+.response{
+  display: flex
+}
+
+.citaaaaaas{
+  display: flex;
+  flex-direction: column;
+  height: 100vh !important;
+  overflow-y: auto;
 }

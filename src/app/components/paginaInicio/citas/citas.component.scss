@@ -36,3 +36,29 @@ img {
 .dashboard-container {
   height: 100vh;
 }
+
+.card-title{
+  color: #06316B;
+}
+
+.title{
+  font-size: 35px; font-weight: 400;
+  color: #06316B;
+}
+
+.icon{
+  font-size: 60px;
+  fill: #06316B;
+}
+
+.card:hover{
+  background-color: rgba(0, 0, 0, 0.057);
+}
+
+@media (max-width: 780px) {
+  .cards-container{
+    display: flex;
+    flex-direction: column;
+  }
+
+}
