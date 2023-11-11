@@ -65,6 +65,9 @@ export class ApiService {
   getCitasPendientesMedico(dpi: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/api/citas/citaspendientesmedico/${dpi}`);
   }
+  getCitasPendientesCitaID(citaid: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/api/citas/citaspendientescitaid/${citaid}`);
+  }
 
   getCitas(dpi: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/api/citas/citaspaciente/${dpi}`);
@@ -92,12 +95,12 @@ export class ApiService {
 
   // Update diagnostico
   updateDiagnostico(citaid: number, diagnostico: any): Observable<any> {
-    return this.http.put(`${this.baseUrl}/api/citas/diagnostico/${citaid}`, diagnostico);
+    return this.http.put(`${this.baseUrl}/api/medico/diagnostico/${citaid}`, diagnostico);
   }
 
   // Agregar horario
   postHorario(horarioData: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/api/medico//horarios/addhorario`, horarioData);
+    return this.http.post(`${this.baseUrl}/api/medico/horarios/addhorario`, horarioData);
   }
 
 }

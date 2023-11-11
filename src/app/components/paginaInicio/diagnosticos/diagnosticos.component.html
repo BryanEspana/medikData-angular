@@ -31,17 +31,17 @@
         <div>
             <!-- Citas  activas -->
             <div class=" card cardCentral" style="margin-left: 2rem; padding: 2rem;">
-                <div class="details-card"
-                    style="display: flex; align-items: center; justify-content: space-around; color: #06316B; margin-left: 2rem;">
+                <div class="details-card" style="display: flex; align-items: center; justify-content: space-around; color: #06316B; margin-left: 2rem;">
                     <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
                         <h2>Fecha:</h2>
-                        <p style="margin-bottom: 0.7rem; margin-left: 0.4rem;"> 10/11/2023 </p>
+                        <p style="margin-bottom: 0.7rem; margin-left: 0.4rem;"> {{ cita.citasPendientes[0].fecha }} </p>
                     </div>
                     <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
                         <h2>Hora:</h2>
-                        <p style="margin-bottom: 0.7rem; margin-left: 0.4rem;"> 10:00pm </p>
+                        <p style="margin-bottom: 0.7rem; margin-left: 0.4rem;"> {{ cita.citasPendientes[0].hora }} </p>
                     </div>
                 </div>
+
             </div>
             <form [formGroup]="diagnosticoForm" (ngSubmit)="onUpdateDiagnostico()" class="form">
                 <div class="displayrow card" style="margin-left: 2rem; padding: 2rem;">
@@ -49,7 +49,8 @@
                     <div style="align-items: left; text-align: left; color: #06316B; margin-left: 2rem;">
                         <h2>Diagnostico</h2>
                         <label>Hazle saber a tu paciente <br />qué le has recetado o encontrado en esta visita</label>
-                        <input matInput type="text" id="diagnostico" formControlName="diagnostico" required />
+                        <textarea matInput type="text" id="diagnostico" formControlName="diagnostico"
+                            required></textarea>
                         <button class="button-general citasbtn" style="margin-top: 1rem;" type="submit">Guardar</button>
                     </div>
                 </div>
