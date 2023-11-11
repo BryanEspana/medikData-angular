@@ -1,3 +1,35 @@
 .container-mat-drawer{
     height: 100vh;
 }
+.btn-menu{
+  position: absolute;
+
+  background-color: white;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
+  padding: 0.5rem;
+  border-bottom-right-radius: 1rem;
+  cursor: pointer;
+  width: max-content;
+  z-index: 100000000000 !important  ;
+
+}
+
+.btn-menu:hover{
+  box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.5);
+}
+.btn-menu img{
+  width: 30px
+}
+.botonMenu:hover{
+  background-color: rgba(0, 0, 0, 0.035);
+}
+.example-sidenav-content{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.routeroulet{
+  overflow: hidden;
+}
