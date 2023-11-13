@@ -57,7 +57,6 @@ export class AgregarHorarioComponent {
 
       this.apiService.postHorario(horarioData).subscribe(
         (response: any) => {
-          console.log("Horario agregado con exito", response)
           this.router.navigate(['/horario']);
         },
         (error) => {

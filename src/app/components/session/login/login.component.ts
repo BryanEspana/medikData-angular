@@ -43,15 +43,12 @@ export class LoginComponent {
 
   onSubmit(): void {
     if (this.loginForm.invalid) {
-      console.log('ALERTA:', this.loginForm.value);
       return;
     }
     const {email, password} = this.loginForm.value;
     this.apiService.login(email, password).subscribe(
       response => {
-        console.log('RESPONSE:', response);
         const token = response.data.session.access_token;
-        console.log('TOKEN:', token)
         localStorage.setItem('jwt', token);
         this.apiService.getUser(token).subscribe(
           user => {

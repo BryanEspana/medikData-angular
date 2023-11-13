@@ -32,7 +32,6 @@ export class DiagnosticosComponent {
     this.medicotoken = localStorage.getItem('user_dpi') || '';
     this.route.params.subscribe((params) => {
       this.citaid = params['citaid'];
-      console.log(this.citaid)
       this.getCitasDetails();
       this.visualizarItem();
     });
@@ -51,7 +50,6 @@ export class DiagnosticosComponent {
 
   onUpdateDiagnostico(): void {
     const diagnosticoValue = this.diagnosticoForm.value;
-    console.log(diagnosticoValue)
     this.apiService.updateDiagnostico(this.citaid, diagnosticoValue).subscribe(
       (response: any) => {
         // Handle the response from the backend (e.g., show a success message)
@@ -76,7 +74,6 @@ export class DiagnosticosComponent {
   getCitasDetails() {
     this.apiService.getCitasPendientesCitaID(this.citaid).subscribe((data: any) => {
       this.cita = data;
-      console.log(this.cita);
     });
   }
   

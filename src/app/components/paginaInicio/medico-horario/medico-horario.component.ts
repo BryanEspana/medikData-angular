@@ -26,11 +26,6 @@ export class MedicoHorarioComponent {
   ngOnInit(): void {
     this.medicotoken = localStorage.getItem('user_dpi')!;
     this.getHorarios();
-    this.visualizarItem();
-  }
-
-  visualizarItem() {
-    // Implementa el código para visualizar el elemento seleccionado
   }
 
   regresar() {
@@ -40,10 +35,8 @@ export class MedicoHorarioComponent {
   getHorarios() {
     this.apiService.getHorarios(this.medicotoken).subscribe(
       (response: any) => {
-        console.log(response)
         this.horariosMedico = response.horarios;
         this.groupHorariosByDate();
-        console.log(this.horariosMedico);
       },
       (error: any) => {
         console.log(error);
@@ -58,13 +51,14 @@ export class MedicoHorarioComponent {
         grouped[horario.fecha] = [];
       }
       grouped[horario.fecha].push(horario);
-      console.log(grouped);
     });
-    this.groupedHorarios = Object.keys(grouped).map((fecha) => ({
+
+    const sortedDates = Object.keys(grouped).sort((a,b) => new Date(a).getTime() - new Date(b).getTime());
+
+    this.groupedHorarios = sortedDates.map((fecha) => ({
       fecha,
       horarios: grouped[fecha]
     }));
-    console.log(this.groupedHorarios);
   }
 
 }

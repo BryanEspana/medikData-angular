@@ -5,11 +5,11 @@
             <p>Aquí puedes cambiar tu correo y contraseña</p>
         </div>
         <div class="change-account-details">
-            <div class="change-email">
+            <div class="change-email" style="width: 80%;">
                 <p>DIRECCIÓN DE CORREO</p>
                 <div class="input-container">
-                    <input type="text" placeholder="Correo electrónico" >
-                    <button class="change-email-btn btn-primary button-general">Cambiar</button>
+                    <input type="text" placeholder="Correo electrónico">
+                    <button class="change-email-btn btn-primary button-general" style="margin-left: 0.5rem;">Cambiar</button>
                 </div>
             </div>
             <div class="change-multiple">
@@ -27,7 +27,8 @@
                         <input type="password" placeholder="Confirmar contraseña">
                     </div>
                     <div class="fields">
-                        <button class="change-pswd-btn btn-primary button-general" style="height: 50%; width: 50%;">Cambiar</button>
+                        <button class="change-pswd-btn btn-primary button-general"
+                            style="height: 50%; width: 50%;">Cambiar</button>
                     </div>
                 </div>
             </div>
@@ -40,29 +41,40 @@
         </div>
         <div class="change-multiple">
             <div class="field-texts">
-                <div class="fields" style="width: 30%;">
+                <div class="fields" style="width: 30%; display: flex; flex-direction: columns; justify-content: center;">
                     <p style="text-align: left">NOMBRE DE DISPLAY</p>
-                    <input type="text" placeholder="{{nameUser}}">
+                    <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+                        <input type="text" placeholder="{{nameUser}}">
+                        <button class="change-pswd-btn btn-primary button-general"
+                            style="height: 80%; width: 50%; margin-left: 0.5rem;">Guardar</button>
+                    </div>
                 </div>
-                <div class="fields">
+                <div class="fields" style="margin-left: 1rem; width: 30%; display: flex; flex-direction: columns; justify-content: center;">
                     <p style="text-align: left">TELEFONO</p>
-                    <input type="text" placeholder="0000-0000" style="width: 30%;">
+                    <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+                        <input type="text" placeholder="{{phoneUser}}">
+                        <button class="change-pswd-btn btn-primary button-general"
+                            style="height: 80%; width: 50%; margin-left: 0.5rem;">Guardar</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="window">
-        <div class="title-bar">
-            <span style="font-size: 2rem; font-weight: bold;">Configuración de Información Médica</span>
-            <p>Aquí puedes cambiar la información sobre tus detalles médicos</p>
-        </div>
-        <div class="fields" style="width: 100%;">
-            <p style="text-align: left">ALERGIAS</p>
-            <textarea cols="30" rows="10" placeholder="Escribe aquí tu información médica"></textarea>
-        </div>
-        <div class="fields" style="width: 100%;">
-            <p style="text-align: left">COMPLICACIONES MÉDICAS</p>
-            <textarea cols="30" rows="10" placeholder="Escribe aquí tu información médica"></textarea>
+
+    <div *ngIf="profileRole === 'paciente'" class="main-dashboard">
+        <div class="window">
+            <div class="title-bar">
+                <span style="font-size: 2rem; font-weight: bold;">Configuración de Información Médica</span>
+                <p>Aquí puedes cambiar la información sobre tus detalles médicos</p>
+            </div>
+            <div class="fields" style="width: 100%;">
+                <p style="text-align: left">ALERGIAS</p>
+                <textarea cols="30" rows="10" placeholder="Escribe aquí tu información médica"></textarea>
+            </div>
+            <div class="fields" style="width: 100%;">
+                <p style="text-align: left">COMPLICACIONES MÉDICAS</p>
+                <textarea cols="30" rows="10" placeholder="Escribe aquí tu información médica"></textarea>
+            </div>
         </div>
     </div>
 </div>

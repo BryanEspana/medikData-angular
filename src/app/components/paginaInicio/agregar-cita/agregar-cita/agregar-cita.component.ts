@@ -94,9 +94,7 @@ export class AgregarCitaComponent {
       const base64Url = token.split('.')[1];
       const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
       const payload = JSON.parse(window.atob(base64));
-      console.log("payload", payload);
       this.nameUser = payload.user_metadata.full_name;
-      console.log(this.nameUser);
     }
   }
 
@@ -188,13 +186,9 @@ export class AgregarCitaComponent {
   }
 
   fetchAvailableDates() {
-    // Replace 'yourDpi' with the actual DPI value of the selected doctor
-    console.log('medico dpi:', this.medicodpi)
     this.apiService.getHorarios(this.medicodpi).subscribe(
       (response: any) => {
-        console.log(response)
         if (response && response.horarios) {
-          console.log(response.horarios)
 
           // Separate arrays for dates and times
           const datesArray: Date[] = [];
@@ -211,9 +205,6 @@ export class AgregarCitaComponent {
 
           this.availableDates = datesArray;
           this.availableTimes = timesArray;
-
-          console.log('available dates', this.availableDates);
-          console.log('available times', this.availableTimes);
         } else {
           console.error('Invalid response:', response);
         }
@@ -288,7 +279,6 @@ export class AgregarCitaComponent {
 
       this.apiService.postCita(citaData).subscribe(
         (response: any) => {
-          console.log("Cita agendada con exito", response)
           this.router.navigate(['/citas-pendientes']);
         },
         (error) => {

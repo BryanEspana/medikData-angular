@@ -50,7 +50,6 @@ export class ListadoCitasComponent {
     this.apiService.getCitas(this.pacientetoken).subscribe(
       (response: any) => {
         this.citasRealizadas = response.citas;
-        console.log(this.citasRealizadas);
       },
       (error: any) => {
         console.log(error);

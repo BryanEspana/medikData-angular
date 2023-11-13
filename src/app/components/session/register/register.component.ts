@@ -61,7 +61,6 @@ export class RegisterComponent {
     return this.http.post<any>('/signup', userData);
   }
   selectFormType(type: 'paciente' | 'clinica') {
-    console.log(this.formInicial.value);
     if(this.formInicial.valid && this.formInicial.value.password === this.formInicial.value.confirmPassword){
       this.selectedFormType = type;
       this.showForm = false;
@@ -83,10 +82,8 @@ export class RegisterComponent {
         complicaciones: this.registerFromPaciente.value.complicaciones,
         profile_role: this.registerFromPaciente.value.profile_role
       };
-      console.log("onSubmit", combinedData);
       this.apiService.signUp(combinedData).subscribe(
         (response) => {
-          console.log('RESPONSE: ', response);
           this.router.navigate(['/login']);
         },
         (error) => {
@@ -101,8 +98,6 @@ export class RegisterComponent {
 
 
   onSubmitClinica(): void {
-    console.log("ahhhhhh",this.formInicial.value);
-    console.log("ahhhhhh",this.registerFromClinica.value)
     if(this.formInicial.valid && this.registerFromClinica.valid){
       const combinedData = {
         email: this.formInicial.value.email,
@@ -115,7 +110,6 @@ export class RegisterComponent {
       }
       this.apiService.signUp(combinedData).subscribe(
         (response) => {
-          console.log('RESPONSE: ', response);
           this.router.navigate(['/login']);
         },
         (error) => {

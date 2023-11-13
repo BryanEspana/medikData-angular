@@ -14,7 +14,6 @@ export class ApiService {
   //Auth
   getUser(token: string): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    console.log('HEADERS:', headers);
     return this.http.get(`${this.baseUrl}/api/auth/user`, { headers });
   }
 

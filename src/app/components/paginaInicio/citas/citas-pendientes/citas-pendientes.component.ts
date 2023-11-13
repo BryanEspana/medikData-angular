@@ -62,7 +62,6 @@ export class CitasPendientesComponent {
   getCitasPendientes() {
     this.apiService.getCitasPendientes(this.usertoken).subscribe(
       (response: any) => {
-        console.log('citas pendientes', response)
         this.citasPendientes = response.citasPendientes;
         this.citasPendientes.reverse();
       },
@@ -75,7 +74,6 @@ export class CitasPendientesComponent {
   getCitasPendientesMedico() {
     this.apiService.getCitasPendientesMedico(this.usertoken).subscribe(
       (response: any) => {
-        console.log('citas pendientes', response)
         this.citasPendientes = response.citasPendientes;
         this.citasPendientes.reverse();
       },
@@ -87,7 +85,6 @@ export class CitasPendientesComponent {
   }
 
   anularCita(cita: any): void {
-    console.log('cita a borrar', cita.citasid);
     Swal.fire({
       title: '¿Desea anular la cita?',
       showCancelButton: true,

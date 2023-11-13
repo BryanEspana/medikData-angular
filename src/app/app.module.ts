@@ -41,6 +41,7 @@ import { AgregarMedicoComponent } from './components/paginaInicio/agregar-medico
 import { MedicoHorarioComponent } from './components/paginaInicio/medico-horario/medico-horario.component';
 import { AgregarHorarioComponent } from './components/paginaInicio/agregar-horario/agregar-horario.component';
 import { DiagnosticosComponent } from './components/paginaInicio/diagnosticos/diagnosticos.component';
+import { RecoverComponent } from './components/session/recover/recover.component';
 @NgModule({
   declarations: [		
     AppComponent,
@@ -64,7 +65,8 @@ import { DiagnosticosComponent } from './components/paginaInicio/diagnosticos/di
       AgregarMedicoComponent,
       MedicoHorarioComponent,
       AgregarHorarioComponent,
-      DiagnosticosComponent
+      DiagnosticosComponent,
+      RecoverComponent
    ],
   imports: [
     BrowserModule,

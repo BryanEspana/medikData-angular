@@ -83,12 +83,10 @@ export class LayoutInitialComponent implements OnInit {
         const base64Url = token.split('.')[1];
         const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
         const payload = JSON.parse(window.atob(base64));
-        console.log("payload", payload);
         this.profile_name = payload.user_metadata.profile_role;
         this.user_dpi = payload.user_metadata.dpi;
         localStorage.setItem('profile_role', this.profile_name);
         localStorage.setItem('user_dpi', this.user_dpi);
-        console.log(this.profile_name);
       }
     }
     validateProfile(): void {
@@ -99,7 +97,6 @@ export class LayoutInitialComponent implements OnInit {
         // Llamar a la función que trae el ID de la clinica
         this.apiService.getClinicaID(this.user_dpi).subscribe(
           (response: any) => {
-            console.log(response)
             localStorage.setItem('clinica_id', response.clinica.id_clinica);
           },
           (error: any) => {

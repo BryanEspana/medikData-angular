@@ -34,7 +34,6 @@ export class ListadoMedicosComponent {
       const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
       const payload = JSON.parse(window.atob(base64));
       this.clinicaadmin = payload.user_metadata.dpi;
-      console.log(this.clinicaadmin);
     }
   }
 
@@ -51,7 +50,6 @@ export class ListadoMedicosComponent {
     this.apiService.getMedicosClinica(this.clinicaadmin).subscribe(
       (response: any) => {
         this.listadoMedicos = response.medicos;
-        console.log(this.listadoMedicos);
       },
       (error: any) => {
         console.log(error);
