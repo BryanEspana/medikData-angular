@@ -21,6 +21,7 @@ import { MedicoHorarioComponent } from './components/paginaInicio/medico-horario
 import { AgregarHorarioComponent } from './components/paginaInicio/agregar-horario/agregar-horario.component';
 import { DiagnosticosComponent } from './components/paginaInicio/diagnosticos/diagnosticos.component';
 import { LayoutInitialComponent } from './layoutInitial/layoutInitial.component';
+import { RecoverComponent } from './components/session/recover/recover.component';
 const routes: Routes = [
 //RUTAS
 { path: '', component: LoginComponent, canActivate: [AuthGuard] },
@@ -33,6 +34,9 @@ const routes: Routes = [
     path: '',
     canActivate: [AuthGuard], 
     children: [
+      //User Auth
+      {path:'recover', component: RecoverComponent, canActivate: [AuthGuard]},
+
       //Dashboard
       {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
     

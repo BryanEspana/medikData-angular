@@ -77,4 +77,8 @@ export class DiagnosticosComponent {
     });
   }
   
+  regresar() {
+    window.history.back();
+  }
+
 }
