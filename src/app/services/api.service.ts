@@ -67,6 +67,9 @@ export class ApiService {
   getCitasPendientesCitaID(citaid: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/api/citas/citaspendientescitaid/${citaid}`);
   }
+  getCitaDiagnostico(citaid: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/api/citas/citadiagnostico/${citaid}`);
+  }
 
   getCitas(dpi: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/api/citas/citaspaciente/${dpi}`);

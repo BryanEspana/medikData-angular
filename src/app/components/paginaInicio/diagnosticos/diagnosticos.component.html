@@ -15,7 +15,8 @@
         </div>
         <!--divisor-->
         <img src="/assets/dashboard/flechaRight.png" width="20px" height="20px">
-        <div href="#" style="padding: 0rem 0.8rem; cursor: pointer; font-weight: 500;" routerLink="/diagnostico">Diagnostico
+        <div href="#" style="padding: 0rem 0.8rem; cursor: pointer; font-weight: 500;" routerLink="/diagnostico">
+            Diagnostico
         </div>
         <!--divisor-->
     </div>
@@ -52,20 +53,43 @@
                         </div>
 
                     </div>
-                    <form [formGroup]="diagnosticoForm" (ngSubmit)="onUpdateDiagnostico()" class="form">
-                        <div class="displayrow card" style="margin-left: 2rem; padding: 2rem;">
+                    <div *ngIf="isEditMode">
+                        <form [formGroup]="diagnosticoForm" (ngSubmit)="onUpdateDiagnostico()" class="form">
+                            <div class="displayrow card" style="margin-left: 2rem; padding: 2rem;">
+                                <img src="/assets/dashboard/citas.png" width="100px">
+                                <div style="align-items: left; text-align: left; color: #06316B; margin-left: 2rem;">
+                                    <h2>Detalles:</h2>
+                                    <div style="display: flex; flex-direction: column;">
+                                        <label>Hazle saber a tu paciente <br />qué le has recetado o encontrado en esta
+                                            visita</label>
+                                        <textarea matInput type="text" id="diagnostico" formControlName="diagnostico"
+                                            style="margin-top: 1rem;" placeholder="{{diagnostico.diagnostico[0].diagnostico}}" required></textarea>
+                                        <button class="button-general citasbtn" style="margin-top: 1rem;"
+                                            type="submit">Guardar</button>
+                                        <button class="button-general citasbtn" style="margin-top: 1rem;" (click)="onCancel()"
+                                        >Cancelar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div *ngIf="!isEditMode">
+                        <div class="displayrow card"
+                            style="margin-left: 2rem; padding: 2rem; display: flex; flex-direction: column;">
                             <img src="/assets/dashboard/citas.png" width="100px">
                             <div style="align-items: left; text-align: left; color: #06316B; margin-left: 2rem;">
-                                <h2>Diagnostico</h2>
-                                <label>Hazle saber a tu paciente <br />qué le has recetado o encontrado en esta
-                                    visita</label>
-                                <textarea matInput type="text" id="diagnostico" formControlName="diagnostico"
-                                    required></textarea>
-                                <button class="button-general citasbtn" style="margin-top: 1rem;"
-                                    type="submit">Guardar</button>
+                                <h2>Detalles:</h2>
+                                <div style="display: flex; flex-direction: column;">
+                                    <label>Este es el diagnostico actual de tu paciente</label>
+                                    <span
+                                        style="color: #000; background-color: #fff; height: 10vh; margin-top: 1rem; border: 1.5px solid #06316B; border-radius: 4px; padding: 0.6rem;">{{
+                                        diagnostico.diagnostico[0].diagnostico }}</span>
+                                    <button class="button-general citasbtn" style="margin-top: 1rem;"
+                                        (click)="onEditDiagnostico()">Edit</button>
+                                </div>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

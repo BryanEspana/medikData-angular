@@ -18,6 +18,8 @@ export class DiagnosticosComponent {
   citaid: number = 0;
   medicotoken: string = '';
   cita: any = {};
+  isEditMode: boolean = false;
+  diagnostico: any = {};
 
   constructor(
     private formBuilder: FormBuilder,
@@ -34,6 +36,7 @@ export class DiagnosticosComponent {
       this.citaid = params['citaid'];
       this.getCitasDetails();
       this.visualizarItem();
+      this.getDiagnosticoDetails();
     });
   }
 
@@ -59,6 +62,7 @@ export class DiagnosticosComponent {
           showConfirmButton: false,
           timer: 1500
         });
+        this.ngOnInit();
       },
       (error: any) => {
         // Handle any error from the backend
@@ -69,6 +73,7 @@ export class DiagnosticosComponent {
         });
       }
     );
+    this.isEditMode = false;
   }
 
   getCitasDetails() {
@@ -76,9 +81,24 @@ export class DiagnosticosComponent {
       this.cita = data;
     });
   }
-  
+
+  getDiagnosticoDetails() {
+    this.apiService.getCitaDiagnostico(this.citaid).subscribe((data: any) => {
+      this.diagnostico = data;
+      console.log(this.diagnostico.diagnostico[0].diagnostico)
+    });
+  }
+
   regresar() {
     window.history.back();
+  }
+
+  onEditDiagnostico() {
+    this.isEditMode = true;
+  }
+
+  onCancel() {
+    this.isEditMode = false;
   }
 
 }
