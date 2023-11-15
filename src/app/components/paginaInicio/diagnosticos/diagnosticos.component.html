@@ -63,10 +63,10 @@
                                         <label>Hazle saber a tu paciente <br />qué le has recetado o encontrado en esta
                                             visita</label>
                                         <textarea matInput type="text" id="diagnostico" formControlName="diagnostico"
-                                            style="margin-top: 1rem;" placeholder="{{diagnostico.diagnostico[0].diagnostico}}" required></textarea>
+                                            style="margin-top: 1rem;" placeholder="{{diagnostico.diagnostico[0].diagnostico}}" required>{{diagnostico.diagnostico[0].diagnostico}}</textarea>
                                         <button class="button-general citasbtn" style="margin-top: 1rem;"
                                             type="submit">Guardar</button>
-                                        <button class="button-general citasbtn" style="margin-top: 1rem;" (click)="onCancel()"
+                                        <button class="button-general citasbtn" style="margin-top: 1rem; background-image: none; background-color: #fff; border: 2px solid #06316B; color: #000;" (click)="onCancel()"
                                         >Cancelar</button>
                                     </div>
                                 </div>
