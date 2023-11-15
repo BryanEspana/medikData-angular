@@ -43,7 +43,7 @@
                   <th>Hora</th>
                   <th>Doctor</th>
                   <th>Clinica</th>
-                  <th>Visualizar</th>
+                  <th>Detalles</th>
                 </tr>
               </thead>
               <tbody>
@@ -52,7 +52,7 @@
                   <td>{{ citaPendiente.hora }}</td>
                   <td>{{ citaPendiente.medico.full_name }}</td>
                   <td>{{ citaPendiente.clinica.nombre }}</td>
-                  <td><button (click)="visualizarItem(citaPendiente)" class="btn-visualizar button-general">Visualizar</button>
+                  <td><button (click)="verDiagnostico(citaPendiente.citasid)" class="btn-visualizar button-general">Visualizar</button>
                   </td>
                 </tr>
               </tbody>
@@ -68,7 +68,7 @@
                   <th>Hora</th>
                   <th>Doctor</th>
                   <th>Clinica</th>
-                  <th>Visualizar</th>
+                  <th>Diagnostico</th>
                 </tr>
               </thead>
               <tbody>
@@ -77,7 +77,7 @@
                   <td>{{ cita.hora }}</td>
                   <td>{{ cita.medico.full_name }}</td>
                   <td>{{ cita.clinica.nombre }}</td>
-                  <td><button (click)="visualizarItem(cita)" class="btn-visualizar button-general">Visualizar</button>
+                  <td><button (click)="obtenerCitaCompletaPDF(cita.citasid)" class="btn-visualizar button-general">Visualizar</button>
                   </td>
                 </tr>
               </tbody>

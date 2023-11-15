@@ -59,8 +59,32 @@ export class ListadoCitasComponent {
         console.log(error);
       }
     );
-
   }
+
+  verDiagnostico(citaid: number) {
+    this.route.navigate([`/diagnostico/${citaid}`]);
+  }
+
+  obtenerCitaCompletaPDF(citaid: number) {
+    this.apiService.getCitaCompletaPDF(citaid).subscribe(
+      (response: ArrayBuffer) => {
+        // Create a Blob from the ArrayBuffer
+        const blob = new Blob([response], { type: 'application/pdf' });
+  
+        // Create a URL for the Blob
+        const url = window.URL.createObjectURL(blob);
+  
+        // Open the URL in a new tab
+        window.open(url, '_blank');
+  
+        // Release the URL when the tab is closed
+        window.URL.revokeObjectURL(url);
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
+  }  
 
 }
 
