@@ -2,13 +2,13 @@
     <div class="window">
         <div class="title-bar">
             <span class="textConfig">Configuración de la Cuenta</span>
-            <p>Aquí puedes cambiar tu correo y contraseña</p>
+            <p >Aquí puedes cambiar tu correo y contraseña</p>
         </div>
         <div class="change-account-details">
-            <div class="change-email" style="width: 80%;">
+            <div class="change-email">
                 <p>DIRECCIÓN DE CORREO</p>
                 <div class="input-container">
-                    <input type="text" placeholder="Correo electrónico">
+                    <input type="text" class="inputs" placeholder="Correo electrónico">
                     <button class="change-email-btn btn-primary button-general" style="margin-left: 0.5rem;">Cambiar</button>
                 </div>
             </div>
@@ -16,19 +16,18 @@
                 <div class="field-texts">
                     <div class="fields">
                         <p style="text-align: left">CONTRASEÑA ACTUAL</p>
-                        <input type="password" placeholder="Contraseña actual">
+                        <input type="password" class="inputs" placeholder="Contraseña actual">
                     </div>
                     <div class="fields">
                         <p style="text-align: left">NUEVA CONTRASEÑA</p>
-                        <input type="password" placeholder="Nueva contraseña">
+                        <input type="password" class="inputs" placeholder="Nueva contraseña">
                     </div>
                     <div class="fields">
                         <p style="text-align: left">CONFIRMAR CONTRASEÑA</p>
-                        <input type="password" placeholder="Confirmar contraseña">
+                        <input type="password" class="inputs" placeholder="Confirmar contraseña">
                     </div>
                     <div class="fields">
-                        <button class="change-pswd-btn btn-primary button-general"
-                            style="height: 50%; width: 50%;">Cambiar</button>
+                        <button class="change-pswd-btn btn-primary button-general">Cambiar</button>
                     </div>
                 </div>
             </div>
@@ -41,20 +40,18 @@
         </div>
         <div class="change-multiple">
             <div class="field-texts">
-                <div class="fields" style="width: 30%; display: flex; flex-direction: columns; justify-content: center;">
-                    <p style="text-align: left">NOMBRE DE DISPLAY</p>
-                    <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+                <div class="fields" >
+                    <p>NOMBRE DE DISPLAY</p>
+                    <div >
                         <input type="text" placeholder="{{nameUser}}">
-                        <button class="change-pswd-btn btn-primary button-general"
-                            style="height: 80%; width: 50%; margin-left: 0.5rem;">Guardar</button>
+                        <button class="change-pswd-btn btn-primary button-general">Guardar</button>
                     </div>
                 </div>
-                <div class="fields" style="margin-left: 1rem; width: 30%; display: flex; flex-direction: columns; justify-content: center;">
-                    <p style="text-align: left">TELEFONO</p>
-                    <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+                <div class="fields" >
+                    <p >TELEFONO</p>
+                    <div>
                         <input type="text" placeholder="{{phoneUser}}">
-                        <button class="change-pswd-btn btn-primary button-general"
-                            style="height: 80%; width: 50%; margin-left: 0.5rem;">Guardar</button>
+                        <button class="change-pswd-btn btn-primary button-general">Guardar</button>
                     </div>
                 </div>
             </div>
