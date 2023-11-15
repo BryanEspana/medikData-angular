@@ -22,6 +22,7 @@ import { AgregarHorarioComponent } from './components/paginaInicio/agregar-horar
 import { DiagnosticosComponent } from './components/paginaInicio/diagnosticos/diagnosticos.component';
 import { LayoutInitialComponent } from './layoutInitial/layoutInitial.component';
 import { RecoverComponent } from './components/session/recover/recover.component';
+import { MisDocsComponent } from './components/paginaInicio/mis-docs/mis-docs.component';
 const routes: Routes = [
 //RUTAS
 { path: '', component: LoginComponent, canActivate: [AuthGuard] },
@@ -61,6 +62,7 @@ const routes: Routes = [
       {path: 'doctores', component: DoctoresComponent, canActivate:[AuthGuard]},
       {path: 'listado-medicos', component: ListadoMedicosComponent, canActivate:[AuthGuard]},
       {path: 'agregar-medico', component: AgregarMedicoComponent, canActivate:[AuthGuard]},
+      {path: 'clinica/:id_clinica/mis-doctores', component: MisDocsComponent, canActivate:[AuthGuard]},
 
       //Medicos
       {path: 'pacientes', component: PacientesComponent, canActivate:[AuthGuard]},

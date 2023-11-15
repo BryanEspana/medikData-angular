@@ -85,6 +85,16 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/api/clinica/${dpi}`);
   }
 
+  // Clinicas asociadas al paciente
+  getClinicasAsociadas(dpi: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/api/citas/clinicasasociadas/${dpi}`);
+  }
+
+  // Obtener Medicos de la clinica
+  getMedicosAsociados(id_clinica: number, dpi: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/api/citas/medicosasociados/${id_clinica}/${dpi}`);
+  }
+
   // Obtener Medicos de la clinica
   getMedicosClinica(dpi: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/api/medico/${dpi}`);

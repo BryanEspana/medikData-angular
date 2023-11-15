@@ -88,8 +88,14 @@ export class AppComponent {
   updateLoginState() {
     const currentRoute = this.router.url;
     const allowedRoutes = ['/inicio', '/dashboard', '/medicamentos', '/citas', '/agregar-cita', '/citas-pendientes', '/listado-citas', '/listado-medicos',
-     '/agregar-medico', '/comentarios', '/configuracion', '/clinicas', '/doctores', '/pacientes', '/horario', '/horario/agregar-horario', '/diagnostico/:citaid'];
-    this.isLoggedIn = allowedRoutes.includes(currentRoute);
+     '/agregar-medico', '/comentarios', '/configuracion', '/clinicas', '/doctores', '/pacientes', '/horario', 
+     '/horario/agregar-horario', '/diagnostico/:citaid', '/clinica/:id_clinica/mis-doctores'];
+
+    if (currentRoute.includes('/diagnostico/') || currentRoute.includes('/clinica/')) {
+      this.isLoggedIn = true;
+    } else {
+      this.isLoggedIn = allowedRoutes.includes(currentRoute);
+    }
 
   }
 

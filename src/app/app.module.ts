@@ -42,6 +42,7 @@ import { MedicoHorarioComponent } from './components/paginaInicio/medico-horario
 import { AgregarHorarioComponent } from './components/paginaInicio/agregar-horario/agregar-horario.component';
 import { DiagnosticosComponent } from './components/paginaInicio/diagnosticos/diagnosticos.component';
 import { RecoverComponent } from './components/session/recover/recover.component';
+import { MisDocsComponent } from './components/paginaInicio/mis-docs/mis-docs.component';
 @NgModule({
   declarations: [		
     AppComponent,
@@ -66,7 +67,8 @@ import { RecoverComponent } from './components/session/recover/recover.component
       MedicoHorarioComponent,
       AgregarHorarioComponent,
       DiagnosticosComponent,
-      RecoverComponent
+      RecoverComponent,
+      MisDocsComponent
    ],
   imports: [
     BrowserModule,

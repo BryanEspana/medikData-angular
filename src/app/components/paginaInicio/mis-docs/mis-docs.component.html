@@ -18,21 +18,21 @@
 
 <body>
   <div class="dashboard-container">
-    <div class="window" style="margin-top: 5rem; width: 80%;">
-      <!------------------------------ RESEÑAS DE DOCTORES ------------------------------------>
+    <div class="window" style="margin-top: 5rem; width: 76%;">
       <div style="display: flex; flex-direction: row;">
         <div (click)="regresar()" class="icon-back">
           <img src="/assets/dashboard/back.png" width="40px">
         </div>
-        <h1 class="title" >Clinicas Asociadas:</h1>
+        <h1 class="title" >Medicos Asociados:</h1>
       </div>
       <div class="displayWidgets">
         <!-- WIDGET-->
-        <div class="widgets" *ngFor="let clinica of clinicasAsociadas.clinicas" (click)="selectedClinica(clinica.id_clinica)">
+        <div class="widgets" *ngFor="let medico of medicosAsociados.doctores">
           <div class="clinics-widget">
-            <h2>{{clinica.nombre}}</h2>
+            <h2>{{medico.full_name}}</h2>
             <div class="mini-widget">
-              Dirección: <b>{{clinica.direccion}}</b>
+              <p>Especialidad: <b>{{medico.especialidad}}</b></p>
+              <p>Telefono: <b>{{medico.telefono}}</b></p>
             </div>
           </div>
         </div>

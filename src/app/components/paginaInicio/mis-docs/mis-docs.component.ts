@@ -3,16 +3,16 @@ import { ApiService } from 'src/app/services/api.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
-import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-clinicas',
-  templateUrl: './clinicas.component.html',
-  styleUrls: ['./clinicas.component.scss']
+  selector: 'app-mis-docs',
+  templateUrl: './mis-docs.component.html',
+  styleUrls: ['./mis-docs.component.scss']
 })
-export class ClinicasComponent {
+export class MisDocsComponent {
   pacientetoken: string = '';
-  clinicasAsociadas: any = [];
+  medicosAsociados: any = [];
+  id_clinica: number = 0;
 
 
   constructor(
@@ -24,23 +24,21 @@ export class ClinicasComponent {
 
   ngOnInit(): void {
     this.pacientetoken = localStorage.getItem('user_dpi') || '';
-    this.getClinicasAsociadas();
+    this.route.params.subscribe((params) => {
+      this.id_clinica = params['id_clinica'];
+    });
+    this.getMedicosAsociados();
   }
 
-  getClinicasAsociadas() {
-    this.apiService.getClinicasAsociadas(this.pacientetoken).subscribe(
+  getMedicosAsociados() {
+    this.apiService.getMedicosAsociados(this.id_clinica, this.pacientetoken).subscribe(
       (response: any) => {
-        this.clinicasAsociadas = response;
-        console.log(response);
+        this.medicosAsociados = response;
       },
       (error) => {
         console.log(error);
       }
     );
-  }
-
-  selectedClinica(id_clinica: number) {
-    this.router.navigate([`/clinica/${id_clinica}/mis-doctores`])
   }
 
   //regeresar a la pagina anterior
