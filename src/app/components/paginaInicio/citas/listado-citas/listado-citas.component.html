@@ -1,73 +1,104 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Citas medicas</title>
 
 </head>
+
 <body>
 
-<div class="breadcrumbs">
-  <div class="botonMenu" routerLink="/dashboard">
-    <img src="/assets/dashboard/home.png" width="20px" height="20px">
-    <p style="padding-left: 1rem;">Inicio</p>
+  <div class="breadcrumbs">
+    <div class="botonMenu" routerLink="/dashboard">
+      <img src="/assets/dashboard/home.png" width="20px" height="20px">
+      <p style="padding-left: 1rem;">Inicio</p>
+    </div>
+    <!--divisor-->
+    <img src="/assets/dashboard/flechaRight.png" width="20px" height="20px">
+    <div href="#" style="padding: 0rem 0.8rem; cursor: pointer; font-weight: 500;" routerLink="/listado-citas">Listado
+      de citas</div>
+    <!--divisor-->
   </div>
-  <!--divisor-->
-  <img src="/assets/dashboard/flechaRight.png" width="20px" height="20px">
-  <div href="#" style="padding: 0rem 0.8rem; cursor: pointer; font-weight: 500;" routerLink="/listado-citas">Listado de citas</div>
-  <!--divisor-->
-</div>
   <div class="dashboard-container">
     <div class="window" style="  border: 2px #06316B solid;">
-        <div style="display: flex; flex-direction: row; ">
-            <div (click)="regresar()" class="icon-back">
-              <img src="/assets/dashboard/back.png" width="40px" class="">
-            </div>
-            <h1 class="title" >Listado de Citas</h1>
+      <div style="display: flex; flex-direction: row; ">
+        <div (click)="regresar()" class="icon-back">
+          <img src="/assets/dashboard/back.png" width="40px" class="">
         </div>
-        <div class="search-container" *ngIf="!noCitas">
-            <input type="text" [formControl]="searchControl" placeholder="Buscar" class="Buscador">
-            <mat-icon class="search-icon">search</mat-icon>
-          </div>
-          <ng-container *ngIf="citasRealizadas.length > 0; else noCitas">
+        <h1 class="title">Listado de Citas</h1>
+      </div>
+      <div class="search-container" *ngIf="!noCitas">
+        <input type="text" [formControl]="searchControl" placeholder="Buscar" class="Buscador">
+        <mat-icon class="search-icon">search</mat-icon>
+      </div>
+      <ng-container *ngIf="citasRealizadas.length > 0; else noCitas">
         <div class="background">
-            <div class="cards-container" style="display: flex; justify-content: center; height: 60%;">
-
-              <table class="table-design">
-                <thead>
-                  <tr>
-                    <th>Fecha</th>
-                    <th>Hora</th>
-                    <th>Doctor</th>
-                    <th>Clinica</th>
-                    <th>Visualizar</th>
-                  </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let cita of citasRealizadas">
-                      <td>{{ cita.fecha }}</td>
-                      <td>{{ cita.hora }}</td>
-                      <td>{{ cita.medico.nombre }} {{ cita.medico.apellidos }}</td>
-                      <td>{{ cita.clinica.nombre }}</td>
-                      <td><button (click)="visualizarItem(cita)" class="btn-visualizar button-general">Visualizar</button></td>
-                    </tr>
-                </tbody>
-              </table>
-            </div>
+          <div class="cards-container"
+            style="display: flex; justify-content: center; height: 60%; flex-direction: column;">
+            <h1> Citas Activas </h1>
+            <table class="table-design">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Hora</th>
+                  <th>Doctor</th>
+                  <th>Clinica</th>
+                  <th>Visualizar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let citaPendiente of citasPendientes">
+                  <td>{{ citaPendiente.fecha }}</td>
+                  <td>{{ citaPendiente.hora }}</td>
+                  <td>{{ citaPendiente.medico.full_name }}</td>
+                  <td>{{ citaPendiente.clinica.nombre }}</td>
+                  <td><button (click)="visualizarItem(citaPendiente)" class="btn-visualizar button-general">Visualizar</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="cards-container"
+            style="display: flex; justify-content: center; height: 60%; flex-direction: column;">
+            <h1> Citas Realizadas </h1>
+            <table class="table-design">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Hora</th>
+                  <th>Doctor</th>
+                  <th>Clinica</th>
+                  <th>Visualizar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let cita of citasRealizadas">
+                  <td>{{ cita.fecha }}</td>
+                  <td>{{ cita.hora }}</td>
+                  <td>{{ cita.medico.full_name }}</td>
+                  <td>{{ cita.clinica.nombre }}</td>
+                  <td><button (click)="visualizarItem(cita)" class="btn-visualizar button-general">Visualizar</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
         </div>
 
-  </ng-container>
+      </ng-container>
 
-  <ng-template #noCitas>
-    <div class="no-citas-message">
-      <img src="/assets/unDraw/none.svg" width="300px" class="imagenNothing">
-      <h2>No tienes ninguna cita realizada</h2>
-      <h4>¿Deseas agendar una nueva cita?</h4>
-      <button class="btn-agendar button-general" routerLink="/agregar-cita">Agendar cita</button>
+      <ng-template #noCitas>
+        <div class="no-citas-message">
+          <img src="/assets/unDraw/none.svg" width="300px" class="imagenNothing">
+          <h2>No tienes ninguna cita realizada</h2>
+          <h4>¿Deseas agendar una nueva cita?</h4>
+          <button class="btn-agendar button-general" routerLink="/agregar-cita">Agendar cita</button>
 
+        </div>
+      </ng-template>
     </div>
-  </ng-template>
-</div>
   </div>
 </body>
+
 </html>

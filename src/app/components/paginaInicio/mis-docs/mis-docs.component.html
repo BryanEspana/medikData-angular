@@ -27,7 +27,7 @@
       </div>
       <div class="displayWidgets">
         <!-- WIDGET-->
-        <div class="widgets" *ngFor="let medico of medicosAsociados.doctores">
+        <div class="widgets" *ngFor="let medico of medicosAsociados.doctores" (click)="selectedMedico(medico.dpi, medico.full_name)">
           <div class="clinics-widget">
             <h2>{{medico.full_name}}</h2>
             <div class="mini-widget">

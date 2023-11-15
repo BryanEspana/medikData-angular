@@ -46,6 +46,7 @@ const routes: Routes = [
       //Citas
       {path:'citas', component: CitasComponent, canActivate:[AuthGuard]},
       {path:'citas-pendientes', component: CitasPendientesComponent, canActivate:[AuthGuard]},
+      {path: 'citas-pendientes/:nombre', component: CitasPendientesComponent, canActivate:[AuthGuard]},
       {path:'listado-citas', component: ListadoCitasComponent, canActivate:[AuthGuard]},
       {path:'agregar-cita', component: AgregarCitaComponent, canActivate:[AuthGuard]},
 

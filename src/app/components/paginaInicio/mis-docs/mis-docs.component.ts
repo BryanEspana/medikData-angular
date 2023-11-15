@@ -3,6 +3,7 @@ import { ApiService } from 'src/app/services/api.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { DoctorInfoService } from './mis-docs.service';
 
 @Component({
   selector: 'app-mis-docs',
@@ -19,7 +20,8 @@ export class MisDocsComponent {
     private http: HttpClient,
     private router: Router,
     private apiService: ApiService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private doctorInfoService: DoctorInfoService
   ) { }
 
   ngOnInit(): void {
@@ -44,6 +46,12 @@ export class MisDocsComponent {
   //regeresar a la pagina anterior
   regresar() {
     window.history.back();
+  }
+
+  selectedMedico(dpi: string, nombre: string) {
+    this.doctorInfoService.setDoctorDpi(dpi);
+
+    this.router.navigate([`/citas-pendientes/${nombre}`]);
   }
 
 }

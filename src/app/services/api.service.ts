@@ -90,9 +90,14 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/api/citas/clinicasasociadas/${dpi}`);
   }
 
-  // Obtener Medicos de la clinica
+  // Obtener Medicos de la clinica asociada al paciente
   getMedicosAsociados(id_clinica: number, dpi: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/api/citas/medicosasociados/${id_clinica}/${dpi}`);
+  }
+
+  // Obtener citas pendientes del medico asociado al paciente
+  getCitasPendientesMedicoAsociado(pacientedpi: string, medicodpi: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/api/citas/citasPorPacienteYMedico/${pacientedpi}/${medicodpi}`);
   }
 
   // Obtener Medicos de la clinica

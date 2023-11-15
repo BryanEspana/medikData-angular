@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import Swal from 'sweetalert2';
 import { Route, Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
+import { DoctorInfoService } from '../../mis-docs/mis-docs.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-citas-pendientes',
@@ -12,17 +14,31 @@ export class CitasPendientesComponent {
   citasPendientes: any[] = [];
   usertoken: string = '';
   rol: string = '';
+  doctorNombre: string = '';
 
   constructor(
     private route: Router,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private doctorInfoService: DoctorInfoService,
+    private activatedRoute: ActivatedRoute
   ) {
     this.initializeDpi();
   }
 
   ngOnInit(): void {
     if (this.rol == 'paciente') {
-      this.getCitasPendientes();
+      const storedDoctorDPI = this.doctorInfoService.getDoctorDpi();
+      this.activatedRoute.params.subscribe((params) => {
+        this.doctorNombre = params['nombre'];
+      });
+
+      if (this.doctorNombre != undefined) {
+        if (storedDoctorDPI) {
+          this.getCitasPendientesMedicoAsociado(storedDoctorDPI);
+        }
+      } else {
+        this.getCitasPendientes();
+      }
     } else if (this.rol == 'doctor') {
       this.getCitasPendientesMedico();
     }
@@ -82,6 +98,18 @@ export class CitasPendientesComponent {
       }
     );
 
+  }
+  getCitasPendientesMedicoAsociado(docdpi: string) {
+    this.apiService.getCitasPendientesMedicoAsociado(this.usertoken, docdpi).subscribe(
+      (response: any) => {
+        console.log("citas por medico", response)
+        this.citasPendientes = response.citas;
+        this.citasPendientes.reverse();
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
   }
 
   anularCita(cita: any): void {

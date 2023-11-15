@@ -12,29 +12,21 @@ import { Router } from '@angular/router';
 export class ListadoCitasComponent {
   searchControl = new FormControl('');
   citasRealizadas: any[] = [];
+  citasPendientes: any[] = [];
   pacientetoken: string = '';
 
   constructor(
     private route: Router,
     private apiService: ApiService
-    ) {
+  ) {
     this.searchControl.valueChanges
-    .pipe(debounceTime(300));
-    this.initializeDpi();
-  }
-  
-  ngOnInit(): void {
-    this.getCitasRealizadas();
+      .pipe(debounceTime(300));
   }
 
-  initializeDpi(): void {
-    const token = localStorage.getItem('jwt');
-    if (token) {
-      const base64Url = token.split('.')[1];
-      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-      const payload = JSON.parse(window.atob(base64));
-      this.pacientetoken = payload.user_metadata.dpi;
-    }
+  ngOnInit(): void {
+    this.pacientetoken = localStorage.getItem('user_dpi') || '';
+    this.getCitasRealizadas();
+    this.getCitasPendientes();
   }
 
   visualizarItem(item: any) {
@@ -45,11 +37,23 @@ export class ListadoCitasComponent {
   regresar() {
     window.history.back();
   }
-  
+
   getCitasRealizadas() {
     this.apiService.getCitas(this.pacientetoken).subscribe(
       (response: any) => {
         this.citasRealizadas = response.citas;
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getCitasPendientes() {
+    this.apiService.getCitasPendientes(this.pacientetoken).subscribe(
+      (response: any) => {
+        this.citasPendientes = response.citasPendientes;
+        this.citasPendientes.reverse();
       },
       (error: any) => {
         console.log(error);
