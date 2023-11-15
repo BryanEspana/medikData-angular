@@ -20,6 +20,7 @@ export class DiagnosticosComponent {
   cita: any = {};
   isEditMode: boolean = false;
   diagnostico: any = {};
+  user_role: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -32,6 +33,7 @@ export class DiagnosticosComponent {
   ngOnInit(): void {
     this.initializediagnosticoForm();
     this.medicotoken = localStorage.getItem('user_dpi') || '';
+    this.user_role = localStorage.getItem('profile_role') || '';
     this.route.params.subscribe((params) => {
       this.citaid = params['citaid'];
       this.getCitasDetails();

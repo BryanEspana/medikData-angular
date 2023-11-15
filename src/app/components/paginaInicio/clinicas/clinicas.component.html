@@ -30,12 +30,10 @@
         <!-- WIDGET-->
         <div class="widgets" *ngFor="let clinica of clinicas">
           <div class="clinics-widget">
-            <div class="imgClinic" [ngStyle]="{'background-image': 'url(' + clinica.image +')'}"></div>
             <h2>{{clinica.nameClinic}}</h2>
             <div class="mini-widget">
               Dirección: <b>{{clinica.direction}}</b>
             </div>
-            <div style="padding: 0.3rem;">{{clinica.description}}</div>
           </div>
         </div>
       </div>

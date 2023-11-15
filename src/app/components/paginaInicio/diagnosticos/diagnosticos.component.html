@@ -80,11 +80,12 @@
                             <div style="align-items: left; text-align: left; color: #06316B; margin-left: 2rem;">
                                 <h2>Detalles:</h2>
                                 <div style="display: flex; flex-direction: column;">
-                                    <label>Este es el diagnostico actual de tu paciente</label>
+                                    <label *ngIf="user_role === 'doctor'">Este es el diagnostico actual de tu paciente</label>
+                                    <label *ngIf="user_role === 'paciente'">Este es tu diagnostico actual de esta cita</label>
                                     <span
                                         style="color: #000; background-color: #fff; height: 10vh; margin-top: 1rem; border: 1.5px solid #06316B; border-radius: 4px; padding: 0.6rem;">{{
                                         diagnostico.diagnostico[0].diagnostico }}</span>
-                                    <button class="button-general citasbtn" style="margin-top: 1rem;"
+                                    <button *ngIf="user_role === 'doctor'" class="button-general citasbtn" style="margin-top: 1rem;"
                                         (click)="onEditDiagnostico()">Edit</button>
                                 </div>
                             </div>
