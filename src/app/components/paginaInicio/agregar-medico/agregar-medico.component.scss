@@ -29,3 +29,16 @@
     margin: 1rem;
   }
 
+
+  @media(max-width:930px){
+    .imgDoc{
+      display: none;
+    }
+    .displayrow{
+      margin: 0rem;
+      padding: 0rem 3rem !important;
+    }
+    .docdiv{
+      margin: 1rem 0rem;
+    }
+  }

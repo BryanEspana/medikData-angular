@@ -24,8 +24,11 @@
         <h1 class="title" style="font-size: 35px; font-weight: 400; margin:0rem;">Mi Horario</h1>
       </div>
       <div class="search-container" style="display: flex; justify-content: space-between; align-items: center;">
-        <button class="btn-agendar button-general" style="margin-left: 1.5rem;" routerLink="/horario/agregar-horario">+</button>
-        <div class="search-bar" style="display: flex; justify-content: end;">
+        <div class="displayrow">
+          <button class="btn-agendar " style="margin-left: 1.5rem;" routerLink="/horario/agregar-horario">+</button>
+          <label class="textAdd"> Agregar Horario</label>
+        </div>
+        <div class="search-bar" >
           <input type="text" [formControl]="searchControl" placeholder="Buscar" class="Buscador">
           <mat-icon class="search-icon">search</mat-icon>
         </div>
@@ -35,10 +38,10 @@
           <div class="cards-container" style="display: flex; justify-content: center; height: 60%;">
             <table class="table-design">
               <thead>
-                <tr>
-                  <th style="text-align: center;">Fecha</th>
-                  <th style="text-align: center;">Hora</th>
-                  <th style="text-align: center;">Editar Horario</th>
+                <tr >
+                  <th class="disenioTabla">Fecha</th>
+                  <th class="disenioTabla">Hora</th>
+                  <th class="disenioTabla">Editar Horario</th>
                 </tr>
               </thead>
               <tbody>
@@ -52,7 +55,7 @@
                     <input style="width: 40%;" placeholder="{{ horario.hora }}" matInput formControlName="hora" type="time" />
                   </td>
                   <td style="width: 20%; text-align: center; vertical-align: middle;">
-                    <button class="btn-visualizar button-general" style="width: 50%;" *ngIf="!isEditMode || selectedRowIndex != i" (click)="enterEdit(i)">Editar</button>
+                    <button class="btn-visualizar button-general"  *ngIf="!isEditMode || selectedRowIndex != i" (click)="enterEdit(i)">Editar</button>
                     <ng-container *ngIf="isEditMode && selectedRowIndex === i">
                       <button class="btn-visualizar button-general" style="height: 100%; margin-right: 0.5rem; text-align: center;" (click)="saveChanges()">Guardar</button>
                       <button class="btn-visualizar button-general" style="height: 100%; width: 30%; margin-right: 0.5rem; background-color: #fff; background-image: none; border: 1px solid #FF0000; color: #FF0000" (click)="deleteHorario(horario.disponibilidad_id)">Borrar</button>
@@ -70,7 +73,7 @@
           <img src="/assets/unDraw/none.svg" width="300px">
           <h2>No tienes ningún horario asignado</h2>
           <h4>¿Deseas agregar fecha y hora de disponibilidad?</h4>
-          <button class="btn-agendar button-general" routerLink="/agregar-cita">Agregar Disponibilidad</button>
+          <button class="btn-agendar button-general" routerLink="/agregar-cita">Agregar</button>
         </div>
       </ng-template>
     </div>

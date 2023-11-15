@@ -28,27 +28,28 @@
                 <h1 class="title" style="font-size: 35px; font-weight: 400; margin:0rem;">Agregar Horario</h1>
             </div>
             <form [formGroup]="horarioForm" (ngSubmit)="onAgregarHorarioClick()" class="form">
-                <div style="display: inherit; flex-direction: row; justify-content: center; align-items: center;">
-                    <div class="numCard card">
-                        1
-                    </div>
-                    <div class="extra">
-                        <label class="tituloSelect">Elige una fecha:</label>
+                <div>
+                  <div class="displayrowDate">
+                    <div class="numCard card">1</div>
+                    <div class="displayrow">
+                      <label class="tituloSelect">Elige una fecha:</label>
+                      <div class="displayrow2">
                         <input matInput [matDatepicker]="picker" formControlName="fecha" class="FechaInput disabled"
-                            type="date" readonly>
+                        type="date" readonly>
                         <div class="calendar-input">
-                            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                            <mat-datepicker #picker></mat-datepicker>
+                          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                          <mat-datepicker #picker></mat-datepicker>
                         </div>
-
+                      </div>
                     </div>
-                    <div class="numCard card">
-                        2
+                  </div>
+                  <div class="displayrowDate">
+                    <div class="numCard card">2</div>
+                    <div class="displayrow">
+                      <label class="tituloSelect">Elige una hora:</label>
+                      <input matInput formControlName="hora" class="FechaInput disabled" type="time">
                     </div>
-                    <div class="extra">
-                        <label class="tituloSelect">Elige una hora:</label>
-                        <input matInput formControlName="hora" class="FechaInput disabled" type="time">
-                    </div>
+                  </div>
                 </div>
                 <div class="btnContainer"
                     style="display: flex; justify-content: center; align-items: center; margin-top: 2rem;">

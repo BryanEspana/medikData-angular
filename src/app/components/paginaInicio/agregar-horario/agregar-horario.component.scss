@@ -106,11 +106,13 @@
 
 .FechaInput {
     width: 40%;
+    padding: 5px 10px;
+    border-radius: 0.5rem 0rem 0rem 0.5rem;
 }
 
 .calendar-input {
     background-color: #06316B;
-    border-radius: 0.5rem;
+    border-radius:  0rem 0.5rem 0.5rem 0rem  ;
     width: max-content;
     color: white;
 }
@@ -119,7 +121,6 @@ mat-datepicker-toggle {
     color: white !important;
 }
 .numCard{
-  position: relative;
   width: 25px;
   font-size: 20px;
   padding: 0.5rem;
@@ -143,3 +144,50 @@ mat-datepicker-toggle {
       align-items: center;
     }
  }
+ .displayrowDate{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+ }
+
+ .displayrow{
+  display: flex;
+  flex-direction: row;
+  padding: 0rem;
+  width: 100%;
+  justify-content: start;
+  align-items: flex-start;
+ }
+ .displayrow2{
+  display: flex;
+  flex-direction: row;
+  padding: 0rem;
+  margin: 0rem;
+  width: 100%;
+  justify-content: start;
+ }
+ @media (max-width: 825px){
+  .displayrow{
+    flex-direction: column;
+    margin: 1rem;
+  }
+  .FechaInput{
+    width: 100%;
+  }
+  .numCard{
+    display: none;
+  }
+  .dashboard-container{
+    padding: 3rem 2rem;
+  }
+  .window{
+    width: 100%;
+  }
+ }
+.btn-agregar-cita{
+  width: max-content !important;
+  padding: 1rem 0.5rem;
+  height: max-content !important;
+}

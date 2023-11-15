@@ -81,7 +81,7 @@ p {
 }
 
 .change-account-details{
-    display: flex !important; 
+    display: flex !important;
     flex-direction: column !important;
 }
 
@@ -102,4 +102,9 @@ p {
         justify-content: start;
         align-items: start !important;
     }
+}
+@media (max-width: 340px){
+  .config-container{
+    padding: 3rem;
+  }
 }

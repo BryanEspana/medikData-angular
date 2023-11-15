@@ -1,5 +1,5 @@
 .dashboard-container {
-    padding: 3rem 5rem;
+    padding: 3rem 2rem;
 }
 
 .no-schedules-message {
@@ -34,6 +34,7 @@
 }
 
 .btn-visualizar {
+  width: max-content;
     background-color: #4caf50;
     color: #fff;
     border: none;
@@ -78,8 +79,45 @@
     color: #888;
     cursor: pointer;
 }
+.displayrow{
+  padding: 0rem;
+  margin: 0rem;
+}
 
+.textAdd{
+  font-size: 25px;
+  margin-left: 0.8rem;
+}
 .table-design tbody td {
     padding: 10px;
     border: 1px solid #979797; /* Increase border thickness and/or change border color */
+}
+
+.btn-agendar{
+  border: 2px solid #06316B;
+  padding: 0.4rem 0.5em;
+  border-radius: 0.5rem;
+  font-size: 30px;
+  width: max-content;
+  height: max-content;
+}
+.btn-agendar:hover{
+  background-color: #06326b14;
+  cursor: pointer;
+}
+@media(max-width:530px){
+  .search-bar{
+    display: none !important;
+  }
+}
+@media(max-width: 350px){
+  .window{
+    width: 100%;
+    padding: 1rem !important;
+  }
+}
+
+.disenioTabla{
+
+  text-align: center;
 }
