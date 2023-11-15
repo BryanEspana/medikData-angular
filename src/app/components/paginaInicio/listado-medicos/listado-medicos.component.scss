@@ -33,7 +33,12 @@
     padding: 10px;
     border-bottom: 1px solid #ddd;
 }
+.titles{
+  font-size: 35px;
+  font-weight: 400;
+  margin:0rem;
 
+}
 .btn-visualizar {
     background-color: #4caf50;
     color: #fff;
@@ -78,4 +83,42 @@
     transform: translateY(-50%);
     color: #888;
     cursor: pointer;
+}
+
+.btn-agendar{
+  border: 2px solid #06316B;
+  padding: 0.2rem 0.3em;
+  border-radius: 0.5rem;
+  font-size: 30px;
+  width: max-content;
+  height: max-content;
+}
+.btn-agendar:hover{
+  background-color: #06326b14;
+  cursor: pointer;
+}
+.textAdd{
+  font-size: 25px;
+  margin-left: 0.8rem;
+}
+.displayrow{
+  padding: 0rem;
+  margin: 0rem;
+}
+@media (max-width: 560px){
+  .search-bar{
+    display: none !important;
+  }
+  .textAdd{
+    font-size: 20px !important;
+  }
+  .dashboard-container{
+    padding: 3rem 1rem;
+  }
+}
+@media(max-width: 350px){
+  .window{
+    width: 100%;
+    padding: 1rem !important;
+  }
 }

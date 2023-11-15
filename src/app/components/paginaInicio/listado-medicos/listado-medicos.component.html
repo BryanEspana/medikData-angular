@@ -28,7 +28,10 @@
                 <h1 class="title" style="font-size: 35px; font-weight: 400; margin:0rem;">Listado de medicos:</h1>
             </div>
             <div class="search-container" style="display: flex; justify-content: space-between; align-items: center;">
-                <button class="btn-agendar button-general" style="margin-left: 1.5rem;" routerLink="/agregar-medico">+</button>
+              <div class="displayrow">
+                <button class="btn-agendar" style="margin-left: 1.5rem;" routerLink="/agregar-medico">+</button>
+                <label class="textAdd"> Agregar Horario</label>
+              </div>
                 <div class="search-bar" style="display: flex; justify-content: end;">
                     <input type="text" [formControl]="searchControl" placeholder="Buscar" class="Buscador">
                     <mat-icon class="search-icon">search</mat-icon>
