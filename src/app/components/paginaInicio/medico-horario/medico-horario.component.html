@@ -3,24 +3,20 @@
 
 <head>
   <title>Citas medicas</title>
-
 </head>
 
 <body>
-
   <div class="breadcrumbs">
     <div class="botonMenu" routerLink="/dashboard">
       <img src="/assets/dashboard/home.png" width="20px" height="20px">
       <p style="padding-left: 1rem;">Inicio</p>
     </div>
-    <!--divisor-->
     <img src="/assets/dashboard/flechaRight.png" width="20px" height="20px">
     <div href="#" style="padding: 0rem 0.8rem; cursor: pointer; font-weight: 500;" routerLink="/horario">Mi Horario
     </div>
-    <!--divisor-->
   </div>
   <div class="dashboard-container">
-    <div class="window" style="  border: 2px #06316B solid;">
+    <div class="window" style="border: 2px #06316B solid;">
       <div style="display: flex; flex-direction: row; ">
         <div (click)="regresar()" class="icon-back">
           <img src="/assets/dashboard/back.png" width="40px">
@@ -28,8 +24,7 @@
         <h1 class="title" style="font-size: 35px; font-weight: 400; margin:0rem;">Mi Horario</h1>
       </div>
       <div class="search-container" style="display: flex; justify-content: space-between; align-items: center;">
-        <button class="btn-agendar button-general" style="margin-left: 1.5rem;"
-          routerLink="/horario/agregar-horario">+</button>
+        <button class="btn-agendar button-general" style="margin-left: 1.5rem;" routerLink="/horario/agregar-horario">+</button>
         <div class="search-bar" style="display: flex; justify-content: end;">
           <input type="text" [formControl]="searchControl" placeholder="Buscar" class="Buscador">
           <mat-icon class="search-icon">search</mat-icon>
@@ -38,7 +33,6 @@
       <ng-container *ngIf="horariosMedico.length > 0; else noCitas">
         <div class="background">
           <div class="cards-container" style="display: flex; justify-content: center; height: 60%;">
-
             <table class="table-design">
               <thead>
                 <tr>
@@ -48,33 +42,34 @@
                 </tr>
               </thead>
               <tbody>
-                <ng-container *ngFor="let group of groupedHorarios">
-                  <tr *ngFor="let horario of group.horarios">
-                    <ng-container *ngIf="group.horarios.indexOf(horario) === 0">
-                      <td style="width: 40%;" [attr.rowspan]="group.horarios.length">{{ group.fecha }}</td>
+                <tr *ngFor="let horario of horariosMedico; let i = index" [class.selected-row]="isEditMode && selectedRowIndex === i" [formGroup]="horarioForm">
+                  <td style="width: 40%;" *ngIf="!isEditMode || selectedRowIndex != i">{{ horario.fecha }}</td>
+                  <td style="width: 40%;" *ngIf="isEditMode && selectedRowIndex === i">
+                    <input style="width: 40%;" placeholder="{{ horario.fecha }}" matInput formControlName="fecha" type="date" />
+                  </td>
+                  <td style="width: 40%;" *ngIf="!isEditMode || selectedRowIndex != i">{{ horario.hora }}</td>
+                  <td style="width: 40%;" *ngIf="isEditMode && selectedRowIndex === i">
+                    <input style="width: 40%;" placeholder="{{ horario.hora }}" matInput formControlName="hora" type="time" />
+                  </td>
+                  <td style="width: 20%; text-align: center; vertical-align: middle;">
+                    <button class="btn-visualizar button-general" style="width: 50%;" *ngIf="!isEditMode || selectedRowIndex != i" (click)="enterEdit(i)">Editar</button>
+                    <ng-container *ngIf="isEditMode && selectedRowIndex === i">
+                      <button class="btn-visualizar button-general" style="height: 100%; margin-right: 0.5rem; text-align: center;" (click)="saveChanges()">Guardar</button>
+                      <button class="btn-visualizar button-general" style="height: 100%; width: 30%; background-color: #fff; background-image: none; border: 1px solid #06316B; color: #06316B" (click)="cancelEdit()">X</button>
                     </ng-container>
-                    <td style="width: 40%;">{{ horario.hora }}</td>
-                    <td style="width: 20%; text-align: center; vertical-align: middle;">
-                      <button class="btn-visualizar button-general" [attr.rowspan]="group.horarios.length"
-                        style="width: 50%;">Editar</button>
-                    </td>
-                  </tr>
-                </ng-container>
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
-
         </div>
-
       </ng-container>
-
       <ng-template #noCitas>
         <div class="no-schedules-message">
           <img src="/assets/unDraw/none.svg" width="300px">
           <h2>No tienes ningún horario asignado</h2>
           <h4>¿Deseas agregar fecha y hora de disponibilidad?</h4>
           <button class="btn-agendar button-general" routerLink="/agregar-cita">Agregar Disponibilidad</button>
-
         </div>
       </ng-template>
     </div>

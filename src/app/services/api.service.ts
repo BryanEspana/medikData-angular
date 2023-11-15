@@ -105,6 +105,10 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/api/medico/horarios/${dpi}`);
   }
 
+  updateHorario(horario: any): Observable<any> {
+    return this.http.put(`${this.baseUrl}/api/medico/updatehorarios`, horario);
+  }
+
   // Update diagnostico
   updateDiagnostico(citaid: number, diagnostico: any): Observable<any> {
     return this.http.put(`${this.baseUrl}/api/medico/diagnostico/${citaid}`, diagnostico);

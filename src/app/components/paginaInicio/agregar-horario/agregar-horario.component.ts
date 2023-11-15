@@ -41,8 +41,6 @@ export class AgregarHorarioComponent {
       hora: ['', Validators.required],
       doctor_dpi: [this.doctor_dpi, Validators.required],
     });
-    //solo mostrar el name user
-
   }
 
   visualizarItem() {
