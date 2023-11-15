@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { HostListener } from '@angular/core';
 import { ApiService } from '../services/api.service';
+import { MatDrawerMode } from '@angular/material/sidenav';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { ApiService } from '../services/api.service';
   styleUrls: ['./layoutInitial.component.scss']
 })
 export class LayoutInitialComponent implements OnInit {
-
+  public drawerMode: MatDrawerMode = 'side';
   profile_name: string = '';
   user_dpi: string = '';
   isLoggedIn: boolean = false;
@@ -26,14 +27,17 @@ export class LayoutInitialComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
     this.checkWindowSize((event.target as Window).innerWidth);
+
   }
 
 
   checkWindowSize(width: number) {
       if (width <= 780) {
         this.isOpened = false;
+        this.drawerMode = 'over';
       } else {
         this.isOpened = true;
+        this.drawerMode = 'side';
       }
     }
 
@@ -42,9 +46,13 @@ export class LayoutInitialComponent implements OnInit {
   constructor(
     private router: Router,
     private apiService: ApiService
-  ) { }
+  ) {
+    type MatDrawerMode = 'over' | 'push' | 'side';
+
+  }
 
   ngOnInit() {
+
     this.initializeProfile();
     this.validateProfile();
     this.checkWindowSize(window.innerWidth);
@@ -54,7 +62,7 @@ export class LayoutInitialComponent implements OnInit {
   updateLoginState() {
     const currentRoute = this.router.url;
     const allowedRoutes = ['/inicio', '/dashboard', '/medicamentos', '/citas', '/agregar-cita', '/citas-pendientes', '/citas-pendientes/:nombre',
-'/listado-citas', '/configuracion', '/clinicas', '/pacientes', '/horario', 
+'/listado-citas', '/configuracion', '/clinicas', '/pacientes', '/horario',
   '/horario/agregar-horario', '/diagnostico/:citaid', '/clinica/:id_clinica/mis-doctores'];
     console.log("current", currentRoute)
     this.isLoggedIn = allowedRoutes.includes(currentRoute);
