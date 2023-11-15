@@ -10,8 +10,8 @@
 .clinics-widget {
   border: 2px solid #06316B;
   background-color: white;
-  width: 300px; /* Muestra 4 widgets por fila en pantallas grandes */
-  height: 300px;
+  width: 300px;
+  height: auto;
   border-radius: 1rem;
   color: black !important;
   margin: 0.5rem;
@@ -43,4 +43,19 @@
   display: flex;
   flex-wrap: wrap;
 
+}
+.title{
+  font-size: 35px; 
+  font-weight: 400;
+}
+@media (max-width: 422px){
+.clinics-widget{
+  width: 200px;
+}
+.imgClinic{
+  width: auto;
+}
+.title{
+  font-size: 20px; 
+}
 }

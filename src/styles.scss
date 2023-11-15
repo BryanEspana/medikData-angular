@@ -175,7 +175,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   flex-direction: row;
   align-items: center;
   text-align: left;
-  padding: 0rem 1rem;
   cursor: pointer;
 }
 
@@ -187,7 +186,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   transition: color 0.3s;
 }
 .breadcrumbs{
-  margin-left: 4rem;
   display: flex;
   flex-direction: row;
   align-items: center;

@@ -92,13 +92,16 @@
           <div class="numCard card">
             4
           </div>
-          <div class="extra">
+          <div class="select-fields">
             <label class="tituloSelect">Elige una fecha:</label>
-            <input matInput [matDatepickerFilter]="dateFilter" [matDatepicker]="picker" formControlName="fecha"
+            <div class="row100">
+
+              <input matInput [matDatepickerFilter]="dateFilter" [matDatepicker]="picker" formControlName="fecha"
               class="FechaInput disabled" type="date" (dateChange)="updateFilteredTimes()" readonly>
-            <div class="calendar-input">
-              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
+              <div class="calendar-input">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </div>
             </div>
           </div>
         </div>

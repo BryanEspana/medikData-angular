@@ -2,11 +2,15 @@
 .widget-cita{
     background-color: #E8E8E8;
     //padding: 2rem;
-    width: 90%;
+    width: 100%;
     border-radius: 1.5rem;
         justify-content: center;
         align-items: center;
         text-align: center;
+}
+.dashboard-container{
+    margin: auto !important;
+    width: 90%;
 }
 
 .widget-titulo{
@@ -64,3 +68,13 @@ hr{
     font-weight: 800;
   }
 
+.textBold{
+    text-decoration: none; color: inherit;
+    font-weight: 600;
+}
+  @media(max-width:580px){
+    .widget-info{
+        display: flex;
+        flex-direction: column !important;
+    }
+  }

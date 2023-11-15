@@ -1,5 +1,5 @@
 .dashboard-container{
-  padding: 3rem 5rem;
+  padding: 3rem;
 }
 .no-citas-message{
   justify-content: center;
@@ -76,3 +76,16 @@
   }
 
 
+.title{
+  font-size: 35px; 
+  font-weight: 400; 
+  margin:0rem;
+}
+@media (max-width:540px){
+  .title{
+    font-size: 20px;
+  }
+  .imagenNothing{
+    width: -webkit-fill-available;
+  }
+}

@@ -33,7 +33,7 @@
     height: 99px;
     justify-self: center;
     align-self: center;
-    border: 2px solid #06316B;
+    border: 3px solid #06316B;
     border-radius: 0.6rem;
     margin: 1rem;
     display: flex;
@@ -100,16 +100,13 @@
 }
 
 .btn-agregar-cita {
-    bottom: 6rem;
-    right: 1rem;
     color: #fff;
-    width: 15rem;
-    height: 5rem;
-    border-radius: 1rem;
-    font-size: 1.5rem;
-    font-weight: 700;
+    border-radius: 0.5rem;
+    font-size: 1.3rem;
+    font-weight: 600;
     cursor: pointer;
-    margin: 1rem 0;
+    width: 60% !important;
+    margin: 1rem 0rem;
 }
 
 .selected-options {
@@ -244,7 +241,11 @@ mat-calendar .mat-calendar-previous-button{
   width: 100%;
 }
 .FechaInput{
-  width: 40%;
+  width: 100%;
+  height: 94%;
+  border-radius: 0rem;
+  border-bottom-left-radius: 0.5rem;
+
 }
 .extra{
   display: flex;
@@ -256,8 +257,8 @@ mat-calendar .mat-calendar-previous-button{
 
 
 .calendar-input{
+  border-top: 2px solid #06316B;
   background-color: #06316B;
-  border-radius: 0.5rem;
   width: max-content;
   color: white;
 }
@@ -289,4 +290,41 @@ mat-calendar .mat-calendar-previous-button{
       justify-content: center;
       align-items: center;
     }
+ }
+.row100{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+.button-general{
+  border: 2px solid #06316B;
+  width: 102%;
+  margin-left: -0.2rem;
+}
+ @media (max-width:350px){
+  .btn-agregar-cita{
+    font-size: 0.8rem;
+  }
+  .tituloSelect{
+    font-size: 0.8rem;
+
+  }
+ }
+ @media (max-width:290px){
+  .btn-agregar-cita{
+    font-size: 0.8rem;
+  }
+  .tituloSelect{
+    font-size: 0.8rem;
+  }
+  .numCard{
+    position: relative;
+    width: 2px;
+    padding: 8px;
+    padding-right: 15px;
+    font-size: 19px;
+    margin: 0rem;
+    margin-top: 1.1rem;
+  }
  }
