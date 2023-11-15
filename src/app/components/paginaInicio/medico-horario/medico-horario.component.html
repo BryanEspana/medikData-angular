@@ -55,7 +55,8 @@
                     <button class="btn-visualizar button-general" style="width: 50%;" *ngIf="!isEditMode || selectedRowIndex != i" (click)="enterEdit(i)">Editar</button>
                     <ng-container *ngIf="isEditMode && selectedRowIndex === i">
                       <button class="btn-visualizar button-general" style="height: 100%; margin-right: 0.5rem; text-align: center;" (click)="saveChanges()">Guardar</button>
-                      <button class="btn-visualizar button-general" style="height: 100%; width: 30%; background-color: #fff; background-image: none; border: 1px solid #06316B; color: #06316B" (click)="cancelEdit()">X</button>
+                      <button class="btn-visualizar button-general" style="height: 100%; width: 30%; margin-right: 0.5rem; background-color: #fff; background-image: none; border: 1px solid #FF0000; color: #FF0000" (click)="deleteHorario(horario.disponibilidad_id)">Borrar</button>
+                      <button class="btn-visualizar button-general" style="height: 100%; background-color: #fff; background-image: none; border: 1px solid #06316B; color: #06316B" (click)="cancelEdit()">X</button>
                     </ng-container>
                   </td>
                 </tr>

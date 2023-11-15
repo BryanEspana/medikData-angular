@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 import { ApiService } from 'src/app/services/api.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-medico-horario',
@@ -78,8 +79,13 @@ export class MedicoHorarioComponent implements OnInit {
       // Call the API service to update the horario on the server
       this.apiService.updateHorario(updatedHorario).subscribe(
         (response: any) => {
-          // Handle the response as needed
-          console.log('Horario updated successfully', response);
+          // Show success message
+          Swal.fire({
+            icon: 'success',
+            title: 'Horario actualizado',
+            showConfirmButton: false,
+            timer: 1500
+          });
           this.ngOnInit();
         },
         (error: any) => {
@@ -99,5 +105,41 @@ export class MedicoHorarioComponent implements OnInit {
   cancelEdit() {
     this.isEditMode = false;
     this.selectedRowIndex = null;
+  }
+
+  deleteHorario(disponibilidadId: number) {
+    console.log(disponibilidadId);
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'No podrás revertir esta acción',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, borrar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Call the API service to delete the horario on the server
+        this.apiService.deleteHorario({ disponibilidad_id: disponibilidadId, doctor_dpi: this.medicotoken }).subscribe(
+          (response: any) => {
+            // Show success message
+            Swal.fire({
+              icon: 'success',
+              title: 'Horario borrado',
+              showConfirmButton: false,
+              timer: 1500
+            });
+            // Remove the deleted horario from the horariosMedico array
+            this.horariosMedico = this.horariosMedico.filter(horario => horario.disponibilidad_id !== disponibilidadId);
+            this.isEditMode = false;
+            this.ngOnInit();
+          },
+          (error: any) => {
+            console.error('Error deleting horario', error);
+          }
+        );
+      }
+    });
   }
 }

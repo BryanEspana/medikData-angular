@@ -4,6 +4,7 @@ import { debounceTime } from 'rxjs/operators';
 import { ApiService } from 'src/app/services/api.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -55,6 +56,13 @@ export class AgregarHorarioComponent {
 
       this.apiService.postHorario(horarioData).subscribe(
         (response: any) => {
+          // Show success message
+          Swal.fire({
+            icon: 'success',
+            title: 'Horario agregado',
+            showConfirmButton: false,
+            timer: 1500
+          });
           this.router.navigate(['/horario']);
         },
         (error) => {

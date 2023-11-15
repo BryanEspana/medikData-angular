@@ -108,6 +108,9 @@ export class ApiService {
   updateHorario(horario: any): Observable<any> {
     return this.http.put(`${this.baseUrl}/api/medico/updatehorarios`, horario);
   }
+  deleteHorario(horario: any): Observable<any> {
+    return this.http.put(`${this.baseUrl}/api/medico/deletehorario`, horario);
+  }
 
   // Update diagnostico
   updateDiagnostico(citaid: number, diagnostico: any): Observable<any> {
