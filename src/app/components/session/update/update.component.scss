@@ -1,0 +1,70 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  padding: auto;
+  width: 60% !important;
+  height: 100vh;
+  font-family: 'Quicksand';
+
+  .componentText {
+    display: flex;
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .password-input-container {
+    position: relative;
+
+    input[type="password"] {
+      width: calc(100% - 32px); // Adjust the width as needed
+      padding-right: 32px; // Space for the eye icon
+    }
+
+    .eye-icon {
+      position: absolute;
+      top: 50%;
+      right: 8px; // Adjust the right position as needed
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+  }
+
+  .registerBtn {
+    width: 100%;
+    color: #004aad;
+    cursor: pointer;
+
+    &:hover {
+      font-weight: 900;
+      color: #013579;
+    }
+  }
+
+  .olvidarbtn {
+    font-weight: 700;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 15px;
+    margin-bottom: 0.5rem;
+    color: #004aad;
+    cursor: pointer;
+
+    &:hover {
+      font-weight: 900;
+      color: #013579;
+    }
+  }
+
+  .icon-custom {
+    color: #06316b !important;
+  }
+
+  @media (max-width: 900px) {
+    .login-container {
+      width: 100% !important;
+    }
+  }
+}

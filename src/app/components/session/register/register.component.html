@@ -72,8 +72,8 @@
         </div>
       </div>
       <div class="btns-register">
-        <button type="button" class="registrar-btn" (click)="selectFormType('paciente')">Registrar como paciente</button>
-        <button type="button" class="registrar-btn" (click)="selectFormType('clinica')">Registrar como clinica</button>
+        <button type="button" class="button-general" (click)="selectFormType('paciente')">Registrar como paciente</button>
+        <button type="button" class="button-general" (click)="selectFormType('clinica')">Registrar como clinica</button>
       </div>
   </div>
 </form>
@@ -127,6 +127,20 @@
             </label>
           </div>
         </div>
+        <div style="display: flex; flex-direction: row; margin-top: 1rem; margin-bottom: 0.5rem;">
+          <div style="margin-right: 1rem;">
+            <label for="altura">Altura:</label>
+            <input type="text" id="altura" name="altura" formControlName="altura" required />
+          </div>
+          <div style="margin-right: 1rem;">
+            <label for="peso">Peso:</label>
+            <input type="text" id="peso" name="peso" formControlName="peso" required />
+          </div>
+          <div style="margin-left: 1rem;">
+            <label for="tipo_sangre">Tipo de sangre:</label>
+            <input type="text" id="tipo_sangre" name="tipo_sangre" formControlName="tipo_sangre" required />
+          </div>
+        </div>
 
         <div>
           <div>
@@ -145,7 +159,7 @@
         </div>
         <div class="btns-register">
           <button type="button" class="registrar-btn" (click)="refreshPage()">Regresar</button>
-          <button type="submit" class="registrar-btn">Registrar como paciente</button>
+          <button type="submit" class="button-general">Registrar como paciente</button>
         </div>
       </div>
     </div>
@@ -194,7 +208,7 @@
 
       <div class="btns-register">
         <button type="button" class="registrar-btn" (click)="refreshPage()">Regresar</button>
-        <button type="submit" class="registrar-btn">Registrar como Clinica</button>
+        <button type="submit" class="button-general">Registrar como Clinica</button>
       </div>
     </div>
   </div>

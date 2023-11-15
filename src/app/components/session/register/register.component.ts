@@ -44,7 +44,10 @@ export class RegisterComponent {
       telefono: ['', Validators.required],
       genero: ['', Validators.required],
       alergias: [''],
-      complicaciones: ['']
+      complicaciones: [''],
+      altura: ['', Validators.required],
+      peso: ['', Validators.required],
+      tipo_sangre: ['', Validators.required],
     });
 
     this.registerFromClinica = this.formBuilder.group({
@@ -80,7 +83,11 @@ export class RegisterComponent {
         genero: this.registerFromPaciente.value.genero,
         alergias: this.registerFromPaciente.value.alergias,
         complicaciones: this.registerFromPaciente.value.complicaciones,
-        profile_role: this.registerFromPaciente.value.profile_role
+        profile_role: this.registerFromPaciente.value.profile_role,
+        telefono: this.registerFromPaciente.value.telefono,
+        altura: this.registerFromPaciente.value.altura,
+        peso: this.registerFromPaciente.value.peso,
+        tipo_sangre: this.registerFromPaciente.value.tipo_sangre,
       };
       this.apiService.signUp(combinedData).subscribe(
         (response) => {

@@ -23,11 +23,14 @@ import { DiagnosticosComponent } from './components/paginaInicio/diagnosticos/di
 import { LayoutInitialComponent } from './layoutInitial/layoutInitial.component';
 import { RecoverComponent } from './components/session/recover/recover.component';
 import { MisDocsComponent } from './components/paginaInicio/mis-docs/mis-docs.component';
+import { UpdateComponent } from './components/session/update/update.component';
 const routes: Routes = [
 //RUTAS
 { path: '', component: LoginComponent, canActivate: [AuthGuard] },
 { path: 'login', component: LoginComponent },
 { path: 'register', component: RegisterComponent },
+{path:'recover', component: RecoverComponent },
+{path: 'user/update', component: UpdateComponent },
 { path: 'protected', component: ProtectedComponent, canActivate: [AuthGuard] },
 
 //Session
@@ -36,7 +39,6 @@ const routes: Routes = [
     canActivate: [AuthGuard], 
     children: [
       //User Auth
-      {path:'recover', component: RecoverComponent, canActivate: [AuthGuard]},
 
       //Dashboard
       {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },

@@ -131,4 +131,13 @@ export class ApiService {
     return this.http.post(`${this.baseUrl}/api/medico/horarios/addhorario`, horarioData);
   }
 
+  // Recover account
+  recuperarCuenta(email: string): Observable<any> {
+    return this.http.post(`${this.baseUrl}/api/auth/recover`, { email: email });
+  }
+
+  resetPassword(password: string, token: string): Observable<any> {
+    return this.http.post(`${this.baseUrl}/api/auth/reset`, { newPassword: password, accessToken: token });
+  }
+
 }

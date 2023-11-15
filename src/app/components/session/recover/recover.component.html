@@ -1,30 +1,21 @@
 <div class="login-container">
     <div class="componentText">
         <img src="assets\session\users-icon.png" alt="" style="width: 50px;">
-        <h1 style="display: flex; margin-top: 0rem; text-align: center;">Iniciar sesión</h1>
+        <h1 style="display: flex; margin-top: 0rem; text-align: center;">Recupera tu cuenta</h1>
     </div>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="emailForm" (ngSubmit)="onSubmit()">
 
-        <mat-label>Correo:</mat-label>
+        <p style="text-align: center;">Podemos ayudarte a reestablecer tu contraseña. <br/>Primero, ingresa tu correo registrado con MedicData y sigue las instrucciones.</p>
         <mat-form-field appearance="outline" style="display: flex; flex-direction: column; padding-top: 0.5rem;">
             <input matInput type="text" id="email" formControlName="email" required />
             <span matSuffix style="margin-right: 1rem;">
                 <mat-icon class="icon-custom">email</mat-icon>
             </span>
         </mat-form-field>
-        <mat-label>Contraseña:</mat-label>
-        <mat-form-field appearance="outline" style="display: flex; flex-direction: column; padding-top: 0.5rem;">
-            <input matInput type="{{ showPassword ? 'text' : 'password' }}" id="password" formControlName="password"
-                required />
-            <span mat-icon-button matSuffix (click)="togglePasswordVisibility()" style="margin-right: 1rem;">
-                <mat-icon class="icon-custom">{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
-            </span>
-        </mat-form-field>
-        <label class="olvidarbtn">Olvide mi contraseña</label>
-        <button class="button-general" type="submit" [disabled]="!loginForm.valid"
-            style="width: 100%; height: 50px; margin-bottom: 1rem; cursor: pointer;">Ingresar</button>
+        <button class="button-general" type="submit" [disabled]="!emailForm.valid"
+            style="width: 100%; height: 50px; margin-bottom: 1rem; cursor: pointer;">Enviar</button>
         <div class="spanRegister">
-            <span>¿No te has registrado? <a class="registerBtn" href="register">Registrate</a></span>
+            <span>¿Si recuerdas tu información? <a class="registerBtn" href="login">Inicia sesión</a></span>
         </div>
     </form>
 </div>

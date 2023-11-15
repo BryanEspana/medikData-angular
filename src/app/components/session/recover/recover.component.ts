@@ -11,9 +11,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./recover.component.scss']
 })
 export class RecoverComponent {
-  loginForm!: FormGroup;
-  showPassword = false;
-  formGroup!: FormGroup;
+  emailForm!: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -23,53 +21,42 @@ export class RecoverComponent {
   ) { }
 
   ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required]
+    this.emailForm = this.formBuilder.group({
+      email: ['', Validators.required]
     });
 
   }
-  //Funcion mostrar contraseña
-  togglePasswordVisibility(): void {
-    this.showPassword = !this.showPassword;
-  }
-
-
-  //Función para realizar la Solicitud HTTP POST
-  login(email: string, password: string) {
-    return this.http.post<any>('/login', { email, password });
-  }
 
   onSubmit(): void {
-    if (this.loginForm.invalid) {
+    if (this.emailForm.invalid) {
       return;
+    } else {
+      const email = this.emailForm.value.email;
+      console.log(email)
+      this.apiService.recuperarCuenta(email).subscribe(
+        (response: any) => {
+          console.log(response);
+          Swal.fire({
+            title: '¡Correo enviado!',
+            text: 'Se ha enviado un correo con las instrucciones para recuperar tu cuenta',
+            icon: 'success',
+            confirmButtonText: 'Ok',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              this.router.navigate(['/login']);
+            }
+          });
+        },
+        (error: any) => {
+          console.log(error);
+          Swal.fire({
+            title: '¡Error!',
+            text: 'No se ha podido enviar el correo',
+            icon: 'error',
+            confirmButtonText: 'Ok',
+          });
+        }
+      );
     }
-    const { email, password } = this.loginForm.value;
-    this.apiService.login(email, password).subscribe(
-      response => {
-        const token = response.data.session.access_token;
-        localStorage.setItem('jwt', token);
-        this.apiService.getUser(token).subscribe(
-          user => {
-            Swal.fire({
-              title: 'Bienvenido a MedicData',
-              text: 'Inicio de sesión correcto.',
-              icon: 'success'
-            }).then(() => {
-              this.router.navigate(['/dashboard']);
-            });
-          },
-          error => console.error('Error al obtener el usuario:', error)
-        )
-      },
-      error => Swal.fire({
-        title: 'Error!',
-        text: 'Usuario o contraseña incorrectos',
-        icon: 'error',
-        confirmButtonText: 'Aceptar'
-      })
-    );
   }
-
-
 }

@@ -1,0 +1,49 @@
+<div class="login-container">
+    <div class="componentText">
+        <img src="assets\session\users-icon.png" alt="" style="width: 50px;">
+        <h1 style="display: flex; margin-top: 0rem; text-align: center;">Recupera tu cuenta</h1>
+    </div>
+    <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+        <div style="display: flex; flex-direction: column; margin-top: 1rem; margin-bottom: 0.5rem;">
+            <div class="password-input-container">
+                <mat-label>Contraseña:</mat-label>
+                <mat-form-field appearance="outline"
+                    style="display: flex; flex-direction: column; padding-top: 0.5rem;">
+                    <input matInput type="{{ showPassword ? 'text' : 'password' }}" id="password"
+                        formControlName="password" required />
+                    <span mat-icon-button matSuffix (click)="togglePasswordVisibility()" style="margin-right: 1rem;">
+                        <mat-icon class="icon-custom">{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                    </span>
+                </mat-form-field>
+                <div
+                    *ngIf="updateForm.get('password')?.invalid && (updateForm.get('password')?.dirty || updateForm.get('password')?.touched)">
+                    <div style="color: #FF0000; margin: 0.5rem;"
+                        *ngIf="updateForm.get('password')?.errors?.['minlength']">
+                        La contraseña debe tener al menos 6 caracteres.
+                    </div>
+                </div>
+            </div>
+            <mat-label>Confirmar Contraseña:</mat-label>
+            <mat-form-field appearance="outline" style="display: flex; flex-direction: column; padding-top: 0.5rem;">
+                <input matInput type="{{ showPassword ? 'text' : 'password' }}" id="confirmPassword" formControlName="confirmPassword"
+                    required />
+                <span mat-icon-button matSuffix (click)="togglePasswordVisibility()" style="margin-right: 1rem;">
+                    <mat-icon class="icon-custom">{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </span>
+            </mat-form-field>
+            <div *ngIf="updateForm.get('confirmPassword')?.invalid && (updateForm.get('confirmPassword')?.dirty || updateForm.get('confirmPassword')?.touched)"
+                class="text-confirm">
+                <div style="color: #FF0000; margin: 0.5rem;"
+                    *ngIf="updateForm.get('confirmPassword')?.errors?.['required']" class="text-confirm">
+                    La confirmación de contraseña es requerida.
+                </div>
+            </div>
+        </div>
+        <div *ngIf="updateForm.get('password')?.value !== updateForm.get('confirmPassword')?.value && updateForm.get('confirmPassword')?.dirty"
+            class="text-confirm" style="color: #FF0000; margin: 0.5rem;">
+            Las contraseñas no coinciden.
+        </div>
+        <button class="button-general" type="submit" [disabled]="!updateForm.valid"
+            style="width: 100%; height: 50px; margin-bottom: 1rem; cursor: pointer;">Enviar</button>
+    </form>
+</div>

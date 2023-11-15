@@ -1,0 +1,73 @@
+.login-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    padding: auto;
+    width: 60% !important;
+    height: 100vh;
+    font-family: 'Quicksand';
+  }
+  label{
+    font-family: 'Quicksand';
+    font-weight: 500;
+  }
+  
+  .registerBtn{
+    width: 100%;
+    color: #004AAD;
+    cursor: pointer;
+  }
+  .registerBtn:hover{
+    font-weight:900;
+    color: #013579;
+  }
+  
+  
+  .olvidarbtn{
+    font-weight: 700;
+    display: flex;
+    justify-content:
+    flex-end; font-size: 15px;
+    margin-bottom: 0.5rem;
+    color: #004AAD;
+    cursor: pointer;
+  }
+  .olvidarbtn:hover{
+    font-weight:900;
+    color: #013579;
+  }
+  
+  .componentText{
+    display: flex;
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
+  }
+  .spanRegister{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: auto;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  
+  
+  @media (max-width: 900px) {
+    .login-container{
+      width: 100% !important;
+    }
+  }
+  
+  .icon-see{
+    position: relative;
+  }
+  
+  .icon-custom{
+    color: #06316B !important;
+  
+  }
+  
