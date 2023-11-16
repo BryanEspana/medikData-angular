@@ -1,7 +1,7 @@
 
 <!-- ----------------------------------COMPONENTE DE DASHBOARDS DESPUES DE INICIO---------------------------------- -->
   <mat-drawer-container class="container-mat-drawer" autosize>
-    <mat-drawer #drawer class="example-sidenav" mode="side" [opened]="isOpened">
+    <mat-drawer #drawer class="example-sidenav" [mode]="drawerMode" [opened]="isOpened">
       <img src="/assets/dashboard/logoMedicData.png" width="220px">
       <div class="botonMenu"  routerLink="/dashboard">
         <img src="/assets/dashboard/home.png" width="20px" height="20px">

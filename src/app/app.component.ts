@@ -36,6 +36,7 @@ export class AppComponent {
   isOpened = true;
   title = 'medikdata';
   showFiller = false;
+  public drawerMode: string = 'side';
 
   isLoggedIn: boolean = false;
   sidenavExpanded: boolean = false;
@@ -61,8 +62,10 @@ export class AppComponent {
   updateSidebarState() {
     if (this.screenWidth < 780) {
       this.isOpened = false; // Cerrar el sidebar si el ancho de pantalla es menor que 780px
+      this.drawerMode = 'over';
     } else {
       this.isOpened = true; // De lo contrario, abrirlo
+      this.drawerMode = 'side';
     }
   }
   //Logout, remover token
@@ -87,8 +90,8 @@ export class AppComponent {
   //Cambiar de esqueleto
   updateLoginState() {
     const currentRoute = this.router.url;
-    const allowedRoutes = ['/inicio', '/dashboard', '/medicamentos', '/citas', '/agregar-cita', '/citas-pendientes', '/citas-pendientes/:nombre', 
-    '/listado-citas', '/listado-medicos', '/agregar-medico', '/comentarios', '/configuracion', '/clinicas', '/doctores', '/pacientes', '/horario', 
+    const allowedRoutes = ['/inicio', '/dashboard', '/medicamentos', '/citas', '/agregar-cita', '/citas-pendientes', '/citas-pendientes/:nombre',
+    '/listado-citas', '/listado-medicos', '/agregar-medico', '/comentarios', '/configuracion', '/clinicas', '/doctores', '/pacientes', '/horario',
      '/horario/agregar-horario', '/diagnostico/:citaid', '/clinica/:id_clinica/mis-doctores'];
 
     if (currentRoute.includes('/diagnostico/') || currentRoute.includes('/clinica/') || currentRoute.includes('/citas-pendientes/')) {

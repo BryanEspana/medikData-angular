@@ -139,8 +139,8 @@ export class ApiService {
     return this.http.post(`${this.baseUrl}/api/auth/recover`, { email: email });
   }
 
-  resetPassword(password: string, token: string): Observable<any> {
-    return this.http.post(`${this.baseUrl}/api/auth/reset`, { newPassword: password, accessToken: token });
+  resetPassword(password: string, accessToken: string, refreshToken: string): Observable<any> {
+    return this.http.post(`${this.baseUrl}/api/auth/reset`, { newPassword: password, accessToken: accessToken, refreshToken: refreshToken });
   }
 
 }

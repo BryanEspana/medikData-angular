@@ -14,6 +14,7 @@ export class UpdateComponent implements OnInit {
   updateForm!: FormGroup;
   showPassword = false;
   accessToken: string = '';
+  refreshToken: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -30,13 +31,13 @@ export class UpdateComponent implements OnInit {
     });
     const url = window.location.href;
     this.accessToken = new URL(url).hash.split('&')[0].split('=')[1];
-    console.log(this.accessToken)
+    this.refreshToken = new URL(url).hash.split('=')[4].split('&')[0];
   }
 
   onSubmit(): void {
     console.log("password", this.updateForm.value.password)
     if (this.updateForm.valid && this.updateForm.value.password === this.updateForm.value.confirmPassword) {
-      this.apiService.resetPassword(this.updateForm.value.password, this.accessToken).subscribe(
+      this.apiService.resetPassword(this.updateForm.value.password, this.accessToken, this.refreshToken).subscribe(
         (response: any) => {
           Swal.fire({
             icon: 'success',
