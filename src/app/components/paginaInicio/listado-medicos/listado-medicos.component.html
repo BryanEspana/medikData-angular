@@ -46,17 +46,16 @@
                                 <tr>
                                     <th style="width: 33.33%;">Doctores</th>
                                     <th style="width: 33.33%;">Especialidad</th>
-                                    <th style="width: 33.33%;">Visualizar</th>
+                                    <th style="width: 33.33%;">No. Colegiado</th>
+                                    <th style="width: 33.33%;">Correo</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let medico of listadoMedicos">
                                     <td style="width: 33.33%;">{{ medico.full_name }}</td>
                                     <td style="width: 33.33%;">{{ medico.especialidad }}</td>
-                                    <td style="width: 33.33%;">
-                                        <button (click)="visualizarItem(medico)"
-                                            class="btn-visualizar button-general" routerLink="/doctor">Visualizar</button>
-                                    </td>
+                                    <td style="width: 33.33%;">{{ medico.numerocolegiado }}</td>
+                                    <td style="width: 33.33%;"><a href="mailto:{{ medico.correo }}" style="color: #06316B;">{{ medico.correo }}</a></td>
                                 </tr>
                             </tbody>
                         </table>

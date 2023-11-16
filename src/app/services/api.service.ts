@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ApiService {
-  private baseUrl = 'https://medikdata-backend-ec6d-dev.fl0.io'; // Asegúrate de reemplazar esto con la URL de tu backend
+  private baseUrl = 'https://medikdata-backend-dev-fsjb.4.us-1.fl0.io'; // Asegúrate de reemplazar esto con la URL de tu backend
 
   constructor(private http: HttpClient) { }
 
