@@ -23,22 +23,16 @@
         <br>
       </div>
       <div *ngIf="typeUser == 3">
-        <div class="botonMenu" routerLink="/pacientes"  >
-          <img src="/assets/citas/paciente.png" width="20px" height="20px">
-          <p style="padding-left: 1rem;">Pacientes</p>
-        </div>
-        <br>
-      </div>
-      <div *ngIf="typeUser == 3">
         <div class="botonMenu" routerLink="/horario"  >
           <img src="/assets/dashboard/citas.png" width="20px" height="20px">
           <p style="padding-left: 1rem;">Horario</p>
         </div>
         <br>
       </div>
-      <div *ngIf="typeUser == 1">
+      <div *ngIf="typeUser == 1 || typeUser == 3">
         <div class="botonMenu" routerLink="/citas" >
-          <img src="/assets/dashboard/citas.png" width="20px" height="20px">
+          <img src="/assets/dashboard/citas.png" width="20px" height="20px" *ngIf="typeUser == 1">
+          <img src="/assets/citas/paciente.png" width="20px" height="20px" *ngIf="typeUser == 3">
           <p style="padding-left: 1rem;">Citas</p>
         </div>
         <br>

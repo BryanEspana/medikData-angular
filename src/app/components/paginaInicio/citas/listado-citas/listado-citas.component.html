@@ -19,7 +19,7 @@
       de citas</div>
     <!--divisor-->
   </div>
-  <div class="dashboard-container">
+  <div class="dashboard-container" *ngIf="user_role === 'paciente'">
     <div class="window" style="  border: 2px #06316B solid;">
       <div style="display: flex; flex-direction: row; ">
         <div (click)="regresar()" class="icon-back">
@@ -31,7 +31,7 @@
         <input type="text" [formControl]="searchControl" placeholder="Buscar" class="Buscador">
         <mat-icon class="search-icon">search</mat-icon>
       </div>
-      <ng-container *ngIf="citasRealizadas.length > 0; else noCitas">
+      <ng-container *ngIf="citasRealizadas.length > 0 || citasPendientes.length > 0; else noCitas">
         <div class="background">
           <div class="cards-container"
             style="display: flex; justify-content: center; height: 60%; flex-direction: column;">
@@ -94,6 +94,86 @@
           <h2>No tienes ninguna cita realizada</h2>
           <h4>¿Deseas agendar una nueva cita?</h4>
           <button class="btn-agendar button-general" routerLink="/agregar-cita">Agendar cita</button>
+
+        </div>
+      </ng-template>
+    </div>
+  </div>
+  <div class="dashboard-container" *ngIf="user_role === 'doctor'">
+    <div class="window" style="  border: 2px #06316B solid;">
+      <div style="display: flex; flex-direction: row; ">
+        <div (click)="regresar()" class="icon-back">
+          <img src="/assets/dashboard/back.png" width="40px" class="">
+        </div>
+        <h1 class="title">Listado de Citas</h1>
+      </div>
+      <div class="search-container" *ngIf="!noCitas">
+        <input type="text" [formControl]="searchControl" placeholder="Buscar" class="Buscador">
+        <mat-icon class="search-icon">search</mat-icon>
+      </div>
+      <ng-container *ngIf="citasRealizadas.length > 0 || citasPendientes.length > 0; else noCitas">
+        <div class="background">
+          <div class="cards-container"
+            style="display: flex; justify-content: center; height: 60%; flex-direction: column;">
+            <h1> Citas Activas </h1>
+            <table class="table-design">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Hora</th>
+                  <th>Paciente</th>
+                  <th>Clinica</th>
+                  <th>Detalles</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let citaPendiente of citasPendientes">
+                  <td>{{ citaPendiente.fecha }}</td>
+                  <td>{{ citaPendiente.hora }}</td>
+                  <td>{{ citaPendiente.paciente.full_name }}</td>
+                  <td>{{ citaPendiente.clinica.nombre }}</td>
+                  <td><button (click)="verDiagnostico(citaPendiente.citasid)" class="btn-visualizar button-general">Visualizar</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="cards-container"
+            style="display: flex; justify-content: center; height: 60%; flex-direction: column;">
+            <h1> Citas Realizadas </h1>
+            <table class="table-design">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Hora</th>
+                  <th>Paciente</th>
+                  <th>Clinica</th>
+                  <th>Diagnostico</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let cita of citasRealizadas">
+                  <td>{{ cita.fecha }}</td>
+                  <td>{{ cita.hora }}</td>
+                  <td>{{ cita.paciente.full_name }}</td>
+                  <td>{{ cita.clinica.nombre }}</td>
+                  <td><button (click)="obtenerCitaCompletaPDF(cita.citasid)" class="btn-visualizar button-general">Visualizar</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+      </ng-container>
+
+      <ng-template #noCitas>
+        <div class="no-citas-message">
+          <img src="/assets/unDraw/none.svg" width="300px" class="imagenNothing">
+          <h2>No tienes ninguna cita agendada</h2>
+          <h4>Espera a que un paciente haga una cita contigo</h4>
+          <h4>Asegurate de que tengas <a href="horario">horarios</a> disponibles para que los pacientes puedan agendar citas</h4>
 
         </div>
       </ng-template>

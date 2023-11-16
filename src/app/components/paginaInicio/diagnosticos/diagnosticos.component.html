@@ -51,6 +51,22 @@
                                 </p>
                             </div>
                         </div>
+                        <div
+                            style="display: flex; flex-direction: row; align-items: center; justify-content: center; color: #06316B;" *ngIf="user_role === 'doctor'">
+                            <h2>Paciente:</h2>
+                            <p style="margin-bottom: 0.7rem; margin-left: 0.4rem;"> {{
+                                cita.citasPendientes[0].paciente.full_name
+                                }}
+                            </p>
+                        </div>
+                        <div
+                            style="display: flex; flex-direction: row; align-items: center; justify-content: center; color: #06316B;" *ngIf="user_role === 'paciente'">
+                            <h2>Paciente:</h2>
+                            <p style="margin-bottom: 0.7rem; margin-left: 0.4rem;"> {{
+                                cita.citasPendientes[0].medico.full_name
+                                }}
+                            </p>
+                        </div>
 
                     </div>
                     <div *ngIf="isEditMode">

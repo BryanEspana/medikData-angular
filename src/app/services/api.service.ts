@@ -74,6 +74,9 @@ export class ApiService {
   getCitas(dpi: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/api/citas/citaspaciente/${dpi}`);
   }
+  getCitasMedico(dpi: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/api/citas/citasmedico/${dpi}`);
+  }
 
   // Anular cita pendiente
   deleteCita(citaid: number): Observable<any> {

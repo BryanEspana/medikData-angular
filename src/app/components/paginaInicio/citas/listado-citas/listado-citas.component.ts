@@ -13,7 +13,8 @@ export class ListadoCitasComponent {
   searchControl = new FormControl('');
   citasRealizadas: any[] = [];
   citasPendientes: any[] = [];
-  pacientetoken: string = '';
+  user_dpi: string = '';
+  user_role: string = '';
 
   constructor(
     private route: Router,
@@ -24,9 +25,15 @@ export class ListadoCitasComponent {
   }
 
   ngOnInit(): void {
-    this.pacientetoken = localStorage.getItem('user_dpi') || '';
-    this.getCitasRealizadas();
-    this.getCitasPendientes();
+    this.user_dpi = localStorage.getItem('user_dpi') || '';
+    this.user_role = localStorage.getItem('profile_role') || '';
+    if (this.user_role == 'paciente') {
+      this.getCitasPendientes();
+      this.getCitasRealizadas();
+    } else {
+      this.getCitasPendientesMedico();
+      this.getCitasRealizadasMedico();
+    }
   }
 
   visualizarItem(item: any) {
@@ -39,7 +46,18 @@ export class ListadoCitasComponent {
   }
 
   getCitasRealizadas() {
-    this.apiService.getCitas(this.pacientetoken).subscribe(
+    this.apiService.getCitas(this.user_dpi).subscribe(
+      (response: any) => {
+        this.citasRealizadas = response.citas;
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getCitasRealizadasMedico() {
+    this.apiService.getCitasMedico(this.user_dpi).subscribe(
       (response: any) => {
         this.citasRealizadas = response.citas;
       },
@@ -50,7 +68,7 @@ export class ListadoCitasComponent {
   }
 
   getCitasPendientes() {
-    this.apiService.getCitasPendientes(this.pacientetoken).subscribe(
+    this.apiService.getCitasPendientes(this.user_dpi).subscribe(
       (response: any) => {
         this.citasPendientes = response.citasPendientes;
         this.citasPendientes.reverse();
@@ -60,6 +78,20 @@ export class ListadoCitasComponent {
       }
     );
   }
+
+  getCitasPendientesMedico() {
+    this.apiService.getCitasPendientesMedico(this.user_dpi).subscribe(
+      (response: any) => {
+        console.log(response)
+        this.citasPendientes = response.citasPendientes;
+        this.citasPendientes.reverse();
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
+  }
+
 
   verDiagnostico(citaid: number) {
     this.route.navigate([`/diagnostico/${citaid}`]);
