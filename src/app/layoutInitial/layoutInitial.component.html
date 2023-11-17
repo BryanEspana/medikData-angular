@@ -38,7 +38,9 @@
         <br>
       </div>
       <div class="botonMenu" routerLink="/configuracion" >
-        <img src="/assets/citas/paciente.png" width="20px" height="20px">
+        <img src="/assets/citas/paciente.png" width="20px" height="20px" *ngIf="typeUser == 1">
+        <img src="/assets/dashboard/config.png" width="20px" height="20px" *ngIf="typeUser == 2">
+        <img src="/assets/citas/bataDoctor.png" width="20px" height="20px" *ngIf="typeUser == 3">
         <p style="padding-left: 1rem;">Perfil</p>
       </div>
       <br>

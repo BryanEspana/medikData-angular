@@ -1,7 +1,8 @@
 <div class="config-container">
     <div class="window" style="width: 60%;">
         <div class="title-bar">
-            <span style="font-size: 2rem; font-weight: bold;">Información de Perfil</span>
+            <span style="font-size: 2rem; font-weight: bold;" *ngIf="profileRole != 'clinica'">Información de Perfil</span>
+            <span style="font-size: 2rem; font-weight: bold;" *ngIf="profileRole === 'clinica'">Información de Clínica</span>
         </div>
         <div class="change-multiple">
             <div class="field-texts">
@@ -13,12 +14,12 @@
                 <div class="user-info">
                     <span>{{phoneUser}}</span>
                 </div>
-                <p>ALTURA</p>
-                <div class="user-info">
+                <p *ngIf="profileRole === 'paciente'">ALTURA</p>
+                <div class="user-info" *ngIf="profileRole === 'paciente'">
                     <span>{{userAltura}}</span>
                 </div>
-                <p>PESO</p>
-                <div class="user-info">
+                <p *ngIf="profileRole === 'paciente'">PESO</p>
+                <div class="user-info" *ngIf="profileRole === 'paciente'">
                     <span>{{userPeso}}</span>
                 </div>
             </div>
