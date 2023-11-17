@@ -123,7 +123,7 @@
                   <th>Hora</th>
                   <th>Paciente</th>
                   <th>Clinica</th>
-                  <th>Detalles</th>
+                  <th style="width: 20%;">Detalles</th>
                 </tr>
               </thead>
               <tbody>
@@ -132,7 +132,7 @@
                   <td>{{ citaPendiente.hora }}</td>
                   <td>{{ citaPendiente.paciente.full_name }}</td>
                   <td>{{ citaPendiente.clinica.nombre }}</td>
-                  <td><button (click)="verDiagnostico(citaPendiente.citasid)" class="btn-visualizar button-general">Visualizar</button>
+                  <td><button (click)="verDiagnostico(citaPendiente.citasid)" class="btn-visualizar button-general" style="width: 80%;">Visualizar</button>
                   </td>
                 </tr>
               </tbody>
@@ -148,7 +148,8 @@
                   <th>Hora</th>
                   <th>Paciente</th>
                   <th>Clinica</th>
-                  <th>Diagnostico</th>
+                  <th>Diagnóstico</th>
+                  <th style="width: 20%;">Modificar Diagnóstico</th>
                 </tr>
               </thead>
               <tbody>
@@ -157,7 +158,8 @@
                   <td>{{ cita.hora }}</td>
                   <td>{{ cita.paciente.full_name }}</td>
                   <td>{{ cita.clinica.nombre }}</td>
-                  <td><button (click)="obtenerCitaCompletaPDF(cita.citasid)" class="btn-visualizar button-general">Visualizar</button>
+                  <td><button (click)="obtenerCitaCompletaPDF(cita.citasid)" class="btn-visualizar button-general" style="width: 80%;">Visualizar</button>
+                    <td><button (click)="verDiagnostico(cita.citasid)" class="btn-visualizar button-general" style="width: 80%;">Editar</button>
                   </td>
                 </tr>
               </tbody>
