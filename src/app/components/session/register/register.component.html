@@ -48,8 +48,8 @@
             <label for="password">Contraseña:</label>
             <input type="password" id="password" name="password" formControlName="password" required />
             <div *ngIf="formInicial.get('password')?.invalid && (formInicial.get('password')?.dirty || formInicial.get('password')?.touched)">
-              <div *ngIf="formInicial.get('password')?.errors?.['required']">La contraseña es requerida.</div>
-              <div *ngIf="formInicial.get('password')?.errors?.['minlength']">
+              <div *ngIf="formInicial.get('password')?.errors?.['required']" style="color: #FF0000; margin: 0.5rem;">La contraseña es requerida.</div>
+              <div *ngIf="formInicial.get('password')?.errors?.['minlength']" style="color: #FF0000; margin: 0.5rem;">
                 La contraseña debe tener al menos 6 caracteres.
               </div>
             </div>
@@ -58,7 +58,7 @@
             <label>Confirmar Contraseña:</label>
             <input type="password" formControlName="confirmPassword" />
             <div *ngIf="formInicial.get('confirmPassword')?.invalid && (formInicial.get('confirmPassword')?.dirty || formInicial.get('confirmPassword')?.touched)" class="text-confirm">
-              <div *ngIf="formInicial.get('confirmPassword')?.errors?.['required']" class="text-confirm">
+              <div *ngIf="formInicial.get('confirmPassword')?.errors?.['required']" class="text-confirm" style="color: #FF0000; margin: 0.5rem;">
                 La confirmación de contraseña es requerida.
               </div>
 
@@ -67,7 +67,7 @@
           </div>
 
         </div>
-        <div *ngIf="formInicial.get('password')?.value != formInicial.get('confirmPassword')?.value" class="text-confirm">
+        <div *ngIf="formInicial.get('password')?.value != formInicial.get('confirmPassword')?.value" class="text-confirm" style="color: #FF0000; margin: 0.5rem;">
           Las contraseñas no coinciden.
         </div>
       </div>

@@ -60,12 +60,12 @@ export class LoginComponent {
               this.router.navigate(['/dashboard']);
             });
           },
-          error => console.error('Error al obtener el usuario:', error)
+          error => console.error('Error al obtener el usuario:', error.error.message)
         )
       },
       error => Swal.fire({
         title: 'Error!',
-        text: 'Usuario o contraseña incorrectos',
+        text: `${error.error.message}`,
         icon: 'error',
         confirmButtonText: 'Aceptar'
       })

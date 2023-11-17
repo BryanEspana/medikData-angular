@@ -94,7 +94,7 @@ export class RegisterComponent {
           this.router.navigate(['/login']);
         },
         (error) => {
-          this.toast.showError(`Error al crear usuario: Intenlo mas tarde`);
+          this.toast.showError(error.error.message);
 
         }
       );

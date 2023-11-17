@@ -35,24 +35,8 @@
     display: flex;
 }
 
-.fields {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    width: 100%;
-}
-
-.field-texts {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.fields input {
-    width: 80%;
-}
-
-.field-texts button {
-    width: 50%;
+.info {
+    display: grid;
 }
 
 /* || GENERAL STYLES */
@@ -107,4 +91,9 @@ p {
   .config-container{
     padding: 3rem;
   }
+}
+
+.user-info {
+    margin: 1rem;
+    border-bottom: 2px solid #06316B;
 }
