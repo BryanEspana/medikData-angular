@@ -51,7 +51,7 @@ export class MisDocsComponent {
   selectedMedico(dpi: string, nombre: string) {
     this.doctorInfoService.setDoctorDpi(dpi);
 
-    this.router.navigate([`/citas-pendientes/${nombre}`]);
+    this.router.navigate([`/listado-citas/${nombre}`]);
   }
 
 }

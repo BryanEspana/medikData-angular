@@ -90,11 +90,11 @@ export class AppComponent {
   //Cambiar de esqueleto
   updateLoginState() {
     const currentRoute = this.router.url;
-    const allowedRoutes = ['/inicio', '/dashboard', '/medicamentos', '/citas', '/agregar-cita', '/citas-pendientes', '/citas-pendientes/:nombre',
+    const allowedRoutes = ['/inicio', '/dashboard', '/medicamentos', '/citas', '/agregar-cita', '/citas-pendientes', '/listado-citas/:nombre',
     '/listado-citas', '/listado-medicos', '/agregar-medico', '/comentarios', '/configuracion', '/clinicas', '/doctores', '/pacientes', '/horario',
      '/horario/agregar-horario', '/diagnostico/:citaid', '/clinica/:id_clinica/mis-doctores'];
 
-    if (currentRoute.includes('/diagnostico/') || currentRoute.includes('/clinica/') || currentRoute.includes('/citas-pendientes/')) {
+    if (currentRoute.includes('/diagnostico/') || currentRoute.includes('/clinica/') || currentRoute.includes('/listado-citas/')) {
       this.isLoggedIn = true;
     } else {
       this.isLoggedIn = allowedRoutes.includes(currentRoute);
