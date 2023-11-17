@@ -28,10 +28,6 @@
           <button class="btn-agendar " style="margin-left: 1.5rem;" routerLink="/horario/agregar-horario">+</button>
           <label class="textAdd"> Agregar Horario</label>
         </div>
-        <div class="search-bar" >
-          <input type="text" [formControl]="searchControl" placeholder="Buscar" class="Buscador">
-          <mat-icon class="search-icon">search</mat-icon>
-        </div>
       </div>
       <ng-container *ngIf="horariosMedico.length > 0; else noCitas">
         <div class="background">
@@ -73,7 +69,7 @@
           <img src="/assets/unDraw/none.svg" width="300px">
           <h2>No tienes ningún horario asignado</h2>
           <h4>¿Deseas agregar fecha y hora de disponibilidad?</h4>
-          <button class="btn-agendar button-general" routerLink="/agregar-cita">Agregar</button>
+          <button class="btn-agendar button-general" routerLink="/horario/agregar-horario">Agregar</button>
         </div>
       </ng-template>
     </div>
