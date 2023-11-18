@@ -36,6 +36,8 @@
           <div class="cards-container"
             style="display: flex; justify-content: center; height: 60%; flex-direction: column;">
             <h1> Citas Activas </h1>
+            <div class="responseTable">
+
             <table class="table-design">
               <thead>
                 <tr>
@@ -48,15 +50,17 @@
               </thead>
               <tbody>
                 <tr *ngFor="let citaPendiente of citasPendientes">
-                  <td>{{ citaPendiente.fecha }}</td>
-                  <td>{{ citaPendiente.hora }}</td>
-                  <td>{{ citaPendiente.medico.full_name }}</td>
-                  <td>{{ citaPendiente.clinica.nombre }}</td>
-                  <td><button (click)="verDiagnostico(citaPendiente.citasid)" class="btn-visualizar button-general">Visualizar</button>
-                  </td>
-                </tr>
+                  <td data-label="Fecha">{{ citaPendiente.fecha }}</td>
+                  <td data-label="Hora">{{ citaPendiente.hora }}</td>
+                  <td data-label="Doctor" class="doctor-name">{{ citaPendiente.medico.full_name }}</td>
+                  <td data-label="Clinica">{{ citaPendiente.clinica.nombre }}</td>
+                  <td data-label="Detalles"><button (click)="verDiagnostico(citaPendiente.citasid)" class="btn-visualizar button-general">Visualizar</button></td>
+              </tr>
+
               </tbody>
             </table>
+          </div>
+
           </div>
           <div class="cards-container"
             style="display: flex; justify-content: center; height: 60%; flex-direction: column;">
