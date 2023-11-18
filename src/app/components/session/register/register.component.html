@@ -55,7 +55,7 @@
             </div>
           </div>
           <div style="margin-left: 1rem;">
-            <label>Confirmar Contraseña:</label>
+            <label class="labelconfirm">Confirmar Contraseña:</label>
             <input type="password" formControlName="confirmPassword" />
             <div *ngIf="formInicial.get('confirmPassword')?.invalid && (formInicial.get('confirmPassword')?.dirty || formInicial.get('confirmPassword')?.touched)" class="text-confirm">
               <div *ngIf="formInicial.get('confirmPassword')?.errors?.['required']" class="text-confirm" style="color: #FF0000; margin: 0.5rem;">
@@ -89,7 +89,7 @@
             href="login">Iniciar sesión</a></p>
       </div>
       <div>
-        <div style="display: flex; flex-direction: column;">
+        <div style="display: none; flex-direction: column;">
           <label for="full_name">Tipo de Usuario:</label>
           <input type="text" id="profile_role" name="profile_role" formControlName="profile_role" required value="profile_role" placeholder="Paciente" readonly style="background-color: rgb(233, 233, 233); cursor:context-menu;"/>
         </div>
@@ -105,7 +105,7 @@
           </div>
         <div style="display: flex; flex-direction: row; margin-top: 1rem; margin-bottom: 0.5rem;">
           <div style="margin-right: 1rem;">
-            <label for="nacimiento">Fecha de Nacimiento:</label>
+            <label for="nacimiento">Nacimiento:</label>
             <input type="date" id="nacimiento" name="nacimiento" formControlName="nacimiento" required />
           </div>
           <div style="margin-left: 1rem;">
@@ -133,8 +133,8 @@
             <input type="text" id="altura" name="altura" formControlName="altura" required />
           </div>
           <div style="margin-right: 1rem;">
-            <label for="peso">Peso (kg):</label>
-            <input type="text" id="peso" name="peso" formControlName="peso" required />
+            <label for="peso" >Peso (kg):</label>
+            <input type="text"  style="margin-top: 20px;" id="peso" name="peso" formControlName="peso" required />
           </div>
           <div style="margin-left: 1rem;">
             <label for="tipo_sangre">Tipo de sangre:</label>
@@ -158,7 +158,7 @@
           </div>
         </div>
         <div class="btns-register">
-          <button type="button" class="registrar-btn" (click)="refreshPage()">Regresar</button>
+          <button type="button" class="registrar-btn button-general" (click)="refreshPage()">Regresar</button>
           <button type="submit" class="button-general">Registrar como paciente</button>
         </div>
       </div>

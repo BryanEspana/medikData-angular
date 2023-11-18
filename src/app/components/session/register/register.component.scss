@@ -10,12 +10,15 @@
 }
 
   .btns-register{
+    height: auto !important;
     margin-top: 1rem;
     width: 100%;
     display: flex;
     justify-content: space-between;
     button{
       width: 49%;
+      height: auto !important;
+
     }
   }
   .form-register {
@@ -26,6 +29,7 @@
   label{
     font-family: 'Quicksand';
     font-weight: 500;
+
   }
 
   .registerBtn{
@@ -115,6 +119,18 @@ h1{
   overflow-y: scroll;
   overflow-x: none;
   height: 100vh;
+}
+.body-register{
+  height: 100vh;
+}
+
+.labelconfirm{
+  display: flex !important;
+  width: max-content !important;
+}
+.button-general{
+  padding: 0.4rem 0rem;
+  height: max-content;
 }
 .body-register{
   height: 100vh;

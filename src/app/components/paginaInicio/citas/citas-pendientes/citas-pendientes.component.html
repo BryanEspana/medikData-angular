@@ -28,34 +28,45 @@
                 </div>
                 <h1 class="title" style="font-size: 35px; font-weight: 400; margin:0rem;">Citas Activas</h1>
             </div>
-            <div class="cards-container"
-                style="display: flex; flex-direction: column; justify-content: center; height: 60%;">
-                <div class="widget-cita" style="margin: 2rem 0;" *ngFor="let cita of citasPendientes">
-                    <!--Fecha-->
-                    <div class="widget-fecha">
-                        <span class="titulo">Fecha: </span>
-                        <span class="fecha">{{ cita.fecha }} {{ cita.hora }}</span>
-                    </div>
-                    <!--Titulo-->
-                    <h2 class="widget-titulo">
-                        {{ cita.medico.full_name }}
-                    </h2>
-                    <div class="widget-info">
-                        <div>
-                            <span> Clínica: {{ cita.clinica.nombre }}</span>
-                            <p> Doctor: {{ cita.medico.full_name }} </p>
-                            <p> Paciente: {{ cita.paciente.full_name }} </p>
+            <ng-container *ngIf="citasPendientes.length > 0 else noCitas">
+                <div class="cards-container"
+                    style="display: flex; flex-direction: column; justify-content: center; height: 60%;">
+                    <div class="widget-cita" style="margin: 2rem 0;" *ngFor="let cita of citasPendientes">
+                        <!--Fecha-->
+                        <div class="widget-fecha">
+                            <span class="titulo">Fecha: </span>
+                            <span class="fecha">{{ cita.fecha }} {{ cita.hora }}</span>
                         </div>
-                        <button (click)="anularCita(cita)" class="btn-cancelar button-general"
-                            style="width: 150px;">Anular Cita</button>
+                        <!--Titulo-->
+                        <h2 class="widget-titulo">
+                            {{ cita.medico.full_name }}
+                        </h2>
+                        <div class="widget-info">
+                            <div>
+                                <span> Clínica: {{ cita.clinica.nombre }}</span>
+                                <p> Doctor: {{ cita.medico.full_name }} </p>
+                                <p> Paciente: {{ cita.paciente.full_name }} </p>
+                            </div>
+                            <button (click)="anularCita(cita)" class="btn-cancelar button-general"
+                                style="width: 150px;">Anular Cita</button>
+                        </div>
+                        <hr>
+                        <span class="verdetalle">
+                            <a [routerLink]="'/diagnostico/' + cita.citasid" class="textBold">Ver detalle completo</a>
+                        </span>
                     </div>
-                    <hr>
-                    <span class="verdetalle">
-                        <a [routerLink]="'/diagnostico/' + cita.citasid"
-                            class="textBold">Ver detalle completo</a>
-                    </span>
                 </div>
-            </div>
+            </ng-container>
+
+            <ng-template #noCitas>
+                <div class="no-citas-message">
+                    <img src="/assets/unDraw/none.svg" width="300px" class="imagenNothing">
+                    <h2>No tienes ninguna cita agendada</h2>
+                    <h4>¿Deseas agendar una nueva cita?</h4>
+                    <button class="btn-agendar button-general" routerLink="/agregar-cita">Agendar cita</button>
+
+                </div>
+            </ng-template>
         </div>
     </div>
 </body>

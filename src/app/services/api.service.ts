@@ -103,6 +103,10 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/api/citas/citasPorPacienteYMedico/${pacientedpi}/${medicodpi}`);
   }
 
+  getCitasRealizadasMedicoAsociado(pacientedpi: string, medicodpi: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/api/citas/citasPorPacienteYMedicoRealizadas/${pacientedpi}/${medicodpi}`);
+  }
+
   getCitaCompletaPDF(citaid: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/api/citas/citacompledata/${citaid}`, { responseType: 'arraybuffer' });
   }
