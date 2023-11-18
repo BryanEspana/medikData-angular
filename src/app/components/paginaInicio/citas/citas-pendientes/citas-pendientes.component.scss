@@ -77,4 +77,14 @@ hr{
         display: flex;
         flex-direction: column !important;
     }
+    .imagenNothing{
+      width: -webkit-fill-available;
+    }
+  }
+
+  .no-citas-message{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  
   }
