@@ -1,0 +1,9 @@
+.window{
+  width: -webkit-fill-available;
+    margin: 1rem;
+}
+@media(max-width:500px){
+  .responsepad{
+    padding: 0rem !important;
+  }
+}
