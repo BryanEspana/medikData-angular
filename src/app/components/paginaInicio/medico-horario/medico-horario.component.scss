@@ -120,3 +120,24 @@
 .disenioTabla{
   text-align: center;
 }
+
+@media only screen and (max-width: 768px) {
+  .table-design {
+      thead {
+          display: none; // Oculta los encabezados en pantallas pequeñas
+      }
+      tr {
+          display: block;
+          margin-bottom: 0.625em;
+      }
+      td {
+          display: block;
+          text-align: right;
+          &:before {
+              content: attr(data-label); // Usa atributos data-label para mostrar los encabezados
+              float: left;
+              font-weight: bold;
+          }
+      }
+  }
+}
