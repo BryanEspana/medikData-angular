@@ -141,3 +141,8 @@
   font-size: 10px; /* Tamaño de fuente más pequeño */
 }
 
+@media (max-width: 500px){
+  .dashboard-container{
+    padding: 1rem !important;
+  }
+}

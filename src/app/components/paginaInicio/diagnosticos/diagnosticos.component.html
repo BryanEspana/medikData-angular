@@ -28,12 +28,12 @@
                 </div>
                 <h1 class="title" style="font-size: 35px; font-weight: 400; margin:0rem;">Diagnostico</h1>
             </div>
-            <div class="displayrow">
+            <div class="displayrow responsepad">
                 <div>
                     <!-- Citas  activas -->
-                    <div class=" card cardCentral" style="margin-left: 2rem; padding: 2rem;">
+                    <div class=" card cardCentral" >
                         <div class="details-card"
-                            style="display: flex; align-items: center; justify-content: space-around; color: #06316B; margin-left: 2rem;">
+                            style="display: flex; flex-direction: column; align-items: center; justify-content: space-around; color: #06316B;">
                             <div
                                 style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
                                 <h2>Fecha:</h2>
@@ -71,9 +71,9 @@
                     </div>
                     <div *ngIf="isEditMode">
                         <form [formGroup]="diagnosticoForm" (ngSubmit)="onUpdateDiagnostico()" class="form">
-                            <div class="displayrow card" style="margin-left: 2rem; padding: 2rem;">
+                            <div class="displayrow card">
                                 <img src="/assets/dashboard/citas.png" width="100px">
-                                <div style="align-items: left; text-align: left; color: #06316B; margin-left: 2rem;">
+                                <div style="align-items: left; text-align: left; color: #06316B; ">
                                     <h2>Detalles:</h2>
                                     <div style="display: flex; flex-direction: column;">
                                         <label>Hazle saber a tu paciente <br />qué le has recetado o encontrado en esta
@@ -91,9 +91,9 @@
                     </div>
                     <div *ngIf="!isEditMode">
                         <div class="displayrow card"
-                            style="margin-left: 2rem; padding: 2rem; display: flex; flex-direction: column;">
+                            style=" display: flex; flex-direction: column;">
                             <img src="/assets/dashboard/citas.png" width="100px">
-                            <div style="align-items: left; text-align: left; color: #06316B; margin-left: 2rem;">
+                            <div style="align-items: left; text-align: left; color: #06316B;">
                                 <h2>Detalles:</h2>
                                 <div style="display: flex; flex-direction: column;">
                                     <label *ngIf="user_role === 'doctor'">Este es el diagnostico actual de tu paciente</label>
