@@ -77,8 +77,8 @@
 
 
 .title{
-  font-size: 35px; 
-  font-weight: 400; 
+  font-size: 35px;
+  font-weight: 400;
   margin:0rem;
 }
 @media (max-width:540px){
@@ -88,4 +88,8 @@
   .imagenNothing{
     width: -webkit-fill-available;
   }
+}
+
+.window{
+  height: 95%;
 }
