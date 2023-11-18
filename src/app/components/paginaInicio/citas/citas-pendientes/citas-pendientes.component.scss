@@ -1,19 +1,19 @@
-
-.widget-cita{
+.widget-cita {
     background-color: #E8E8E8;
     //padding: 2rem;
     width: 100%;
     border-radius: 1.5rem;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
-.dashboard-container{
+
+.dashboard-container {
     margin: auto !important;
     width: 90%;
 }
 
-.widget-titulo{
+.widget-titulo {
     margin: 0;
     text-transform: uppercase;
     text-align: left;
@@ -23,29 +23,32 @@
     padding: 2rem 1rem;
 }
 
-.widget-fecha{
+.widget-fecha {
     text-align: left;
     font-weight: 500;
     font-size: 18px;
     padding: 1rem 2rem;
-    .fecha{
+
+    .fecha {
         font-weight: 800;
     }
 }
 
-.widget-info{
+.widget-info {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     text-align: left;
     padding: 1rem 2rem;
 }
-hr{
+
+hr {
     border: 1px solid #06326b2f;
     width: 95%;
     margin: 0rem 1rem;
     margin-bottom: 0.5rem;
 }
+
 .window {
     background-color: #F4F4F4;
     width: 90%;
@@ -59,32 +62,39 @@ hr{
     @media (max-width: 768px) {
         width: 95%;
     }
-  }
+}
 
-  .verdetalle{
+.verdetalle {
     cursor: pointer;
-  }
-  .verdetalle:hover{
-    font-weight: 800;
-  }
+}
 
-.textBold{
-    text-decoration: none; color: inherit;
+.verdetalle:hover {
+    font-weight: 800;
+}
+
+.textBold {
+    text-decoration: none;
+    color: inherit;
     font-weight: 600;
 }
-  @media(max-width:580px){
-    .widget-info{
+
+@media(max-width:580px) {
+    .widget-info {
         display: flex;
         flex-direction: column !important;
     }
-    .imagenNothing{
-      width: -webkit-fill-available;
-    }
+}
+@media (max-width:540px){
+  .title{
+    font-size: 20px;
   }
-
-  .no-citas-message{
+  .imagenNothing{
+    width: -webkit-fill-available;
+  }
+}
+.no-citas-message {
     justify-content: center;
     align-items: center;
     text-align: center;
-  
-  }
+
+}
